@@ -57,11 +57,12 @@ button.primary {
   transition: 0.25s;
 }
 
-button.primary:hover {
-  background-color: var(--button-primary-bg-hover);
-  color: var(--button-primary-color-hover);
+@media (hover: hover) and (pointer: fine) {
+  button.primary:hover {
+    background-color: var(--button-primary-bg-hover);
+    color: var(--button-primary-color-hover);
+  }
 }
-
 button.primary:active {
   background-color: var(--button-primary-bg-active);
 }
@@ -87,10 +88,11 @@ input[type=text]::placeholder, input[type=email]::placeholder, input[type=passwo
   color: var(--input-placeholder);
 }
 
-input[type=text]:hover, input[type=email]:hover, input[type=password]:hover {
-  background: var(--input-bg-hover);
+@media (hover: hover) and (pointer: fine) {
+  input[type=text]:hover, input[type=email]:hover, input[type=password]:hover {
+    background: var(--input-bg-hover);
+  }
 }
-
 input[type=text]:focus, input[type=email]:focus, input[type=password]:focus {
   border-color: var(--input-border-focus);
   outline: 0;
