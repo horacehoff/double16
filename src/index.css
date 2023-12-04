@@ -1,102 +1,243 @@
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    font-weight: 400;
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #19191C;
+    color-scheme: light dark;
+    color: rgba(255, 255, 255, 0.87);
+    background-color: #19191C;
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 
-  --input-border: rgba(255, 255, 255, 0.18);
-  --input-border-focus: white;
-  --input-bg: rgba(255, 255, 255, 0.10);
-  --input-bg-hover: rgba(255, 255, 255, 0.15);
-  --input-placeholder: #ABABAB;
+    --input-border: rgba(255, 255, 255, 0.18);
+    --input-border-focus: white;
+    --input-bg: rgba(255, 255, 255, 0.10);
+    --input-bg-hover: rgba(255, 255, 255, 0.15);
+    --input-placeholder: #ABABAB;
 
-  --button-primary-bg: white;
-  --button-primary-bg-hover: black;
-  --button-primary-bg-active: #202020;
-  --button-primary-color: black;
-  --button-primary-color-hover: white;
+    --button-primary-bg: white;
+    --button-primary-bg-hover: black;
+    --button-primary-bg-active: #202020;
+    --button-primary-color: black;
+    --button-primary-color-hover: white;
+
+
+    --button-accent-border: rgba(255, 255, 255, 0.25);
+    --button-accent-border-active: white;
+    --button-accent-bg: rgba(0, 0, 0, 0.30);
+    --button-accent-bg-hover: rgba(0, 0, 0, 0.75);
+    --button-accent-bg-active: rgba(0, 0, 0, 0.5);
+
+    --action-text-color: #1E90FF;
+    --action-text-hover-color: #83C2FF;
+    --action-text-active-color: white;
+
+    --button-action-bg-hover: rgba(255, 255, 255, 0.10);
+    --button-action-bg-active: rgba(255, 255, 255, 0.05);
+    --button-action-border: rgba(255, 255, 255, 0.18);
+    --button-action-border-active: rgba(255, 255, 255, 0.50);
+
+    --select-border: #2D2D2D;
+    --select-bg-hover: rgba(255, 255, 255, 0.01);
+    --select-bg-focus: rgba(255, 255, 255, 0.10);
+    --select-bg: url('data:image/svg+xml,<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(%23clip0_748_27)"><mask id="mask0_748_27" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24"><path d="M0 0H24V24H0V0Z" fill="white"/></mask><g mask="url(%23mask0_748_27)"><mask id="mask1_748_27" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24"><path d="M24 24L0 24L0 0L24 0L24 24Z" fill="white"/></mask><g mask="url(%23mask1_748_27)"><path d="M4 9L9.172 14.172C10.505 15.505 11.172 16.172 12 16.172C12.828 16.172 13.495 15.505 14.828 14.172L20 9" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M4 9L9.172 14.172C10.505 15.505 11.172 16.172 12 16.172C12.828 16.172 13.495 15.505 14.828 14.172L20 9" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></g></g></g><defs><clipPath id="clip0_748_27"><rect width="24" height="24" fill="white"/></clipPath></defs></svg>');
 }
 
 @media (prefers-color-scheme: light) {
-  :root {
-    background-color: #DADDEC;
-    --input-border: rgba(0, 0, 0, 0.18);
-    --input-border-focus: #000000;
-    --input-bg: rgba(0, 0, 0, 0.10);
-    --input-bg-hover: rgba(0, 0, 0, 0.15);
-    --input-placeholder: #303030;
+    :root {
+        background-color: #DADDEC;
+        --input-border: rgba(0, 0, 0, 0.18);
+        --input-border-focus: #000000;
+        --input-bg: rgba(0, 0, 0, 0.10);
+        --input-bg-hover: rgba(0, 0, 0, 0.15);
+        --input-placeholder: #303030;
 
-    --button-primary-bg: #282828;
-    --button-primary-bg-hover: white;
-    --button-primary-bg-active: #B6B6B6;
-    --button-primary-color: white;
-    --button-primary-color-hover: black;
-  }
+        --button-primary-bg: #282828;
+        --button-primary-bg-hover: white;
+        --button-primary-bg-active: #B6B6B6;
+        --button-primary-color: white;
+        --button-primary-color-hover: black;
+
+        --button-accent-border: rgba(0, 0, 0, 0.25);
+        --button-accent-border-active: rgba(0, 0, 0, 0.75);
+        --button-accent-bg: rgba(255, 255, 255, 0.30);
+        --button-accent-bg-hover: rgba(255, 255, 255, 0.50);
+        --button-accent-bg-active: rgba(255, 255, 255, 0.50);
+
+        --action-text-color: #0066ff;
+        --action-text-hover-color: #005DB8;
+        --action-text-active-color: black;
+
+        --button-action-bg-hover: rgba(0, 0, 0, 0.10);
+        --button-action-bg-active: rgba(0, 0, 0, 0.05);
+        --button-action-border: rgba(0, 0, 0, 0.60);
+        --button-action-border-active: black;
+
+        --select-border: rgba(45, 45, 45, 0.75);
+        --select-bg-hover: rgba(0, 0, 0, 0.05);
+        --select-bg-focus: rgba(0, 0, 0, 0.10);
+        --select-bg: url('data:image/svg+xml,<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(%23clip0_903_41)"><mask id="mask0_903_41" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24"><path d="M0 0H24V24H0V0Z" fill="white"/></mask><g mask="url(%23mask0_903_41)"><mask id="mask1_903_41" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24"><path d="M24 24L0 24L0 0L24 0L24 24Z" fill="white"/></mask><g mask="url(%23mask1_903_41)"><path d="M4 9L9.172 14.172C10.505 15.505 11.172 16.172 12 16.172C12.828 16.172 13.495 15.505 14.828 14.172L20 9" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M4 9L9.172 14.172C10.505 15.505 11.172 16.172 12 16.172C12.828 16.172 13.495 15.505 14.828 14.172L20 9" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></g></g></g><defs><clipPath id="clip0_903_41"><rect width="24" height="24" fill="white"/></clipPath></defs></svg>')
+
+    }
+}
+
+
+select {
+    font-family: JetBrains Mono, monospace;
+    font-size: 13px;
+    border-radius: 8px;
+    border: 1px solid var(--select-border);
+    backdrop-filter: blur(50px);
+    appearance: none;
+    -webkit-appearance: none;
+    padding: 9px 31px 9px 13px;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-image: var(--select-bg);
+    background-position: 93% center;
+    background-size: 15px;
+    transition: 0.2s;
+    cursor: pointer;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    select:hover {
+        background-color: var(--select-bg-hover);
+    }
+}
+
+select:focus {
+    outline: 0;
+    background-color: var(--select-bg-focus);
+}
+
+
+button.action {
+    padding: 12px 19px;
+    border-radius: 10px;
+    border: solid 1px var(--button-action-border);
+    backdrop-filter: blur(100px);
+    -webkit-backdrop-filter: blur(100px);
+    font-family: JetBrains Mono, monospace;
+    font-size: 13px;
+    font-weight: 500;
+    background: none;
+    cursor: pointer;
+    transition: 0.2s;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+button.action:hover {
+    background: var(--button-action-bg-hover);
+}
+
+button.action:active {
+    border-color: var(--button-action-border-active);
+    background: var(--button-action-bg-active);
+}
+
+
+.action-text {
+    font-family: JetBrains Mono, monospace;
+    color: var(--action-text-color);
+    transition: 0.2s;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 15px;
+}
+
+.action-text:hover {
+    color: var(--action-text-hover-color);
+}
+
+.action-text:active {
+    color: var(--action-text-active-color);
+}
+
+button.accent {
+    border-radius: 7px;
+    border: solid 1px var(--button-accent-border);
+    background: var(--button-accent-bg);
+    padding: 10px 22px;
+    font-family: JetBrains Mono, monospace;
+    font-size: 14px;
+    font-weight: 700;
+    transition: 0.25s;
+    cursor: pointer;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+@media (hover: hover) and (pointer: fine) {
+    button.accent:hover {
+        background: var(--button-accent-bg-hover);
+    }
+}
+
+button.accent:active {
+    border-color: var(--button-accent-border-active);
+    background: var(--button-accent-bg-active)
 }
 
 
 button.primary {
-  border-radius: 7px;
-  background-color: var(--button-primary-bg);
-  outline: 0;
-  border: 0;
-  color: var(--button-primary-color);
-  font-family: JetBrains Mono, monospace;
-  font-size: 14px;
-  font-weight: 700;
-  padding: 10px 22px;
-  cursor: pointer;
-  transition: 0.25s;
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    border-radius: 7px;
+    background-color: var(--button-primary-bg);
+    outline: 0;
+    border: 0;
+    color: var(--button-primary-color);
+    font-family: JetBrains Mono, monospace;
+    font-size: 14px;
+    font-weight: 700;
+    padding: 10px 22px;
+    cursor: pointer;
+    transition: 0.25s;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
 @media (hover: hover) and (pointer: fine) {
-  button.primary:hover {
-    background-color: var(--button-primary-bg-hover);
-    color: var(--button-primary-color-hover);
-  }
+    button.primary:hover {
+        background-color: var(--button-primary-bg-hover);
+        color: var(--button-primary-color-hover);
+    }
 }
+
 button.primary:active {
-  background-color: var(--button-primary-bg-active);
+    background-color: var(--button-primary-bg-active);
 }
 
 
 input[type=text], input[type=email], input[type=password] {
-  width: 300px;
-  height: 36px;
-  border-radius: 8px;
-  border: 1px solid var(--input-border);
-  background: var(--input-bg);
-  font-family: JetBrains Mono, monospace;
-  font-size: 15px;
-  font-weight: 400;
-  transition: 0.15s;
-  padding-left: 15px;
-  padding-top: 0;
-  padding-bottom: 0;
-  outline: 0;
+    width: 300px;
+    height: 36px;
+    border-radius: 8px;
+    border: 1px solid var(--input-border);
+    background: var(--input-bg);
+    font-family: JetBrains Mono, monospace;
+    font-size: 15px;
+    font-weight: 400;
+    transition: 0.15s;
+    padding-left: 15px;
+    padding-top: 0;
+    padding-bottom: 0;
+    outline: 0;
 }
 
 input[type=text]::placeholder, input[type=email]::placeholder, input[type=password]::placeholder {
-  color: var(--input-placeholder);
+    color: var(--input-placeholder);
 }
 
 @media (hover: hover) and (pointer: fine) {
-  input[type=text]:hover, input[type=email]:hover, input[type=password]:hover {
-    background: var(--input-bg-hover);
-  }
+    input[type=text]:hover, input[type=email]:hover, input[type=password]:hover {
+        background: var(--input-bg-hover);
+    }
 }
+
 input[type=text]:focus, input[type=email]:focus, input[type=password]:focus {
-  border-color: var(--input-border-focus);
-  outline: 0;
-  background: var(--input-bg);
+    border-color: var(--input-border-focus);
+    outline: 0;
+    background: var(--input-bg);
 }
 
