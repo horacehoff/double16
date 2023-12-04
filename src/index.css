@@ -18,6 +18,8 @@
     --input-bg-hover: rgba(255, 255, 255, 0.15);
     --input-placeholder: #ABABAB;
 
+    --color: white;
+
     --button-primary-bg: white;
     --button-primary-bg-hover: black;
     --button-primary-bg-active: #202020;
@@ -54,6 +56,8 @@
         --input-bg: rgba(0, 0, 0, 0.10);
         --input-bg-hover: rgba(0, 0, 0, 0.15);
         --input-placeholder: #303030;
+
+        --color: black;
 
         --button-primary-bg: #282828;
         --button-primary-bg-hover: white;
@@ -101,6 +105,7 @@ select {
     background-size: 15px;
     transition: 0.2s;
     cursor: pointer;
+    color: var(--color);
 }
 
 @media (hover: hover) and (pointer: fine) {
@@ -128,12 +133,14 @@ button.action {
     cursor: pointer;
     transition: 0.2s;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    color: var(--color);
 }
 
-button.action:hover {
-    background: var(--button-action-bg-hover);
+@media (hover: hover) and (pointer: fine) {
+    button.action:hover {
+        background: var(--button-action-bg-hover);
+    }
 }
-
 button.action:active {
     border-color: var(--button-action-border-active);
     background: var(--button-action-bg-active);
@@ -149,9 +156,12 @@ button.action:active {
     font-size: 15px;
 }
 
-.action-text:hover {
-    color: var(--action-text-hover-color);
+@media (hover: hover) and (pointer: fine) {
+    .action-text:hover {
+        color: var(--action-text-hover-color);
+    }
 }
+
 
 .action-text:active {
     color: var(--action-text-active-color);
@@ -168,6 +178,8 @@ button.accent {
     transition: 0.25s;
     cursor: pointer;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    color: var(--color);
+
 }
 
 @media (hover: hover) and (pointer: fine) {
