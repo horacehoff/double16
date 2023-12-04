@@ -8,7 +8,7 @@
     "build": "vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
-    "postbuild": "purgecss --css ./dist/assets/*.css --content ./dist/index.html ./dist/assets/*.js --output ./dist/assets && postcss -r ./dist/assets/*.css --dir ./dist/assets"
+    "postbuild": "purgecss --css ./dist/assets/*.css --content ./dist/index.html ./dist/assets/*.js --output ./dist/assets && postcss -r --verbose ./dist/assets/*.css --dir ./dist/assets"
   },
   "dependencies": {
     "react": "^18.2.0",
