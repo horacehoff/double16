@@ -158,4 +158,8 @@
         width: 100%;
         right: -100%;
     }
+
+    .nav-list-extra li {
+        font-size: 30px;
+    }
 }
