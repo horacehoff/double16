@@ -1,42 +1,82 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+.buy-code-sell {
+  font-size: 96px;
+  font-weight: 900;
+  padding-left: 3vw;
+  margin-top: 70px;
+  margin-bottom: 40px;
+  font-family: "JetBrains Mono", monospace;
+  color: var(--color);
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.img1 {
+  width: 582px;
+  position: absolute;
+  top: 100px;
+  right: 100px;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+.img2 {
+  width: 461px;
+  position: absolute;
+  top: 70px;
+  right: 70px;
+}
+
+@media screen and (max-width: 940px) {
+  .img1 {
+    right: 0;
   }
-  to {
-    transform: rotate(360deg);
+
+  .img2 {
+    right: -30px;
   }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+@media screen and (max-width: 840px) {
+  .img1 {
+    width: 461px;
+    top: 150px;
+  }
+
+  .img2 {
+    width: 343px;
+    top: 120px;
   }
 }
 
-.card {
-  padding: 2em;
+@media screen and (max-width: 670px) {
+  .img1 {
+    width: 343px;
+    top: 180px;
+  }
+
+  .img2 {
+    width: 290px;
+    top: 140px;
+  }
 }
 
-.read-the-docs {
-  color: #888;
+@media screen and (max-width: 550px) {
+  .img1, .img2 {
+    display: none;
+  }
+}
+
+.one-catchphrase {
+  padding-left: 3vw;
+  font-size: 20px;
+  color: var(--color);
+  font-family: "JetBrains Mono", monospace;
+  font-weight: 500;
+
+}
+
+.one-desc {
+  padding-left: 3vw;
+  font-size: 20px;
+  line-height: 28px;
+  margin: 0;
+  color: var(--color);
+  font-family: "JetBrains Mono", monospace;
+
 }
