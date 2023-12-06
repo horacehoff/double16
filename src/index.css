@@ -4,7 +4,7 @@
     font-weight: 400;
 
     color-scheme: light dark;
-    color: rgba(255, 255, 255, 0.87);
+    color: rgb(255, 255, 255);
     background-color: #19191C;
 
     font-synthesis: none;
@@ -19,6 +19,7 @@
     --input-placeholder: #ABABAB;
 
     --color: white;
+    --color-flip: black;
 
     --button-primary-bg: white;
     --button-primary-bg-hover: black;
@@ -46,6 +47,9 @@
     --select-bg-hover: rgba(255, 255, 255, 0.01);
     --select-bg-focus: rgba(255, 255, 255, 0.10);
     --select-bg: url('data:image/svg+xml,<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(%23clip0_748_27)"><mask id="mask0_748_27" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24"><path d="M0 0H24V24H0V0Z" fill="white"/></mask><g mask="url(%23mask0_748_27)"><mask id="mask1_748_27" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24"><path d="M24 24L0 24L0 0L24 0L24 24Z" fill="white"/></mask><g mask="url(%23mask1_748_27)"><path d="M4 9L9.172 14.172C10.505 15.505 11.172 16.172 12 16.172C12.828 16.172 13.495 15.505 14.828 14.172L20 9" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M4 9L9.172 14.172C10.505 15.505 11.172 16.172 12 16.172C12.828 16.172 13.495 15.505 14.828 14.172L20 9" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></g></g></g><defs><clipPath id="clip0_748_27"><rect width="24" height="24" fill="white"/></clipPath></defs></svg>');
+
+    --nav-nofocus: rgba(255, 255, 255, 0.75);
+    --nav-focus: white;
 }
 
 @media (prefers-color-scheme: light) {
@@ -58,6 +62,7 @@
         --input-placeholder: #303030;
 
         --color: black;
+        --color-flip: white;
 
         --button-primary-bg: #282828;
         --button-primary-bg-hover: white;
@@ -83,7 +88,10 @@
         --select-border: rgba(45, 45, 45, 0.75);
         --select-bg-hover: rgba(0, 0, 0, 0.05);
         --select-bg-focus: rgba(0, 0, 0, 0.10);
-        --select-bg: url('data:image/svg+xml,<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(%23clip0_903_41)"><mask id="mask0_903_41" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24"><path d="M0 0H24V24H0V0Z" fill="white"/></mask><g mask="url(%23mask0_903_41)"><mask id="mask1_903_41" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24"><path d="M24 24L0 24L0 0L24 0L24 24Z" fill="white"/></mask><g mask="url(%23mask1_903_41)"><path d="M4 9L9.172 14.172C10.505 15.505 11.172 16.172 12 16.172C12.828 16.172 13.495 15.505 14.828 14.172L20 9" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M4 9L9.172 14.172C10.505 15.505 11.172 16.172 12 16.172C12.828 16.172 13.495 15.505 14.828 14.172L20 9" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></g></g></g><defs><clipPath id="clip0_903_41"><rect width="24" height="24" fill="white"/></clipPath></defs></svg>')
+        --select-bg: url('data:image/svg+xml,<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(%23clip0_903_41)"><mask id="mask0_903_41" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24"><path d="M0 0H24V24H0V0Z" fill="white"/></mask><g mask="url(%23mask0_903_41)"><mask id="mask1_903_41" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24"><path d="M24 24L0 24L0 0L24 0L24 24Z" fill="white"/></mask><g mask="url(%23mask1_903_41)"><path d="M4 9L9.172 14.172C10.505 15.505 11.172 16.172 12 16.172C12.828 16.172 13.495 15.505 14.828 14.172L20 9" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M4 9L9.172 14.172C10.505 15.505 11.172 16.172 12 16.172C12.828 16.172 13.495 15.505 14.828 14.172L20 9" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></g></g></g><defs><clipPath id="clip0_903_41"><rect width="24" height="24" fill="white"/></clipPath></defs></svg>');
+
+        --nav-nofocus: rgba(0, 0, 0, 0.75);
+        --nav-focus: black;
 
     }
 }
@@ -224,7 +232,7 @@ button.primary:active {
 input[type=text], input[type=email], input[type=password] {
     width: 300px;
     height: 36px;
-    border-radius: 8px;
+    border-radius: 9px;
     border: 1px solid var(--input-border);
     background: var(--input-bg);
     font-family: JetBrains Mono, monospace;
