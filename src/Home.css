@@ -6,6 +6,7 @@
   margin-bottom: 40px;
   font-family: "JetBrains Mono", monospace;
   color: var(--color);
+    width: fit-content;
 }
 
 .img1 {
@@ -68,6 +69,7 @@
   color: var(--color);
   font-family: "JetBrains Mono", monospace;
   font-weight: 500;
+    width: fit-content;
 
 }
 
@@ -78,5 +80,17 @@
   margin: 0;
   color: var(--color);
   font-family: "JetBrains Mono", monospace;
+    width: calc(100% - 3vw - 10px) !important;
+    /*display: inline-block;*/
+}
 
+.one-desc-logo {
+    height: 15px;
+    width: fit-content;
+}
+
+@media (prefers-color-scheme: light) {
+    .one-desc-logo {
+        filter: brightness(0);
+    }
 }
