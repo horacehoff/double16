@@ -7,16 +7,11 @@ export default function Navbar() {
     const navMenuDivRef = useRef();
     useEffect(() => {
         screen.orientation.addEventListener("change", () => {
-            if (navMenuDivRef.current.style.right === "0px") {
-                console.log("already opened")
-            } else {
+            if (navMenuDivRef.current.style.right !== "0px") {
                 if (window.matchMedia("(max-width: 500px)").matches) {
                     navMenuDivRef.current.style.right = "-200px";
-                    console.log("closed 100%")
                 } else {
                     navMenuDivRef.current.style.right = "-100%";
-
-                    console.log("closed 200px")
                 }
             }
         })
