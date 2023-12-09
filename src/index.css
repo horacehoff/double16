@@ -158,6 +158,7 @@ button.action {
         background: var(--button-action-bg-hover);
     }
 }
+
 button.action:active {
     border-color: var(--button-action-border-active);
     background: var(--button-action-bg-active);

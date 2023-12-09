@@ -88,23 +88,22 @@ function Home() {
             text_matrix(code, code_initial)
             text_matrix(buy, buy_initial)
             text_matrix(sell, sell_initial)
-
         }
     }, [])
-  return (
-    <>
-        <h1 className="buy-code-sell"><span id="code">CODE.</span><br/><span id="buy">BUY.</span><br/><span
-            id="sell">SELL.</span></h1>
-        <div id="rotate-container">
-            <img src={Home1} className="img1" alt="def fib(n)" id="img1"/>
-            <img src={Home2} className="img2" alt="main() {}" id="img2"/>
-        </div>
-        <p className="one-catchphrase">{"// 01 - CATCHPHRASE"}</p>
-        <p className="one-desc"><Logo className="one-desc-logo"/> allows anyone to buy or sell code snippets.<br/>
-            With <Logo className="one-desc-logo"/>, you can easily share your code, and explore
-            the marketplace to find the code you need.</p>
-    </>
-  )
+    return (
+        <>
+            <h1 className="buy-code-sell"><span id="code">CODE.</span><br/><span id="buy">BUY.</span><br/><span
+                id="sell">SELL.</span></h1>
+            <div id="rotate-container">
+                <img src={Home1} className="img1" alt="def fib(n)" id="img1"/>
+                <img src={Home2} className="img2" alt="main() {}" id="img2"/>
+            </div>
+            <p className="one-catchphrase">{"// 01 - CATCHPHRASE"}</p>
+            <p className="one-desc"><Logo className="one-desc-logo"/> allows anyone to buy or sell code snippets.<br/>
+                With <Logo className="one-desc-logo"/>, you can easily share your code, and explore
+                the marketplace to find the code you need.</p>
+        </>
+    )
 }
 
 export default Home

@@ -165,3 +165,10 @@
         font-size: 30px;
     }
 }
+
+@media screen and (orientation: landscape) and (max-height: 400px) {
+    .nav-menu-extra {
+        width: 100%;
+        right: -100%;
+    }
+}
