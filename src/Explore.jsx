@@ -1,4 +1,5 @@
 import "./Explore.css"
+import {Link} from "react-router-dom";
 
 export default function Explore() {
     // let has_run = false
@@ -36,6 +37,9 @@ export default function Explore() {
         <>
             <h1 className="pg-heading" id="pg-heading">EXPLORE</h1>
             <h2 className="pg-subtitle">EXPLORE ALL THE DIFFERENT CODE SNIPPETS AND FIND THE ONE YOU WANT</h2>
+            <Link to="/explore">
+                <button className="action pg-action">🔍 SEARCH</button>
+            </Link>
         </>
     )
 }

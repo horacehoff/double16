@@ -6,7 +6,7 @@
     margin-bottom: 0;
     position: relative;
     top: 15px;
-    left: 70px;
+    left: 40px;
     width: fit-content;
     height: fit-content;
     color: var(--color);
@@ -20,14 +20,21 @@
     position: relative;
     padding: 0;
     top: 0;
-    left: 70px;
+    left: 40px;
     margin-top: 0;
     width: calc(100% - 90px);
     height: fit-content;
+    margin-bottom: 0;
+}
+
+.pg-action {
+    position: relative;
+    left: 40px;
+    top: 10px;
 }
 
 @media screen and (max-width: 900px) {
-    .pg-heading, .pg-subtitle {
+    .pg-heading, .pg-subtitle, .pg-action {
         left: 20px;
     }
 }
