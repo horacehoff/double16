@@ -6,10 +6,13 @@ import {useEffect} from "react";
 
 
 function Home() {
+    let has_run = false
     useEffect(() => {
+        // 3D code rotate effect
         let constrain = 1000;
         let mouseOverContainer = document.getElementById("root");
         let ex1Layer = document.getElementById("img1");
+        let ex2Layer = document.getElementById("img2");
 
         function transforms(x, y, el) {
             let box = el.getBoundingClientRect();
@@ -28,23 +31,70 @@ function Home() {
         mouseOverContainer.onmousemove = function (e) {
             let xy = [e.clientX, e.clientY];
             let position = xy.concat([ex1Layer]);
+            let position2 = xy.concat([ex2Layer]);
 
             window.requestAnimationFrame(function () {
                 transformElement(ex1Layer, position);
+                transformElement(ex2Layer, position2);
             });
         };
 
         mouseOverContainer.onmouseleave = function () {
             ex1Layer.style.transition = "1s"
+            ex2Layer.style.transition = "1s"
             ex1Layer.style.transform = "none"
-            setTimeout(() => ex1Layer.style.transition = "0.15s", 1000)
-            console.log("left")
+            ex2Layer.style.transform = "none"
+            setTimeout(() => {
+                ex1Layer.style.transition = "0.15s"
+                ex2Layer.style.transition = "0.15s"
+            }, 1000)
         }
 
-    })
+
+        if (!has_run) {
+            has_run = true
+            // TEXT INTRO EFFECT
+            let code = document.getElementById("code")
+            let buy = document.getElementById("buy")
+            let sell = document.getElementById("sell")
+            let code_initial = code.innerHTML
+            let buy_initial = buy.innerHTML
+            let sell_initial = sell.innerHTML
+
+            // eslint-disable-next-line no-inner-declarations
+            function random_str(len) {
+                let result = '';
+                const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+                while (result.length < len) {
+                    result += characters.charAt(Math.floor(Math.random() * characters.length));
+                }
+                return result
+            }
+
+            // eslint-disable-next-line no-inner-declarations
+            async function text_matrix(element, initial) {
+                element.innerHTML = random_str(5)
+                const timer = ms => new Promise(res => setTimeout(res, ms))
+                let remaining = initial.length - 1
+                let typed = ""
+                for (const char of initial) {
+                    typed = typed + char
+                    element.innerHTML = typed + random_str(remaining)
+                    remaining -= 1
+                    await timer(100);
+                }
+            }
+
+            text_matrix(code, code_initial)
+            text_matrix(buy, buy_initial)
+            text_matrix(sell, sell_initial)
+
+        }
+    }, [])
   return (
     <>
-        <h1 className="buy-code-sell">CODE.<br/>BUY.<br/>SELL.</h1>
+        <h1 className="buy-code-sell"><span id="code">CODE.</span><br/><span id="buy">BUY.</span><br/><span
+            id="sell">SELL.</span></h1>
         <div id="rotate-container">
             <img src={Home1} className="img1" alt="def fib(n)" id="img1"/>
             <img src={Home2} className="img2" alt="main() {}" id="img2"/>
