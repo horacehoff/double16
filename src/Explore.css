@@ -1,0 +1,19 @@
+.pg-heading {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 96px;
+    font-weight: 900;
+    padding: 0;
+    position: relative;
+    top: 15px;
+    left: 70px;
+    width: fit-content;
+    height: fit-content;
+}
+
+@media screen and (max-width: 550px) {
+    .pg-heading {
+        font-size: 17.455vw;
+        left: 20px;
+        /*top: 0;*/
+    }
+}

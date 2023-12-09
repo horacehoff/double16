@@ -1,17 +1,20 @@
 import "./Navbar.css"
 import Logo from "./assets/navlogo.svg?react"
-import {useRef} from "react";
+import {useEffect, useRef} from "react";
 
 export default function Navbar() {
     const navMenuRef = useRef();
     const navMenuDivRef = useRef();
-    screen.orientation.addEventListener("change", () => {
-        if (window.matchMedia("(max-width: 500px)").matches) {
-            navMenuDivRef.current.style.right = "-100%";
-        } else {
-            navMenuDivRef.current.style.right = "-200px";
-        }
-    })
+    useEffect(() => {
+        screen.orientation.addEventListener("change", () => {
+            if (window.matchMedia("(max-width: 500px)").matches) {
+                navMenuDivRef.current.style.right = "-100%";
+            } else {
+                navMenuDivRef.current.style.right = "-200px";
+            }
+        })
+    }, [])
+
     return (
         <>
             <div className="nav">

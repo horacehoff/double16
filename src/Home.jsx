@@ -5,11 +5,10 @@ import Logo from "./assets/navlogo.svg?react"
 
 
 function Home() {
-
   return (
     <>
         <h1 className="buy-code-sell">CODE.<br/>BUY.<br/>SELL.</h1>
-        <img src={Home1} className="img1" alt="def fib(n)"/>
+        <img src={Home1} className="img1" alt="def fib(n)" id="img1"/>
         <img src={Home2} className="img2" alt="main() {}"/>
         <p className="one-catchphrase">{"// 01 - CATCHPHRASE"}</p>
         <p className="one-desc"><Logo className="one-desc-logo"/> allows anyone to buy or sell code snippets.<br/>
