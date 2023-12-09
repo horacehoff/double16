@@ -105,6 +105,13 @@ body {
     padding: 0;
 }
 
+a {
+    appearance: none;
+    -webkit-appearance: none;
+    color: inherit;
+    text-decoration: inherit;
+}
+
 
 select {
     font-family: JetBrains Mono, monospace;

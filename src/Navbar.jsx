@@ -1,6 +1,7 @@
 import "./Navbar.css"
 import Logo from "./assets/navlogo.svg?react"
 import {useEffect, useRef} from "react";
+import {Link} from "react-router-dom";
 
 export default function Navbar() {
     const navMenuRef = useRef();
@@ -19,9 +20,9 @@ export default function Navbar() {
 
     return (<>
         <div className="nav">
-            <Logo className="nav-logo"/>
+            <Link to="/"><Logo className="nav-logo"/></Link>
             <ul className="nav-list">
-                <li>EXPLORE</li>
+                <li><Link to="/explore">EXPLORE</Link></li>
                 <li>SELL</li>
                 <li>PRICING</li>
                 <li>ABOUT</li>

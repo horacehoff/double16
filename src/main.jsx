@@ -8,8 +8,9 @@ import Explore from "./Explore.jsx";
 
 ReactDOM.createRoot(document.getElementById('root')).render(
     <React.StrictMode>
-        <Navbar/>
         <BrowserRouter>
+            <Navbar/>
+
             <Routes>
                 <Route path="/" element={<Home/>}/>
                 <Route path="/explore" element={<Explore/>}/>

@@ -2,17 +2,24 @@ import './Home.css'
 import Home1 from "./assets/home_1.png"
 import Home2 from "./assets/home_2.png"
 import Logo from "./assets/navlogo.svg?react"
-import {useEffect} from "react";
+import {useEffect, useId} from "react";
 
 
 function Home() {
+    const img1id = useId()
+    const img2id = useId()
+    const codeid = useId()
+    const buyid = useId()
+    const sellid = useId()
+
+
     let has_run = false
     useEffect(() => {
         // 3D code rotate effect
         let constrain = 1000;
         let mouseOverContainer = document.getElementById("root");
-        let ex1Layer = document.getElementById("img1");
-        let ex2Layer = document.getElementById("img2");
+        let ex1Layer = document.getElementById(img1id);
+        let ex2Layer = document.getElementById(img2id);
 
         function transforms(x, y, el) {
             let box = el.getBoundingClientRect();
@@ -54,9 +61,9 @@ function Home() {
         if (!has_run) {
             has_run = true
             // TEXT INTRO EFFECT
-            let code = document.getElementById("code")
-            let buy = document.getElementById("buy")
-            let sell = document.getElementById("sell")
+            let code = document.getElementById(codeid)
+            let buy = document.getElementById(buyid)
+            let sell = document.getElementById(sellid)
             let code_initial = code.innerHTML
             let buy_initial = buy.innerHTML
             let sell_initial = sell.innerHTML
@@ -92,11 +99,11 @@ function Home() {
     }, [])
     return (
         <>
-            <h1 className="buy-code-sell"><span id="code">CODE.</span><br/><span id="buy">BUY.</span><br/><span
-                id="sell">SELL.</span></h1>
+            <h1 className="buy-code-sell"><span id={codeid}>CODE.</span><br/><span id={buyid}>BUY.</span><br/><span
+                id={sellid}>SELL.</span></h1>
             <div id="rotate-container">
-                <img src={Home1} className="img1" alt="def fib(n)" id="img1"/>
-                <img src={Home2} className="img2" alt="main() {}" id="img2"/>
+                <img src={Home1} className="img1" alt="def fib(n)" id={img1id}/>
+                <img src={Home2} className="img2" alt="main() {}" id={img2id}/>
             </div>
             <p className="one-catchphrase">{"// 01 - CATCHPHRASE"}</p>
             <p className="one-desc"><Logo className="one-desc-logo"/> allows anyone to buy or sell code snippets.<br/>
