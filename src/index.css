@@ -145,7 +145,7 @@ select:focus {
 
 
 button.action {
-    padding: 12px 19px;
+    padding: 9px 19px;
     border-radius: 10px;
     border: solid 1px var(--button-action-border);
     backdrop-filter: blur(100px);
@@ -161,6 +161,9 @@ button.action {
 }
 
 @media (hover: hover) and (pointer: fine) {
+    button.action {
+        padding: 12px 19px;
+    }
     button.action:hover {
         background: var(--button-action-bg-hover);
     }
