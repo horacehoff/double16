@@ -169,6 +169,6 @@
 @media screen and (max-height: 400px) {
     .nav-list-extra {
         position: absolute;
-        bottom: -85px;
+        bottom: -95px;
     }
 }
