@@ -165,3 +165,10 @@
         font-size: 30px;
     }
 }
+
+@media screen and (max-height: 400px) {
+    .nav-list-extra {
+        position: absolute;
+        bottom: -75px;
+    }
+}
