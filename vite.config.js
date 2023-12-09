@@ -6,16 +6,17 @@ import svgr from "vite-plugin-svgr";
 // https://vitejs.dev/config/
 export default defineConfig({
     plugins: [react(), svgr()],
-  build: {
-    cssMinify: "lightningcss",
-    sourcemap: false,
-    minify: "terser",
-    rollupOptions: {
-      output: {
-        compact: true,
-        minifyInternalExports: true,
+    build: {
+        cssMinify: "lightningcss",
         sourcemap: false,
-      }
+        minify: "terser",
+        rollupOptions: {
+            output: {
+
+                compact: true,
+                minifyInternalExports: true,
+                sourcemap: false,
+            }
+        }
     }
-  }
 })

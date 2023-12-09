@@ -3,17 +3,37 @@
     font-size: 96px;
     font-weight: 900;
     padding: 0;
+    margin-bottom: 0;
     position: relative;
     top: 15px;
     left: 70px;
     width: fit-content;
     height: fit-content;
+    color: var(--color);
+}
+
+.pg-subtitle {
+    color: var(--color);
+    font-family: "JetBrains Mono", monospace;
+    font-weight: 500;
+    font-size: 22px;
+    position: relative;
+    padding: 0;
+    top: 0;
+    left: 70px;
+    margin-top: 0;
+    width: calc(100% - 90px)
 }
 
 @media screen and (max-width: 550px) {
     .pg-heading {
         font-size: 17.455vw;
         left: 20px;
-        /*top: 0;*/
+    }
+
+    .pg-subtitle {
+        font-size: 4vw;
+        left: 20px;
+        width: calc(100% - 70px)
     }
 }
