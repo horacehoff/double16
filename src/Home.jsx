@@ -7,8 +7,8 @@ import {useEffect} from "react";
 
 function Home() {
     useEffect(() => {
-        let constrain = 500;
-        let mouseOverContainer = document.getElementById("rotate-container");
+        let constrain = 1000;
+        let mouseOverContainer = document.getElementById("root");
         let ex1Layer = document.getElementById("img1");
 
         function transforms(x, y, el) {

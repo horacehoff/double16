@@ -1,35 +1,35 @@
 .buy-code-sell {
-  font-size: 96px;
-  font-weight: 900;
-  padding-left: 3vw;
-  margin-top: 70px;
-  margin-bottom: 40px;
-  font-family: "JetBrains Mono", monospace;
-  color: var(--color);
+    font-size: 96px;
+    font-weight: 900;
+    padding-left: 3vw;
+    margin-top: 70px;
+    margin-bottom: 40px;
+    font-family: "JetBrains Mono", monospace;
+    color: var(--color);
     width: fit-content;
 }
 
 .img1 {
-  width: 500px;
-  position: absolute;
-  top: 170px;
-  right: 230px;
+    width: 500px;
+    position: absolute;
+    top: 170px;
+    right: 230px;
     /*transform: rotate3d(10, 10, 10, 20deg);*/
     transition: 0.15s;
 }
 
 .img2 {
-  width: 300px;
-  position: absolute;
-  top: 120px;
-  right: 130px;
+    width: 300px;
+    position: absolute;
+    top: 120px;
+    right: 130px;
     transition: 0.15s;
 }
 
 @media screen and (max-width: 1100px) {
-  .img1 {
-      right: 130px;
-  }
+    .img1 {
+        right: 130px;
+    }
 
     .img2 {
         right: 30px;
@@ -37,9 +37,9 @@
 }
 
 @media screen and (max-width: 970px) {
-  .img1 {
-      right: 50px;
-  }
+    .img1 {
+        right: 50px;
+    }
 
     .img2 {
         right: 60px;
@@ -48,10 +48,10 @@
 }
 
 @media screen and (max-width: 900px) {
-  .img1 {
-      scale: 0.8;
-      top: 190px;
-  }
+    .img1 {
+        scale: 0.8;
+        top: 190px;
+    }
 
     .img2 {
         scale: 0.8;
@@ -63,7 +63,7 @@
     .img1 {
         scale: 0.65;
         right: -60px;
-  }
+    }
 
     .img2 {
         scale: 0.65;
@@ -74,15 +74,16 @@
     .img1 {
         scale: 0.6;
     }
-  .img2 {
-      scale: 0.6;
-  }
+
+    .img2 {
+        scale: 0.6;
+    }
 }
 
 @media screen and (max-width: 610px) {
     .img1 {
-    display: none;
-  }
+        display: none;
+    }
 
     .img2 {
         top: 200px;
@@ -163,28 +164,29 @@
 /*}*/
 
 .one-catchphrase {
-  padding-left: 3vw;
-  font-size: 20px;
-  color: var(--color);
-  font-family: "JetBrains Mono", monospace;
-  font-weight: 500;
+    padding-left: 3vw;
+    font-size: 20px;
+    color: var(--color);
+    font-family: "JetBrains Mono", monospace;
+    font-weight: 500;
     width: fit-content;
 
 }
 
 .one-desc {
-  padding-left: 3vw;
-  font-size: 20px;
-  line-height: 28px;
-  margin: 0;
-  color: var(--color);
-  font-family: "JetBrains Mono", monospace;
+    padding-left: 3vw;
+    font-size: 20px;
+    line-height: 28px;
+    margin: 0;
+    color: var(--color);
+    font-family: "JetBrains Mono", monospace;
     width: calc(100% - 3vw - 10px) !important;
+    -webkit-text-size-adjust: 100%;
 }
 
 .one-desc-logo {
-  height: 15px;
-  width: 80px;
+    height: 15px;
+    width: 80px;
 }
 
 @media (prefers-color-scheme: light) {
