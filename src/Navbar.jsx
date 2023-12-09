@@ -27,17 +27,26 @@ export default function Navbar() {
                 }
             }
         })
+    }, [])
 
+    useEffect(() => {
+        if (window.matchMedia("(max-width: 500px)").matches) {
+            navMenuDivRef.current.style.right = "-100%";
+        } else {
+            navMenuDivRef.current.style.right = "-200px";
+        }
+        navMenuRef.current.innerText = "||"
         if (location.pathname.includes("/explore")) {
             document.getElementById(exploreid).style.color = "var(--color)"
             document.getElementById(exploreid).style.textDecoration = "underline"
             document.getElementById(menuexploreid).style.textDecoration = "underline"
-
         } else {
             document.getElementById(exploreid).style.color = null
             document.getElementById(exploreid).style.textDecoration = null
+            document.getElementById(menuexploreid).style.textDecoration = null
         }
-    }, [location])
+    }, [location]);
+
 
 
     return (<>
