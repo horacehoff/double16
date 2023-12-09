@@ -109,7 +109,7 @@
 
 .one-desc-logo {
     height: 15px;
-    width: fit-content;
+  width: 80px;
 }
 
 @media (prefers-color-scheme: light) {
