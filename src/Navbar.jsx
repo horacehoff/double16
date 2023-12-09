@@ -30,11 +30,7 @@ export default function Navbar() {
                         if (window.matchMedia("(max-width: 500px)").matches) {
                             navMenuDivRef.current.style.right = "-100%";
                         } else {
-                            if (window.matchMedia("(orientation: landscape) and (max-height: 400px)").matches) {
-                                navMenuDivRef.current.style.right = "-100%";
-                            } else {
-                                navMenuDivRef.current.style.right = "-200px";
-                            }
+                            navMenuDivRef.current.style.right = "-200px";
                         }
                         navMenuRef.current.innerText = "||"
 
