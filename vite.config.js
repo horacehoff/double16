@@ -9,7 +9,7 @@ export default defineConfig({
   build: {
     cssMinify: "lightningcss",
     sourcemap: false,
-    minify: "tesrer",
+    minify: "terser",
     rollupOptions: {
       output: {
         compact: true,
