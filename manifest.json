@@ -5,8 +5,9 @@
   "background_color": "#19191C",
   "display": "standalone",
   "orientation": "portrait",
-  "scope": "/",
-  "start_url": "double16.vercel.app/",
+  "scope": "https://double16.vercel.app/",
+  "start_url": "/",
+  "lang": "en-US",
   "icons": [
     {
       "src": "/images/icons/icon-72x72.png",
