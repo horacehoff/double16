@@ -48,7 +48,7 @@ export default function Navbar() {
         </div>
         <div ref={navMenuDivRef} className="nav-menu-extra">
             <ul className="nav-list-extra">
-                <li>EXPLORE</li>
+                <li><Link to="/explore">EXPLORE</Link></li>
                 <li>SELL</li>
                 <li>PRICING</li>
                 <li>ABOUT</li>
