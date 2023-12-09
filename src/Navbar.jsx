@@ -8,10 +8,11 @@ export default function Navbar() {
     useEffect(() => {
         screen.orientation.addEventListener("change", () => {
             if (window.matchMedia("(max-width: 500px)").matches) {
-                navMenuDivRef.current.style.right = "-100%";
+                navMenuDivRef.current.style.right = "-200px";
                 console.log("closed 100%")
             } else {
-                navMenuDivRef.current.style.right = "-200px";
+                navMenuDivRef.current.style.right = "-100%";
+
                 console.log("closed 200px")
             }
 
