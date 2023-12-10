@@ -53,7 +53,7 @@ export default function Navbar() {
         <div className="nav">
             <Link to="/"><Logo className="nav-logo"/></Link>
             <ul className="nav-list">
-                <li><Link to="/explore" id={exploreid}>EXPLORE</Link></li>
+                <li><Link to="/explore" id={exploreid} target="_self">EXPLORE</Link></li>
                 <li>SELL</li>
                 <li>PRICING</li>
                 <li>ABOUT</li>
