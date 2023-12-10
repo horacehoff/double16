@@ -6,7 +6,7 @@
   "display": "standalone",
   "orientation": "portrait",
   "scope": "https://double16.vercel.app/",
-  "start_url": "/",
+  "start_url": "https://double16.vercel.app/",
   "lang": "en-US",
   "icons": [
     {
