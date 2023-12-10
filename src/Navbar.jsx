@@ -1,7 +1,7 @@
 import "./Navbar.css"
 import Logo from "./assets/navlogo.svg?react"
 import {useEffect, useId, useRef} from "react";
-import {Link, useLocation} from "react-router-dom";
+import {Link, useLocation, useNavigate} from "react-router-dom";
 
 export default function Navbar() {
     const exploreid = useId()
@@ -16,7 +16,7 @@ export default function Navbar() {
     const navMenuRef = useRef();
     const navMenuDivRef = useRef();
     const location = useLocation();
-    const navigate = useLocation()
+    const navigate = useNavigate()
 
     useEffect(() => {
         screen.orientation.addEventListener("change", () => {
@@ -55,7 +55,7 @@ export default function Navbar() {
             <Link to="/"><Logo className="nav-logo"/></Link>
             <ul className="nav-list">
                 {/*<li><Link to="/explore" id={exploreid}>EXPLORE</Link></li>*/}
-                <li onClick={() => navigate("/")}>EXPLORE</li>
+                <li onClick={() => navigate("/explore")}>EXPLORE</li>
                 <li>SELL</li>
                 <li>PRICING</li>
                 <li>ABOUT</li>
