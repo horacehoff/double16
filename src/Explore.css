@@ -33,8 +33,31 @@
     top: 10px;
 }
 
+.pg-section-heading {
+    font-family: "JetBrains Mono", monospace;
+    font-weight: 700;
+    font-size: 26px;
+    position: relative;
+    left: 40px;
+    padding: 0;
+    top: 30px;
+}
+
+.pg-section-list {
+    position: relative;
+    top: 20px;
+}
+
+.pg-section-list li {
+    display: inline-block;
+}
+
+.pg-section-list li:not(:first-child) {
+    margin-left: 17px;
+}
+
 @media screen and (max-width: 900px) {
-    .pg-heading, .pg-subtitle, .pg-action {
+    .pg-heading, .pg-subtitle, .pg-action, .pg-section-heading {
         left: 20px;
     }
 }

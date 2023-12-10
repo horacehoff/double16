@@ -1,0 +1,93 @@
+.codecontainer {
+    width: 300px;
+    /*height: 220px;*/
+    height: 230px;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    background: rgba(217, 217, 217, 0.02);
+    overflow: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.codecontainer::-webkit-scrollbar {
+    display: none;
+}
+
+.codecontainer > .leftgroup {
+    font-family: "Source Code Pro", monospace;
+    font-size: 16px;
+    font-weight: 500;
+    position: relative;
+    top: 10px;
+    float: left;
+    left: 13px;
+    padding: 0;
+    margin: 0;
+    display: inline-block;
+    width: fit-content;
+}
+
+.codecontainer > .rightgroup {
+    font-family: "Source Code Pro", monospace;
+    font-size: 16px;
+    font-weight: 500;
+    display: inline-block;
+    top: 10px;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    float: right;
+    right: 13px;
+    width: fit-content;
+}
+
+.codecontainer h4 {
+    font-family: "Source Code Pro", monospace;
+    font-size: 20px;
+    font-weight: 700;
+    position: relative;
+    top: 13px;
+    left: 13px;
+    overflow: scroll;
+    width: calc(300px - 13px);
+    line-height: 25px;
+    margin-bottom: 0;
+}
+
+.codecontainer h5 {
+    font-family: JetBrains Mono, monospace;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 500;
+    position: relative;
+    left: 13px;
+    margin-top: 13px;
+    margin-bottom: 0;
+    width: calc(300px - 13px);
+
+}
+
+.codecontainer h5 span {
+    color: #99A3FF;
+}
+
+.codecontainer > .desc {
+    font-family: Inter, sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    position: relative;
+    left: 13px;
+    top: -7px;
+    width: calc(300px - 20px);
+    min-height: 75px;
+}
+
+.codecontainer > .linecount {
+    color: #6F6F6F;
+    font-family: JetBrains Mono, monospace;
+    font-size: 14px;
+    text-align: center;
+    width: calc(300 - 26px);
+    height: fit-content;
+}
