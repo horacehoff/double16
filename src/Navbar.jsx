@@ -1,7 +1,7 @@
 import "./Navbar.css"
 import Logo from "./assets/navlogo.svg?react"
 import {useEffect, useId, useRef} from "react";
-import {Link, useLocation, useNavigate} from "react-router-dom";
+import {Link, useLocation} from "react-router-dom";
 
 export default function Navbar() {
     const exploreid = useId()
@@ -16,7 +16,6 @@ export default function Navbar() {
     const navMenuRef = useRef();
     const navMenuDivRef = useRef();
     const location = useLocation();
-    const navigate = useNavigate()
 
     useEffect(() => {
         screen.orientation.addEventListener("change", () => {
@@ -30,23 +29,23 @@ export default function Navbar() {
         })
     }, [])
 
-    // useEffect(() => {
-    //     if (window.matchMedia("(max-width: 500px)").matches) {
-    //         navMenuDivRef.current.style.right = "-100%";
-    //     } else {
-    //         navMenuDivRef.current.style.right = "-200px";
-    //     }
-    //     navMenuRef.current.innerText = "||"
-    //     if (location.pathname.includes("/explore")) {
-    //         document.getElementById(exploreid).style.color = "var(--color)"
-    //         document.getElementById(exploreid).style.textDecoration = "underline"
-    //         document.getElementById(menuexploreid).style.textDecoration = "underline"
-    //     } else {
-    //         document.getElementById(exploreid).style.color = null
-    //         document.getElementById(exploreid).style.textDecoration = null
-    //         document.getElementById(menuexploreid).style.textDecoration = null
-    //     }
-    // }, [location]);
+    useEffect(() => {
+        if (window.matchMedia("(max-width: 500px)").matches) {
+            navMenuDivRef.current.style.right = "-100%";
+        } else {
+            navMenuDivRef.current.style.right = "-200px";
+        }
+        navMenuRef.current.innerText = "||"
+        if (location.pathname.includes("/explore")) {
+            document.getElementById(exploreid).style.color = "var(--color)"
+            document.getElementById(exploreid).style.textDecoration = "underline"
+            document.getElementById(menuexploreid).style.textDecoration = "underline"
+        } else {
+            document.getElementById(exploreid).style.color = null
+            document.getElementById(exploreid).style.textDecoration = null
+            document.getElementById(menuexploreid).style.textDecoration = null
+        }
+    }, [location]);
 
 
 
@@ -54,8 +53,7 @@ export default function Navbar() {
         <div className="nav">
             <Link to="/"><Logo className="nav-logo"/></Link>
             <ul className="nav-list">
-                {/*<li><Link to="/explore" id={exploreid}>EXPLORE</Link></li>*/}
-                <li onClick={() => navigate("/explore")}>EXPLORE</li>
+                <li><Link to="/explore" id={exploreid}>EXPLORE</Link></li>
                 <li>SELL</li>
                 <li>PRICING</li>
                 <li>ABOUT</li>
