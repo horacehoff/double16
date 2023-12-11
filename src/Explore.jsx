@@ -4,9 +4,9 @@ import CodeCard from "./CodeCard.jsx";
 import ShortNumber from "short-number"
 
 export const cpp = <>
-    <svg version="1.1" id="Layer_1" style={{display: "inline-block", position: "relative", top: "6px"}}
+    <svg version="1.1" id="Layer_1" style={{display: "inline-block", position: "relative", top: "4px"}}
          xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-         width="21.32px" height="24px" viewBox="0 0 306 344.35" enableBackground="new 0 0 306 344.35">
+         width="21.32px" height="19px" viewBox="0 0 306 344.35" enableBackground="new 0 0 306 344.35">
         <path fill="#00599C" d="M302.107,258.262c2.401-4.159,3.893-8.845,3.893-13.053V99.14c0-4.208-1.49-8.893-3.892-13.052L153,172.175
 	L302.107,258.262z"/>
         <path fill="#004482" d="M166.25,341.193l126.5-73.034c3.644-2.104,6.956-5.737,9.357-9.897L153,172.175L3.893,258.263
@@ -29,6 +29,10 @@ export const cpp = <>
     </svg>
     <span style={{display: "inline-block"}}>C++</span>
 </>
+
+// export const python = <>
+//
+// </>
 
 export default function Explore() {
     // let has_run = false
@@ -62,7 +66,8 @@ export default function Explore() {
     //         text_matrix(document.getElementById("pg-heading"),document.getElementById("pg-heading").innerText)
     //     }
     // }, [])
-    return (<>
+    return (
+        <>
         <h1 className="pg-heading" id="pg-heading">EXPLORE</h1>
         <h2 className="pg-subtitle">EXPLORE ALL THE DIFFERENT CODE SNIPPETS AND FIND THE ONE YOU WANT</h2>
         <Link to="/explore">
@@ -70,6 +75,20 @@ export default function Explore() {
         </Link>
         <h2 className="pg-section-heading">🔥 TRENDING</h2>
         <ul className="pg-section-list">
+            <li>
+                <CodeCard lang="🐍PYTHON" price="5" like={ShortNumber(1000)} title="FIBONACCI SEQUENCE CALCULATOR"
+                          author="Just_A_MANGO" desc="This code is a function which, given a integer n, returns the fibonacci sequence with n length.
+                        V2 : OPTIMIZED THE WHOLE THING AND MADE IT"
+                          char={ShortNumber(1500)} lines="3000"
+                />
+            </li>
+            <li>
+                <CodeCard lang="🐍PYTHON" price="5" like={ShortNumber(1000)} title="FIBONACCI SEQUENCE CALCULATOR"
+                          author="Just_A_MANGO" desc="This code is a function which, given a integer n, returns the fibonacci sequence with n length.
+                        V2 : OPTIMIZED THE WHOLE THING AND MADE IT"
+                          char={ShortNumber(1500)} lines="3000"
+                />
+            </li>
             <li>
                 <CodeCard lang="🐍PYTHON" price="5" like={ShortNumber(1000)} title="FIBONACCI SEQUENCE CALCULATOR"
                           author="Just_A_MANGO" desc="This code is a function which, given a integer n, returns the fibonacci sequence with n length.

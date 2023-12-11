@@ -41,20 +41,70 @@
     left: 40px;
     padding: 0;
     top: 30px;
+    width: fit-content;
 }
 
 .pg-section-list {
     position: relative;
     top: 20px;
+    width: calc(100% - 50px);
+    overflow: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.pg-section-list::-webkit-scrollbar {
+    display: none;
 }
 
 .pg-section-list li {
     display: inline-block;
+    white-space: initial !important;
+    overflow: initial !important;
+    scroll-snap-align: start;
 }
 
-.pg-section-list li:not(:first-child) {
-    margin-left: 17px;
+.pg-section-list li:first-child {
+    scroll-margin-left: 40px;
 }
+
+
+@media screen and (min-width: 685px) {
+    .pg-section-list li {
+        margin-left: 15px;
+        margin-top: 10px;
+    }
+
+    .pg-section-list {
+        padding-left: 30px;
+        margin-top: -10px;
+    }
+
+    .pg-section-list li:nth-child(4n) {
+        display: block;
+    }
+}
+
+@media screen and (max-width: 685px) {
+    .pg-section-list {
+        white-space: nowrap;
+    }
+
+    .pg-section-list li:not(:first-child) {
+        margin-left: 17px;
+        scroll-margin-left: 15px;
+    }
+
+    .pg-section-list li:last-child {
+        margin-right: 10px;
+    }
+
+    .pg-section-list {
+        scroll-snap-type: x mandatory;
+    }
+}
+
+
 
 @media screen and (max-width: 900px) {
     .pg-heading, .pg-subtitle, .pg-action, .pg-section-heading {
