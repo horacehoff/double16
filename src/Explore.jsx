@@ -97,6 +97,27 @@ export default function Explore() {
                 />
             </li>
             <li>
+                <CodeCard lang="🐍PYTHON" price="5" like={ShortNumber(1000)} title="FIBONACCI SEQUENCE CALCULATOR"
+                          author="Just_A_MANGO" desc="This code is a function which, given a integer n, returns the fibonacci sequence with n length.
+                        V2 : OPTIMIZED THE WHOLE THING AND MADE IT"
+                          char={ShortNumber(1500)} lines="3000"
+                />
+            </li>
+            <li>
+                <CodeCard lang="🐍PYTHON" price="5" like={ShortNumber(1000)} title="FIBONACCI SEQUENCE CALCULATOR"
+                          author="Just_A_MANGO" desc="This code is a function which, given a integer n, returns the fibonacci sequence with n length.
+                        V2 : OPTIMIZED THE WHOLE THING AND MADE IT"
+                          char={ShortNumber(1500)} lines="3000"
+                />
+            </li>
+            <li>
+                <CodeCard lang="🐍PYTHON" price="5" like={ShortNumber(1000)} title="FIBONACCI SEQUENCE CALCULATOR"
+                          author="Just_A_MANGO" desc="This code is a function which, given a integer n, returns the fibonacci sequence with n length.
+                        V2 : OPTIMIZED THE WHOLE THING AND MADE IT"
+                          char={ShortNumber(1500)} lines="3000"
+                />
+            </li>
+            <li>
                 <CodeCard lang={cpp} price="5" like={ShortNumber(1000)} title="PI CALCULATOR"
                           author="Just_A_MANGO" desc="Calculates the PI number to the Nth decimal"
                           char={ShortNumber(1500)} lines="3000"
