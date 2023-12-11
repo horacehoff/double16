@@ -62,7 +62,11 @@
     white-space: initial !important;
     overflow: initial !important;
     scroll-snap-align: start;
+    position: relative;
+    padding: 0;
+    vertical-align: top
 }
+
 
 .pg-section-list li:first-child {
     scroll-margin-left: 40px;
@@ -80,9 +84,9 @@
         margin-top: -10px;
     }
 
-    .pg-section-list li:nth-child(4n) {
-        display: block;
-    }
+    /*.pg-section-list li:nth-child(4n) {*/
+    /*    display: block;*/
+    /*}*/
 }
 
 @media screen and (max-width: 685px) {
