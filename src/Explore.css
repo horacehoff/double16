@@ -42,6 +42,7 @@
     padding: 0;
     top: 30px;
     width: fit-content;
+    color: var(--color);
 }
 
 .pg-section-list {
