@@ -2,9 +2,11 @@ import "./Explore.css"
 import {Link} from "react-router-dom";
 import CodeCard from "./CodeCard.jsx";
 import ShortNumber from "short-number"
+import CodePagePreview from "./CodePagePreview.jsx";
 
 export const cpp = <>
-    <svg version="1.1" id="Layer_1" style={{display: "inline-block", position: "relative", top: "4px"}}
+    <svg version="1.1" id="Layer_1"
+         style={{display: "inline-block", position: "relative", top: "2px", verticalAlign: "top"}}
          xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
          width="21.32px" height="19px" viewBox="0 0 306 344.35" enableBackground="new 0 0 306 344.35">
         <path fill="#00599C" d="M302.107,258.262c2.401-4.159,3.893-8.845,3.893-13.053V99.14c0-4.208-1.49-8.893-3.892-13.052L153,172.175
@@ -76,53 +78,61 @@ export default function Explore() {
         <h2 className="pg-section-heading">🔥 TRENDING</h2>
         <ul className="pg-section-list">
             <li>
-                <CodeCard lang="🐍PYTHON" price="5" like={ShortNumber(1000)} title="FIBONACCI SEQUENCE CALCULATOR"
-                          author="Just_A_MANGO" desc="This code is a function which, given a integer n, returns the fibonacci sequence with n length.
-                        V2 : OPTIMIZED THE WHOLE THING AND MADE IT"
-                          char={ShortNumber(1500)} lines="3000"
+                <CodeCard pkg={{
+                    lang: "🐍PYTHON",
+                    price: "5",
+                    like: ShortNumber(1000),
+                    title: "FIBONACCI SEQUENCE CALCULATOR",
+                    author: "Just_A_MANGO",
+                    desc: "This code is a function which, given a integer n, returns the fibonacci sequence with n length.V2 : OPTIMIZED THE WHOLE THING AND MADE IT",
+                    char: ShortNumber(1500),
+                    lines: "3000"
+                }}
                 />
             </li>
-            <li>
-                <CodeCard lang="🐍PYTHON" price="5" like={ShortNumber(1000)} title="FIBONACCI SEQUENCE CALCULATOR"
-                          author="Just_A_MANGO" desc="This code is a function which, given a integer n, returns the fibonacci sequence with n length.
-                        V2 : OPTIMIZED THE WHOLE THING AND MADE IT"
-                          char={ShortNumber(1500)} lines="3000"
-                />
-            </li>
-            <li>
-                <CodeCard lang="🐍PYTHON" price="5" like={ShortNumber(1000)} title="FIBONACCI SEQUENCE CALCULATOR"
-                          author="Just_A_MANGO" desc="This code is a function which, given a integer n, returns the fibonacci sequence with n length.
-                        V2 : OPTIMIZED THE WHOLE THING AND MADE IT"
-                          char={ShortNumber(1500)} lines="3000"
-                />
-            </li>
-            <li>
-                <CodeCard lang="🐍PYTHON" price="5" like={ShortNumber(1000)} title="FIBONACCI SEQUENCE CALCULATOR"
-                          author="Just_A_MANGO" desc="This code is a function which, given a integer n, returns the fibonacci sequence with n length.
-                        V2 : OPTIMIZED THE WHOLE THING AND MADE IT"
-                          char={ShortNumber(1500)} lines="3000"
-                />
-            </li>
-            <li>
-                <CodeCard lang="🐍PYTHON" price="5" like={ShortNumber(1000)} title="FIBONACCI SEQUENCE CALCULATOR"
-                          author="Just_A_MANGO" desc="This code is a function which, given a integer n, returns the fibonacci sequence with n length.
-                        V2 : OPTIMIZED THE WHOLE THING AND MADE IT"
-                          char={ShortNumber(1500)} lines="3000"
-                />
-            </li>
-            <li>
-                <CodeCard lang="🐍PYTHON" price="5" like={ShortNumber(1000)} title="FIBONACCI SEQUENCE CALCULATOR"
-                          author="Just_A_MANGO" desc="This code is a function which, given a integer n, returns the fibonacci sequence with n length.
-                        V2 : OPTIMIZED THE WHOLE THING AND MADE IT"
-                          char={ShortNumber(1500)} lines="3000"
-                />
-            </li>
-            <li>
-                <CodeCard lang={cpp} price="5" like={ShortNumber(1000)} title="PI CALCULATOR"
-                          author="Just_A_MANGO" desc="Calculates the PI number to the Nth decimal"
-                          char={ShortNumber(1500)} lines="3000"
-                />
-            </li>
+            {/*<li>*/}
+            {/*    <CodeCard lang="🐍PYTHON" price="5" like={ShortNumber(1000)} title="FIBONACCI SEQUENCE CALCULATOR"*/}
+            {/*              author="Just_A_MANGO" desc="This code is a function which, given a integer n, returns the fibonacci sequence with n length.*/}
+            {/*            V2 : OPTIMIZED THE WHOLE THING AND MADE IT"*/}
+            {/*              char={ShortNumber(1500)} lines="3000"*/}
+            {/*    />*/}
+            {/*</li>*/}
+            {/*<li>*/}
+            {/*    <CodeCard lang="🐍PYTHON" price="5" like={ShortNumber(1000)} title="FIBONACCI SEQUENCE CALCULATOR"*/}
+            {/*              author="Just_A_MANGO" desc="This code is a function which, given a integer n, returns the fibonacci sequence with n length.*/}
+            {/*            V2 : OPTIMIZED THE WHOLE THING AND MADE IT"*/}
+            {/*              char={ShortNumber(1500)} lines="3000"*/}
+            {/*    />*/}
+            {/*</li>*/}
+            {/*<li>*/}
+            {/*    <CodeCard lang="🐍PYTHON" price="5" like={ShortNumber(1000)} title="FIBONACCI SEQUENCE CALCULATOR"*/}
+            {/*              author="Just_A_MANGO" desc="This code is a function which, given a integer n, returns the fibonacci sequence with n length.*/}
+            {/*            V2 : OPTIMIZED THE WHOLE THING AND MADE IT"*/}
+            {/*              char={ShortNumber(1500)} lines="3000"*/}
+            {/*    />*/}
+            {/*</li>*/}
+            {/*<li>*/}
+            {/*    <CodeCard lang="🐍PYTHON" price="5" like={ShortNumber(1000)} title="FIBONACCI SEQUENCE CALCULATOR"*/}
+            {/*              author="Just_A_MANGO" desc="This code is a function which, given a integer n, returns the fibonacci sequence with n length.*/}
+            {/*            V2 : OPTIMIZED THE WHOLE THING AND MADE IT"*/}
+            {/*              char={ShortNumber(1500)} lines="3000"*/}
+            {/*    />*/}
+            {/*</li>*/}
+            {/*<li>*/}
+            {/*    <CodeCard lang="🐍PYTHON" price="5" like={ShortNumber(1000)} title="FIBONACCI SEQUENCE CALCULATOR"*/}
+            {/*              author="Just_A_MANGO" desc="This code is a function which, given a integer n, returns the fibonacci sequence with n length.*/}
+            {/*            V2 : OPTIMIZED THE WHOLE THING AND MADE IT"*/}
+            {/*              char={ShortNumber(1500)} lines="3000"*/}
+            {/*    />*/}
+            {/*</li>*/}
+            {/*<li>*/}
+            {/*    <CodeCard lang={cpp} price="5" like={ShortNumber(1000)} title="PI CALCULATOR"*/}
+            {/*              author="Just_A_MANGO" desc="Calculates the PI number to the Nth decimal"*/}
+            {/*              char={ShortNumber(1500)} lines="3000"*/}
+            {/*    />*/}
+            {/*</li>*/}
+
         </ul>
+            <CodePagePreview/>
     </>)
 }

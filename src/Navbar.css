@@ -74,7 +74,7 @@
 
 .nav-menu-extra {
     position: fixed;
-    z-index: 1;
+    z-index: 4;
     backdrop-filter: blur(10px);
     background-color: var(--color-flip);
     width: 200px;
