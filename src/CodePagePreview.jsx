@@ -10,7 +10,9 @@ export default function CodePagePreview() {
             setTimeout(() => {
                 document.getElementById("codepgpre").children[0].style.marginTop = "10px"
                 document.getElementById("root").style.pointerEvents = "all"
+                document.getElementById("root").style.touchAction = "auto"
                 document.getElementById("codepgpre").style.pointerEvents = "none"
+                document.getElementById("codepgpre").style.touchAction = "none"
             })
         }, 100)
     }
