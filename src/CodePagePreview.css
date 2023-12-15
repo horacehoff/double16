@@ -29,7 +29,7 @@
     scrollbar-width: none;
     transition: 0.3s all;
     margin-top: 10px;
-    z-index: 2;
+    /*z-index: 2;*/
 }
 
 .codepgpre::-webkit-scrollbar {
