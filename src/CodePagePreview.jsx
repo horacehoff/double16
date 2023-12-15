@@ -8,7 +8,9 @@ export default function CodePagePreview() {
         setTimeout(() => {
             document.getElementById("codepgpre").style.display = "none"
             setTimeout(() => {
-                document.getElementById("codepgpre").children[0].style.marginTop = "20px"
+                document.getElementById("codepgpre").children[0].style.marginTop = "10px"
+                document.getElementById("root").style.pointerEvents = "all"
+                document.getElementById("codepgpre").style.pointerEvents = "none"
             })
         }, 100)
     }

@@ -7,6 +7,8 @@ export default function CodeCard({pkg}) {
         <>
             <Link id="test" to="/" onClick={e => e.preventDefault()}>
                 <div className="codecontainer" onClick={() => {
+                    document.getElementById("root").style.pointerEvents = "none"
+                    document.getElementById("codepgpre").style.pointerEvents = "all"
                     document.getElementById("codepgpre").style.display = "block"
                     setTimeout(() => {
                         document.getElementById("codepgpre").style.opacity = "1"
