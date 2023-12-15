@@ -159,7 +159,7 @@
     }
 
     .codepgpre img {
-        width: calc(90% - 40px);
+        /*width: calc(90% - 40px);*/
     }
 
     .codepgpre-title {
