@@ -154,27 +154,7 @@
 }
 
 @media screen and (max-width: 500px) {
-    .codepgpre {
-        width: 90%;
-    }
-
-    .codepgpre img {
-        width: calc(90% + 5px);
-    }
-
-    .codepgpre-title {
-        width: calc(90% + 5px);
-    }
-
-    .codepgpre-info {
-        width: calc(90% + 5px);
-    }
-
-    .codepgpre-author {
-        width: calc(90% + 5px);
-    }
-
-    .codepgpre-desc {
-        width: calc(90% + 5px);
+    .codepgpre, .codepgpre img, .codepgpre-title, .codepgpre-info, .codepgpre-author, .codepgpre-desc {
+        width: calc(100% - 40px);
     }
 }
