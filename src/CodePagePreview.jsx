@@ -1,6 +1,6 @@
 import "./CodePagePreview.css"
 import {Link} from "react-router-dom";
-import {cpp} from "./Explore.jsx";
+import {cpp} from "./lang.jsx";
 
 export default function CodePagePreview() {
     const ClosePreview = () => {

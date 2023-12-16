@@ -1,0 +1,16 @@
+.pgrmicn {
+    display: inline-block !important;
+    position: relative !important;
+    top: 2px !important;
+    vertical-align: top !important;
+}
+
+.rust {
+    fill: white;
+}
+
+@media (prefers-color-scheme: light) {
+    .rust {
+        fill: black;
+    }
+}
