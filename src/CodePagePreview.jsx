@@ -26,7 +26,28 @@ export default function CodePagePreview() {
                 <div className="codepgpre">
                     <p className="codepgpre-close" onClick={() => ClosePreview()}>{"CLOSE"}</p>
                     <Link className="codepgpre-link action-text" to="/"
-                          onClick={() => document.getElementById("root").style.pointerEvents = "all"}>VIEW MORE</Link>
+                          onClick={() => document.getElementById("root").style.pointerEvents = "all"}>
+                        VIEW MORE
+                        <svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g clipPath="url(#clip0_489_191280)">
+                                <g clipPath="url(#clip1_489_191280)" stroke="currentColor" strokeWidth="2"
+                                   strokeLinecap="round" strokeLinejoin="round">
+                                    <path
+                                        d="M9 20l5.172-5.172c1.333-1.333 2-2 2-2.828 0-.828-.667-1.495-2-2.828L9 4"></path>
+                                    <path
+                                        d="M9 20l5.172-5.172c1.333-1.333 2-2 2-2.828 0-.828-.667-1.495-2-2.828L9 4"></path>
+                                </g>
+                            </g>
+                            <defs>
+                                <clipPath id="clip0_489_191280">
+                                    <path fill="currentColor" d="M0 0H24V24H0z"></path>
+                                </clipPath>
+                                <clipPath id="clip1_489_191280">
+                                    <path fill="currentColor" transform="rotate(90 12 12)" d="M0 0H24V24H0z"></path>
+                                </clipPath>
+                            </defs>
+                        </svg>
+                    </Link>
                     <br/>
                     <img
                         src="https://img.freepik.com/premium-photo/light-background-texture-room-photography-studio-shade-yellow-high-quality-photo_163305-227313.jpg"

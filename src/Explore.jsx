@@ -3,7 +3,7 @@ import {Link} from "react-router-dom";
 import CodeCard from "./CodeCard.jsx";
 import ShortNumber from "short-number"
 import CodePagePreview from "./CodePagePreview.jsx";
-import {go} from "./lang.jsx";
+import {python} from "./lang.jsx";
 
 export default function Explore() {
     // let has_run = false
@@ -48,7 +48,7 @@ export default function Explore() {
         <ul className="pg-section-list">
             <li>
                 <CodeCard pkg={{
-                    lang: go,
+                    lang: python,
                     price: "5",
                     like: ShortNumber(1000),
                     title: "FIBONACCI SEQUENCE CALCULATOR",
@@ -59,6 +59,46 @@ export default function Explore() {
                 }}
                 />
             </li>
+            <li>
+                <CodeCard pkg={{
+                    lang: python,
+                    price: "5",
+                    like: ShortNumber(1000),
+                    title: "FIBONACCI SEQUENCE CALCULATOR",
+                    author: "Just_A_MANGO",
+                    desc: "This code is a function which, given a integer n, returns the fibonacci sequence with n length.V2 : OPTIMIZED THE WHOLE THING AND MADE IT",
+                    char: ShortNumber(1500),
+                    lines: "3000"
+                }}
+                />
+            </li>
+            <li>
+                <CodeCard pkg={{
+                    lang: python,
+                    price: "5",
+                    like: ShortNumber(1000),
+                    title: "FIBONACCI SEQUENCE CALCULATOR",
+                    author: "Just_A_MANGO",
+                    desc: "This code is a function which, given a integer n, returns the fibonacci sequence with n length.V2 : OPTIMIZED THE WHOLE THING AND MADE IT",
+                    char: ShortNumber(1500),
+                    lines: "3000"
+                }}
+                />
+            </li>
+            <li>
+                <CodeCard pkg={{
+                    lang: python,
+                    price: "5",
+                    like: ShortNumber(1000),
+                    title: "FIBONACCI SEQUENCE CALCULATOR",
+                    author: "Just_A_MANGO",
+                    desc: "This code is a function which, given a integer n, returns the fibonacci sequence with n length.V2 : OPTIMIZED THE WHOLE THING AND MADE IT",
+                    char: ShortNumber(1500),
+                    lines: "3000"
+                }}
+                />
+            </li>
+
         </ul>
             <CodePagePreview/>
     </>)
