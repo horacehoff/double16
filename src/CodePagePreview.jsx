@@ -25,7 +25,8 @@ export default function CodePagePreview() {
             }}>
                 <div className="codepgpre">
                     <p className="codepgpre-close" onClick={() => ClosePreview()}>{"CLOSE"}</p>
-                    <Link className="codepgpre-link action-text" to="/">VIEW MORE</Link>
+                    <Link className="codepgpre-link action-text" to="/"
+                          onClick={() => document.getElementById("root").style.pointerEvents = "all"}>VIEW MORE</Link>
                     <br/>
                     <img
                         src="https://img.freepik.com/premium-photo/light-background-texture-room-photography-studio-shade-yellow-high-quality-photo_163305-227313.jpg"
