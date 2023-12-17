@@ -24,7 +24,24 @@ export default function CodePagePreview() {
                 }
             }}>
                 <div className="codepgpre">
-                    <p className="codepgpre-close" onClick={() => ClosePreview()}>{"CLOSE"}</p>
+                    <p className="codepgpre-close" onClick={() => ClosePreview()}>
+
+
+                        {/*{"CLOSE"}*/}
+                        <svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g clipPath="url(#clip0_489_191299)">
+                                <path d="M5 5l14 14m0-14L5 19" stroke="currentColor" strokeWidth="2"
+                                      strokeLinecap="round" strokeLinejoin="round"/>
+                            </g>
+                            <defs>
+                                <clipPath id="clip0_489_191299">
+                                    <path fill="currentColor" d="M0 0H24V24H0z"/>
+                                </clipPath>
+                            </defs>
+                        </svg>
+
+
+                    </p>
                     <Link className="codepgpre-link action-text" to="/"
                           onClick={() => document.getElementById("root").style.pointerEvents = "all"}>
                         VIEW MORE
