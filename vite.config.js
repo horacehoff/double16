@@ -24,11 +24,15 @@ export default defineConfig({
         },
         rollupOptions: {
             output: {
-
                 compact: true,
                 minifyInternalExports: true,
                 sourcemap: false,
+                assetFileNames: (assetInfo) => {
+                    if (assetInfo.name.includes(".css")) return 'index.css';
+                    return assetInfo.name;
+                },
             }
+
         }
     }
 })
