@@ -389,119 +389,119 @@ export const ruby = <>
          width="21.32px" height="19px">
         <linearGradient id="ruby-original-a" gradientUnits="userSpaceOnUse" x1="157.08" y1="2382.05" x2="131.682"
                         y2="2426.892" gradientTransform="matrix(1 0 0 -1 -47.5 2517)">
-            <stop offset="0" stop-color="#FB7655"></stop>
-            <stop offset="0" stop-color="#FB7655"></stop>
-            <stop offset=".41" stop-color="#E42B1E"></stop>
-            <stop offset=".99" stop-color="#900"></stop>
-            <stop offset="1" stop-color="#900"></stop>
+            <stop offset="0" stopColor="#FB7655"></stop>
+            <stop offset="0" stopColor="#FB7655"></stop>
+            <stop offset=".41" stopColor="#E42B1E"></stop>
+            <stop offset=".99" stopColor="#900"></stop>
+            <stop offset="1" stopColor="#900"></stop>
         </linearGradient>
         <path fill="url(#ruby-original-a)" d="M97.078 83.214L28.34 124.031l89.003-6.04 6.855-89.745z"></path>
         <linearGradient id="ruby-original-b" gradientUnits="userSpaceOnUse" x1="169.731" y1="2419.72" x2="136.998"
                         y2="2441.685" gradientTransform="matrix(1 0 0 -1 -47.5 2517)">
-            <stop offset="0" stop-color="#871101"></stop>
-            <stop offset="0" stop-color="#871101"></stop>
-            <stop offset=".99" stop-color="#911209"></stop>
-            <stop offset="1" stop-color="#911209"></stop>
+            <stop offset="0" stopColor="#871101"></stop>
+            <stop offset="0" stopColor="#871101"></stop>
+            <stop offset=".99" stopColor="#911209"></stop>
+            <stop offset="1" stopColor="#911209"></stop>
         </linearGradient>
         <path fill="url(#ruby-original-b)" d="M117.488 117.93l-7.649-52.799-20.837 27.514z"></path>
         <linearGradient id="ruby-original-c" gradientUnits="userSpaceOnUse" x1="143.542" y1="2380.69" x2="110.81"
                         y2="2402.655" gradientTransform="matrix(1 0 0 -1 -47.5 2517)">
-            <stop offset="0" stop-color="#871101"></stop>
-            <stop offset="0" stop-color="#871101"></stop>
-            <stop offset=".99" stop-color="#911209"></stop>
-            <stop offset="1" stop-color="#911209"></stop>
+            <stop offset="0" stopColor="#871101"></stop>
+            <stop offset="0" stopColor="#871101"></stop>
+            <stop offset=".99" stopColor="#911209"></stop>
+            <stop offset="1" stopColor="#911209"></stop>
         </linearGradient>
         <path fill="url(#ruby-original-c)" d="M117.592 117.93l-56.044-4.399-32.91 10.385z"></path>
         <linearGradient id="ruby-original-d" gradientUnits="userSpaceOnUse" x1="74.817" y1="2435.622" x2="79.891"
                         y2="2402.644" gradientTransform="matrix(1 0 0 -1 -47.5 2517)">
-            <stop offset="0" stop-color="#fff"></stop>
-            <stop offset="0" stop-color="#fff"></stop>
-            <stop offset=".23" stop-color="#E57252"></stop>
-            <stop offset=".46" stop-color="#DE3B20"></stop>
-            <stop offset=".99" stop-color="#A60003"></stop>
-            <stop offset="1" stop-color="#A60003"></stop>
+            <stop offset="0" stopColor="#fff"></stop>
+            <stop offset="0" stopColor="#fff"></stop>
+            <stop offset=".23" stopColor="#E57252"></stop>
+            <stop offset=".46" stopColor="#DE3B20"></stop>
+            <stop offset=".99" stopColor="#A60003"></stop>
+            <stop offset="1" stopColor="#A60003"></stop>
         </linearGradient>
         <path fill="url(#ruby-original-d)" d="M28.717 123.928l14.001-45.867-30.81 6.588z"></path>
         <linearGradient id="ruby-original-e" gradientUnits="userSpaceOnUse" x1="109.719" y1="2466.413" x2="111.589"
                         y2="2432.757" gradientTransform="matrix(1 0 0 -1 -47.5 2517)">
-            <stop offset="0" stop-color="#fff"></stop>
-            <stop offset="0" stop-color="#fff"></stop>
-            <stop offset=".23" stop-color="#E4714E"></stop>
-            <stop offset=".56" stop-color="#BE1A0D"></stop>
-            <stop offset=".99" stop-color="#A80D00"></stop>
-            <stop offset="1" stop-color="#A80D00"></stop>
+            <stop offset="0" stopColor="#fff"></stop>
+            <stop offset="0" stopColor="#fff"></stop>
+            <stop offset=".23" stopColor="#E4714E"></stop>
+            <stop offset=".56" stopColor="#BE1A0D"></stop>
+            <stop offset=".99" stopColor="#A80D00"></stop>
+            <stop offset="1" stopColor="#A80D00"></stop>
         </linearGradient>
         <path fill="url(#ruby-original-e)" d="M88.996 92.797l-12.882-50.46-36.866 34.558z"></path>
         <linearGradient id="ruby-original-f" gradientUnits="userSpaceOnUse" x1="140.691" y1="2497.523" x2="146.289"
                         y2="2473.401" gradientTransform="matrix(1 0 0 -1 -47.5 2517)">
-            <stop offset="0" stop-color="#fff"></stop>
-            <stop offset="0" stop-color="#fff"></stop>
-            <stop offset=".18" stop-color="#E46342"></stop>
-            <stop offset=".4" stop-color="#C82410"></stop>
-            <stop offset=".99" stop-color="#A80D00"></stop>
-            <stop offset="1" stop-color="#A80D00"></stop>
+            <stop offset="0" stopColor="#fff"></stop>
+            <stop offset="0" stopColor="#fff"></stop>
+            <stop offset=".18" stopColor="#E46342"></stop>
+            <stop offset=".4" stopColor="#C82410"></stop>
+            <stop offset=".99" stopColor="#A80D00"></stop>
+            <stop offset="1" stopColor="#A80D00"></stop>
         </linearGradient>
         <path fill="url(#ruby-original-f)" d="M121.275 43.047L86.426 14.585l-9.704 31.373z"></path>
         <linearGradient id="ruby-original-g" gradientUnits="userSpaceOnUse" x1="123.6" y1="2506.018" x2="147.719"
                         y2="2518.077" gradientTransform="matrix(1 0 0 -1 -47.5 2517)">
-            <stop offset="0" stop-color="#fff"></stop>
-            <stop offset="0" stop-color="#fff"></stop>
-            <stop offset=".54" stop-color="#C81F11"></stop>
-            <stop offset=".99" stop-color="#BF0905"></stop>
-            <stop offset="1" stop-color="#BF0905"></stop>
+            <stop offset="0" stopColor="#fff"></stop>
+            <stop offset="0" stopColor="#fff"></stop>
+            <stop offset=".54" stopColor="#C81F11"></stop>
+            <stop offset=".99" stopColor="#BF0905"></stop>
+            <stop offset="1" stopColor="#BF0905"></stop>
         </linearGradient>
         <path fill="url(#ruby-original-g)" d="M104.978 4.437L84.481 15.764 71.551 4.285z"></path>
         <linearGradient id="ruby-original-h" gradientUnits="userSpaceOnUse" x1="53.674" y1="2444.028" x2="55.66"
                         y2="2424.153" gradientTransform="matrix(1 0 0 -1 -47.5 2517)">
-            <stop offset="0" stop-color="#fff"></stop>
-            <stop offset="0" stop-color="#fff"></stop>
-            <stop offset=".31" stop-color="#DE4024"></stop>
-            <stop offset=".99" stop-color="#BF190B"></stop>
-            <stop offset="1" stop-color="#BF190B"></stop>
+            <stop offset="0" stopColor="#fff"></stop>
+            <stop offset="0" stopColor="#fff"></stop>
+            <stop offset=".31" stopColor="#DE4024"></stop>
+            <stop offset=".99" stopColor="#BF190B"></stop>
+            <stop offset="1" stopColor="#BF190B"></stop>
         </linearGradient>
         <path fill="url(#ruby-original-h)" d="M3.802 100.034l8.586-15.659L5.442 65.72z"></path>
         <path fill="#fff"
               d="M4.981 65.131l6.987 19.821 30.365-6.812L77 45.922l9.783-31.075L71.38 3.969l-26.19 9.802c-8.252 7.675-24.263 22.86-24.84 23.146-.573.291-10.575 19.195-15.369 28.214z"></path>
         <linearGradient id="ruby-original-i" gradientUnits="userSpaceOnUse" x1="40.026" y1="2418.781" x2="133.345"
                         y2="2514.739" gradientTransform="matrix(1 0 0 -1 -47.5 2517)">
-            <stop offset="0" stop-color="#BD0012"></stop>
-            <stop offset="0" stop-color="#BD0012"></stop>
-            <stop offset=".07" stop-color="#fff"></stop>
-            <stop offset=".17" stop-color="#fff"></stop>
-            <stop offset=".27" stop-color="#C82F1C"></stop>
-            <stop offset=".33" stop-color="#820C01"></stop>
-            <stop offset=".46" stop-color="#A31601"></stop>
-            <stop offset=".72" stop-color="#B31301"></stop>
-            <stop offset=".99" stop-color="#E82609"></stop>
-            <stop offset="1" stop-color="#E82609"></stop>
+            <stop offset="0" stopColor="#BD0012"></stop>
+            <stop offset="0" stopColor="#BD0012"></stop>
+            <stop offset=".07" stopColor="#fff"></stop>
+            <stop offset=".17" stopColor="#fff"></stop>
+            <stop offset=".27" stopColor="#C82F1C"></stop>
+            <stop offset=".33" stopColor="#820C01"></stop>
+            <stop offset=".46" stopColor="#A31601"></stop>
+            <stop offset=".72" stopColor="#B31301"></stop>
+            <stop offset=".99" stopColor="#E82609"></stop>
+            <stop offset="1" stopColor="#E82609"></stop>
         </linearGradient>
         <path fill="url(#ruby-original-i)"
               d="M29.519 29.521c17.882-17.73 40.937-28.207 49.785-19.28 8.843 8.926-.534 30.62-18.418 48.345-17.884 17.725-40.653 28.779-49.493 19.852-8.849-8.92.242-31.191 18.126-48.917z"></path>
         <linearGradient id="ruby-original-j" gradientUnits="userSpaceOnUse" x1="111.507" y1="2409.102" x2="83.398"
                         y2="2416.039" gradientTransform="matrix(1 0 0 -1 -47.5 2517)">
-            <stop offset="0" stop-color="#8C0C01"></stop>
-            <stop offset="0" stop-color="#8C0C01"></stop>
-            <stop offset=".54" stop-color="#990C00"></stop>
-            <stop offset=".99" stop-color="#A80D0E"></stop>
-            <stop offset="1" stop-color="#A80D0E"></stop>
+            <stop offset="0" stopColor="#8C0C01"></stop>
+            <stop offset="0" stopColor="#8C0C01"></stop>
+            <stop offset=".54" stopColor="#990C00"></stop>
+            <stop offset=".99" stopColor="#A80D0E"></stop>
+            <stop offset="1" stopColor="#A80D0E"></stop>
         </linearGradient>
         <path fill="url(#ruby-original-j)"
               d="M28.717 123.909l13.89-46.012 46.135 14.82c-16.68 15.642-35.233 28.865-60.025 31.192z"></path>
         <linearGradient id="ruby-original-k" gradientUnits="userSpaceOnUse" x1="159.785" y1="2442.837" x2="134.814"
                         y2="2465.217" gradientTransform="matrix(1 0 0 -1 -47.5 2517)">
-            <stop offset="0" stop-color="#7E110B"></stop>
-            <stop offset="0" stop-color="#7E110B"></stop>
-            <stop offset=".99" stop-color="#9E0C00"></stop>
-            <stop offset="1" stop-color="#9E0C00"></stop>
+            <stop offset="0" stopColor="#7E110B"></stop>
+            <stop offset="0" stopColor="#7E110B"></stop>
+            <stop offset=".99" stopColor="#9E0C00"></stop>
+            <stop offset="1" stopColor="#9E0C00"></stop>
         </linearGradient>
         <path fill="url(#ruby-original-k)"
               d="M77.062 45.831l11.844 46.911c13.934-14.65 26.439-30.401 32.563-49.883l-44.407 2.972z"></path>
         <linearGradient id="ruby-original-l" gradientUnits="userSpaceOnUse" x1="168.959" y1="2483.901" x2="156.521"
                         y2="2497.199" gradientTransform="matrix(1 0 0 -1 -47.5 2517)">
-            <stop offset="0" stop-color="#79130D"></stop>
-            <stop offset="0" stop-color="#79130D"></stop>
-            <stop offset=".99" stop-color="#9E120B"></stop>
-            <stop offset="1" stop-color="#9E120B"></stop>
+            <stop offset="0" stopColor="#79130D"></stop>
+            <stop offset="0" stopColor="#79130D"></stop>
+            <stop offset=".99" stopColor="#9E120B"></stop>
+            <stop offset="1" stopColor="#9E120B"></stop>
         </linearGradient>
         <path fill="url(#ruby-original-l)"
               d="M121.348 43.097c4.74-14.305 5.833-34.825-16.517-38.635l-18.339 10.13 34.856 28.505z"></path>
@@ -509,42 +509,65 @@ export const ruby = <>
               d="M3.802 99.828c.656 23.608 17.689 23.959 24.945 24.167l-16.759-39.14-8.186 14.973z"></path>
         <radialGradient id="ruby-original-m" cx="138.703" cy="2464.789" r="30.601"
                         gradientTransform="matrix(1 0 0 -1 -47.5 2517)" gradientUnits="userSpaceOnUse">
-            <stop offset="0" stop-color="#A80D00"></stop>
-            <stop offset="0" stop-color="#A80D00"></stop>
-            <stop offset=".99" stop-color="#7E0E08"></stop>
-            <stop offset="1" stop-color="#7E0E08"></stop>
+            <stop offset="0" stopColor="#A80D00"></stop>
+            <stop offset="0" stopColor="#A80D00"></stop>
+            <stop offset=".99" stopColor="#7E0E08"></stop>
+            <stop offset="1" stopColor="#7E0E08"></stop>
         </radialGradient>
         <path fill="url(#ruby-original-m)"
               d="M77.128 45.904c10.708 6.581 32.286 19.798 32.723 20.041.68.383 9.304-14.542 11.261-22.976l-43.984 2.935z"></path>
         <radialGradient id="ruby-original-n" cx="96.325" cy="2424.465" r="40.679"
                         gradientTransform="matrix(1 0 0 -1 -47.5 2517)" gradientUnits="userSpaceOnUse">
-            <stop offset="0" stop-color="#A30C00"></stop>
-            <stop offset="0" stop-color="#A30C00"></stop>
-            <stop offset=".99" stop-color="#800E08"></stop>
-            <stop offset="1" stop-color="#800E08"></stop>
+            <stop offset="0" stopColor="#A30C00"></stop>
+            <stop offset="0" stopColor="#A30C00"></stop>
+            <stop offset=".99" stopColor="#800E08"></stop>
+            <stop offset="1" stopColor="#800E08"></stop>
         </radialGradient>
         <path fill="url(#ruby-original-n)"
               d="M42.589 77.897l18.57 35.828c10.98-5.955 19.579-13.211 27.454-20.983L42.589 77.897z"></path>
         <linearGradient id="ruby-original-o" gradientUnits="userSpaceOnUse" x1="67.509" y1="2393.115" x2="57.373"
                         y2="2427.506" gradientTransform="matrix(1 0 0 -1 -47.5 2517)">
-            <stop offset="0" stop-color="#8B2114"></stop>
-            <stop offset="0" stop-color="#8B2114"></stop>
-            <stop offset=".43" stop-color="#9E100A"></stop>
-            <stop offset=".99" stop-color="#B3100C"></stop>
-            <stop offset="1" stop-color="#B3100C"></stop>
+            <stop offset="0" stopColor="#8B2114"></stop>
+            <stop offset="0" stopColor="#8B2114"></stop>
+            <stop offset=".43" stopColor="#9E100A"></stop>
+            <stop offset=".99" stopColor="#B3100C"></stop>
+            <stop offset="1" stopColor="#B3100C"></stop>
         </linearGradient>
         <path fill="url(#ruby-original-o)"
               d="M11.914 84.904l-2.631 31.331c4.964 6.781 11.794 7.371 18.96 6.842-5.184-12.9-15.538-38.696-16.329-38.173z"></path>
         <linearGradient id="ruby-original-p" gradientUnits="userSpaceOnUse" x1="145.272" y1="2507.076" x2="167.996"
                         y2="2497.045" gradientTransform="matrix(1 0 0 -1 -47.5 2517)">
-            <stop offset="0" stop-color="#B31000"></stop>
-            <stop offset="0" stop-color="#B31000"></stop>
-            <stop offset=".44" stop-color="#910F08"></stop>
-            <stop offset=".99" stop-color="#791C12"></stop>
-            <stop offset="1" stop-color="#791C12"></stop>
+            <stop offset="0" stopColor="#B31000"></stop>
+            <stop offset="0" stopColor="#B31000"></stop>
+            <stop offset=".44" stopColor="#910F08"></stop>
+            <stop offset=".99" stopColor="#791C12"></stop>
+            <stop offset="1" stopColor="#791C12"></stop>
         </linearGradient>
         <path fill="url(#ruby-original-p)"
               d="M86.384 14.67l36.891 5.177c-1.969-8.343-8.015-13.727-18.32-15.41L86.384 14.67z"></path>
     </svg>
     <span style={{display: "inline-block"}}>Ruby</span>
+</>
+
+
+export const ts = <>
+    <svg viewBox="0 0 128 128"
+         className="pgrmicn"
+         width="21.32px" height="19px">
+        <path fill="#fff" d="M22.67 47h99.67v73.67H22.67z"></path>
+        <path data-name="original" fill="#007acc"
+              d="M1.5 63.91v62.5h125v-125H1.5zm100.73-5a15.56 15.56 0 017.82 4.5 20.58 20.58 0 013 4c0 .16-5.4 3.81-8.69 5.85-.12.08-.6-.44-1.13-1.23a7.09 7.09 0 00-5.87-3.53c-3.79-.26-6.23 1.73-6.21 5a4.58 4.58 0 00.54 2.34c.83 1.73 2.38 2.76 7.24 4.86 8.95 3.85 12.78 6.39 15.16 10 2.66 4 3.25 10.46 1.45 15.24-2 5.2-6.9 8.73-13.83 9.9a38.32 38.32 0 01-9.52-.1 23 23 0 01-12.72-6.63c-1.15-1.27-3.39-4.58-3.25-4.82a9.34 9.34 0 011.15-.73L82 101l3.59-2.08.75 1.11a16.78 16.78 0 004.74 4.54c4 2.1 9.46 1.81 12.16-.62a5.43 5.43 0 00.69-6.92c-1-1.39-3-2.56-8.59-5-6.45-2.78-9.23-4.5-11.77-7.24a16.48 16.48 0 01-3.43-6.25 25 25 0 01-.22-8c1.33-6.23 6-10.58 12.82-11.87a31.66 31.66 0 019.49.26zm-29.34 5.24v5.12H56.66v46.23H45.15V69.26H28.88v-5a49.19 49.19 0 01.12-5.17C29.08 59 39 59 51 59h21.83z"></path>
+    </svg>
+    <span style={{display: "inline-block"}}>TypeScript</span>
+</>
+
+export const bash = <>
+    <svg viewBox="0 0 128 128"
+         className="pgrmicn"
+         width="21.32px" height="19px">
+        <path fill="none" d="M-143.76 4.24h119.53v119.53h-119.53z"></path>
+        <path className="bash" clipPath=""
+              d="M109.01 28.64L71.28 6.24c-2.25-1.33-4.77-2-7.28-2s-5.03.67-7.28 2.01l-37.74 22.4c-4.5 2.67-7.28 7.61-7.28 12.96v44.8c0 5.35 2.77 10.29 7.28 12.96l37.73 22.4c2.25 1.34 4.76 2 7.28 2 2.51 0 5.03-.67 7.28-2l37.74-22.4c4.5-2.67 7.28-7.62 7.28-12.96V41.6c0-5.34-2.77-10.29-7.28-12.96zM79.79 98.59l.06 3.22c0 .39-.25.83-.55.99l-1.91 1.1c-.3.15-.56-.03-.56-.42l-.03-3.17c-1.63.68-3.29.84-4.34.42-.2-.08-.29-.37-.21-.71l.69-2.91c.06-.23.18-.46.34-.6.06-.06.12-.1.18-.13.11-.06.22-.07.31-.03 1.14.38 2.59.2 3.99-.5 1.78-.9 2.97-2.72 2.95-4.52-.02-1.64-.9-2.31-3.05-2.33-2.74.01-5.3-.53-5.34-4.57-.03-3.32 1.69-6.78 4.43-8.96l-.03-3.25c0-.4.24-.84.55-1l1.85-1.18c.3-.15.56.04.56.43l.03 3.25c1.36-.54 2.54-.69 3.61-.44.23.06.34.38.24.75l-.72 2.88c-.06.22-.18.44-.33.58a.77.77 0 01-.19.14c-.1.05-.19.06-.28.05-.49-.11-1.65-.36-3.48.56-1.92.97-2.59 2.64-2.58 3.88.02 1.48.77 1.93 3.39 1.97 3.49.06 4.99 1.58 5.03 5.09.05 3.44-1.79 7.15-4.61 9.41zm19.78-5.41c0 .3-.04.58-.29.72l-9.54 5.8c-.25.15-.45.02-.45-.28v-2.46c0-.3.18-.46.43-.61l9.4-5.62c.25-.15.45-.02.45.28v2.17zm6.56-55.09l-35.7 22.05c-4.45 2.6-7.73 5.52-7.74 10.89v43.99c0 3.21 1.3 5.29 3.29 5.9-.65.11-1.32.19-1.98.19-2.09 0-4.15-.57-5.96-1.64l-37.73-22.4c-3.69-2.19-5.98-6.28-5.98-10.67V41.6c0-4.39 2.29-8.48 5.98-10.67l37.74-22.4c1.81-1.07 3.87-1.64 5.96-1.64s4.15.57 5.96 1.64l37.74 22.4c3.11 1.85 5.21 5.04 5.8 8.63-1.27-2.67-4.09-3.39-7.38-1.47z"></path>
+    </svg>
+    <span style={{display: "inline-block"}}>Bash</span>
 </>

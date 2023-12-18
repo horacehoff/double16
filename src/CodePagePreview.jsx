@@ -1,6 +1,6 @@
 import "./CodePagePreview.css"
 import {Link} from "react-router-dom";
-import {cpp} from "./lang.jsx";
+import {rust} from "./lang.jsx";
 
 export default function CodePagePreview() {
     const ClosePreview = () => {
@@ -27,18 +27,18 @@ export default function CodePagePreview() {
                     <p className="codepgpre-close" onClick={() => ClosePreview()}>
 
 
-                        {/*{"CLOSE"}*/}
-                        <svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <g clipPath="url(#clip0_489_191299)">
-                                <path d="M5 5l14 14m0-14L5 19" stroke="currentColor" strokeWidth="2"
-                                      strokeLinecap="round" strokeLinejoin="round"/>
-                            </g>
-                            <defs>
-                                <clipPath id="clip0_489_191299">
-                                    <path fill="currentColor" d="M0 0H24V24H0z"/>
-                                </clipPath>
-                            </defs>
-                        </svg>
+                        {"CLOSE"}
+                        {/*<svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg">*/}
+                        {/*    <g clipPath="url(#clip0_489_191299)">*/}
+                        {/*        <path d="M5 5l14 14m0-14L5 19" stroke="currentColor" strokeWidth="2"*/}
+                        {/*              strokeLinecap="round" strokeLinejoin="round"/>*/}
+                        {/*    </g>*/}
+                        {/*    <defs>*/}
+                        {/*        <clipPath id="clip0_489_191299">*/}
+                        {/*            <path fill="currentColor" d="M0 0H24V24H0z"/>*/}
+                        {/*        </clipPath>*/}
+                        {/*    </defs>*/}
+                        {/*</svg>*/}
 
 
                     </p>
@@ -70,7 +70,7 @@ export default function CodePagePreview() {
                         src="https://img.freepik.com/premium-photo/light-background-texture-room-photography-studio-shade-yellow-high-quality-photo_163305-227313.jpg"
                         alt="Banner"/>
                     <h2 className="codepgpre-title">FIBONACCI SEQUENCE CALCULATOR</h2>
-                    <h3 className="codepgpre-info">💵 5$ <span className="codepgpre-infosep">-</span> {cpp} <span
+                    <h3 className="codepgpre-info">💵 5$ <span className="codepgpre-infosep">-</span> {rust} <span
                         className="codepgpre-infosep">-</span> 👍 1K <span className="codepgpre-infosep">-</span> 👎
                         5K <span className="codepgpre-infosep">-</span> 150000 char.</h3>
                     <h4 className="codepgpre-author">by <span>JuTS-A_MANGO</span></h4>

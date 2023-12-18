@@ -3,7 +3,7 @@ import {Link} from "react-router-dom";
 import CodeCard from "./CodeCard.jsx";
 import ShortNumber from "short-number"
 import CodePagePreview from "./CodePagePreview.jsx";
-import {python} from "./lang.jsx";
+import {bash, python} from "./lang.jsx";
 
 export default function Explore() {
     // let has_run = false
@@ -61,7 +61,7 @@ export default function Explore() {
             </li>
             <li>
                 <CodeCard pkg={{
-                    lang: python,
+                    lang: bash,
                     price: "5",
                     like: ShortNumber(1000),
                     title: "FIBONACCI SEQUENCE CALCULATOR",

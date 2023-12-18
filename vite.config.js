@@ -6,6 +6,9 @@ import svgr from "vite-plugin-svgr";
 // https://vitejs.dev/config/
 export default defineConfig({
     plugins: [react(), svgr()],
+    optimizeDeps: {
+        force: true
+    },
     build: {
         cssMinify: "lightningcss",
         sourcemap: false,
@@ -27,12 +30,7 @@ export default defineConfig({
                 compact: true,
                 minifyInternalExports: true,
                 sourcemap: false,
-                assetFileNames: (assetInfo) => {
-                    if (assetInfo.name.includes(".css")) return 'index.css';
-                    return assetInfo.name;
-                },
             }
-
         }
     }
 })

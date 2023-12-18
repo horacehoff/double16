@@ -9,8 +9,17 @@
     fill: white;
 }
 
+.bash {
+    fill: white;
+    shape-rendering: geometricPrecision !important;
+}
+
 @media (prefers-color-scheme: light) {
     .rust {
         fill: black;
+    }
+
+    .bash {
+        fill: #293138;
     }
 }
