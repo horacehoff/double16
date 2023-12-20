@@ -6,7 +6,7 @@ export default function CodePage() {
         <>
             <div className="codepgpre codepg">
                 <img
-                    src="https://img.freepik.com/premium-photo/light-background-texture-room-photography-studio-shade-yellow-high-quality-photo_163305-227313.jpg"
+                    src="https://www.codingcreativo.it/wp-content/uploads/2022/10/fibonacci-sequence-in-python.jpg"
                     alt="Banner" className="codepg-img"/>
                 <div className="codepg-btngp">
                     <button className="primary">🛒 BUY FOR 5$</button>
@@ -17,6 +17,7 @@ export default function CodePage() {
                 <h3 className="codepgpre-info">💵 5$ <span className="codepgpre-infosep">-</span> {rust} <span
                     className="codepgpre-infosep">-</span> 👍 1K <span className="codepgpre-infosep">-</span> 👎
                     5K <span className="codepgpre-infosep">-</span> 150000 char.</h3>
+                <h3 className="codepgpre-info">⏰ UPDATED 2H AGO</h3>
                 <h4 className="codepgpre-author">by <span>JuTS-A_MANGO</span></h4>
                 <p className="codepgpre-desc">trm-engine is a game engine designed to run in the terminal, providing
                     a simple and lightweight platform for developing terminal-based games.
