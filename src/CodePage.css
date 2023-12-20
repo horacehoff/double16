@@ -1,7 +1,8 @@
 .codepg {
     border: revert;
     background: revert;
-    height: 85dvh;
+    height: 90dvh;
+    top: 52%;
 }
 
 .codepg-btngp {
