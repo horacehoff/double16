@@ -1,0 +1,181 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    appearance: none;
+    -webkit-appearance: none;
+    color: inherit;
+    text-decoration: inherit;
+}
+
+
+select {
+    font-family: JetBrains Mono, monospace;
+    font-size: 13px;
+    border-radius: 8px;
+    border: 1px solid var(--select-border);
+    backdrop-filter: blur(50px);
+    appearance: none;
+    -webkit-appearance: none;
+    padding: 9px 31px 9px 13px;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-image: var(--select-bg);
+    background-position: 93% center;
+    background-size: 15px;
+    transition: 0.2s;
+    cursor: pointer;
+    color: var(--color);
+}
+
+@media (hover: hover) and (pointer: fine) {
+    select:hover {
+        background-color: var(--select-bg-hover);
+    }
+}
+
+select:focus {
+    outline: 0;
+    background-color: var(--select-bg-focus);
+}
+
+
+button.action {
+    padding: 9px 19px;
+    border-radius: 10px;
+    border: solid 1px var(--button-action-border);
+    backdrop-filter: blur(100px);
+    -webkit-backdrop-filter: blur(100px);
+    font-family: JetBrains Mono, monospace;
+    font-size: 13px;
+    font-weight: 500;
+    background: none;
+    cursor: pointer;
+    transition: 0.2s;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    color: var(--color);
+}
+
+@media (hover: hover) and (pointer: fine) {
+    button.action {
+        padding: 12px 19px;
+    }
+
+    button.action:hover {
+        background: var(--button-action-bg-hover);
+    }
+}
+
+button.action:active {
+    border-color: var(--button-action-border-active);
+    background: var(--button-action-bg-active);
+}
+
+
+.action-text {
+    font-family: JetBrains Mono, monospace;
+    color: var(--action-text-color);
+    transition: 0.2s;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 15px;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .action-text:hover {
+        color: var(--action-text-hover-color);
+    }
+}
+
+
+.action-text:active {
+    color: var(--action-text-active-color);
+}
+
+button.accent {
+    border-radius: 7px;
+    border: solid 1px var(--button-accent-border);
+    background: var(--button-accent-bg);
+    padding: 10px 22px;
+    font-family: JetBrains Mono, monospace;
+    font-size: 14px;
+    font-weight: 700;
+    transition: 0.25s;
+    cursor: pointer;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    color: var(--color);
+
+}
+
+@media (hover: hover) and (pointer: fine) {
+    button.accent:hover {
+        background: var(--button-accent-bg-hover);
+    }
+}
+
+button.accent:active {
+    border-color: var(--button-accent-border-active);
+    background: var(--button-accent-bg-active)
+}
+
+
+button.primary {
+    border-radius: 7px;
+    background-color: var(--button-primary-bg);
+    outline: 0;
+    border: 0;
+    color: var(--button-primary-color);
+    font-family: JetBrains Mono, monospace;
+    font-size: 14px;
+    font-weight: 700;
+    padding: 10px 22px;
+    cursor: pointer;
+    transition: 0.25s;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+@media (hover: hover) and (pointer: fine) {
+    button.primary:hover {
+        background-color: var(--button-primary-bg-hover);
+        color: var(--button-primary-color-hover);
+    }
+}
+
+button.primary:active {
+    background-color: var(--button-primary-bg-active);
+}
+
+
+input[type=text], input[type=email], input[type=password] {
+    width: 300px;
+    height: 36px;
+    border-radius: 9px;
+    border: 1px solid var(--input-border);
+    background: var(--input-bg);
+    font-family: JetBrains Mono, monospace;
+    font-size: 15px;
+    font-weight: 400;
+    transition: 0.15s;
+    padding-left: 15px;
+    padding-top: 0;
+    padding-bottom: 0;
+    outline: 0;
+}
+
+input[type=text]::placeholder, input[type=email]::placeholder, input[type=password]::placeholder {
+    color: var(--input-placeholder);
+}
+
+@media (hover: hover) and (pointer: fine) {
+    input[type=text]:hover, input[type=email]:hover, input[type=password]:hover {
+        background: var(--input-bg-hover);
+    }
+}
+
+input[type=text]:focus, input[type=email]:focus, input[type=password]:focus {
+    border-color: var(--input-border-focus);
+    outline: 0;
+    background: var(--input-bg);
+}

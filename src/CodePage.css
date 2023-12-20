@@ -1,0 +1,38 @@
+.codepg {
+    border: revert;
+    background: revert;
+}
+
+.codepg-btngp {
+    position: relative;
+    width: calc(450px - 40px);
+    left: 20px;
+    overflow: scroll;
+    white-space: nowrap;
+    -ms-overflow-style: none;
+}
+
+.codepg-btngp::-webkit-scrollbar {
+    display: none;
+}
+
+.codepg-btngp button:not(:first-child) {
+    margin-left: 10px;
+}
+
+.emojifix {
+    font-family: "Twemoji Mozilla",
+    "Apple Color Emoji",
+    "Segoe UI Emoji",
+    "Segoe UI Symbol",
+    "Noto Color Emoji",
+    "EmojiOne Color",
+    "Android Emoji",
+    sans-serif !important;
+}
+
+@media screen and (max-width: 500px) {
+    .codepg-btngp {
+        width: calc(100% - 40px);
+    }
+}
