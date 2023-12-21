@@ -192,11 +192,11 @@
 .codepg-btngp button {
     padding-top: 8px !important;
     padding-bottom: 8px !important;
+    -webkit-tap-highlight-color: initial !important;
 }
 
 .codepg-btngp button:active {
     background-color: var(--button-primary-bg) !important;
-    -webkit-tap-highlight-color: initial !important;
 }
 
 @media (hover: hover) and (pointer: fine) {
