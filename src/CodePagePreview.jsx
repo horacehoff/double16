@@ -42,7 +42,7 @@ export default function CodePagePreview() {
 
 
                     </p>
-                    <Link className="codepgpre-link action-text" to="/"
+                    <Link className="codepgpre-link action-text" to="/code"
                           onClick={() => document.getElementById("root").style.pointerEvents = "all"}>
                         VIEW MORE
                         <svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg">
