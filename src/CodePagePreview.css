@@ -194,7 +194,7 @@
     padding-bottom: 8px !important;
 }
 
-@media not (hover: hover) not (pointer: fine) {
+@media (hover: hover) and (pointer: fine) {
     .codepg-btngp button {
         padding-top: 10px !important;
         padding-bottom: 10px !important;
