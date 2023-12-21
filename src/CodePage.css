@@ -33,6 +33,11 @@
     sans-serif !important;
 }
 
+.codepg-update {
+    position: relative;
+    margin-top: 5px;
+}
+
 @media screen and (max-width: 500px) {
     .codepg-btngp {
         width: calc(100% - 40px);
