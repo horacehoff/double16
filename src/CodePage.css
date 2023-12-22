@@ -43,3 +43,24 @@
         width: calc(100% - 40px);
     }
 }
+
+.codepg-btngp button {
+    padding-top: 8px !important;
+    padding-bottom: 8px !important;
+    -webkit-tap-highlight-color: initial !important;
+}
+
+.codepg-btngp button:active {
+    background-color: var(--button-primary-bg) !important;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .codepg-btngp button {
+        padding-top: 10px !important;
+        padding-bottom: 10px !important;
+    }
+
+    .codepg-btngp button:active {
+        background-color: var(--button-primary-bg-active) !important;
+    }
+}
