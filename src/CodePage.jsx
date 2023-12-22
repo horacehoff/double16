@@ -5,6 +5,10 @@ import {useId, useState} from "react";
 export default function CodePage() {
     const favoritebtn = useId()
     const [isFavorite, setIsFavorite] = useState(false)
+
+    function changeFavorite() {
+
+    }
     return (
         <>
             <div className="codepgpre codepg">
@@ -15,6 +19,22 @@ export default function CodePage() {
                     <button className="primary">🛒 BUY FOR 5$</button>
                     <button className="primary">⭐️ RATE</button>
                     <button className="primary" id={favoritebtn} onClick={() => {
+                        if (!isFavorite) {
+                            document.getElementById(favoritebtn).style.color = "transparent"
+                            setTimeout(() => {
+                                document.getElementById(favoritebtn).innerHTML = "<span class='emojifix'>❤️</span>️ UN-FAVORITE"
+                                document.getElementById(favoritebtn).style.color = null
+                            }, 250)
+                            setIsFavorite(true)
+                        } else {
+                            document.getElementById(favoritebtn).style.color = "transparent"
+                            setTimeout(() => {
+                                document.getElementById(favoritebtn).innerHTML = "<span class='emojifix'>❤️</span>️ FAVORITE"
+                                document.getElementById(favoritebtn).style.color = null
+                            }, 250)
+                            setIsFavorite(false)
+                        }
+                    }} onTouchStart={() => {
                         if (!isFavorite) {
                             document.getElementById(favoritebtn).style.color = "transparent"
                             setTimeout(() => {
