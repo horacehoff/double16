@@ -34,22 +34,6 @@ export default function CodePage() {
                             }, 250)
                             setIsFavorite(false)
                         }
-                    }} onTouchStart={() => {
-                        if (!isFavorite) {
-                            document.getElementById(favoritebtn).style.color = "transparent"
-                            setTimeout(() => {
-                                document.getElementById(favoritebtn).innerHTML = "<span class='emojifix'>❤️</span>️ UN-FAVORITE"
-                                document.getElementById(favoritebtn).style.color = null
-                            }, 250)
-                            setIsFavorite(true)
-                        } else {
-                            document.getElementById(favoritebtn).style.color = "transparent"
-                            setTimeout(() => {
-                                document.getElementById(favoritebtn).innerHTML = "<span class='emojifix'>❤️</span>️ FAVORITE"
-                                document.getElementById(favoritebtn).style.color = null
-                            }, 250)
-                            setIsFavorite(false)
-                        }
                     }}><span className="emojifix">❤️</span>️ FAVORITE
                     </button>
                 </div>
