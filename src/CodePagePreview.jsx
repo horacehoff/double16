@@ -2,46 +2,30 @@ import "./CodePagePreview.css"
 import {Link} from "react-router-dom";
 import {rust} from "./lang.jsx";
 
-export default function CodePagePreview() {
-    const ClosePreview = () => {
-        document.getElementById("codepgpre").style.opacity = "0"
+
+export function ClosePreview(id) {
+    document.getElementById(id).style.opacity = "0"
+    setTimeout(() => {
+        document.getElementById(id).style.display = "none"
         setTimeout(() => {
-            document.getElementById("codepgpre").style.display = "none"
-            setTimeout(() => {
-                document.getElementById("codepgpre").children[0].style.marginTop = "10px"
-                document.getElementById("root").style.pointerEvents = "all"
-                document.getElementById("root").style.touchAction = "auto"
-                document.getElementById("codepgpre").style.pointerEvents = "none"
-                document.getElementById("codepgpre").style.touchAction = "none"
-            })
-        }, 100)
-    }
+            document.getElementById(id).children[0].style.marginTop = "10px"
+            document.getElementById("root").style.pointerEvents = "all"
+            document.getElementById("root").style.touchAction = "auto"
+            document.getElementById(id).style.pointerEvents = "none"
+            document.getElementById(id).style.touchAction = "none"
+        })
+    }, 100)
+}
+export default function CodePagePreview() {
     return (
         <>
             <div className="codepgpre-bg" id="codepgpre" onClick={e => {
                 if (e.target === e.currentTarget) {
-                    ClosePreview()
+                    ClosePreview("codepgpre")
                 }
             }}>
                 <div className="codepgpre">
-                    <p className="codepgpre-close" onClick={() => ClosePreview()}>
-
-
-                        {"CLOSE"}
-                        {/*<svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg">*/}
-                        {/*    <g clipPath="url(#clip0_489_191299)">*/}
-                        {/*        <path d="M5 5l14 14m0-14L5 19" stroke="currentColor" strokeWidth="2"*/}
-                        {/*              strokeLinecap="round" strokeLinejoin="round"/>*/}
-                        {/*    </g>*/}
-                        {/*    <defs>*/}
-                        {/*        <clipPath id="clip0_489_191299">*/}
-                        {/*            <path fill="currentColor" d="M0 0H24V24H0z"/>*/}
-                        {/*        </clipPath>*/}
-                        {/*    </defs>*/}
-                        {/*</svg>*/}
-
-
-                    </p>
+                    <p className="codepgpre-close" onClick={() => ClosePreview("codepgpre")}>CLOSE</p>
                     <Link className="codepgpre-link action-text" to="/code"
                           onClick={() => document.getElementById("root").style.pointerEvents = "all"}>
                         VIEW MORE

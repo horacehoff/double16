@@ -73,3 +73,28 @@
         background-color: var(--button-primary-bg-active) !important;
     }
 }
+
+.codepg-ratepop {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    overflow: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    transition: 0.3s all;
+    margin-top: 10px;
+    width: 330px;
+    height: 185px;
+    border-radius: 21px;
+    background: rgba(40, 40, 42, 0.9);
+    text-align: center;
+}
+
+.codepg-ratepop h3 {
+    font-size: 30px;
+}
+
+.codepg-ratepop button:last-child {
+    margin-left: 15px;
+}

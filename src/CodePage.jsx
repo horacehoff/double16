@@ -1,14 +1,13 @@
 import "./CodePage.css"
 import {rust} from "./lang.jsx";
 import {useId, useState} from "react";
+import {ClosePreview} from "./CodePagePreview.jsx";
 
 export default function CodePage() {
     const favoritebtn = useId()
     const [isFavorite, setIsFavorite] = useState(false)
 
-    function changeFavorite() {
-
-    }
+    const ratepopup = useId()
     return (
         <>
             <div className="codepgpre codepg">
@@ -17,7 +16,21 @@ export default function CodePage() {
                     alt="Banner" className="codepg-img"/>
                 <div className="codepg-btngp">
                     <button className="primary">🛒 BUY FOR 5$</button>
-                    <button className="primary">⭐️ RATE</button>
+                    <button className="primary" onClick={() => {
+                        document.getElementById("root").style.pointerEvents = "none"
+                        document.getElementById("root").style.touchAction = "none"
+                        document.getElementById(ratepopup).style.pointerEvents = "all"
+                        document.getElementById(ratepopup).style.touchAction = "auto"
+                        document.getElementById(ratepopup).style.display = "block"
+                        setTimeout(() => {
+                            document.getElementById(ratepopup).style.opacity = "1"
+                        }, 1)
+                        let childdiv = document.getElementById(ratepopup).children[0]
+                        setTimeout(() => {
+                            childdiv.style.marginTop = "0"
+                        }, 1)
+                    }}>⭐️ RATE
+                    </button>
                     <button className="primary " id={favoritebtn} onClick={() => {
                         if (!isFavorite) {
                             document.getElementById(favoritebtn).style.color = "transparent"
@@ -55,6 +68,25 @@ export default function CodePage() {
                     trm-engine provides a simple and flexible platform for creating games in the terminal, making it
                     ideal for hobbyist game developers or those looking to learn game development concepts in a
                     lightweight and accessible manner.</p>
+            </div>
+            <div className="codepgpre-bg" id={ratepopup} onClick={e => {
+                if (e.target === e.currentTarget) {
+                    ClosePreview(ratepopup)
+                }
+            }}>
+                <div className="codepg-ratepop">
+                    <h3>RATE</h3>
+                    <button className="primary" onClick={() => {
+                        // like method
+                        ClosePreview(ratepopup)
+                    }}>👍 LIKE
+                    </button>
+                    <button className="primary" onClick={() => {
+                        // dislike method
+                        ClosePreview(ratepopup)
+                    }}>👎 DISLIKE
+                    </button>
+                </div>
             </div>
         </>
     )
