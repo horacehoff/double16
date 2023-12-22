@@ -18,7 +18,7 @@ export default function CodePage() {
                 <div className="codepg-btngp">
                     <button className="primary">🛒 BUY FOR 5$</button>
                     <button className="primary">⭐️ RATE</button>
-                    <button className="primary" id={favoritebtn} onClick={() => {
+                    <button className="primary " id={favoritebtn} onClick={() => {
                         if (!isFavorite) {
                             document.getElementById(favoritebtn).style.color = "transparent"
                             setTimeout(() => {

@@ -3,6 +3,8 @@
     background: revert;
     height: 90dvh;
     top: 53%;
+    white-space: normal;
+    overflow: visible !important;
 }
 
 .codepg-btngp {
@@ -40,7 +42,14 @@
 
 @media screen and (max-width: 500px) {
     .codepg-btngp {
-        width: calc(100% - 40px);
+        width: 100%;
+        left: -20px;
+        margin-left: 0;
+        padding-left: 40px;
+    }
+
+    .codepg-btngp button:last-child {
+        margin-right: 40px;
     }
 }
 
