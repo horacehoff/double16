@@ -1,4 +1,5 @@
 import "./SignUp.css"
+import {Link} from "react-router-dom";
 
 export default function SignUp() {
     return (
@@ -12,6 +13,8 @@ export default function SignUp() {
                     e.preventDefault()
                 }}>SIGN UP
                 </button>
+                <br/>
+                <Link to="/" className="action-text">I ALREADY HAVE AN ACCOUNT</Link>
             </form>
         </>
     )

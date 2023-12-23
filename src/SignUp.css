@@ -36,9 +36,18 @@
     margin-top: 15px;
 }
 
+.sign-form a {
+    position: relative;
+    top: 25px;
+}
+
 @media screen and (max-width: 575px) {
     .sign-form h1 {
         font-size: 17vw;
+    }
+
+    .sign-form a {
+        font-size: 14px;
     }
 }
 
