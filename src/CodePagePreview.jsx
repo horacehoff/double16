@@ -71,7 +71,8 @@ export default function CodePagePreview() {
                         className="codepgpre-infosep">-</span> 👍 <span id={likes}>1K</span> <span
                         className="codepgpre-infosep">-</span> 👎 <span id={dislikes}>5K</span> <span
                         className="codepgpre-infosep">-</span> <span id={char}>150000</span> char.</h3>
-                    <h4 className="codepgpre-author">by <span id={author}>JuTS-A_MANGO</span></h4>
+                    <h4 className="codepgpre-author">by <Link to="/user" id={author}
+                                                              className="link-text">JuTS-A_MANGO</Link></h4>
                     <p className="codepgpre-desc" id={desc}>trm-engine is a game engine designed to run in the terminal,
                         providing
                         a simple and lightweight platform for developing terminal-based games.

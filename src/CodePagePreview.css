@@ -153,10 +153,6 @@
     color: var(--color);
 }
 
-.codepgpre-author span {
-    color: #99A3FF;
-}
-
 .codepgpre-desc {
     margin-top: 5px;
     position: relative;

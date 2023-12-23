@@ -32,12 +32,18 @@ export default function Navbar() {
     }, [])
 
     useEffect(() => {
+        document.getElementById("root").style.pointerEvents = "all"
+        document.getElementById("root").style.touchAction = "auto"
+
         if (window.matchMedia("(max-width: 500px)").matches) {
             navMenuDivRef.current.style.right = "-100%";
         } else {
             navMenuDivRef.current.style.right = "-200px";
         }
         navMenuRef.current.innerText = "||"
+        if (!location.pathname.includes("/user")) {
+            document.getElementsByClassName("nav")[0].style.backgroundColor = "transparent"
+        }
         if (location.pathname.includes("/explore")) {
             document.getElementById(exploreid).style.color = "var(--color)"
             document.getElementById(exploreid).style.textDecoration = "underline"

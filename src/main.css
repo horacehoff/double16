@@ -94,6 +94,20 @@ button.action:active {
     color: var(--action-text-active-color);
 }
 
+
+.link-text {
+    color: var(--link-text-color);
+    transition: 0.25s;
+}
+
+.link-text:hover {
+    color: var(--link-text-hover-color)
+}
+
+.link-text:active {
+    color: var(--link-text-active-color)
+}
+
 button.accent {
     border-radius: 7px;
     border: solid 1px var(--button-accent-border);

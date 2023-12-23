@@ -12,6 +12,8 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 
+    --bg: #19191C;
+
     --input-border: rgba(255, 255, 255, 0.18);
     --input-border-focus: white;
     --input-bg: rgba(255, 255, 255, 0.10);
@@ -38,6 +40,10 @@
     --action-text-hover-color: #83C2FF;
     --action-text-active-color: white;
 
+    --link-text-color: #99A3FF;
+    --link-text-hover-color: rgba(153, 163, 255, 0.9);
+    --link-text-active-color: rgba(153, 163, 255, 0.6);
+
     --button-action-bg-hover: rgba(255, 255, 255, 0.10);
     --button-action-bg-active: rgba(255, 255, 255, 0.05);
     --button-action-border: rgba(255, 255, 255, 0.18);
@@ -56,6 +62,7 @@
 @media (prefers-color-scheme: light) {
     :root {
         background-color: #DADDEC;
+        --bg: #DADDEC;
         --input-border: rgba(0, 0, 0, 0.18);
         --input-border-focus: #000000;
         --input-bg: rgba(0, 0, 0, 0.10);
@@ -80,6 +87,10 @@
         --action-text-color: #0066ff;
         --action-text-hover-color: #005DB8;
         --action-text-active-color: black;
+
+        --link-text-color: #311ea6;
+        --link-text-hover-color: rgba(38, 42, 86, 0.9);
+        --link-text-active-color: rgba(9, 11, 30, 0.6);
 
         --button-action-bg-hover: rgba(0, 0, 0, 0.10);
         --button-action-bg-active: rgba(0, 0, 0, 0.05);

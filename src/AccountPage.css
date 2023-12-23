@@ -1,0 +1,111 @@
+.ubnr {
+    position: absolute;
+    left: 0;
+    top: 70px;
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+
+.ucntbg {
+    position: absolute;
+    left: 0;
+    top: 320px;
+    width: 100%;
+    height: calc(100dvh - 320px);
+    background-image: url("https://static.vecteezy.com/system/resources/thumbnails/003/743/144/original/pink-blue-gradient-liquid-wave-technology-abstract-background-free-video.jpg");
+    background-size: cover;
+    filter: blur(250px) brightness(0.5);
+}
+
+@media (prefers-color-scheme: light) {
+    .ucntbg {
+        z-index: 0;
+        filter: blur(250px) brightness(0.5) url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg"><filter id="a"><feComponentTransfer><feFuncA type="linear" slope="10"/></feComponentTransfer></filter>#a');;
+    }
+
+    .ubnr {
+        z-index: 4;
+    }
+}
+
+
+.ucnt {
+    position: absolute;
+    left: 0;
+    top: 300px;
+    width: 100%;
+    height: calc(100dvh - 300px);
+    z-index: 2;
+}
+
+.ucnt h1 {
+    font-family: JetBrains Mono, monospace;
+    font-size: 50px;
+    font-style: normal;
+    font-weight: 900;
+    margin: 0;
+    letter-spacing: normal;
+    position: relative;
+    top: 40px;
+    left: 30px;
+    width: calc(100% - 30px - 30px);
+}
+
+@media screen and (max-width: 500px) {
+    .ucnt h1 {
+        font-size: 10vw;
+    }
+}
+
+.ucntinf {
+    font-family: JetBrains Mono, monospace;
+    font-size: 16px;
+    font-weight: 600;
+    color: #d7d7d7;
+    position: relative;
+    left: 30px;
+    width: fit-content;
+}
+
+.ucntinf:first-of-type {
+    top: 17px;
+}
+
+.ucntinf:nth-of-type(2) {
+    top: 5px;
+}
+
+.ucntinf:nth-of-type(3) {
+    top: -7px;
+}
+
+.ucntinf svg {
+    height: 24px;
+    width: 16px;
+    vertical-align: top;
+    position: relative;
+    margin: 0;
+    padding: 0;
+}
+
+.ucntinf svg g {
+    fill: #F5F5F5;
+}
+
+/*@media (prefers-color-scheme: light) {*/
+/*    .ucntinf svg g {*/
+/*        fill: #181616;*/
+/*    }*/
+/*}*/
+
+.ucntdsc {
+    position: relative;
+    left: 30px;
+    font-family: Inter, sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    top: -10px;
+    width: calc(100% - 30px - 40px);
+}

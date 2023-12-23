@@ -2,6 +2,7 @@ import "./CodePage.css"
 import {rust} from "./lang.jsx";
 import {useId, useState} from "react";
 import {ClosePreview} from "./CodePagePreview.jsx";
+import {Link} from "react-router-dom";
 
 export default function CodePage() {
     const favoritebtn = useId()
@@ -58,7 +59,7 @@ export default function CodePage() {
                     className="codepgpre-infosep">-</span> 👍 1K <span className="codepgpre-infosep">-</span> 👎
                     5K <span className="codepgpre-infosep">-</span> 150000 char.</h3>
                 <h3 className="codepgpre-info codepg-update">⏰ UPDATED 2H AGO</h3>
-                <h4 className="codepgpre-author">by <span>JuTS-A_MANGO</span></h4>
+                <h4 className="codepgpre-author">by <Link className="link-text" to="/user">JuTS-A_MANGO</Link></h4>
                 <p className="codepgpre-desc">trm-engine is a game engine designed to run in the terminal, providing
                     a simple and lightweight platform for developing terminal-based games.
                     Key Features:
