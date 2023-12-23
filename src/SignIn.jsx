@@ -1,25 +1,18 @@
 import "./SignUp.css"
-import {Link} from "react-router-dom";
 import {useId, useState} from "react";
+import {Link} from "react-router-dom";
 
-
-export default function SignUp() {
-    const usernameid = useId()
+export default function SignIn() {
     const emailid = useId()
     const passwordid = useId()
     const errorid = useId()
 
 
-    const [username, setUsername] = useState("")
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
 
     function submit(e) {
         e.preventDefault()
-        if (username === "" || !username.trim()) {
-            document.getElementById(usernameid).style.borderColor = "red"
-            setTimeout(() => document.getElementById(usernameid).style.borderColor = null, 2000)
-        }
         if (email === "" || !email.trim()) {
             document.getElementById(emailid).style.borderColor = "red"
             setTimeout(() => document.getElementById(emailid).style.borderColor = null, 2000)
@@ -28,26 +21,26 @@ export default function SignUp() {
             document.getElementById(passwordid).style.borderColor = "red"
             setTimeout(() => document.getElementById(passwordid).style.borderColor = null, 2000)
         }
-        if (username !== "" && username.trim() && email !== "" && email.trim() && password !== "" && password.trim()) {
+        if (email !== "" && email.trim() && password !== "" && password.trim()) {
             document.getElementById(errorid).style.opacity = "1"
             setTimeout(() => document.getElementById(errorid).style.opacity = "0", 5000)
         }
     }
+
     return (
         <>
             <form className="sign-form">
-                <h1>SIGN_UP</h1>
+                <h1>SIGN_IN</h1>
                 <p id={errorid}>ERROR: USERNAME ALREADY EXISTS</p>
-                <input id={usernameid} type="text" placeholder="@username" name="username" autoComplete="username"
-                       value={username} onChange={e => setUsername(e.target.value)}/><br/>
                 <input id={emailid} type="email" placeholder="@email" name="email" autoComplete="email" value={email}
                        onChange={e => setEmail(e.target.value)}/><br/>
-                <input id={passwordid} type="password" placeholder="@password" name="psw" autoComplete="new-password"
+                <input id={passwordid} type="password" placeholder="@password" name="psw"
+                       autoComplete="current-password"
                        value={password} onChange={e => setPassword(e.target.value)}/><br/>
-                <button type="submit" className="primary" onClick={e => submit(e)}>SIGN UP
+                <button type="submit" className="primary" onClick={e => submit(e)}>SIGN IN
                 </button>
                 <br/>
-                <Link to="/sign-in" className="action-text">I ALREADY HAVE AN ACCOUNT</Link>
+                <Link to="/sign-up" className="action-text">I DO NOT HAVE AN ACCOUNT</Link>
             </form>
         </>
     )

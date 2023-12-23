@@ -8,6 +8,7 @@ import Navbar from "./Navbar.jsx";
 import Explore from "./Explore.jsx";
 import CodePage from "./CodePage.jsx";
 import SignUp from "./SignUp.jsx";
+import SignIn from "./SignIn.jsx";
 
 ReactDOM.createRoot(document.getElementById('root')).render(
     <React.StrictMode>
@@ -18,6 +19,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
                 <Route path="/explore" element={<Explore/>}/>
                 <Route path="/code" element={<CodePage/>}/>
                 <Route path="/sign-up" element={<SignUp/>}/>
+                <Route path="/sign-in" element={<SignIn/>}/>
             </Routes>
         </BrowserRouter>
     </React.StrictMode>,

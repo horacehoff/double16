@@ -59,44 +59,44 @@ export default function Navbar() {
     }, [location]);
 
 
+    return (
+        <>
+            <div className="nav">
+                <Link to="/"><Logo className="nav-logo"/></Link>
+                <ul className="nav-list">
+                    <li><Link to="/explore" id={exploreid}>EXPLORE</Link></li>
+                    <li>SELL</li>
+                    <li>PRICING</li>
+                    <li>ABOUT</li>
+                    <li>FEEDBACK</li>
+                    <li><Link to="/sign-up" id={signupid}>SIGN_UP</Link></li>
+                    <li className="nav-menu" onClick={() => {
+                        if (navMenuDivRef.current.style.right === "0px") {
+                            if (window.matchMedia("(max-width: 500px)").matches) {
+                                navMenuDivRef.current.style.right = "-100%";
+                            } else {
+                                navMenuDivRef.current.style.right = "-200px";
+                            }
+                            navMenuRef.current.innerText = "||"
 
-    return (<>
-        <div className="nav">
-            <Link to="/"><Logo className="nav-logo"/></Link>
-            <ul className="nav-list">
-                <li><Link to="/explore" id={exploreid}>EXPLORE</Link></li>
-                <li>SELL</li>
-                <li>PRICING</li>
-                <li>ABOUT</li>
-                <li>FEEDBACK</li>
-                <li><Link to="/sign-up" id={signupid}>SIGN_UP</Link></li>
-                <li className="nav-menu" onClick={() => {
-                    if (navMenuDivRef.current.style.right === "0px") {
-                        if (window.matchMedia("(max-width: 500px)").matches) {
-                            navMenuDivRef.current.style.right = "-100%";
                         } else {
-                            navMenuDivRef.current.style.right = "-200px";
+                            navMenuDivRef.current.style.right = "0"
+                            navMenuRef.current.innerText = "//"
                         }
-                        navMenuRef.current.innerText = "||"
-
-                    } else {
-                        navMenuDivRef.current.style.right = "0"
-                        navMenuRef.current.innerText = "//"
-                    }
-                }} ref={navMenuRef}>
-                    ||
-                </li>
-            </ul>
-        </div>
-        <div ref={navMenuDivRef} className="nav-menu-extra">
-            <ul className="nav-list-extra">
-                <li><Link to="/explore" id={menuexploreid}>EXPLORE</Link></li>
-                <li>SELL</li>
-                <li>PRICING</li>
-                <li>ABOUT</li>
-                <li>FEEDBACK</li>
-                <li><Link to="/sign-up" id={menusignupid}>SIGN_UP</Link></li>
-            </ul>
-        </div>
-    </>)
+                    }} ref={navMenuRef}>
+                        ||
+                    </li>
+                </ul>
+            </div>
+            <div ref={navMenuDivRef} className="nav-menu-extra">
+                <ul className="nav-list-extra">
+                    <li><Link to="/explore" id={menuexploreid}>EXPLORE</Link></li>
+                    <li>SELL</li>
+                    <li>PRICING</li>
+                    <li>ABOUT</li>
+                    <li>FEEDBACK</li>
+                    <li><Link to="/sign-up" id={menusignupid}>SIGN_UP</Link></li>
+                </ul>
+            </div>
+        </>)
 }

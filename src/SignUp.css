@@ -27,8 +27,14 @@
     color: #9E9E9E;
     font-family: JetBrains Mono, monospace;
     font-weight: 500;
-    opacity: 0;
+    opacity: 1;
     transition: 0.2s;
+}
+
+@media (prefers-color-scheme: light) {
+    .sign-form p {
+        color: #3b3b3b;
+    }
 }
 
 .sign-form input {
