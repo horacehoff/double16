@@ -30,6 +30,10 @@ export default defineConfig({
                 compact: true,
                 minifyInternalExports: true,
                 sourcemap: false,
+                manualChunks: {
+                    main: ["react", 'react-dom', 'react-router-dom'],
+                    xt: ["short-number"]
+                }
             }
         }
     }
