@@ -16,7 +16,18 @@ export function ClosePreview(id) {
         })
     }, 100)
 }
+
 export default function CodePagePreview() {
+    const lang = "lng"
+    const price = "prc"
+    const likes = "lk"
+    const dislikes = "dlk"
+    const title = "ttl"
+    const author = "aut"
+    const desc = "dc"
+    const char = "ch"
+    const banner = "bnr"
+    const id = "id"
     return (
         <>
             <div className="codepgpre-bg" id="codepgpre" onClick={e => {
@@ -52,13 +63,17 @@ export default function CodePagePreview() {
                     <br/>
                     <img
                         src="https://img.freepik.com/premium-photo/light-background-texture-room-photography-studio-shade-yellow-high-quality-photo_163305-227313.jpg"
+                        id={banner}
                         alt="Banner"/>
-                    <h2 className="codepgpre-title">FIBONACCI SEQUENCE CALCULATOR</h2>
-                    <h3 className="codepgpre-info">💵 5$ <span className="codepgpre-infosep">-</span> {rust} <span
-                        className="codepgpre-infosep">-</span> 👍 1K <span className="codepgpre-infosep">-</span> 👎
-                        5K <span className="codepgpre-infosep">-</span> 150000 char.</h3>
-                    <h4 className="codepgpre-author">by <span>JuTS-A_MANGO</span></h4>
-                    <p className="codepgpre-desc">trm-engine is a game engine designed to run in the terminal, providing
+                    <h2 className="codepgpre-title" id={title}>FIBONACCI SEQUENCE CALCULATOR</h2>
+                    <h3 className="codepgpre-info">💵 <span id={price}>5</span>$ <span
+                        className="codepgpre-infosep">-</span> <span id={lang}>{rust}</span> <span
+                        className="codepgpre-infosep">-</span> 👍 <span id={likes}>1K</span> <span
+                        className="codepgpre-infosep">-</span> 👎 <span id={dislikes}>5K</span> <span
+                        className="codepgpre-infosep">-</span> <span id={char}>150000</span> char.</h3>
+                    <h4 className="codepgpre-author">by <span id={author}>JuTS-A_MANGO</span></h4>
+                    <p className="codepgpre-desc" id={desc}>trm-engine is a game engine designed to run in the terminal,
+                        providing
                         a simple and lightweight platform for developing terminal-based games.
                         Key Features:
                         Object Management: The engine includes an object management system, allowing for easy creation,

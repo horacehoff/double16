@@ -17,6 +17,7 @@ export default function CodePage() {
                 <div className="codepg-btngp">
                     <button className="primary">🛒 BUY FOR 5$</button>
                     <button className="primary" onClick={() => {
+
                         document.getElementById("root").style.pointerEvents = "none"
                         document.getElementById("root").style.touchAction = "none"
                         document.getElementById(ratepopup).style.pointerEvents = "all"
