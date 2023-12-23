@@ -13,6 +13,7 @@ export default defineConfig({
         cssMinify: "lightningcss",
         sourcemap: false,
         minify: "terser",
+        cssCodeSplit: true,
         terserOptions: {
             compress: {
                 drop_debugger: true,
