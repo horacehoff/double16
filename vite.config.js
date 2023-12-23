@@ -38,7 +38,8 @@ export default defineConfig({
                 sourcemap: false,
                 manualChunks: {
                     main: ["react", 'react-dom', 'react-router-dom'],
-                    xt: ["short-number"]
+                    xt: ["short-number"],
+                    db: ["firebase"]
                 }
             }
         }

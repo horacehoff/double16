@@ -2,6 +2,7 @@ import "./Navbar.css"
 import Logo from "./assets/navlogo.svg?react"
 import {useEffect, useId, useRef} from "react";
 import {Link, useLocation} from "react-router-dom";
+import "./firebase.js"
 
 export default function Navbar() {
     const exploreid = useId()
@@ -11,6 +12,7 @@ export default function Navbar() {
     const aboutid = useId()
     const feedbackid = useId()
     const signupid = useId()
+    const menusignupid = useId()
 
 
     const navMenuRef = useRef();
@@ -45,6 +47,15 @@ export default function Navbar() {
             document.getElementById(exploreid).style.textDecoration = null
             document.getElementById(menuexploreid).style.textDecoration = null
         }
+        if (location.pathname.includes("/sign-up")) {
+            document.getElementById(signupid).style.color = "var(--color)"
+            document.getElementById(signupid).style.textDecoration = "underline"
+            document.getElementById(menusignupid).style.textDecoration = "underline"
+        } else {
+            document.getElementById(signupid).style.color = null
+            document.getElementById(signupid).style.textDecoration = null
+            document.getElementById(menusignupid).style.textDecoration = null
+        }
     }, [location]);
 
 
@@ -58,7 +69,7 @@ export default function Navbar() {
                 <li>PRICING</li>
                 <li>ABOUT</li>
                 <li>FEEDBACK</li>
-                <li>SIGN_UP</li>
+                <li><Link to="/sign-up" id={signupid}>SIGN_UP</Link></li>
                 <li className="nav-menu" onClick={() => {
                     if (navMenuDivRef.current.style.right === "0px") {
                         if (window.matchMedia("(max-width: 500px)").matches) {
@@ -84,7 +95,7 @@ export default function Navbar() {
                 <li>PRICING</li>
                 <li>ABOUT</li>
                 <li>FEEDBACK</li>
-                <li>SIGN_UP</li>
+                <li><Link to="/sign-up" id={menusignupid}>SIGN_UP</Link></li>
             </ul>
         </div>
     </>)
