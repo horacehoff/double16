@@ -16,13 +16,42 @@
     margin-bottom: 50px;
     margin-top: 0;
     padding: 0;
+    color: var(--color);
 }
 
 .sign-form input {
     margin-bottom: 10px;
 }
 
+.sign-form input[type="password"] {
+    letter-spacing: 1px;
+}
+
+.sign-form input[type="password"]::placeholder {
+    letter-spacing: initial !important;
+}
+
 .sign-form button {
     width: 319px;
     margin-top: 15px;
+}
+
+@media screen and (max-width: 575px) {
+    .sign-form h1 {
+        font-size: 17vw;
+    }
+}
+
+@media not (hover: hover) {
+    @media not (pointer: fine) {
+        @media (orientation: landscape) {
+            .sign-form h1 {
+                margin-top: 150px;
+            }
+
+            .sign-form button {
+                margin-bottom: 30px;
+            }
+        }
+    }
 }
