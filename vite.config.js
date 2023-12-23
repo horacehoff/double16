@@ -1,11 +1,14 @@
 import {defineConfig} from 'vite'
 import react from '@vitejs/plugin-react-swc'
 import svgr from "vite-plugin-svgr";
+import viteCompression from 'vite-plugin-compression';
 
 
 // https://vitejs.dev/config/
 export default defineConfig({
-    plugins: [react(), svgr()],
+    plugins: [react(), svgr(), viteCompression({
+        algorithm: "brotliCompress"
+    })],
     optimizeDeps: {
         force: true
     },
@@ -13,7 +16,6 @@ export default defineConfig({
         cssMinify: "lightningcss",
         sourcemap: false,
         minify: "terser",
-        cssCodeSplit: true,
         terserOptions: {
             compress: {
                 drop_debugger: true,
