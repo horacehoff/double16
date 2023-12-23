@@ -93,8 +93,19 @@
 
 .codepg-ratepop h3 {
     font-size: 30px;
+    color: white;
 }
 
 .codepg-ratepop button:last-child {
     margin-left: 15px;
+}
+
+@media (prefers-color-scheme: light) {
+    .codepg-ratepop {
+        background: rgb(157, 157, 168);
+    }
+
+    .codepg-ratepop h3 {
+        color: black;
+    }
 }

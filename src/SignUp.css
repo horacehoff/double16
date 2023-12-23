@@ -1,0 +1,28 @@
+.sign-form {
+    position: absolute;
+    left: 50%;
+    top: 45%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    padding: 0;
+    margin: 0;
+}
+
+.sign-form h1 {
+    font-family: JetBrains Mono, monospace;
+    font-size: 96px;
+    font-style: normal;
+    font-weight: 800;
+    margin-bottom: 50px;
+    margin-top: 0;
+    padding: 0;
+}
+
+.sign-form input {
+    margin-bottom: 10px;
+}
+
+.sign-form button {
+    width: 319px;
+    margin-top: 15px;
+}

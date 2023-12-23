@@ -184,6 +184,14 @@
     .codepgpre-infosep {
         color: rgba(0, 0, 0, 0.25);
     }
+
+    .codepgpre-close:hover {
+        color: #494949;
+    }
+
+    .codepgpre-close:active {
+        color: #bbbbbb;
+    }
 }
 
 @media screen and (max-width: 500px) {
