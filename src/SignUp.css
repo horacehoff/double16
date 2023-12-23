@@ -55,7 +55,7 @@
     @media not (pointer: fine) {
         @media (orientation: landscape) {
             .sign-form h1 {
-                margin-top: 225px;
+                margin-top: 230px;
             }
 
             .sign-form {
