@@ -39,7 +39,7 @@ export default defineConfig({
                 manualChunks: {
                     main: ["react", 'react-dom', 'react-router-dom'],
                     xt: ["short-number"],
-                    db: ["firebase"]
+                    db: ["firebase/app", "firebase/firestore", "firebase/analytics"]
                 }
             }
         }
