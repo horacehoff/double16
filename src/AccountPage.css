@@ -13,7 +13,7 @@
     left: 0;
     top: 320px;
     width: 100%;
-    height: calc(100dvh - 320px);
+    height: calc(100dvh - 150px);
     background-image: url("https://static.vecteezy.com/system/resources/thumbnails/003/743/144/original/pink-blue-gradient-liquid-wave-technology-abstract-background-free-video.jpg");
     background-size: cover;
     filter: blur(200px) brightness(0.7);
@@ -153,4 +153,12 @@
     font-weight: 700;
     top: -10px;
     width: calc(100% - 30px - 40px);
+}
+
+.ucnt h4 {
+    font-family: JetBrains Mono, monospace;
+    font-size: 15px;
+    position: relative;
+    left: 30px;
+    width: fit-content;
 }

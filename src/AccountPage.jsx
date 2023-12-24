@@ -32,6 +32,7 @@ export default function AccountPage() {
                 </p>
                 <p className="ucntinf">👨‍💻 500K followers</p>
                 <p className="ucntdsc">Hi, this is my awesome profile. I’m a passionate space developer</p>
+                {/*<h4>PUBLISHED CODE SNIPPETS</h4>*/}
             </div>
         </>
     )
