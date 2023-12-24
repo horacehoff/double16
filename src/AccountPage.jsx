@@ -17,7 +17,7 @@ export default function AccountPage() {
     return (
         <>
             <img id={bannerid} className="ubnr" alt="banner"
-                 src="https://cdn.pixabay.com/photo/2019/09/02/12/35/liquid-marble-background-4447119_1280.jpg"/>
+                 src="https://static.vecteezy.com/system/resources/previews/007/046/709/non_2x/liquify-colorful-abstract-background-wallpaper-free-photo.jpg"/>
             <div id={bannerblurid} className="ucntbg"/>
             <div className="ucnt">
                 <h1 id={titleid}>XXXXXX</h1>
