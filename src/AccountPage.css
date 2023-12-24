@@ -36,7 +36,7 @@
         -webkit-filter: blur(250px) brightness(0.5) url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg"><filter id="a"><feComponentTransfer><feFuncA type="linear" slope="10"/></feComponentTransfer></filter>#a');;
     }
     .ubnr {
-        z-index: 4;
+        z-index: 3;
     }
 
     @supports (-webkit-touch-callout: none) {
@@ -66,7 +66,6 @@
             filter: none;
             -webkit-filter: none;
         }
-
         .ucntbg::after {
             backdrop-filter: blur(150px) brightness(0.5);
             -webkit-backdrop-filter: blur(150px) brightness(0.5);

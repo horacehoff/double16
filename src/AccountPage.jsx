@@ -9,10 +9,7 @@ export default function AccountPage() {
 
     useEffect(() => {
         document.getElementById(bannerblurid).style.background = "url('" + document.getElementById(bannerid).src + "')"
-        document.getElementsByClassName("nav")[0].style.backgroundColor = "var(--bg)"
-        // document.getElementsByClassName("nav")[0].style.backdropFilter = "blur(100px)"
-
-
+        document.getElementsByClassName("nav")[0].style.backgroundColor = "var(--color-flip)"
     }, [])
     return (
         <>
