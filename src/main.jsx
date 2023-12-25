@@ -10,6 +10,7 @@ import CodePage from "./CodePage.jsx";
 import SignUp from "./SignUp.jsx";
 import SignIn from "./SignIn.jsx";
 import AccountPage from "./AccountPage.jsx";
+import Search from "./Search.jsx";
 
 ReactDOM.createRoot(document.getElementById('root')).render(
     <React.StrictMode>
@@ -18,6 +19,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
             <Routes>
                 <Route path="/" element={<Home/>}/>
                 <Route path="/explore" element={<Explore/>}/>
+                <Route path="/search" element={<Search/>}/>
                 <Route path="/code" element={<CodePage/>}/>
 
                 <Route path="/sign-up" element={<SignUp/>}/>

@@ -3,7 +3,7 @@ import {Link} from "react-router-dom";
 import CodeCard from "./CodeCard.jsx";
 import ShortNumber from "short-number"
 import CodePagePreview from "./CodePagePreview.jsx";
-import {python, rust} from "./lang.jsx";
+import {lua, python} from "./lang.jsx";
 
 export default function Explore() {
     // let has_run = false
@@ -41,7 +41,7 @@ export default function Explore() {
         <>
         <h1 className="pg-heading" id="pg-heading">EXPLORE</h1>
         <h2 className="pg-subtitle">EXPLORE ALL THE DIFFERENT CODE SNIPPETS AND FIND THE ONE YOU WANT</h2>
-        <Link to="/explore">
+            <Link to="/search">
             <button className="action pg-action">🔍 SEARCH</button>
         </Link>
         <h2 className="pg-section-heading">🔥 TRENDING</h2>
@@ -66,7 +66,7 @@ export default function Explore() {
             </li>
             <li>
                 <CodeCard pkg={{
-                    lang: rust,
+                    lang: lua,
                     price: "10",
                     like: ShortNumber(1200),
                     dislike: ShortNumber(180),
