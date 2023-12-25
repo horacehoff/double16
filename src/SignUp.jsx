@@ -1,5 +1,4 @@
 import "./SignUp.css"
-import {Link} from "react-router-dom";
 import {useId, useState} from "react";
 import {document} from "postcss";
 
@@ -35,17 +34,17 @@ export default function SignUp() {
         }
     }
 
-    window.addEventListener('pageshow', function (evt) {
-        // If persisted then it is in the page cache, force a reload of the page.
-        if (evt.persisted) {
-            console.log("yeah")
-            document.body.style.display = 'none';
-            location.reload();
-        }
-    });
-    window.addEventListener("beforeunload", function () {
-        document.getElementById("hi").display = "none"
-    })
+    // window.addEventListener('pageshow', function (evt) {
+    //     // If persisted then it is in the page cache, force a reload of the page.
+    //     if (evt.persisted) {
+    //         console.log("yeah")
+    //         document.body.style.display = 'none';
+    //         location.reload();
+    //     }
+    // });
+    // window.addEventListener("beforeunload", function () {
+    //     document.getElementById("hi").display = "none"
+    // })
     return (
         <>
             <form className="sign-form">
@@ -60,7 +59,7 @@ export default function SignUp() {
                 <button type="submit" className="primary" onClick={e => submit(e)}>SIGN UP
                 </button>
                 <br/>
-                <Link to="/sign-in" className="action-text" id="hi">I ALREADY HAVE AN ACCOUNT</Link>
+                <a href="/sign-in" className="action-text" id="hi">I ALREADY HAVE AN ACCOUNT</a>
             </form>
         </>
     )

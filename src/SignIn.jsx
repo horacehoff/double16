@@ -28,20 +28,20 @@ export default function SignIn() {
         }
     }
 
-    const isIOS5 = /iphone|ipod|ipad/i.test(navigator.platform) && /os 5/i.test(navigator.userAgent);
+    // const isIOS5 = /iphone|ipod|ipad/i.test(navigator.platform) && /os 5/i.test(navigator.userAgent);
 
 
-    window.addEventListener('pageshow', function (evt) {
-        // If persisted then it is in the page cache, force a reload of the page.
-        if (evt.persisted) {
-            console.log("yeah")
-            document.body.style.display = 'none';
-            location.reload();
-        }
-    });
-    window.addEventListener("beforeunload", function () {
-        console.log("yeahhh")
-    })
+    // window.addEventListener('pageshow', function (evt) {
+    //     // If persisted then it is in the page cache, force a reload of the page.
+    //     if (evt.persisted) {
+    //         console.log("yeah")
+    //         document.body.style.display = 'none';
+    //         location.reload();
+    //     }
+    // });
+    // window.addEventListener("beforeunload", function () {
+    //     console.log("yeahhh")
+    // })
     // if (isIOS5) {
     //     window.addEventListener('pageshow', function (evt) {
     //         // If persisted then it is in the page cache, force a reload of the page.
