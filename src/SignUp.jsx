@@ -38,6 +38,7 @@ export default function SignUp() {
     const isSafari = /constructor/i.test(window.HTMLElement) || (function (p) {
         return p.toString() === "[object SafariRemoteNotification]";
     })(!window['safari'] || (typeof safari !== 'undefined' && safari.pushNotification));
+    const isIos = /iP(ad|od|hone)/i.test(window.navigator.userAgent)
 
     return (
         <>
@@ -53,7 +54,7 @@ export default function SignUp() {
                 <button type="submit" className="primary" onClick={e => submit(e)}>SIGN UP
                 </button>
                 <br/>
-                {isSafari ? (
+                {(isSafari || isIos) ? (
                     <a href="/sign-in" className="action-text">
                         I ALREADY HAVE AN ACCOUNT
                     </a>
