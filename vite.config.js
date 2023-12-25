@@ -10,7 +10,7 @@ export default defineConfig({
         //     ,
         //     viteCompression({
         //     algorithm: "brotliCompress"
-        // })
+        // }) => WORSENED PERFORMANCE
     ],
     optimizeDeps: {
         force: true
@@ -22,8 +22,7 @@ export default defineConfig({
         terserOptions: {
             compress: {
                 drop_debugger: true,
-                // drop_console: ['log', 'debug', 'count', 'error', 'table', 'time', 'trace', 'warn'],
-                drop_console: false,
+                drop_console: ['log', 'debug', 'count', 'error', 'table', 'time', 'trace', 'warn'],
                 keep_fargs: false,
                 passes: 1000,
                 toplevel: true,
