@@ -11,6 +11,7 @@ import SignUp from "./SignUp.jsx";
 import SignIn from "./SignIn.jsx";
 import AccountPage from "./AccountPage.jsx";
 import Search from "./Search.jsx";
+import ResetPassword from "./ResetPassword.jsx";
 
 ReactDOM.createRoot(document.getElementById('root')).render(
     <React.StrictMode>
@@ -24,6 +25,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
 
                 <Route path="/sign-up" element={<SignUp/>}/>
                 <Route path="/sign-in" element={<SignIn/>}/>
+                <Route path="/reset-password" element={<ResetPassword/>}/>
 
                 <Route path="/user" element={<AccountPage/>}/>
             </Routes>

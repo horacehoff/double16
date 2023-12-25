@@ -1,0 +1,10 @@
+.sign-action {
+    position: relative;
+    display: inline-block;
+    margin-top: 10px;
+    top: 0 !important;
+}
+
+.sign-action:first-of-type {
+    margin-right: 100px;
+}

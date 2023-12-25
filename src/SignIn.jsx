@@ -1,4 +1,5 @@
 import "./SignUp.css"
+import "./SignIn.css"
 import {useId, useState} from "react";
 import {Link} from "react-router-dom";
 
@@ -40,7 +41,8 @@ export default function SignIn() {
                 <button type="submit" className="primary" onClick={e => submit(e)}>SIGN IN
                 </button>
                 <br/>
-                <Link to="/sign-up" className="action-text">I DO NOT HAVE AN ACCOUNT</Link>
+                <Link to="/reset-password" className="action-text sign-action">RESET_PASSWORD</Link>
+                <Link to="/sign-up" className="action-text sign-action">SIGN_UP</Link>
             </form>
         </>
     )
