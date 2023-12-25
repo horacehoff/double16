@@ -1,6 +1,7 @@
 import "./SignUp.css"
 import {useId, useState} from "react";
 import {document} from "postcss";
+import {Link} from "react-router-dom";
 
 
 export default function SignUp() {
@@ -34,17 +35,10 @@ export default function SignUp() {
         }
     }
 
-    // window.addEventListener('pageshow', function (evt) {
-    //     // If persisted then it is in the page cache, force a reload of the page.
-    //     if (evt.persisted) {
-    //         console.log("yeah")
-    //         document.body.style.display = 'none';
-    //         location.reload();
-    //     }
-    // });
-    // window.addEventListener("beforeunload", function () {
-    //     document.getElementById("hi").display = "none"
-    // })
+    const isSafari = /constructor/i.test(window.HTMLElement) || (function (p) {
+        return p.toString() === "[object SafariRemoteNotification]";
+    })(!window['safari'] || (typeof safari !== 'undefined' && safari.pushNotification));
+
     return (
         <>
             <form className="sign-form">
@@ -59,7 +53,15 @@ export default function SignUp() {
                 <button type="submit" className="primary" onClick={e => submit(e)}>SIGN UP
                 </button>
                 <br/>
-                <a href="/sign-in" className="action-text" id="hi">I ALREADY HAVE AN ACCOUNT</a>
+                {isSafari ? (
+                    <a href="/sign-in" className="action-text">
+                        I ALREADY HAVE AN ACCOUNT
+                    </a>
+                ) : (
+                    <Link to="/sign-in" className="action-text">
+                        I ALREADY HAVE AN ACCOUNT
+                    </Link>
+                )}
             </form>
         </>
     )
