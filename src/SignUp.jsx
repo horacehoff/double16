@@ -47,7 +47,7 @@ export default function SignUp() {
                 <button type="submit" className="primary" onClick={e => submit(e)}>SIGN UP
                 </button>
                 <br/>
-                <Link to="/sign-in" className="action-text">I ALREADY HAVE AN ACCOUNT</Link>
+                <Link to="/sign-in" className="action-text" id="hi">I ALREADY HAVE AN ACCOUNT</Link>
             </form>
         </>
     )

@@ -28,6 +28,22 @@ export default function SignIn() {
         }
     }
 
+    const isIOS5 = /iphone|ipod|ipad/i.test(navigator.platform) && /os 5/i.test(navigator.userAgent);
+
+    if (isIOS5) {
+        window.addEventListener('pageshow', function (evt) {
+            // If persisted then it is in the page cache, force a reload of the page.
+            if (evt.persisted) {
+                console.log("yeah")
+                document.body.style.display = 'none';
+                location.reload();
+            }
+        });
+        window.addEventListener("unload", function () {
+            console.log("yeahhh")
+        })
+    }
+
     return (
         <>
             <form className="sign-form">
@@ -41,8 +57,8 @@ export default function SignIn() {
                 <button type="submit" className="primary" onClick={e => submit(e)}>SIGN IN
                 </button>
                 <br/>
-                <Link to="/reset-password" className="action-text sign-action">RESET_PASSWORD</Link>
-                <Link to="/sign-up" className="action-text sign-action">SIGN_UP</Link>
+                <Link to="/reset-password" className="action-text sign-action" id="something else">RESET_PASSWORD</Link>
+                <Link to="/sign-up" className="action-text sign-action" id="something else">SIGN_UP</Link>
             </form>
         </>
     )
