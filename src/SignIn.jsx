@@ -39,7 +39,7 @@ export default function SignIn() {
             location.reload();
         }
     });
-    window.addEventListener("unload", function () {
+    window.addEventListener("beforeunload", function () {
         console.log("yeahhh")
     })
     // if (isIOS5) {
