@@ -199,6 +199,10 @@
     .pg-heading, .pg-subtitle, .pg-action, .pg-section-heading {
         left: 20px;
     }
+
+    .pg-section-btn {
+        left: 10px;
+    }
 }
 
 @media screen and (max-width: 550px) {
