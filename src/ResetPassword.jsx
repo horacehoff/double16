@@ -4,7 +4,6 @@ import "./ResetPassword.css"
 
 export default function ResetPassword() {
     const emailid = useId()
-    const passwordid = useId()
     const errorid = useId()
 
 

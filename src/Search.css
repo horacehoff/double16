@@ -37,7 +37,48 @@
     margin-top: 15px;
     margin-bottom: 0;
     font-family: JetBrains Mono, monospace;
-    color: var(--color)
+    color: var(--color);
+    display: inline-block;
+    vertical-align: top;
+    text-align: left;
+    width: fit-content;
+    position: relative;
+    left: -85px;
+}
+
+.srch-flt-pg svg {
+    display: inline-block;
+    position: relative;
+    top: 17.5px;
+    vertical-align: top;
+    left: 85px;
+    transition: 0.2s;
+    cursor: pointer;
+}
+
+@media (prefers-color-scheme: dark) {
+    .srch-flt-pg svg:hover {
+        filter: brightness(0.75);
+    }
+
+    .srch-flt-pg svg:active {
+        filter: brightness(0.5);
+    }
+}
+
+@media (prefers-color-scheme: light) {
+    .srch-flt-pg svg g path {
+        stroke: black;
+        transition: stroke 0.2s;
+    }
+
+    .srch-flt-pg svg:hover g path {
+        stroke: #606060;
+    }
+
+    .srch-flt-pg svg:active g path {
+        stroke: #9b9b9b;
+    }
 }
 
 .srch-flt-pg p {
