@@ -81,6 +81,10 @@
     padding-top: 4px;
 }
 
+.pg-section-btn svg g path {
+    stroke: dodgerblue;
+}
+
 .pg-section-btn span {
     font-size: 15px;
     position: relative;
