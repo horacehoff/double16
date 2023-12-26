@@ -53,9 +53,12 @@
     width: fit-content;
 }
 
-.codepgpre-close:hover {
-    filter: brightness(0.75);
+@media (hover: hover) and (pointer: fine) {
+    .codepgpre-close:hover {
+        filter: brightness(0.75);
+    }
 }
+
 
 .codepgpre-close:active {
     filter: brightness(0.5);
@@ -181,9 +184,12 @@
         color: rgba(0, 0, 0, 0.25);
     }
 
-    .codepgpre-close:hover {
-        color: #494949;
+    @media (hover: hover) and (pointer: fine) {
+        .codepgpre-close:hover {
+            color: #494949;
+        }
     }
+
 
     .codepgpre-close:active {
         color: #bbbbbb;

@@ -57,10 +57,11 @@
 }
 
 @media (prefers-color-scheme: dark) {
-    .srch-flt-pg svg:hover {
-        filter: brightness(0.75);
+    @media (hover: hover) and (pointer: fine) {
+        .srch-flt-pg svg:hover {
+            filter: brightness(0.75);
+        }
     }
-
     .srch-flt-pg svg:active {
         filter: brightness(0.5);
     }
@@ -72,9 +73,12 @@
         transition: stroke 0.2s;
     }
 
-    .srch-flt-pg svg:hover g path {
-        stroke: #606060;
+    @media (hover: hover) and (pointer: fine) {
+        .srch-flt-pg svg:hover g path {
+            stroke: #606060;
+        }
     }
+
 
     .srch-flt-pg svg:active g path {
         stroke: #9b9b9b;
