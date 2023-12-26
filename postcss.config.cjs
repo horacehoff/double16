@@ -1,5 +1,6 @@
 const purgecss = require('@fullhuman/postcss-purgecss')
 const cssnano = require('cssnano')
+const combine = require('postcss-combine-media-query')
 
 module.exports = {
     plugins: [
@@ -8,6 +9,7 @@ module.exports = {
         }),
         cssnano({
             preset: "default"
-        })
+        }),
+        combine()
     ]
 }
