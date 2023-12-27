@@ -2,6 +2,15 @@
     top: 50%;
 }
 
+
+@supports (-webkit-hyphens:none) {
+    .fdck-form input {
+        width: 300px;
+        padding-right: 2px;
+    }
+}
+
+
 .fdck-form textarea {
     height: 150px;
     width: 297px;
