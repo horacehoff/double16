@@ -4,6 +4,7 @@
 
 .fdck-form textarea {
     height: 150px;
+    width: 297px;
 }
 
 @media screen and (max-width: 500px) {
