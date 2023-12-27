@@ -56,21 +56,24 @@
     cursor: pointer;
 }
 
-@media (prefers-color-scheme: dark) {
-    @media (hover: hover) and (pointer: fine) {
-        .srch-flt-pg svg:hover {
-            filter: brightness(0.75);
-        }
+.srch-flt-pg svg g path {
+    stroke: white;
+    transition: stroke 0.2s;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .srch-flt-pg svg:hover g path {
+        stroke: #afafaf;
     }
-    .srch-flt-pg svg:active {
-        filter: brightness(0.5);
-    }
+}
+
+.srch-flt-pg svg:active g path {
+    stroke: #757575;
 }
 
 @media (prefers-color-scheme: light) {
     .srch-flt-pg svg g path {
         stroke: black;
-        transition: stroke 0.2s;
     }
 
     @media (hover: hover) and (pointer: fine) {
@@ -78,7 +81,6 @@
             stroke: #606060;
         }
     }
-
 
     .srch-flt-pg svg:active g path {
         stroke: #9b9b9b;
