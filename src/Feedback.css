@@ -1,0 +1,23 @@
+.fdck-form {
+    top: 50%;
+}
+
+.fdck-form textarea {
+    height: 150px;
+}
+
+@media screen and (max-width: 500px) {
+    .fdck-form {
+        top: 45%;
+    }
+}
+
+@media screen and (max-height: 770px) {
+    .fdck-form {
+        position: relative;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        transform: none;
+    }
+}

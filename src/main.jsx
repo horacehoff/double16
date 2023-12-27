@@ -12,6 +12,7 @@ import SignIn from "./SignIn.jsx";
 import AccountPage from "./AccountPage.jsx";
 import Search from "./Search.jsx";
 import ResetPassword from "./ResetPassword.jsx";
+import Feedback from "./Feedback.jsx";
 
 ReactDOM.createRoot(document.getElementById('root')).render(
     <React.StrictMode>
@@ -28,6 +29,8 @@ ReactDOM.createRoot(document.getElementById('root')).render(
                 <Route path="/reset-password" element={<ResetPassword/>}/>
 
                 <Route path="/user" element={<AccountPage/>}/>
+
+                <Route path="/feedback" element={<Feedback/>}/>
             </Routes>
         </BrowserRouter>
     </React.StrictMode>,

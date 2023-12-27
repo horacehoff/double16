@@ -11,8 +11,10 @@ export default function Navbar() {
     const pricingid = useId()
     const aboutid = useId()
     const feedbackid = useId()
+    const menufeedbackid = useId()
     const signupid = useId()
     const menusignupid = useId()
+
 
 
     const navMenuRef = useRef();
@@ -62,6 +64,15 @@ export default function Navbar() {
             document.getElementById(signupid).style.textDecoration = null
             document.getElementById(menusignupid).style.textDecoration = null
         }
+        if (location.pathname.includes("/feedback")) {
+            document.getElementById(feedbackid).style.color = "var(--color)"
+            document.getElementById(feedbackid).style.textDecoration = "underline"
+            document.getElementById(menufeedbackid).style.textDecoration = "underline"
+        } else {
+            document.getElementById(feedbackid).style.color = null
+            document.getElementById(feedbackid).style.textDecoration = null
+            document.getElementById(menufeedbackid).style.textDecoration = null
+        }
     }, [location]);
 
 
@@ -74,7 +85,7 @@ export default function Navbar() {
                     <li>SELL</li>
                     <li>PRICING</li>
                     <li>ABOUT</li>
-                    <li>FEEDBACK</li>
+                    <li><Link to="/feedback" id={feedbackid}>FEEDBACK</Link></li>
                     <li><Link to="/sign-up" id={signupid}>SIGN_UP</Link></li>
                     <li className="nav-menu" onClick={() => {
                         if (navMenuDivRef.current.style.right === "0px") {
@@ -100,7 +111,7 @@ export default function Navbar() {
                     <li>SELL</li>
                     <li>PRICING</li>
                     <li>ABOUT</li>
-                    <li>FEEDBACK</li>
+                    <li><Link to="/feedback" id={menufeedbackid}>FEEDBACK</Link></li>
                     <li><Link to="/sign-up" id={menusignupid}>SIGN_UP</Link></li>
                 </ul>
             </div>
