@@ -191,7 +191,7 @@ export default function Sell() {
                         <button className="accent sell-cont-nav-btn" onClick={gobkwd}>👈 DESCRIPTION</button>
                         <br/>
                         <button className="primary sell-cont-nav-btn sell-cont-code-publish" onClick={e => {
-                            if (checkValid(code)) {
+                            if (!checkValid(code)) {
                                 document.getElementById(codeid).style.borderColor = "red"
                                 setTimeout(() => document.getElementById(codeid).style.borderColor = null
                                     , 2000)
