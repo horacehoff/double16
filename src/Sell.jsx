@@ -10,7 +10,8 @@ export default function Sell() {
     const catchphraseid = useId()
     const [catchphrase, setCatchphrase] = useState("")
     const bannerid = useId()
-    const [banner, setBanner] = useState("")
+    const bannerlabelid = useId()
+    const [banner, setBanner] = useState()
 
 
     const descid = useId()
@@ -62,20 +63,21 @@ export default function Sell() {
 
     const gofwd = () => {
         document.getElementById(sellcont).scroll({
-            left: document.getElementById(sellcont).scrollLeft + pxpercent(),
-            behavior: "smooth"
+            left: document.getElementById(sellcont).scrollLeft + pxpercent(), behavior: "smooth"
         })
     }
     const gobkwd = () => {
         document.getElementById(sellcont).scroll({
-            left: document.getElementById(sellcont).scrollLeft - pxpercent(),
-            behavior: "smooth"
+            left: document.getElementById(sellcont).scrollLeft - pxpercent(), behavior: "smooth"
         })
     }
 
+    function checkValid(str) {
+        return /\S/.test(str) && str !== "";
+    }
 
-    return (
-        <>
+
+    return (<>
             <h1 className="pg-heading" id="pg-heading">SELL</h1>
             <h2 className="pg-subtitle">PUBLISH YOUR OWN CODE SNIPPET</h2>
             <ul className="sell-cont" id={sellcont}>
@@ -99,9 +101,9 @@ export default function Sell() {
                             <h3>BANNER</h3>
                             <h4>Upload the banner of your code snippet</h4>
                         </label>
-                        <label className="sell-cont-banner-upload" htmlFor={bannerid}>
-                            <input type="file" accept="image/*" id={bannerid} value={banner}
-                                   onChange={e => setBanner(e.target.value)}/>
+                        <label className="sell-cont-banner-upload" htmlFor={bannerid} id={bannerlabelid}>
+                            <input type="file" accept="image/*" id={bannerid} value={""}
+                                   onChange={e => setBanner(e.target.files[0])}/>
                             <svg fill="none" viewBox="0 0 24 24" width="1.2em" height="1.2em"
                                  xmlns="http://www.w3.org/2000/svg">
                                 <g stroke="currentColor" strokeLinecap="round" strokeWidth="2">
@@ -113,7 +115,30 @@ export default function Sell() {
                             UPLOAD BANNER
                         </label>
                         <br/><br/><br/>
-                        <button className="primary sell-cont-nav-btn" onClick={gofwd}>DESCRIPTION 👉
+                        <button className="primary sell-cont-nav-btn" onClick={() => {
+                            if (checkValid(name) && checkValid(catchphrase) && banner) {
+                                gofwd()
+                            } else {
+                                if (!checkValid(name)) {
+                                    document.getElementById(nameid).style.borderColor = "red"
+                                    setTimeout(() => {
+                                        document.getElementById(nameid).style.borderColor = null
+                                    }, 2000)
+                                }
+                                if (!checkValid(catchphrase)) {
+                                    document.getElementById(catchphraseid).style.borderColor = "red"
+                                    setTimeout(() => {
+                                        document.getElementById(catchphraseid).style.borderColor = null
+                                    }, 2000)
+                                }
+                                if (!banner) {
+                                    document.getElementById(bannerlabelid).style.borderColor = "red"
+                                    setTimeout(() => {
+                                        document.getElementById(bannerlabelid).style.borderColor = null
+                                    }, 2000)
+                                }
+                            }
+                        }}>DESCRIPTION 👉
                         </button>
                     </div>
                 </li>
@@ -132,7 +157,15 @@ export default function Sell() {
                         <br/>
                         <button className="primary sell-cont-nav-btn" onClick={gobkwd}>👈 GENERAL INFO
                         </button>
-                        <button className="primary sell-cont-nav-btn" onClick={gofwd}>CODE 👉
+                        <button className="primary sell-cont-nav-btn" onClick={() => {
+                            if (checkValid(desc)) {
+                                gofwd()
+                            } else {
+                                document.getElementById(descid).style.borderColor = "red"
+                                setTimeout(() => document.getElementById(descid).style.borderColor = null
+                                    , 2000)
+                            }
+                        }}>CODE 👉
                         </button>
                     </div>
                 </li>
@@ -143,11 +176,9 @@ export default function Sell() {
                             <h4>The language of the code below</h4>
                         </label>
                         <select id={languageid} value={language} onChange={e => setLanguage(e.target.value)}>
-                            {languages_list.map((item, index) => (
-                                <option key={index} value={item}>
+                            {languages_list.map((item, index) => (<option key={index} value={item}>
                                     {item}
-                                </option>
-                            ))}
+                            </option>))}
                         </select>
                         <br/><br/>
                         <label className="sell-cont-label-txt" htmlFor={codeid}>
@@ -160,13 +191,17 @@ export default function Sell() {
                         <button className="accent sell-cont-nav-btn" onClick={gobkwd}>👈 DESCRIPTION</button>
                         <br/>
                         <button className="primary sell-cont-nav-btn sell-cont-code-publish" onClick={e => {
-                            console.log("PUBLISHED")
-                            e.currentTarget.innerHTML = "PUBLISHED 🎉"
+                            if (checkValid(code)) {
+                                document.getElementById(codeid).style.borderColor = "red"
+                                setTimeout(() => document.getElementById(codeid).style.borderColor = null
+                                    , 2000)
+                            } else {
+                                e.currentTarget.innerHTML = "PUBLISHED 🎉"
+                            }
                         }}>PUBLISH
                         </button>
                     </div>
                 </li>
             </ul>
-        </>
-    )
+    </>)
 }
