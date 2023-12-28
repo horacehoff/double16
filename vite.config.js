@@ -46,7 +46,7 @@ export default defineConfig({
                 //     xt: ["short-number"],
                 //     db: ["firebase/app", "firebase/firestore", "firebase/analytics"]
                 // },
-                chunkFileNames: 'chunk-[hash].js',
+                chunkFileNames: '[hash].js',
                 experimentalMinChunkSize: 500_000,
             }
         }
