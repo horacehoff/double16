@@ -13,6 +13,7 @@ import AccountPage from "./AccountPage.jsx";
 import Search from "./Search.jsx";
 import ResetPassword from "./ResetPassword.jsx";
 import Feedback from "./Feedback.jsx";
+import Sell from "./Sell.jsx";
 
 ReactDOM.createRoot(document.getElementById('root')).render(
     <React.StrictMode>
@@ -23,6 +24,8 @@ ReactDOM.createRoot(document.getElementById('root')).render(
                 <Route path="/explore" element={<Explore/>}/>
                 <Route path="/search" element={<Search/>}/>
                 <Route path="/code" element={<CodePage/>}/>
+
+                <Route path="/sell" element={<Sell/>}/>
 
                 <Route path="/sign-up" element={<SignUp/>}/>
                 <Route path="/sign-in" element={<SignIn/>}/>

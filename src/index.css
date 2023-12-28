@@ -56,6 +56,12 @@
 
     --nav-nofocus: rgba(255, 255, 255, 0.75);
     --nav-focus: white;
+
+    --file-label-bg: rgb(255, 255, 255, 0.05);
+    --file-label-bg-hover: rgb(255, 255, 255, 0.1);
+    --file-label-bg-active: rgb(255, 255, 255, 0.2);
+    --file-label-border: rgba(255, 255, 255, 0.25);
+    --file-label-border-hover: rgba(255, 255, 255, 0.5);
 }
 
 
@@ -104,6 +110,13 @@
 
         --nav-nofocus: rgba(0, 0, 0, 0.75);
         --nav-focus: black;
+
+        --file-label-bg: #D8DAE8;
+        --file-label-bg-hover: #C5C6D3;
+        --file-label-bg-active: #AFB1BC;
+        --file-label-border: rgba(0, 0, 0, 0.25);
+        --file-label-border-hover: rgba(0, 0, 0, 0.5);
+
 
         margin: 0;
         padding: 0;

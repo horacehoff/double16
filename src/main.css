@@ -11,6 +11,40 @@ a {
 }
 
 
+label:has(input[type="file"]) input[type="file"] {
+    display: none;
+}
+
+label:has(input[type="file"]) {
+    background-color: var(--file-label-bg);
+    padding: 10px 25px;
+    cursor: pointer;
+    transition: 0.25s;
+    font-family: "JetBrains Mono", monospace;
+    color: var(--color);
+    font-weight: 700;
+    font-size: 14.25px;
+    border-radius: 7px;
+    border: solid 1px var(--file-label-border);
+}
+
+label:has(input[type="file"]):hover {
+    background-color: var(--file-label-bg-hover);
+    border-color: var(--file-label-border-hover);
+}
+
+label:has(input[type="file"]):active {
+    background-color: var(--file-label-bg-active);
+}
+
+label:has(input[type="file"]) svg {
+    vertical-align: middle;
+    margin-top: -2px;
+    margin-right: 6px;
+    padding: 0;
+}
+
+
 select {
     font-family: JetBrains Mono, monospace;
     font-size: 13px;
