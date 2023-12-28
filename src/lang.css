@@ -9,7 +9,7 @@ svg:has(~ span) {
     display: inline-block !important;
 }
 
-.rust {
+#rust {
     fill: white;
 }
 
@@ -19,7 +19,7 @@ svg:has(~ span) {
 }
 
 @media (prefers-color-scheme: light) {
-    .rust {
+    #rust {
         fill: black;
     }
 
