@@ -1,4 +1,4 @@
-.pgrmicn {
+svg:has(~ span) {
     display: inline-block !important;
     position: relative !important;
     top: 2px !important;

@@ -3,13 +3,13 @@ import {Link} from "react-router-dom";
 import CodeCard from "./CodeCard.jsx";
 import ShortNumber from "short-number"
 import CodePagePreview from "./CodePagePreview.jsx";
-import {lua} from "./lang.jsx";
+import {rust} from "./lang.jsx";
 
 export default function Explore() {
     const test_li = <>
         <li>
             <CodeCard pkg={{
-                lang: lua,
+                lang: rust,
                 price: "5",
                 like: ShortNumber(1000),
                 dislike: ShortNumber(250),
