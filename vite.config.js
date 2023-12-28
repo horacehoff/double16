@@ -41,11 +41,13 @@ export default defineConfig({
                 compact: true,
                 minifyInternalExports: true,
                 sourcemap: false,
-                manualChunks: {
-                    main: ["react", 'react-dom', 'react-router-dom'],
-                    xt: ["short-number"],
-                    db: ["firebase/app", "firebase/firestore", "firebase/analytics"]
-                }
+                // manualChunks: {
+                //     main: ["react", 'react-dom', 'react-router-dom'],
+                //     xt: ["short-number"],
+                //     db: ["firebase/app", "firebase/firestore", "firebase/analytics"]
+                // }
+                chunkFileNames: 'chunk-[name].[hash].js',
+                experimentalMinChunkSize: 500_000,
             }
         }
     }

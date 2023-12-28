@@ -1,18 +1,25 @@
 import "./Sell.css"
-import {useEffect, useId} from "react";
+import {useEffect, useId, useState} from "react";
 import {languages_list} from "./lang.jsx";
 
 export default function Sell() {
     const sellcont = useId()
 
     const nameid = useId()
+    const [name, setName] = useState("")
     const catchphraseid = useId()
+    const [catchphrase, setCatchphrase] = useState("")
     const bannerid = useId()
+    const [banner, setBanner] = useState("")
+
 
     const descid = useId()
+    const [desc, setDesc] = useState("")
 
     const languageid = useId()
+    const [language, setLanguage] = useState("C")
     const codeid = useId()
+    const [code, setCode] = useState("")
 
 
     // function pxpercent() {
@@ -78,20 +85,23 @@ export default function Sell() {
                             <h3>NAME</h3>
                             <h4>A good, and preferably short name for your code snippet</h4>
                         </label>
-                        <input type="text" placeholder="@awesome_name" id={nameid}/>
+                        <input type="text" placeholder="@awesome_name" id={nameid} value={name}
+                               onChange={e => setName(e.target.value)}/>
                         <br/><br/>
                         <label className="sell-cont-label-txt" htmlFor={catchphraseid}>
                             <h3>CATCHPHRASE</h3>
                             <h4>A quick, short, and concise description for your code snippet</h4>
                         </label>
-                        <input type="text" placeholder="@good_catchphrase" id={catchphraseid}/>
+                        <input type="text" placeholder="@good_catchphrase" id={catchphraseid} value={catchphrase}
+                               onChange={e => setCatchphrase(e.target.value)}/>
                         <br/><br/>
                         <label className="sell-cont-label-txt sell-cont-label-txt-banner" htmlFor={bannerid}>
                             <h3>BANNER</h3>
                             <h4>Upload the banner of your code snippet</h4>
                         </label>
                         <label className="sell-cont-banner-upload" htmlFor={bannerid}>
-                            <input type="file" id={bannerid}/>
+                            <input type="file" accept="image/*" id={bannerid} value={banner}
+                                   onChange={e => setBanner(e.target.value)}/>
                             <svg fill="none" viewBox="0 0 24 24" width="1.2em" height="1.2em"
                                  xmlns="http://www.w3.org/2000/svg">
                                 <g stroke="currentColor" strokeLinecap="round" strokeWidth="2">
@@ -116,7 +126,8 @@ export default function Sell() {
                         {/*<textarea placeholder="@great_description" id={descid}/>*/}
                         {/*<div className="sell-cont-mdeditor">*/}
                         {/*<MarkdownEditor value="Hello Markdown!" />*/}
-                        <textarea placeholder="@great_description" id={descid} className="sell-cont-mdeditor"/>
+                        <textarea placeholder="@great_description" id={descid} className="sell-cont-mdeditor"
+                                  value={desc} onChange={e => setDesc(e.target.value)}/>
                         {/*</div>*/}
                         <br/>
                         <button className="primary sell-cont-nav-btn" onClick={gobkwd}>👈 GENERAL INFO
@@ -131,7 +142,7 @@ export default function Sell() {
                             <h3>LANGUAGE</h3>
                             <h4>The language of the code below</h4>
                         </label>
-                        <select id={languageid}>
+                        <select id={languageid} value={language} onChange={e => setLanguage(e.target.value)}>
                             {languages_list.map((item, index) => (
                                 <option key={index} value={item}>
                                     {item}
@@ -143,7 +154,8 @@ export default function Sell() {
                             <h3>CODE</h3>
                             <h4>The final code that users will download</h4>
                         </label>
-                        <textarea className="sell-cont-code" id={codeid}></textarea>
+                        <textarea className="sell-cont-code" id={codeid} value={code}
+                                  onChange={e => setCode(e.target.value)}></textarea>
                         <br/><br/>
                         <button className="accent sell-cont-nav-btn" onClick={gobkwd}>👈 DESCRIPTION</button>
                         <br/>
