@@ -1,6 +1,5 @@
 import "./CodePagePreview.css"
 import {Link} from "react-router-dom";
-import {rust} from "./lang.jsx";
 
 
 export function ClosePreview(id) {
@@ -67,7 +66,7 @@ export default function CodePagePreview() {
                         alt="Banner"/>
                     <h2 className="codepgpre-title" id={title}>FIBONACCI SEQUENCE CALCULATOR</h2>
                     <h3 className="codepgpre-info">💵 <span id={price}>5</span>$ <span
-                        className="codepgpre-infosep">-</span> <span id={lang}>{rust}</span> <span
+                        className="codepgpre-infosep">-</span> <span id={lang}>{}</span> <span
                         className="codepgpre-infosep">-</span> 👍 <span id={likes}>1K</span> <span
                         className="codepgpre-infosep">-</span> 👎 <span id={dislikes}>5K</span> <span
                         className="codepgpre-infosep">-</span> <span id={char}>150000</span> char.</h3>
