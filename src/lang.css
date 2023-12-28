@@ -5,6 +5,10 @@
     vertical-align: top !important;
 }
 
+.pgrmicnsp {
+    display: inline-block !important;
+}
+
 .rust {
     fill: white;
 }
