@@ -5,8 +5,7 @@ const combine = require('postcss-combine-media-query')
 module.exports = {
     plugins: [
         purgecss({
-            content: ['./**/*.html', './**/*.jsx'],
-            safelist: ["rust", "bash"]
+            content: ['./**/*.html', './**/*.jsx']
         }),
         cssnano({
             preset: "default"

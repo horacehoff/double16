@@ -4,30 +4,6 @@ svg:has(~ span) {
     top: 2px !important;
     vertical-align: top !important;
 }
-
 .pgrmicnsp {
     display: inline-block !important;
-}
-
-/* purgecss ignore */
-.rust {
-    fill: white;
-}
-
-/* purgecss ignore */
-.bash {
-    fill: white;
-    shape-rendering: geometricPrecision !important;
-}
-
-@media (prefers-color-scheme: light) {
-    /* purgecss ignore */
-    .rust {
-        fill: black;
-    }
-
-    /* purgecss ignore */
-    .bash {
-        fill: #293138;
-    }
 }
