@@ -9,7 +9,7 @@ svg:has(~ span) {
     display: inline-block !important;
 }
 
-svg:has(~ span)[id="rust"] {
+.rust {
     fill: white;
 }
 
@@ -19,10 +19,9 @@ svg:has(~ span)[id="rust"] {
 }
 
 @media (prefers-color-scheme: light) {
-    svg:has(~ span)[id="rust"] {
+    .rust {
         fill: black;
     }
-
     .bash {
         fill: #293138;
     }
