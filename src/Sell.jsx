@@ -1,6 +1,6 @@
 import "./Sell.css"
 import {useEffect, useId} from "react";
-import {languages} from "./lang.jsx";
+import {languages_list} from "./lang.jsx";
 
 export default function Sell() {
     const sellcont = useId()
@@ -132,7 +132,7 @@ export default function Sell() {
                             <h4>The language of the code below</h4>
                         </label>
                         <select id={languageid}>
-                            {languages.map((item, index) => (
+                            {languages_list.map((item, index) => (
                                 <option key={index} value={item}>
                                     {item}
                                 </option>

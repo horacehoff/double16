@@ -1,7 +1,7 @@
 import "./Search.css"
 import {ClosePreview} from "./CodePagePreview.jsx";
 import {useId} from "react";
-import {languages} from "./lang.jsx";
+import {languages_list} from "./lang.jsx";
 
 export default function Search() {
     const ratepopup = useId()
@@ -59,7 +59,7 @@ export default function Search() {
                 <p>--- PROGRAMMING LANGUAGE ---</p>
                 <select>
                     <option>Any</option>
-                    {languages.map((item, index) => (
+                    {languages_list.map((item, index) => (
                         <option key={index} value={item}>
                             {item}
                         </option>
