@@ -42,10 +42,11 @@ export default function Sell() {
 
     useEffect(() => {
         let width = window.innerWidth
-        console.log(width)
         window.addEventListener("resize", () => {
             if (document.getElementById(sellcont).scrollLeft > 0 && window.innerWidth > width) {
                 document.getElementById(sellcont).scrollLeft = pxpercent() * Math.round(document.getElementById(sellcont).scrollLeft / width)
+            } else if (document.getElementById(sellcont).scrollLeft > 0 && window.innerWidth < width && Math.round(document.getElementById(sellcont).scrollLeft / width) === 1) {
+                document.getElementById(sellcont).scrollLeft = pxpercent()
             }
             width = window.innerWidth;
         })
@@ -144,7 +145,7 @@ export default function Sell() {
                         </label>
                         <textarea className="sell-cont-code" id={codeid}></textarea>
                         <br/><br/>
-                        <button className="accent sell-cont-nav-btn" onClick={gobkwd}>👈 GENERAL INFO</button>
+                        <button className="accent sell-cont-nav-btn" onClick={gobkwd}>👈 DESCRIPTION</button>
                         <br/>
                         <button className="primary sell-cont-nav-btn sell-cont-code-publish" onClick={e => {
                             console.log("PUBLISHED")
