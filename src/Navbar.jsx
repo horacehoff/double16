@@ -8,6 +8,7 @@ export default function Navbar() {
     const exploreid = useId()
     const menuexploreid = useId()
     const sellid = useId()
+    const menusellid = useId()
     const pricingid = useId()
     const aboutid = useId()
     const feedbackid = useId()
@@ -73,6 +74,15 @@ export default function Navbar() {
             document.getElementById(feedbackid).style.textDecoration = null
             document.getElementById(menufeedbackid).style.textDecoration = null
         }
+        if (location.pathname.includes("/sell")) {
+            document.getElementById(sellid).style.color = "var(--color)"
+            document.getElementById(sellid).style.textDecoration = "underline"
+            document.getElementById(menusellid).style.textDecoration = "underline"
+        } else {
+            document.getElementById(sellid).style.color = null
+            document.getElementById(sellid).style.textDecoration = null
+            document.getElementById(menusellid).style.textDecoration = null
+        }
     }, [location]);
 
 
@@ -82,7 +92,7 @@ export default function Navbar() {
                 <Link to="/"><Logo className="nav-logo"/></Link>
                 <ul className="nav-list">
                     <li><Link to="/explore" id={exploreid}>EXPLORE</Link></li>
-                    <li>SELL</li>
+                    <li><Link to="/sell" id={sellid}>SELL</Link></li>
                     <li>PRICING</li>
                     <li>ABOUT</li>
                     <li><Link to="/feedback" id={feedbackid}>FEEDBACK</Link></li>
@@ -108,7 +118,7 @@ export default function Navbar() {
             <div ref={navMenuDivRef} className="nav-menu-extra">
                 <ul className="nav-list-extra">
                     <li><Link to="/explore" id={menuexploreid}>EXPLORE</Link></li>
-                    <li>SELL</li>
+                    <li><Link to="/sell" id={menusellid}>SELL</Link></li>
                     <li>PRICING</li>
                     <li>ABOUT</li>
                     <li><Link to="/feedback" id={menufeedbackid}>FEEDBACK</Link></li>
