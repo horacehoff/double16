@@ -55,10 +55,35 @@
     color: var(--nav-nofocus);
     transition: 0.2s;
     cursor: pointer;
+    vertical-align: top;
 }
 
 .nav-list li:not(:first-child) {
     margin-left: 20px;
+}
+
+.nav-list-account {
+    position: relative;
+    height: fit-content;
+    padding: 0;
+    width: 67.2px !important;
+    overflow: visible;
+    display: none;
+}
+
+.nav-list-account * {
+    position: relative;
+    width: 67.2px !important;
+    overflow: visible;
+    padding: 0;
+    text-align: right;
+    white-space: nowrap;
+}
+
+.nav-list-account a {
+    position: relative;
+    text-align: right;
+    top: 1px;
 }
 
 .nav-menu {
@@ -119,7 +144,15 @@
 
 
 @media (hover: hover) and (pointer: fine) {
-    .nav-list li:hover {
+    .nav-list li:not(.nav-list-signup):hover {
+        color: var(--nav-focus)
+    }
+
+    .nav-list-signup a {
+        transition: 0.25s;
+    }
+
+    .nav-list-signup a:hover {
         color: var(--nav-focus)
     }
 }
