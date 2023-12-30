@@ -83,7 +83,14 @@
 .nav-list-account a {
     position: relative;
     text-align: right;
-    top: 1px;
+}
+
+.nav-list-account a:first-of-type {
+    top: 5px;
+}
+
+.nav-list-account a:last-of-type {
+    top: 9px;
 }
 
 .nav-menu {

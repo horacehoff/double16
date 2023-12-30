@@ -1,7 +1,9 @@
 import "./SignUp.css"
 import "./SignIn.css"
 import {useId, useState} from "react";
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
+import {signInWithEmailAndPassword} from "firebase/auth"
+import {auth} from "./firebase.js";
 
 export default function SignIn() {
     const emailid = useId()
@@ -11,6 +13,8 @@ export default function SignIn() {
 
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
+
+    const navigate = useNavigate()
 
     function submit(e) {
         e.preventDefault()
@@ -23,8 +27,29 @@ export default function SignIn() {
             setTimeout(() => document.getElementById(passwordid).style.borderColor = null, 2000)
         }
         if (email !== "" && email.trim() && password !== "" && password.trim()) {
-            document.getElementById(errorid).style.opacity = "1"
-            setTimeout(() => document.getElementById(errorid).style.opacity = "0", 5000)
+            signInWithEmailAndPassword(auth, email, password)
+                .then(() => {
+                    navigate("/")
+                })
+                .catch((error) => {
+                    const errorCode = error.code;
+                    const errorMessage = error.message;
+                    const showError = (errormsg) => {
+                        document.getElementById(errorid).innerText = "ERROR: " + errormsg
+                        document.getElementById(errorid).style.opacity = "1"
+                        setTimeout(() => document.getElementById(errorid).style.opacity = "0", 5000)
+                    }
+                    if (errorCode === "auth/invalid-email") {
+                        showError("INVALID EMAIL")
+                    } else if (errorCode === "auth/invalid-credential") {
+                        showError("WRONG EMAIL/PASSWORD")
+                    } else {
+                        showError(errorCode)
+                    }
+                    console.log(errorCode, errorMessage)
+                });
+            // document.getElementById(errorid).style.opacity = "1"
+            // setTimeout(() => document.getElementById(errorid).style.opacity = "0", 5000)
         }
     }
     return (

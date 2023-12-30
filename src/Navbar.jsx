@@ -5,7 +5,6 @@ import {Link, useLocation, useNavigate} from "react-router-dom";
 import {auth} from "./firebase.js"
 import {onAuthStateChanged, signOut} from 'firebase/auth';
 
-
 export default function Navbar() {
     const exploreid = useId()
     const menuexploreid = useId()
@@ -16,6 +15,9 @@ export default function Navbar() {
     const feedbackid = useId()
     const menufeedbackid = useId()
     const signupid = useId()
+    const settingsid = useId()
+    const signoutid = useId()
+    const signupli_id = useId()
     const signupextraid = useId()
     const menusignupid = useId()
 
@@ -23,6 +25,7 @@ export default function Navbar() {
 
     const navMenuRef = useRef();
     const navMenuDivRef = useRef();
+    const navAccountMenuDivRef = useRef();
     const location = useLocation();
     const navigate = useNavigate()
 
@@ -35,6 +38,13 @@ export default function Navbar() {
                     navMenuDivRef.current.style.right = "-100%";
                 }
             }
+            if (navAccountMenuDivRef.current.style.right !== "0px") {
+                if (window.matchMedia("(max-width: 500px)").matches) {
+                    navAccountMenuDivRef.current.style.right = "-200px";
+                } else {
+                    navAccountMenuDivRef.current.style.right = "-100%";
+                }
+            }
         })
     }, [])
 
@@ -43,6 +53,17 @@ export default function Navbar() {
             if (user) {
                 document.getElementById(signupid).innerHTML = 'ACCOUNT'
                 document.getElementById(menusignupid).innerHTML = 'ACCOUNT'
+                document.getElementById(signupli_id).onmouseenter = function () {
+                    document.getElementById(signupextraid).style.display = "block"
+                }
+                document.getElementById(signupli_id).onmouseleave = function () {
+                    setTimeout(() => document.getElementById(signupextraid).style.display = "none", 2000
+                    )
+                }
+                document.getElementById(menusignupid).onclick = (e) => {
+                    e.preventDefault()
+                    navAccountMenuDivRef.current.style.right = "0"
+                }
             } else {
                 console.log("Logged out");
             }
@@ -112,18 +133,12 @@ export default function Navbar() {
                     <li>PRICING</li>
                     <li>ABOUT</li>
                     <li><Link to="/feedback" id={feedbackid}>FEEDBACK</Link></li>
-                    <li className="nav-list-signup" onMouseEnter={() => {
-                        document.getElementById(signupextraid).style.display = "block"
-                    }} onMouseLeave={() => {
-                        setTimeout(() => {
-                            document.getElementById(signupextraid).style.display = "none"
-                        }, 1000)
-                    }}>
+                    <li className="nav-list-signup" id={signupli_id}>
                         <Link to="/sign-up" id={signupid}>SIGN_UP</Link>
                         <div className="nav-list-account" id={signupextraid}>
-                            <Link to="/sign-up" id={signupid}>SETTINGS</Link>
+                            <Link to="/sign-up" id={settingsid}>SETTINGS</Link>
                             <br/>
-                            <a href="#" id={signupid} onClick={() => {
+                            <a href="#" id={signoutid} onClick={() => {
                                 signOut(auth).then(() => {
                                     navigate("/")
                                     window.location.reload()
@@ -159,6 +174,27 @@ export default function Navbar() {
                     <li>ABOUT</li>
                     <li><Link to="/feedback" id={menufeedbackid}>FEEDBACK</Link></li>
                     <li><Link to="/sign-up" id={menusignupid}>SIGN_UP</Link></li>
+                </ul>
+            </div>
+            <div ref={navAccountMenuDivRef} className="nav-menu-extra">
+                <ul className="nav-list-extra">
+                    <li onClick={() => {
+                        if (window.matchMedia("(max-width: 500px)").matches) {
+                            navAccountMenuDivRef.current.style.right = "-100%";
+                        } else {
+                            navAccountMenuDivRef.current.style.right = "-200px";
+                        }
+                    }}>⬅ BACK
+                    </li>
+                    <li><Link to="">ACCOUNT</Link></li>
+                    <li><Link to="" id={menusellid}>SETTINGS</Link></li>
+                    <li onClick={() => {
+                        signOut(auth).then(() => {
+                            navigate("/")
+                            window.location.reload()
+                        })
+                    }}>SIGN_OUT
+                    </li>
                 </ul>
             </div>
         </>)

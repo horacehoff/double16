@@ -62,6 +62,8 @@ export default function SignUp() {
                         showError("PASSWORD TOO WEAK")
                     } else if (errorCode === "auth/email-already-in-use") {
                         showError("EMAIL ALREADY IN USE")
+                    } else {
+                        showError(errorCode)
                     }
                     console.log(errorCode, errorMessage)
                 });
