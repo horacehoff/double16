@@ -184,7 +184,20 @@ export default function Navbar() {
                         } else {
                             navAccountMenuDivRef.current.style.right = "-200px";
                         }
-                    }}>⬅ BACK
+                    }}>
+                        <svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                             style={{verticalAlign: "-2.5%", marginRight: "10px"}}>
+                            <g clipPath="url(#clip0_489_191222)">
+                                <path d="M21 12H3m0 0l6-7m-6 7l6 7" stroke="currentColor" strokeWidth="4"
+                                      strokeLinecap="round" strokeLinejoin="round"/>
+                            </g>
+                            <defs>
+                                <clipPath id="clip0_489_191222">
+                                    <path fill="currentColor" d="M0 0H24V24H0z"/>
+                                </clipPath>
+                            </defs>
+                        </svg>
+                        BACK
                     </li>
                     <li><Link to="">ACCOUNT</Link></li>
                     <li><Link to="" id={menusellid}>SETTINGS</Link></li>
