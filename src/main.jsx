@@ -14,6 +14,8 @@ import Search from "./Search.jsx";
 import ResetPassword from "./ResetPassword.jsx";
 import Feedback from "./Feedback.jsx";
 import Sell from "./Sell.jsx";
+import FourZeroFour from "./404.jsx";
+import "./encrypt.js"
 
 ReactDOM.createRoot(document.getElementById('root')).render(
     <React.StrictMode>
@@ -23,7 +25,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
                 <Route path="/" element={<Home/>}/>
                 <Route path="/explore" element={<Explore/>}/>
                 <Route path="/search" element={<Search/>}/>
-                <Route path="/code" element={<CodePage/>}/>
+                <Route path="/code/:codeid" element={<CodePage/>}/>
 
                 <Route path="/sell" element={<Sell/>}/>
 
@@ -31,9 +33,11 @@ ReactDOM.createRoot(document.getElementById('root')).render(
                 <Route path="/sign-in" element={<SignIn/>}/>
                 <Route path="/reset-password" element={<ResetPassword/>}/>
 
-                <Route path="/user" element={<AccountPage/>}/>
+                <Route path="/users/:user" element={<AccountPage/>}/>
 
                 <Route path="/feedback" element={<Feedback/>}/>
+
+                <Route path="/404" element={<FourZeroFour/>}/>
             </Routes>
         </BrowserRouter>
     </React.StrictMode>,

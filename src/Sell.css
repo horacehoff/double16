@@ -1,3 +1,18 @@
+.sell-subtitle {
+    margin-bottom: -40px;
+}
+
+.sell-error-notice {
+    margin-bottom: 10px;
+    opacity: 0;
+    position: relative;
+    left: -10px;
+    width: 319px;
+    text-align: justify;
+    overflow: visible;
+    white-space: nowrap;
+}
+
 .sell-cont {
     position: relative;
     left: 0;

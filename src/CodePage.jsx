@@ -1,22 +1,98 @@
 import "./CodePage.css"
-import {rust} from "./lang.jsx";
-import {useId, useState} from "react";
+import {getLanguageName, python} from "./lang.jsx"
+import {useEffect, useId, useState} from "react";
 import {ClosePreview} from "./CodePagePreview.jsx";
-import {Link} from "react-router-dom";
+import {Link, useNavigate, useParams} from "react-router-dom";
+import {doc, getDoc, updateDoc} from "firebase/firestore";
+import {db, userdb} from "./firebase.js";
+import shortNumber from "short-number";
+import timeago from 'epoch-timeago';
+
 
 export default function CodePage() {
+    const navigate = useNavigate()
     const favoritebtn = useId()
     const [isFavorite, setIsFavorite] = useState(false)
+    const codeid = useParams().codeid
+    const [codedata, setCodeData] = useState(null)
+
 
     const ratepopup = useId()
+
+    const bannerid = useId()
+    const priceid = useId()
+    const priceidb = useId()
+    const nameid = useId()
+    const charid = useId()
+    const updateid = useId()
+    const authorid = useId()
+    const likesid = useId()
+    const dislikesid = useId()
+    const descid = useId()
+    const languageid = useId()
+
+    const [language, setLanguage] = useState(<>
+        {python}
+    </>)
+
+
+    const [isRun, setIsRun] = useState(false)
+    if (!isRun) {
+        setIsRun(true)
+        const codeRef = doc(db, "codesnippets", codeid);
+        getDoc(codeRef).then((docSnap) => {
+            if (docSnap.exists()) {
+                setCodeData(docSnap.data())
+                console.log("found it")
+            } else {
+                navigate("/404")
+            }
+        })
+    }
+
+    useEffect(() => {
+        if (codedata) {
+            console.log(codedata)
+            document.getElementById(bannerid).src = codedata.bannerUrl
+            document.getElementById(priceid).innerText = "2"
+            document.getElementById(priceidb).innerText = "2"
+            document.getElementById(nameid).innerText = codedata.title
+            document.getElementById(charid).innerText = shortNumber(codedata.char)
+            document.getElementById(updateid).innerText = timeago(codedata.updated - 60000 * 10).toUpperCase()
+            document.getElementById(authorid).innerText = codedata.authorid
+            document.getElementById(likesid).innerText = shortNumber(codedata.likes.length)
+            document.getElementById(dislikesid).innerText = shortNumber(codedata.dislikes.length)
+            document.getElementById(descid).innerText = codedata.desc
+            setLanguage(<>
+                {getLanguageName(codedata.codeLanguage)}
+            </>)
+
+            if (userdb && userdb.favorites && userdb.favorites.includes(codedata.id)) {
+                document.getElementById(favoritebtn).style.color = "transparent"
+                setTimeout(() => {
+                    document.getElementById(favoritebtn).innerHTML = document.getElementById(favoritebtn).innerHTML.replace("FAVORITE", "UN-FAVORITE")
+                    document.getElementById(favoritebtn).style.color = null
+                    document.getElementById(favoritebtn).firstChild.style.color = "white"
+                }, 250)
+                setIsFavorite(true)
+            }
+        }
+    }, [codedata])
+    if (codedata === null) {
+        return (
+            <>
+                <h1 style={{position: "absolute", textAlign: "center", top: "50%"}}>LOADING..</h1>
+            </>
+        )
+    }
     return (
         <>
             <div className="codepgpre codepg">
                 <img
                     src="https://www.codingcreativo.it/wp-content/uploads/2022/10/fibonacci-sequence-in-python.jpg"
-                    alt="Banner" className="codepg-img"/>
+                    alt="Banner" className="codepg-img" id={bannerid}/>
                 <div className="codepg-btngp">
-                    <button className="primary">🛒 BUY FOR 5$</button>
+                    <button className="primary">🛒 BUY FOR <span id={priceid}>5</span>$</button>
                     <button className="primary" onClick={() => {
 
                         document.getElementById("root").style.pointerEvents = "none"
@@ -34,33 +110,58 @@ export default function CodePage() {
                     }}>⭐️ RATE
                     </button>
                     <button className="primary " id={favoritebtn} onClick={() => {
-                        if (!isFavorite) {
-                            document.getElementById(favoritebtn).style.color = "transparent"
-                            setTimeout(() => {
-                                document.getElementById(favoritebtn).innerHTML = document.getElementById(favoritebtn).innerHTML.replace("FAVORITE", "UN-FAVORITE")
-                                document.getElementById(favoritebtn).style.color = null
-                                document.getElementById(favoritebtn).firstChild.style.color = "white"
-                            }, 250)
-                            setIsFavorite(true)
+                        let fav_condition = !userdb.favorites || !userdb.favorites.includes(codedata.id)
+                        if (userdb && !isFavorite && fav_condition) {
+                            let new_favorites = [...userdb.favorites]
+                            new_favorites.push(codedata.id)
+
+                            const userRef = doc(db, "users", userdb.id);
+                            updateDoc(userRef, {
+                                favorites: new_favorites
+                            }).then(() => {
+                                document.getElementById(favoritebtn).style.color = "transparent"
+                                setTimeout(() => {
+                                    document.getElementById(favoritebtn).innerHTML = document.getElementById(favoritebtn).innerHTML.replace("FAVORITE", "UN-FAVORITE")
+                                    document.getElementById(favoritebtn).style.color = null
+                                    document.getElementById(favoritebtn).firstChild.style.color = "white"
+                                }, 250)
+                                setIsFavorite(true)
+                            })
                         } else {
-                            document.getElementById(favoritebtn).style.color = "transparent"
-                            setTimeout(() => {
-                                document.getElementById(favoritebtn).innerHTML = document.getElementById(favoritebtn).innerHTML.replace("UN-FAVORITE", "FAVORITE")
-                                document.getElementById(favoritebtn).style.color = null
-                                document.getElementById(favoritebtn).firstChild.style.color = "white"
-                            }, 250)
-                            setIsFavorite(false)
+                            if (userdb && userdb.favorites && userdb.favorites.includes(codedata.id)) {
+                                let new_favorites = [...userdb.favorites]
+                                let new_favorites_index = new_favorites.indexOf(codedata.id)
+                                new_favorites.splice(new_favorites_index, 1)
+
+                                const userRef = doc(db, "users", userdb.id);
+                                updateDoc(userRef, {
+                                    favorites: new_favorites
+                                }).then(() => {
+                                    document.getElementById(favoritebtn).style.color = "transparent"
+                                    setTimeout(() => {
+                                        document.getElementById(favoritebtn).innerHTML = document.getElementById(favoritebtn).innerHTML.replace("UN-FAVORITE", "FAVORITE")
+                                        document.getElementById(favoritebtn).style.color = null
+                                        document.getElementById(favoritebtn).firstChild.style.color = "white"
+                                    }, 250)
+                                    setIsFavorite(false)
+                                })
+                            }
                         }
                     }}><span className="emojifix">❤️</span>️ FAVORITE
                     </button>
                 </div>
-                <h2 className="codepgpre-title">FIBONACCI SEQUENCE CALCULATOR</h2>
-                <h3 className="codepgpre-info">💵 5$ <span className="codepgpre-infosep">-</span> {rust} <span
-                    className="codepgpre-infosep">-</span> 👍 1K <span className="codepgpre-infosep">-</span> 👎
-                    5K <span className="codepgpre-infosep">-</span> 150000 char.</h3>
-                <h3 className="codepgpre-info codepg-update">⏰ UPDATED 2H AGO</h3>
-                <h4 className="codepgpre-author">by <Link className="link-text" to="/user">JuTS-A_MANGO</Link></h4>
-                <p className="codepgpre-desc">trm-engine is a game engine designed to run in the terminal, providing
+                <h2 className="codepgpre-title" id={nameid}>FIBONACCI SEQUENCE CALCULATOR</h2>
+                <h3 className="codepgpre-info">💵 <span id={priceidb}>5</span>$ <span
+                    className="codepgpre-infosep">-</span> <span id={languageid}>{language}</span> <span
+                    className="codepgpre-infosep">-</span> 👍 <span id={likesid}>1K</span> <span
+                    className="codepgpre-infosep">-</span> 👎
+                    <span id={dislikesid}>5K</span> <span className="codepgpre-infosep">-</span> <span
+                        id={charid}>15000</span> char.</h3>
+                <h3 className="codepgpre-info codepg-update">⏰ UPDATED <span id={updateid}>2H AGO</span></h3>
+                <h4 className="codepgpre-author">by <Link className="link-text" to="/user"
+                                                          id={authorid}>JuTS-A_MANGO</Link></h4>
+                <p className="codepgpre-desc" id={descid}>trm-engine is a game engine designed to run in the terminal,
+                    providing
                     a simple and lightweight platform for developing terminal-based games.
                     Key Features:
                     Object Management: The engine includes an object management system, allowing for easy creation,
@@ -80,12 +181,43 @@ export default function CodePage() {
                     <h3>RATE</h3>
                     <button className="primary" onClick={() => {
                         // like method
-                        ClosePreview(ratepopup)
+                        if (userdb) {
+                            let new_likes = [...codedata.likes]
+                            new_likes.push(userdb.id)
+                            let new_dislikes = [...codedata.dislikes]
+                            let new_dislikes_index = new_dislikes.indexOf(userdb.id)
+                            if (new_dislikes_index > -1) {
+                                new_dislikes.splice(new_dislikes_index, 1)
+                            }
+                            const codeRefRate = doc(db, "codesnippets", codedata.id);
+                            updateDoc(codeRefRate, {
+                                likes: new_likes,
+                                dislikes: new_dislikes
+                            }).then(() => {
+                                ClosePreview(ratepopup)
+                            })
+                        }
                     }}>👍 LIKE
                     </button>
                     <button className="primary" onClick={() => {
                         // dislike method
-                        ClosePreview(ratepopup)
+                        if (userdb) {
+                            let new_dislikes = [...codedata.dislikes]
+                            new_dislikes.push(userdb.id)
+                            let new_likes = [...codedata.likes]
+                            let new_likes_index = new_likes.indexOf(userdb.id)
+                            if (new_likes_index > -1) {
+                                new_likes.splice(new_likes_index, 1)
+                            }
+                            console.log()
+                            const codeRefRate = doc(db, "codesnippets", codedata.id);
+                            updateDoc(codeRefRate, {
+                                likes: new_likes,
+                                dislikes: new_dislikes
+                            }).then(() => {
+                                ClosePreview(ratepopup)
+                            })
+                        }
                     }}>👎 DISLIKE
                     </button>
                 </div>

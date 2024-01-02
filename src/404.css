@@ -1,0 +1,19 @@
+.four-cont {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: fit-content;
+    text-align: center;
+}
+
+.four-cont h1 {
+    font-family: Inter, sans-serif;
+    font-size: 50px;
+}
+
+.four-cont h2 {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 20px;
+}

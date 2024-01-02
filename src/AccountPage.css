@@ -14,6 +14,7 @@
     top: 320px;
     width: 100%;
     height: calc(100dvh - 150px);
+    /*background-image: url("https://static.vecteezy.com/system/resources/thumbnails/003/743/144/original/pink-blue-gradient-liquid-wave-technology-abstract-background-free-video.jpg");*/
     background-image: url("https://static.vecteezy.com/system/resources/thumbnails/003/743/144/original/pink-blue-gradient-liquid-wave-technology-abstract-background-free-video.jpg");
     background-size: cover;
     filter: blur(200px) brightness(0.7);
@@ -138,6 +139,7 @@
     position: relative;
     margin: 0;
     padding: 0;
+    margin-top: -3px;
 }
 
 .ucntinf svg g {

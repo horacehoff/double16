@@ -4,7 +4,6 @@ import {Link, useNavigate} from "react-router-dom";
 import {createUserWithEmailAndPassword} from "firebase/auth";
 import {doc, setDoc} from "firebase/firestore";
 import {auth, db} from "./firebase.js"
-import {v1 as uuidv1} from 'uuid';
 
 
 export default function SignUp() {
@@ -38,12 +37,18 @@ export default function SignUp() {
         }
         if (username !== "" && username.trim() && email !== "" && email.trim() && password !== "" && password.trim()) {
             createUserWithEmailAndPassword(auth, email, password)
-                .then((userCredential) => {
-                    let userid = uuidv1()
+                .then((user) => {
+                    let userid = user.user.uid
                     setDoc(doc(db, "users", userid), {
                         id: userid,
                         email: email,
-                        username: username
+                        username: username,
+                        bio: "Hi, I'm new to DOUBLE16!",
+                        followers: [],
+                        following: [],
+                        codesnippets: [],
+                        gottensnippets: [],
+                        banner: "https://source.boringavatars.com/marble/850/" + username + "?square"
                     }).then(() => {
                         navigate("/")
                     })
@@ -81,7 +86,7 @@ export default function SignUp() {
         <>
             <form className="sign-form">
                 <h1>SIGN_UP</h1>
-                <p id={errorid}>ERROR: USERNAME ALREADY EXISTS</p>
+                <p id={errorid} className="error-notice">ERROR: USERNAME ALREADY EXISTS</p>
                 <input id={usernameid} type="text" placeholder="@username" name="username" autoComplete="username"
                        value={username} onChange={e => setUsername(e.target.value)}/><br/>
                 <input id={emailid} type="email" placeholder="@email" name="email" autoComplete="email" value={email}

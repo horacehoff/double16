@@ -20,7 +20,8 @@
     color: var(--color);
 }
 
-.sign-form p {
+
+.error-notice {
     font-size: 15px;
     position: relative;
     margin-bottom: 30px;
@@ -32,7 +33,7 @@
 }
 
 @media (prefers-color-scheme: light) {
-    .sign-form p {
+    .error-notice {
         color: #3b3b3b;
     }
 }

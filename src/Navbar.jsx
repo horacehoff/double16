@@ -20,6 +20,7 @@ export default function Navbar() {
     const signupli_id = useId()
     const signupextraid = useId()
     const menusignupid = useId()
+    const menuaccountid = useId()
 
 
 
@@ -34,25 +35,28 @@ export default function Navbar() {
             if (navMenuDivRef.current.style.right !== "0px") {
                 if (window.matchMedia("(max-width: 500px)").matches) {
                     navMenuDivRef.current.style.right = "-200px";
-                } else {
-                    navMenuDivRef.current.style.right = "-100%";
-                }
-            }
-            if (navAccountMenuDivRef.current.style.right !== "0px") {
-                if (window.matchMedia("(max-width: 500px)").matches) {
                     navAccountMenuDivRef.current.style.right = "-200px";
                 } else {
+                    navMenuDivRef.current.style.right = "-100%";
                     navAccountMenuDivRef.current.style.right = "-100%";
                 }
             }
         })
     }, [])
 
+
     useEffect(() => {
         onAuthStateChanged(auth, async (user) => {
             if (user) {
                 document.getElementById(signupid).innerHTML = 'ACCOUNT'
+                document.getElementById(signupid).href = "/users/" + user.uid
+                document.getElementById(signupid).onclick = (e) => {
+                    e.preventDefault()
+                    navigate("/users/" + user.uid)
+                }
                 document.getElementById(menusignupid).innerHTML = 'ACCOUNT'
+
+
                 document.getElementById(signupli_id).onmouseenter = function () {
                     document.getElementById(signupextraid).style.display = "block"
                 }
@@ -64,21 +68,21 @@ export default function Navbar() {
                     e.preventDefault()
                     navAccountMenuDivRef.current.style.right = "0"
                 }
-            } else {
-                console.log("Logged out");
             }
         })
+    }, [])
 
 
-
-
+    useEffect(() => {
         document.getElementById("root").style.pointerEvents = "all"
         document.getElementById("root").style.touchAction = "auto"
 
         if (window.matchMedia("(max-width: 500px)").matches) {
             navMenuDivRef.current.style.right = "-100%";
+            navAccountMenuDivRef.current.style.right = "-100%";
         } else {
             navMenuDivRef.current.style.right = "-200px";
+            navAccountMenuDivRef.current.style.right = "-200px";
         }
         navMenuRef.current.innerText = "||"
         if (!location.pathname.includes("/user")) {
@@ -199,7 +203,7 @@ export default function Navbar() {
                         </svg>
                         BACK
                     </li>
-                    <li><Link to="">ACCOUNT</Link></li>
+                    <li><Link to="" id={menuaccountid}>ACCOUNT</Link></li>
                     <li><Link to="" id={menusellid}>SETTINGS</Link></li>
                     <li onClick={() => {
                         signOut(auth).then(() => {
