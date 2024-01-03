@@ -23,6 +23,7 @@ export default function CodePage() {
     const ratepopup = useId()
 
     const bannerid = useId()
+    const pricesupersetid = useId()
     const priceid = useId()
     const priceidb = useId()
     const nameid = useId()
@@ -60,7 +61,17 @@ export default function CodePage() {
             console.log(codedata)
             document.getElementById(bannerid).src = codedata.bannerUrl
             document.getElementById(priceid).innerText = codedata.price
-            document.getElementById(priceidb).innerText = codedata.price
+            if (codedata.price === 0) {
+                document.getElementById(pricesupersetid).innerText = "📁 DOWNLOAD"
+                document.getElementById(pricesupersetid).onmouseenter = () => {
+                    document.getElementById(pricesupersetid).innerText = "📂 DOWNLOAD"
+                }
+                document.getElementById(pricesupersetid).onmouseleave = () => {
+                    document.getElementById(pricesupersetid).innerText = "📁 DOWNLOAD"
+                }
+            } else {
+                document.getElementById(priceidb).innerText = codedata.price
+            }
             document.getElementById(nameid).innerText = codedata.title
             document.getElementById(charid).innerText = shortNumber(codedata.char)
             document.getElementById(updateid).innerText = timeago(codedata.updated - 60000 * 10).toUpperCase()
@@ -181,7 +192,7 @@ export default function CodePage() {
                         }
 
 
-                    }}>🛒 BUY FOR <span id={priceid}>5</span>$
+                    }} id={pricesupersetid}>🛒 BUY FOR <span id={priceid}>5</span>$
                     </button>
                     <button className="primary" onClick={() => {
 
