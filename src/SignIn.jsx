@@ -56,7 +56,7 @@ export default function SignIn() {
         <>
             <form className="sign-form">
                 <h1>SIGN_IN</h1>
-                <p id={errorid}>ERROR: USERNAME ALREADY EXISTS</p>
+                <p id={errorid} className="error-notice">ERROR: USERNAME ALREADY EXISTS</p>
                 <input id={emailid} type="email" placeholder="@email" name="email" autoComplete="email" value={email}
                        onChange={e => setEmail(e.target.value)}/><br/>
                 <input id={passwordid} type="password" placeholder="@password" name="psw"
