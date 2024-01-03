@@ -48,7 +48,7 @@ export default defineConfig({
                 //     db: ["firebase/app", "firebase/firestore", "firebase/analytics"]
                 // },
                 chunkFileNames: '[hash].js',
-                experimentalMinChunkSize: 500_000,
+                experimentalMinChunkSize: 10_000,
             },
             plugins: [nodeResolve()]
         }
