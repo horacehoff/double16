@@ -1,6 +1,7 @@
 import {defineConfig} from 'vite'
 import react from '@vitejs/plugin-react-swc'
 import svgr from "vite-plugin-svgr";
+import nodeResolve from "@rollup/plugin-node-resolve";
 // import viteCompression from 'vite-plugin-compression';
 
 
@@ -48,7 +49,8 @@ export default defineConfig({
                 // },
                 chunkFileNames: '[hash].js',
                 experimentalMinChunkSize: 500_000,
-            }
+            },
+            plugins: [nodeResolve()]
         }
     }
 })
