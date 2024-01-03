@@ -90,8 +90,27 @@
 }
 
 
+.pg-section-list-placeholder {
+    width: 302px;
+    height: 232px;
+    padding: 0;
+    border: 0;
+    background-color: #36363a;
+    border-radius: 20px;
+    animation: pulse 2s infinite;
+}
 
-
+@keyframes pulse {
+    0% {
+        filter: brightness(1);
+    }
+    50% {
+        filter: brightness(0.75);
+    }
+    100% {
+        filter: brightness(1);
+    }
+}
 
 
 

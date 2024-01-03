@@ -222,10 +222,39 @@ export const basic = <>
 export const languages = [c, cpp, css, rust, go, bash, ts, python, arduino, scala, haskell, dart, swift, cs, fs, html, java, js, php, ruby, r, matlab, kotlin, objectivec, lua, assembly, basic, perl]
 export const languages_list = ["C", "C++", "CSS", 'Rust', "Go", "Bash", "TypeScript", "Python", "Arduino", "Scala", "Haskell", "Dart", "Swift", "C#", "F#", "HTML", "Java", "JavaScript", "PHP", "Ruby", "R", "MATLAB", "Kotlin", "Objective-C", "Lua", "Assembly", "BASIC", "Perl"]
 
+export const languageExtensions = {
+    "C": ".c",
+    "C++": ".cpp",
+    "CSS": ".css",
+    "Rust": ".rs",
+    "Go": ".go",
+    "Bash": ".sh",
+    "TypeScript": ".ts",
+    "Python": ".py",
+    "Arduino": ".ino",
+    "Scala": ".scala",
+    "Haskell": ".hs",
+    "Dart": ".dart",
+    "Swift": ".swift",
+    "C#": ".cs",
+    "F#": ".fs",
+    "HTML": ".html",
+    "Java": ".java",
+    "JavaScript": ".js",
+    "PHP": ".php",
+    "Ruby": ".rb",
+    "R": ".r",
+    "MATLAB": ".m",
+    "Kotlin": ".kt",
+    "Objective-C": ".m",
+    "Lua": ".lua",
+    "Assembly": ".asm",
+    "BASIC": ".bas",
+    "Perl": ".pl",
+};
+
 export function getLanguageName(input) {
-    console.log(input)
     const index = languages_list.indexOf(input);
-    console.log(index)
     if (index !== -1) {
         return languages[index];
     } else {

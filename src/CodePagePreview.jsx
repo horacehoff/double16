@@ -26,6 +26,7 @@ export default function CodePagePreview() {
     const desc = "dc"
     const char = "ch"
     const banner = "bnr"
+    const link = "lnk"
     const id = "id"
     return (
         <>
@@ -36,7 +37,7 @@ export default function CodePagePreview() {
             }}>
                 <div className="codepgpre">
                     <p className="codepgpre-close" onClick={() => ClosePreview("codepgpre")}>CLOSE</p>
-                    <Link className="codepgpre-link action-text" to="/code"
+                    <Link id={link} className="codepgpre-link action-text" to="/code"
                           onClick={() => document.getElementById("root").style.pointerEvents = "all"}>
                         VIEW MORE
                         <svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg">

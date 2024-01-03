@@ -6,7 +6,7 @@ import {getDownloadURL, getStorage, ref, uploadBytes} from "firebase/storage";
 import {app, db, userdb} from "./firebase.js"
 import {doc, setDoc} from "firebase/firestore";
 import {useNavigate} from "react-router-dom";
-import {xorEncryptToHexWithLength} from "./encrypt.js";
+import {encrypt} from "./encrypt.js";
 import {compressToBase64} from "lz-string";
 
 
@@ -116,17 +116,25 @@ export default function Sell() {
                         desc: desc,
                         bannerUrl: url,
                         codeLanguage: language,
-                        code: compressToBase64(xorEncryptToHexWithLength(code, xorEncryptToHexWithLength(uuid, cryptouuid))),
+                        code: compressToBase64(encrypt(code, uuid + "-" + cryptouuid + "-" + uuid)),
                         id: uuid,
                         authorid: userdb.id,
+                        authorusername: userdb.username,
                         likes: [],
                         dislikes: [],
                         created: Date.now(),
                         updated: Date.now(),
                         char: code.match(/\S/g).length,
                         lines: code.split(/\r|\r\n|\n/).length,
-                        crypto: cryptouuid
-                    });
+                        crypto: cryptouuid,
+                        price: 0,
+                        downloads: []
+                    }).then(() => {
+                        document.getElementById(publishbtnid).innerText = "PUBLISHED 🎉"
+                        setTimeout(() => {
+                            navigate("/code/" + uuid)
+                        }, 500)
+                    })
                 });
             })
         }
@@ -263,12 +271,7 @@ export default function Sell() {
                                 , 2000)
                         } else {
                             document.getElementById(publishbtnid).innerText = "LOADING..."
-                            submit().then(() => {
-                                document.getElementById(publishbtnid).innerText = "PUBLISHED 🎉"
-                                setTimeout(() => {
-                                    navigate("/")
-                                }, 500)
-                            })
+                            submit()
                         }
                     }} id={publishbtnid}>PUBLISH
                     </button>

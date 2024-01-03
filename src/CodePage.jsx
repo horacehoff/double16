@@ -1,5 +1,5 @@
 import "./CodePage.css"
-import {getLanguageName, python} from "./lang.jsx"
+import {getLanguageName, languageExtensions, python} from "./lang.jsx"
 import {useEffect, useId, useState} from "react";
 import {ClosePreview} from "./CodePagePreview.jsx";
 import {Link, useNavigate, useParams} from "react-router-dom";
@@ -7,6 +7,9 @@ import {doc, getDoc, updateDoc} from "firebase/firestore";
 import {db, userdb} from "./firebase.js";
 import shortNumber from "short-number";
 import timeago from 'epoch-timeago';
+import Loading from "./Loading.jsx";
+import {decrypt} from "./encrypt.js";
+import {decompressFromBase64} from "lz-string";
 
 
 export default function CodePage() {
@@ -31,6 +34,8 @@ export default function CodePage() {
     const descid = useId()
     const languageid = useId()
 
+    const ratebtnid = useId()
+
     const [language, setLanguage] = useState(<>
         {python}
     </>)
@@ -54,18 +59,30 @@ export default function CodePage() {
         if (codedata) {
             console.log(codedata)
             document.getElementById(bannerid).src = codedata.bannerUrl
-            document.getElementById(priceid).innerText = "2"
-            document.getElementById(priceidb).innerText = "2"
+            document.getElementById(priceid).innerText = codedata.price
+            document.getElementById(priceidb).innerText = codedata.price
             document.getElementById(nameid).innerText = codedata.title
             document.getElementById(charid).innerText = shortNumber(codedata.char)
             document.getElementById(updateid).innerText = timeago(codedata.updated - 60000 * 10).toUpperCase()
-            document.getElementById(authorid).innerText = codedata.authorid
             document.getElementById(likesid).innerText = shortNumber(codedata.likes.length)
             document.getElementById(dislikesid).innerText = shortNumber(codedata.dislikes.length)
             document.getElementById(descid).innerText = codedata.desc
             setLanguage(<>
                 {getLanguageName(codedata.codeLanguage)}
             </>)
+
+            document.getElementById(authorid).innerText = codedata.authorusername
+
+            if (userdb && codedata.authorid === userdb.id) {
+                document.getElementById(authorid).innerText = userdb.username
+            } else {
+                document.getElementById(authorid).innerText = "LOADING"
+                getDoc(doc(db, "users", codedata.authorid)).then((docSnap) => {
+                    if (docSnap.exists()) {
+                        document.getElementById(authorid).innerText = docSnap.data().username
+                    }
+                })
+            }
 
             if (userdb && userdb.favorites && userdb.favorites.includes(codedata.id)) {
                 document.getElementById(favoritebtn).style.color = "transparent"
@@ -75,16 +92,33 @@ export default function CodePage() {
                     document.getElementById(favoritebtn).firstChild.style.color = "white"
                 }, 250)
                 setIsFavorite(true)
+            } else if (!userdb) {
+                disableBtn(document.getElementById(ratebtnid))
+                disableBtn(document.getElementById(favoritebtn))
+                // if (codedata.price > 0) {
+                ////     disable price button for non-signed in users and paid code snippets
+                // }
             }
         }
     }, [codedata])
+
+
     if (codedata === null) {
         return (
             <>
-                <h1 style={{position: "absolute", textAlign: "center", top: "50%"}}>LOADING..</h1>
+                <Loading/>
             </>
         )
     }
+
+    function disableBtn(button) {
+        button.style.filter = "brightness(0.75)"
+        button.style.pointerEvents = "none"
+    }
+
+
+    // prevent two db download updates
+    let downloaded = false
     return (
         <>
             <div className="codepgpre codepg">
@@ -92,7 +126,63 @@ export default function CodePage() {
                     src="https://www.codingcreativo.it/wp-content/uploads/2022/10/fibonacci-sequence-in-python.jpg"
                     alt="Banner" className="codepg-img" id={bannerid}/>
                 <div className="codepg-btngp">
-                    <button className="primary">🛒 BUY FOR <span id={priceid}>5</span>$</button>
+                    <button className="primary" onClick={() => {
+                        console.log("DOWNLOAD BTN CLICK")
+                        const download = () => {
+                            let decrypted_code = decompressFromBase64(codedata.code)
+                            console.log(decrypted_code)
+                            let key = codedata.id + "-" + codedata.crypto + "-" + codedata.id
+                            decrypted_code = decrypt(decrypted_code, key)
+                            // console.log(decrypted_code)
+                            let download = (filename, text) => {
+                                let element = document.createElement('a');
+                                element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+                                element.setAttribute('download', filename);
+
+                                element.style.display = 'none';
+                                document.body.appendChild(element);
+
+                                element.click();
+
+                                document.body.removeChild(element);
+                            }
+                            download(codedata.title + languageExtensions[codedata.codeLanguage], decrypted_code)
+                            console.log("DOWNLOADED")
+
+                        }
+
+
+                        if (codedata.price === 0) {
+                            console.log("PRICE == 0")
+                            if (userdb && !codedata.downloads.includes(userdb.id) && !downloaded) {
+                                console.log("READING NEWEST DOWNLOADS")
+                                const codeRef = doc(db, "codesnippets", codedata.id);
+                                getDoc(codeRef).then((docSnap) => {
+                                    if (docSnap.exists()) {
+                                        let new_downloads = [...docSnap.data().downloads]
+                                        new_downloads.push(userdb.id)
+                                        updateDoc(codeRef, {
+                                            downloads: new_downloads
+                                        }).then(() => {
+                                            downloaded = true
+                                            console.log("UPDATED CODE DOWNLOADS")
+                                            download()
+                                        })
+                                    } else {
+                                        navigate("/404")
+                                    }
+                                })
+                            } else {
+                                download()
+                            }
+
+                        } else {
+                            // Payment logic
+                        }
+
+
+                    }}>🛒 BUY FOR <span id={priceid}>5</span>$
+                    </button>
                     <button className="primary" onClick={() => {
 
                         document.getElementById("root").style.pointerEvents = "none"
@@ -107,7 +197,7 @@ export default function CodePage() {
                         setTimeout(() => {
                             childdiv.style.marginTop = "0"
                         }, 1)
-                    }}>⭐️ RATE
+                    }} id={ratebtnid}>⭐️ RATE
                     </button>
                     <button className="primary " id={favoritebtn} onClick={() => {
                         let fav_condition = !userdb.favorites || !userdb.favorites.includes(codedata.id)
@@ -153,12 +243,12 @@ export default function CodePage() {
                 <h2 className="codepgpre-title" id={nameid}>FIBONACCI SEQUENCE CALCULATOR</h2>
                 <h3 className="codepgpre-info">💵 <span id={priceidb}>5</span>$ <span
                     className="codepgpre-infosep">-</span> <span id={languageid}>{language}</span> <span
-                    className="codepgpre-infosep">-</span> 👍 <span id={likesid}>1K</span> <span
-                    className="codepgpre-infosep">-</span> 👎
-                    <span id={dislikesid}>5K</span> <span className="codepgpre-infosep">-</span> <span
-                        id={charid}>15000</span> char.</h3>
+                    className="codepgpre-infosep">-</span> 👍<span id={likesid}>1K</span> <span
+                    className="codepgpre-infosep">-</span> 👎<span id={dislikesid}>5K</span> <span
+                    className="codepgpre-infosep">-</span> <span
+                    id={charid}>15000</span> char.</h3>
                 <h3 className="codepgpre-info codepg-update">⏰ UPDATED <span id={updateid}>2H AGO</span></h3>
-                <h4 className="codepgpre-author">by <Link className="link-text" to="/user"
+                <h4 className="codepgpre-author">by <Link className="link-text" to={"/users/" + codedata.authorid}
                                                           id={authorid}>JuTS-A_MANGO</Link></h4>
                 <p className="codepgpre-desc" id={descid}>trm-engine is a game engine designed to run in the terminal,
                     providing
@@ -181,7 +271,7 @@ export default function CodePage() {
                     <h3>RATE</h3>
                     <button className="primary" onClick={() => {
                         // like method
-                        if (userdb) {
+                        if (userdb && !codedata.likes.includes(userdb.id)) {
                             let new_likes = [...codedata.likes]
                             new_likes.push(userdb.id)
                             let new_dislikes = [...codedata.dislikes]
@@ -195,13 +285,17 @@ export default function CodePage() {
                                 dislikes: new_dislikes
                             }).then(() => {
                                 ClosePreview(ratepopup)
+                                // disableBtn(document.getElementById(ratebtnid))
+                                console.log("liked")
                             })
+                        } else {
+                            ClosePreview(ratepopup)
                         }
                     }}>👍 LIKE
                     </button>
                     <button className="primary" onClick={() => {
                         // dislike method
-                        if (userdb) {
+                        if (userdb && !codedata.dislikes.includes(userdb.id)) {
                             let new_dislikes = [...codedata.dislikes]
                             new_dislikes.push(userdb.id)
                             let new_likes = [...codedata.likes]
@@ -209,14 +303,17 @@ export default function CodePage() {
                             if (new_likes_index > -1) {
                                 new_likes.splice(new_likes_index, 1)
                             }
-                            console.log()
                             const codeRefRate = doc(db, "codesnippets", codedata.id);
                             updateDoc(codeRefRate, {
                                 likes: new_likes,
                                 dislikes: new_dislikes
                             }).then(() => {
                                 ClosePreview(ratepopup)
+                                // disableBtn(document.getElementById(ratebtnid))
+                                console.log("disliked")
                             })
+                        } else {
+                            ClosePreview(ratepopup)
                         }
                     }}>👎 DISLIKE
                     </button>

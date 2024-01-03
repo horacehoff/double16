@@ -6,7 +6,7 @@ import {Link} from "react-router-dom";
 export default function CodeCard({pkg}) {
     return (
         <>
-            <Link id="test" to="/" onClick={e => e.preventDefault()}>
+            <Link id="test" to={"/code/" + pkg.id} onClick={e => e.preventDefault()}>
                 <div className="codecontainer" onClick={() => {
                     // set values
                     document.getElementById("lng").innerHTML = ReactDOMServer.renderToStaticMarkup(pkg.lang)

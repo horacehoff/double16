@@ -4,6 +4,7 @@ import {useParams} from "react-router-dom";
 import {collection, getDocs, query, where} from "firebase/firestore";
 import {db} from "./firebase.js";
 import shortNumber from "short-number"
+import Loading from "./Loading.jsx";
 
 export default function AccountPage() {
     const bannerid = useId()
@@ -56,7 +57,9 @@ export default function AccountPage() {
 
     if (userdata === null) {
         return (
-            <></>
+            <>
+                <Loading/>
+            </>
         )
     }
     return (
