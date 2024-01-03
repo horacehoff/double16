@@ -24,7 +24,7 @@ export default function Feedback() {
             <h1 className="pg-heading" id="pg-heading">FEEDBACK</h1>
             <h2 className="pg-subtitle">GIVE YOUR FEEDBACK ON THE WEBSITE</h2>
             <div className="sign-form fdck-form">
-                <p id={errorid}>ERROR: INVALID EMAIL</p>
+                <p id={errorid} className="error-notice">ERROR: INVALID EMAIL</p>
                 <input type="email" placeholder="@email" value={email} onChange={e => setEmail(e.target.value)}/>
                 <br/>
                 <textarea placeholder="@feedback" value={feedback} onChange={e => setFeedback(e.target.value)}/>
