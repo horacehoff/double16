@@ -74,6 +74,8 @@ export default function Navbar() {
 
 
     useEffect(() => {
+        window.scrollTo(0, 0)
+
         document.getElementById("root").style.pointerEvents = "all"
         document.getElementById("root").style.touchAction = "auto"
 

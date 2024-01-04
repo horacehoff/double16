@@ -195,7 +195,7 @@ button.primary:active {
     background-color: var(--button-primary-bg-active);
 }
 
-input[type="text"], input[type="email"], input[type="password"], textarea {
+input[type="text"], input[type="email"], input[type="password"], textarea, input[type="number"] {
     width: 300px;
     height: 36px;
     border-radius: 9px;
@@ -211,17 +211,17 @@ input[type="text"], input[type="email"], input[type="password"], textarea {
     outline: 0;
 }
 
-input[type="text"]::placeholder, input[type="email"]::placeholder, input[type="password"]::placeholder, textarea::placeholder {
+input[type="text"]::placeholder, input[type="email"]::placeholder, input[type="password"]::placeholder, textarea::placeholder, input[type="number"]::placeholder {
     color: var(--input-placeholder);
 }
 
 @media (hover: hover) and (pointer: fine) {
-    input[type="text"]:hover, input[type="email"]:hover, input[type="password"]:hover, textarea:hover {
+    input[type="text"]:hover, input[type="email"]:hover, input[type="password"]:hover, textarea:hover, input[type="number"]:hover {
         background: var(--input-bg-hover);
     }
 }
 
-input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focus, textarea:focus {
+input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focus, textarea:focus, input[type="number"]:focus {
     border-color: var(--input-border-focus);
     outline: 0;
     background: var(--input-bg);

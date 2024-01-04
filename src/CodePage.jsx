@@ -60,7 +60,7 @@ export default function CodePage() {
         if (codedata) {
             console.log(codedata)
             document.getElementById(bannerid).src = codedata.bannerUrl
-            document.getElementById(priceid).innerText = codedata.price
+            document.getElementById(priceidb).innerText = codedata.price
             if (codedata.price === 0) {
                 document.getElementById(pricesupersetid).innerText = "📁 DOWNLOAD"
                 document.getElementById(pricesupersetid).onmouseenter = () => {
@@ -70,7 +70,7 @@ export default function CodePage() {
                     document.getElementById(pricesupersetid).innerText = "📁 DOWNLOAD"
                 }
             } else {
-                document.getElementById(priceidb).innerText = codedata.price
+                document.getElementById(priceid).innerText = codedata.price
             }
             document.getElementById(nameid).innerText = codedata.title
             document.getElementById(charid).innerText = shortNumber(codedata.char)
