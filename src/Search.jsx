@@ -1,15 +1,170 @@
 import "./Search.css"
-import {ClosePreview} from "./CodePagePreview.jsx";
-import {useId} from "react";
-import {languages_list} from "./lang.jsx";
+import "./Explore.css"
+import CodePagePreview, {ClosePreview} from "./CodePagePreview.jsx";
+import {useId, useState} from "react";
+import {getLanguageName, languages_list} from "./lang.jsx";
+import {collection, getDocs, limit, orderBy, query, where} from "firebase/firestore";
+import {db} from "./firebase.js";
+import CodeCard from "./CodeCard.jsx";
+import ShortNumber from "short-number";
+import {useNavigate} from "react-router-dom";
 
 export default function Search() {
     const ratepopup = useId()
+    const navigate = useNavigate()
+
+
+    const searchQueryId = useId()
+    const [searchQuery, setSearchQuery] = useState("")
+    const [author, setAuthor] = useState("")
+    const [downloads, setDownloads] = useState(0)
+    const [download_order, setDowloadOrder] = useState("MORE")
+    const [language, setLanguage] = useState("Any")
+
+    const [returnData, setReturnData] = useState([])
+
+
+    async function query_author(author) {
+        const q = query(collection(db, "codesnippets"), where("authorusername", "==", author), limit(10));
+        const querySnapshot = await getDocs(q);
+        let return_array = []
+        querySnapshot.forEach((doc) => {
+            return_array.push(doc.data())
+        });
+        return return_array
+    }
+
+    async function queryDownloads(dlimit, order) {
+        let q = undefined
+        console.log(order, dlimit)
+        if (order === "MORE") {
+            q = query(collection(db, "codesnippets"), where("downloadslen", ">", Number(dlimit)), limit(10));
+        } else {
+            q = query(collection(db, "codesnippets"), where("downloadslen", "<", Number(dlimit)), limit(10));
+        }
+        const querySnapshot = await getDocs(q);
+        let return_array = []
+        querySnapshot.forEach((doc) => {
+            return_array.push(doc.data())
+        });
+        return return_array
+    }
+
+    async function query_language(language) {
+        const q = query(collection(db, "codesnippets"), where("codeLanguage", "==", language), limit(10));
+        const querySnapshot = await getDocs(q);
+        let return_array = []
+        querySnapshot.forEach((doc) => {
+            return_array.push(doc.data())
+        });
+        return return_array
+    }
+
+    async function query_search() {
+        let combinedQuery = query(collection(db, "codesnippets"));
+        if (searchQuery && searchQuery !== "") {
+            combinedQuery = query(combinedQuery, where("title", ">=", searchQuery), where("title", "<=", searchQuery + "\uf8ff"), orderBy("title"));
+        } else if (downloads !== null && downloads !== "") {
+            console.log("DOWNLOADS")
+            console.log(downloads)
+            if (download_order === "MORE") {
+                combinedQuery = query(combinedQuery, where("downloadslen", ">", Number(downloads)), orderBy("downloadslen", "desc"));
+            } else {
+                combinedQuery = query(combinedQuery, where("downloadslen", "<", Number(downloads)), orderBy("downloadslen", "desc"));
+            }
+        }
+        if (author && author !== "") {
+            console.log("AUTHOR")
+            console.log(author)
+            combinedQuery = query(combinedQuery, where("authorusername", "==", author));
+        }
+
+
+        if (language !== null && language !== "" && language !== "Any") {
+            console.log(language)
+            console.log("LANGUAGE")
+            combinedQuery = query(combinedQuery, where("codeLanguage", "==", language));
+        }
+
+        combinedQuery = query(combinedQuery, limit(10));
+        const querySnapshot = await getDocs(combinedQuery);
+        let return_array = []
+        querySnapshot.forEach((doc) => {
+            return_array.push(doc.data())
+            setReturnData(prev => [...prev, doc.data()])
+        });
+        console.log(return_array)
+    }
+
+
+    const section_items = (data) =>
+        <>
+            {
+                data.length === 0 ? (
+                        <>
+                            <li>
+                                <div className="pg-section-list-placeholder"></div>
+                            </li>
+                            <li>
+                                <div className="pg-section-list-placeholder"></div>
+                            </li>
+                        </>
+                    ) :
+                    data.map((codesnippet, index) =>
+                        <li key={index} onClick={() => {
+                            document.getElementById("lnk").href = "/code/" + codesnippet.id
+                            document.getElementById("lnk").onclick = (e) => {
+                                e.preventDefault()
+                                document.getElementById("root").style.pointerEvents = "all"
+                                navigate("/code/" + codesnippet.id)
+                            }
+                            document.getElementById("aut").href = "/users/" + codesnippet.authorid
+                            document.getElementById("aut").onclick = (e) => {
+                                e.preventDefault()
+                                document.getElementById("root").style.pointerEvents = "all"
+                                navigate("/users/" + codesnippet.authorid)
+                            }
+                        }}>
+                            <CodeCard pkg={{
+                                lang: getLanguageName(codesnippet.codeLanguage),
+                                price: codesnippet.price,
+                                like: ShortNumber(codesnippet.likes.length),
+                                dislike: ShortNumber(codesnippet.dislikes.length),
+                                title: codesnippet.title,
+                                author: codesnippet.authorusername,
+                                desc: codesnippet.catchphrase,
+                                longDesc: codesnippet.desc,
+                                char: ShortNumber(codesnippet.char),
+                                lines: ShortNumber(codesnippet.lines),
+                                banner: codesnippet.bannerUrl,
+                                id: codesnippet.id
+                            }}
+                            />
+                        </li>
+                    )
+            }
+        </>
+
+
+
     return (<>
         <h1 className="pg-heading" id="pg-heading">SEARCH</h1>
         <h2 className="pg-subtitle">SEARCH AND FIND THE EXACT CODE SNIPPET YOU NEED</h2>
         <div className="srch-cont">
-            <input placeholder="@search_query" type="text"/>
+            <input placeholder="@search_query" type="text" value={searchQuery} onChange={e => {
+                if (e.target.value !== "") {
+                    if (!document.getElementById(searchQueryId).classList.contains("disabled")) {
+                        document.getElementById(searchQueryId).classList.add("disabled")
+                    }
+                } else {
+                    if (document.getElementById(searchQueryId).classList.contains("disabled")) {
+                        document.getElementById(searchQueryId).classList.remove("disabled")
+                    }
+                }
+                console.log(document.getElementById(searchQueryId).classList)
+
+                setSearchQuery(e.target.value)
+            }}/>
             <br/>
             <button className="accent srch-flt" onClick={() => {
                 document.getElementById("root").style.pointerEvents = "none"
@@ -27,7 +182,13 @@ export default function Search() {
             }}><span className="emojifix">⚙️</span>️ FILTERS
             </button>
             <br/>
-            <button className="primary srch-btn">SEARCH <span className="emojifix">🔎</span></button>
+            <button className="primary srch-btn" onClick={() => {
+                query_search()
+            }}>SEARCH <span className="emojifix">🔎</span></button>
+            {/*<br/><br/>*/}
+            {/*<ul className="pg-section-list">*/}
+            {/*    {section_items(returnData)}*/}
+            {/*</ul>*/}
         </div>
         <div className="codepgpre-bg" id={ratepopup} onClick={e => {
             if (e.target === e.currentTarget) {
@@ -49,15 +210,31 @@ export default function Search() {
                     </defs>
                 </svg>
                 <p>--- AUTHOR ---</p>
-                <input placeholder="@author" type="text"/>
+                <input placeholder="@author" type="text" value={author} onChange={e => setAuthor(e.target.value)}/>
                 <p>--- DOWNLOADS ---</p>
-                <select>
-                    <option>MORE</option>
-                    <option>LESS</option>
-                </select>
-                <input placeholder="@author" type="text"/>
+                <div id={searchQueryId}>
+                    <select value={download_order} onChange={e => setDowloadOrder(e.target.value)}>
+                        <option>MORE</option>
+                        <option>LESS</option>
+                    </select>
+                    <input className="sell-cont-price" placeholder="@downloads" type="number"
+                           value={downloads} onChange={e => {
+                        let to_set = e.target.value.replace(/^0+/, "")
+                        if (e.target.value < 0 && e.target.value && e.target.value !== 0) {
+                            to_set = 0
+                        }
+                        if (e.target.value === "" || !e.target.value) {
+                            to_set = 0
+                        }
+                        if (e.target.value === "0" || e.target.value === 0) {
+                            to_set = 0
+                        }
+                        setDownloads(to_set)
+                    }}/>
+                </div>
                 <p>--- PROGRAMMING LANGUAGE ---</p>
-                <select>
+                <select style={{width: "319px", left: "2px", position: "relative"}} value={language}
+                        onChange={e => setLanguage(e.target.value)}>
                     <option>Any</option>
                     {languages_list.map((item, index) => (
                         <option key={index} value={item}>
@@ -67,5 +244,6 @@ export default function Search() {
                 </select>
             </div>
         </div>
+        <CodePagePreview/>
     </>);
 }

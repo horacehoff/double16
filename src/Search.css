@@ -117,3 +117,9 @@
 .srch-flt-pg select:nth-of-type(2) {
     width: 319px;
 }
+
+
+.disabled {
+    pointer-events: none;
+    filter: brightness(0.75);
+}

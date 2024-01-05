@@ -173,7 +173,8 @@ export default function CodePage() {
                                         let new_downloads = [...docSnap.data().downloads]
                                         new_downloads.push(userdb.id)
                                         updateDoc(codeRef, {
-                                            downloads: new_downloads
+                                            downloads: new_downloads,
+                                            downloadslen: docSnap.data().downloadslen + 1
                                         }).then(() => {
                                             downloaded = true
                                             console.log("UPDATED CODE DOWNLOADS")

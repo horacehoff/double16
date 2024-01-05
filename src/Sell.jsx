@@ -281,7 +281,9 @@ export default function Sell() {
                                if (e.target.value === "" || !e.target.value) {
                                    to_set = 0
                                }
-                               console.log(e.target.value)
+                               if (e.target.value === "0" || e.target.value === 0) {
+                                   to_set = 0
+                               }
                                setPrice(to_set)
                            }} min="0" step="1" max="100"
                            style={{width: "230px"}}
