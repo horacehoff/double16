@@ -134,6 +134,13 @@
     top: 100px;
     font-family: Inter, sans-serif;
     font-weight: 600;
+    color: white;
+}
+
+@media (prefers-color-scheme: light) {
+    .srch-nsr {
+        color: black;
+    }
 }
 
 .srch-section-list {
