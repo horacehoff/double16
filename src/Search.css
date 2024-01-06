@@ -125,3 +125,18 @@
     pointer-events: none;
     filter: brightness(0.75);
 }
+
+
+.srch-nsr {
+    text-align: center;
+    display: none;
+    position: relative;
+    top: 100px;
+    font-family: Inter, sans-serif;
+    font-weight: 600;
+}
+
+.srch-section-list {
+    margin-top: 75px;
+    display: none;
+}

@@ -14,6 +14,9 @@ export default function Search() {
     const navigate = useNavigate()
 
 
+    const sectionList = useId()
+    const noSearchResults = useId()
+
     const searchQueryId = useId()
     const [searchQuery, setSearchQuery] = useState("")
     const [author, setAuthor] = useState("")
@@ -23,44 +26,9 @@ export default function Search() {
 
     const [returnData, setReturnData] = useState([])
 
-
-    async function query_author(author) {
-        const q = query(collection(db, "codesnippets"), where("authorusername", "==", author), limit(10));
-        const querySnapshot = await getDocs(q);
-        let return_array = []
-        querySnapshot.forEach((doc) => {
-            return_array.push(doc.data())
-        });
-        return return_array
-    }
-
-    async function queryDownloads(dlimit, order) {
-        let q = undefined
-        console.log(order, dlimit)
-        if (order === "MORE") {
-            q = query(collection(db, "codesnippets"), where("downloadslen", ">", Number(dlimit)), limit(10));
-        } else {
-            q = query(collection(db, "codesnippets"), where("downloadslen", "<", Number(dlimit)), limit(10));
-        }
-        const querySnapshot = await getDocs(q);
-        let return_array = []
-        querySnapshot.forEach((doc) => {
-            return_array.push(doc.data())
-        });
-        return return_array
-    }
-
-    async function query_language(language) {
-        const q = query(collection(db, "codesnippets"), where("codeLanguage", "==", language), limit(10));
-        const querySnapshot = await getDocs(q);
-        let return_array = []
-        querySnapshot.forEach((doc) => {
-            return_array.push(doc.data())
-        });
-        return return_array
-    }
-
     async function query_search() {
+        document.getElementById(noSearchResults).style.display = "none"
+        document.getElementById(sectionList).style.display = "block"
         let combinedQuery = query(collection(db, "codesnippets"));
         if (searchQuery && searchQuery !== "") {
             combinedQuery = query(combinedQuery, where("title", ">=", searchQuery), where("title", "<=", searchQuery + "\uf8ff"), orderBy("title"));
@@ -94,6 +62,10 @@ export default function Search() {
             return_array.push(doc.data())
             setReturnData(prev => [...prev, doc.data()])
         });
+        if (return_array.length === 0) {
+            document.getElementById(noSearchResults).style.display = "block"
+            document.getElementById(sectionList).style.display = "none"
+        }
         console.log(return_array)
     }
 
@@ -187,7 +159,8 @@ export default function Search() {
 
 
         </div>
-        <ul className="pg-section-list" style={{marginTop: "75px"}}>
+        <p className="srch-nsr" id={noSearchResults}>NO SEARCH RESULTS</p>
+        <ul className="pg-section-list srch-section-list" id={sectionList}>
             {section_items(returnData)}
         </ul>
         <div className="codepgpre-bg" id={ratepopup} onClick={e => {
