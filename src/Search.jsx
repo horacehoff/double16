@@ -162,8 +162,6 @@ export default function Search() {
                         document.getElementById(searchQueryId).classList.remove("disabled")
                     }
                 }
-                console.log(document.getElementById(searchQueryId).classList)
-
                 setSearchQuery(e.target.value)
             }}/>
             <br/>
