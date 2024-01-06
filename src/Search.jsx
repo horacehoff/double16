@@ -89,6 +89,7 @@ export default function Search() {
         combinedQuery = query(combinedQuery, limit(10));
         const querySnapshot = await getDocs(combinedQuery);
         let return_array = []
+        setReturnData([])
         querySnapshot.forEach((doc) => {
             return_array.push(doc.data())
             setReturnData(prev => [...prev, doc.data()])
@@ -185,11 +186,12 @@ export default function Search() {
             <button className="primary srch-btn" onClick={() => {
                 query_search()
             }}>SEARCH <span className="emojifix">🔎</span></button>
-            {/*<br/><br/>*/}
-            {/*<ul className="pg-section-list">*/}
-            {/*    {section_items(returnData)}*/}
-            {/*</ul>*/}
+
+
         </div>
+        <ul className="pg-section-list" style={{marginTop: "75px"}}>
+            {section_items(returnData)}
+        </ul>
         <div className="codepgpre-bg" id={ratepopup} onClick={e => {
             if (e.target === e.currentTarget) {
                 ClosePreview(ratepopup)
