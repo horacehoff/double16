@@ -381,8 +381,9 @@ export default function EditCodePage() {
                         } else {
                             document.getElementById(publishbtnid).innerText = "LOADING..."
                             // submit()
-                            update().then((banner) => {
+                            update().then(() => {
                                 navigate("/code/" + codedata.id)
+                                window.location.reload()
                             })
                         }
                     }} id={publishbtnid}>UPDATE
