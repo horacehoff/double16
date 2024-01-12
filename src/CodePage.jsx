@@ -86,6 +86,16 @@ export default function CodePage() {
 
             if (userdb && codedata.authorid === userdb.id) {
                 document.getElementById(authorid).innerText = userdb.username
+                // is user
+                document.getElementById(ratebtnid).innerText = "💻 EDIT"
+                if (document.getElementById(ratepopup) && document.getElementById(ratepopup).parentNode) {
+                    document.getElementById(ratepopup).parentNode.removeChild(document.getElementById(ratepopup))
+                }
+                document.getElementById(ratebtnid).onclick = () => {
+                    navigate("/code/" + codedata.id + "/edit")
+                    // setCodeData([])
+                    window.location.reload()
+                }
             } else {
                 document.getElementById(authorid).innerText = "LOADING"
                 getDoc(doc(db, "users", codedata.authorid)).then((docSnap) => {
@@ -141,7 +151,6 @@ export default function CodePage() {
                         console.log("DOWNLOAD BTN CLICK")
                         const download = () => {
                             let decrypted_code = decompressFromBase64(codedata.code)
-                            console.log(decrypted_code)
                             let key = codedata.id + "-" + codedata.crypto + "-" + codedata.id
                             decrypted_code = decrypt(decrypted_code, key)
                             // console.log(decrypted_code)
@@ -165,7 +174,7 @@ export default function CodePage() {
 
                         if (codedata.price === 0) {
                             console.log("PRICE == 0")
-                            if (userdb && !codedata.downloads.includes(userdb.id) && !downloaded) {
+                            if (userdb && !codedata.downloads.includes(userdb.id) && !downloaded && codedata.authorid !== userdb.id) {
                                 console.log("READING NEWEST DOWNLOADS")
                                 const codeRef = doc(db, "codesnippets", codedata.id);
                                 getDoc(codeRef).then((docSnap) => {

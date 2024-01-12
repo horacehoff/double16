@@ -1,5 +1,6 @@
 import "./CodePagePreview.css"
 import {Link} from "react-router-dom";
+import {useState} from "react";
 
 
 export function ClosePreview(id) {
@@ -28,6 +29,10 @@ export default function CodePagePreview() {
     const banner = "bnr"
     const link = "lnk"
     const id = "id"
+
+    const [loaded, setLoaded] = useState(false);
+
+
     return (
         <>
             <div className="codepgpre-bg" id="codepgpre" onClick={e => {
@@ -61,10 +66,16 @@ export default function CodePagePreview() {
                         </svg>
                     </Link>
                     <br/>
+                    {!loaded && (
+                        <div className="codepgpre-imgph"/>
+                    )}
                     <img
                         src="https://img.freepik.com/premium-photo/light-background-texture-room-photography-studio-shade-yellow-high-quality-photo_163305-227313.jpg"
                         id={banner}
-                        alt="Banner"/>
+                        alt="Banner"
+                        onLoad={() => setLoaded(true)}
+                        style={loaded ? {} : {display: 'none'}}
+                    />
                     <h2 className="codepgpre-title" id={title}>FIBONACCI SEQUENCE CALCULATOR</h2>
                     <h3 className="codepgpre-info">💵 <span id={price}>5</span>$ <span
                         className="codepgpre-infosep">-</span> <span id={lang}>{}</span> <span

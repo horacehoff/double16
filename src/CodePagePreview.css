@@ -103,7 +103,16 @@
     }
 }
 
-.codepgpre img {
+.codepgpre-imgph {
+    background-color: #36363a;
+    /*border-color: */
+    /*border-radius: 20px;*/
+    animation: pulse 2s infinite;
+    border: 0;
+    outline: 0;
+}
+
+.codepgpre img, .codepgpre-imgph {
     position: relative;
     left: 20px;
     margin-left: 0;

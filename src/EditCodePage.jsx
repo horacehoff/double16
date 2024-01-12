@@ -1,17 +1,19 @@
 import "./Sell.css"
 import {useEffect, useId, useState} from "react";
 import {languages_list} from "./lang.jsx";
-import {v1} from "uuid";
 import {getDownloadURL, getStorage, ref, uploadBytes} from "firebase/storage";
 import {app, db, userdb} from "./firebase.js"
-import {doc, setDoc} from "firebase/firestore";
-import {useNavigate} from "react-router-dom";
-import {encrypt} from "./encrypt.js";
-import {compressToBase64} from "lz-string";
+import {doc, getDoc, updateDoc} from "firebase/firestore";
+import {useNavigate, useParams} from "react-router-dom";
+import {decrypt, encrypt} from "./encrypt.js";
+import {compressToBase64, decompressFromBase64} from "lz-string";
+import Loading from "./Loading.jsx";
 import {renderToString} from "react-dom/server";
 
 
-export default function Sell() {
+export default function EditCodePage() {
+    const navcodeid = useParams().codeid
+
     const navigate = useNavigate()
 
     const sellcont = useId()
@@ -44,14 +46,6 @@ export default function Sell() {
     const storage = getStorage(app);
 
 
-    // function pxpercent() {
-    //     let div = document.createElement('div');
-    //     div.style.width = '100%';
-    //     document.body.appendChild(div);
-    //     let width  = div.clientWidth;
-    //     document.body.removeChild(div);
-    //     return width;
-    // }
     function pxpercent() {
         // Create a clone of the body style to avoid affecting the actual body style
         let bodyStyle = document.body.style.cssText;
@@ -68,6 +62,43 @@ export default function Sell() {
         // Return the width
         return width;
     }
+
+    const [codedata, setCodeData] = useState(null)
+
+
+    const [isRun, setIsRun] = useState(false)
+    if (!isRun) {
+        setIsRun(true)
+        console.log(navcodeid)
+        const codeRef = doc(db, "codesnippets", navcodeid);
+        getDoc(codeRef).then((docSnap) => {
+            if (docSnap.exists()) {
+                setCodeData(docSnap.data())
+                console.log("found it")
+            } else {
+                navigate("/404")
+            }
+        })
+    }
+
+
+    useEffect(() => {
+        if (codedata && userdb && userdb.id === codedata.authorid) {
+            setName(codedata.title)
+            setCatchphrase(codedata.catchphrase)
+            setDesc(codedata.desc)
+            setLanguage(codedata.codeLanguage)
+            let decrypted_code = decompressFromBase64(codedata.code)
+            let key = codedata.id + "-" + codedata.crypto + "-" + codedata.id
+            decrypted_code = decrypt(decrypted_code, key)
+            setCode(decrypted_code)
+            setPrice(codedata.price)
+        } else if (codedata && userdb && userdb.id !== codedata.authorid) {
+            navigate("/404")
+        } else if (codedata && !userdb) {
+            navigate("/404")
+        }
+    }, [codedata, userdb])
 
     useEffect(() => {
         let width = window.innerWidth
@@ -97,46 +128,93 @@ export default function Sell() {
         return /\S/.test(str) && str !== "";
     }
 
-    async function submit() {
-        const uuid = v1()
-        const cryptouuid = crypto.randomUUID()
-        if (checkValid(name) && checkValid(catchphrase) && banner && checkValid(desc) && checkValid(code)) {
-            const bannerRef = ref(storage, 'codesnippets/' + uuid + "/banner/banner.webp");
-            uploadBytes(bannerRef, banner).then(() => {
-                getDownloadURL(bannerRef).then((url) => {
-                    setDoc(doc(db, "codesnippets", uuid), {
-                        title: name,
-                        catchphrase: catchphrase,
-                        desc: desc,
-                        bannerUrl: url,
-                        codeLanguage: language,
-                        code: compressToBase64(encrypt(code, uuid + "-" + cryptouuid + "-" + uuid)),
-                        id: uuid,
-                        authorid: userdb.id,
-                        authorusername: userdb.username,
-                        likes: [],
-                        dislikes: [],
-                        created: Date.now(),
-                        updated: Date.now(),
-                        char: code.match(/\S/g).length,
-                        lines: code.split(/\r|\r\n|\n/).length,
-                        crypto: cryptouuid,
-                        price: 0,
-                        downloads: []
-                    }).then(() => {
-                        document.getElementById(publishbtnid).innerText = "PUBLISHED 🎉"
-                        setTimeout(() => {
-                            navigate("/code/" + uuid)
-                        }, 500)
+    async function update() {
+        if (checkValid(name) && checkValid(catchphrase) && checkValid(desc) && checkValid(code)) {
+            if (banner) {
+                const bannerRef = ref(storage, 'codesnippets/' + codedata.id + "/banner/banner.webp");
+                uploadBytes(bannerRef, banner).then(() => {
+                    getDownloadURL(bannerRef).then((url) => {
+                        updateDoc(doc(db, "codesnippets", codedata.id), {
+                            title: name,
+                            catchphrase: catchphrase,
+                            desc: desc,
+                            bannerUrl: url,
+                            codeLanguage: language,
+                            code: compressToBase64(encrypt(code, codedata.id + "-" + codedata.crypto + "-" + codedata.id)),
+                            updated: Date.now(),
+                            char: code.match(/\S/g).length,
+                            lines: code.split(/\r|\r\n|\n/).length,
+                            price: 0
+                        })
                     })
-                });
-            })
+                })
+            } else {
+                await updateDoc(doc(db, "codesnippets", codedata.id), {
+                    title: name,
+                    catchphrase: catchphrase,
+                    desc: desc,
+                    bannerUrl: codedata.bannerUrl,
+                    codeLanguage: language,
+                    code: compressToBase64(encrypt(code, codedata.id + "-" + codedata.crypto + "-" + codedata.id)),
+                    updated: Date.now(),
+                    char: code.match(/\S/g).length,
+                    lines: code.split(/\r|\r\n|\n/).length,
+                    price: 0
+                })
+            }
+
         }
+
+    }
+
+    // async function submit() {
+    //     const uuid = v1()
+    //     const cryptouuid = crypto.randomUUID()
+    //     if (checkValid(name) && checkValid(catchphrase) && banner && checkValid(desc) && checkValid(code)) {
+    //         const bannerRef = ref(storage, 'codesnippets/' + uuid + "/banner/banner.webp");
+    //         uploadBytes(bannerRef, banner).then(() => {
+    //             getDownloadURL(bannerRef).then((url) => {
+    //                 setDoc(doc(db, "codesnippets", uuid), {
+    //                     title: name,
+    //                     catchphrase: catchphrase,
+    //                     desc: desc,
+    //                     bannerUrl: url,
+    //                     codeLanguage: language,
+    //                     code: compressToBase64(encrypt(code, uuid + "-" + cryptouuid + "-" + uuid)),
+    //                     id: uuid,
+    //                     authorid: userdb.id,
+    //                     authorusername: userdb.username,
+    //                     likes: [],
+    //                     dislikes: [],
+    //                     created: Date.now(),
+    //                     updated: Date.now(),
+    //                     char: code.match(/\S/g).length,
+    //                     lines: code.split(/\r|\r\n|\n/).length,
+    //                     crypto: cryptouuid,
+    //                     price: 0,
+    //                     downloads: []
+    //                 }).then(() => {
+    //                     document.getElementById(publishbtnid).innerText = "PUBLISHED 🎉"
+    //                     setTimeout(() => {
+    //                         navigate("/code/" + uuid)
+    //                     }, 500)
+    //                 })
+    //             });
+    //         })
+    //     }
+    // }
+
+    if (codedata === null) {
+        return (
+            <>
+                <Loading/>
+            </>
+        )
     }
 
     return (<>
-        <h1 className="pg-heading" id="pg-heading">SELL</h1>
-        <h2 className="pg-subtitle sell-subtitle" style={{marginBottom: "-40px"}}>PUBLISH YOUR OWN CODE SNIPPET</h2>
+        <h1 className="pg-heading" id="pg-heading">EDIT</h1>
+        <h2 className="pg-subtitle sell-subtitle" style={{marginBottom: "-40px"}}>EDIT A CODE SNIPPET</h2>
         <ul className="sell-cont" id={sellcont}>
             <li className="sell-cont-part">
                 <div>
@@ -158,7 +236,7 @@ export default function Sell() {
                     <br/><br/>
                     <label className="sell-cont-label-txt sell-cont-label-txt-banner" htmlFor={bannerid}>
                         <h3>BANNER</h3>
-                        <h4>Upload the banner of your code snippet</h4>
+                        <h4>A new banner for your code snippet</h4>
                     </label>
                     <label className="sell-cont-banner-upload" htmlFor={bannerid} id={bannerlabelid}>
                         <input type="file" accept="image/*" id={bannerid} value={""}
@@ -177,7 +255,6 @@ export default function Sell() {
                                                position: "relative"
                                            }}/> UPLOAD BANNER
                                        </>)
-
                                    } else {
                                        console.log(e.target.files[0].size / 1024 + " kB")
                                        document.getElementById(errorid).style.opacity = "1"
@@ -197,7 +274,7 @@ export default function Sell() {
                     </label>
                     <br/><br/><br/>
                     <button className="primary sell-cont-nav-btn" onClick={() => {
-                        if (checkValid(name) && checkValid(catchphrase) && banner) {
+                        if (checkValid(name) && checkValid(catchphrase)) {
                             gofwd()
                         } else {
                             if (!checkValid(name)) {
@@ -303,9 +380,12 @@ export default function Sell() {
                                 , 2000)
                         } else {
                             document.getElementById(publishbtnid).innerText = "LOADING..."
-                            submit()
+                            // submit()
+                            update().then((banner) => {
+                                navigate("/code/" + codedata.id)
+                            })
                         }
-                    }} id={publishbtnid}>PUBLISH
+                    }} id={publishbtnid}>UPDATE
                     </button>
                 </div>
             </li>
