@@ -1,12 +1,13 @@
 import "./CodePagePreview.css"
 import {Link} from "react-router-dom";
-import {useState} from "react";
 
 
 export function ClosePreview(id) {
     document.getElementById(id).style.opacity = "0"
     setTimeout(() => {
         document.getElementById(id).style.display = "none"
+        document.getElementById("bnrlzy").style.display = "none"
+        document.getElementById("bnr").style.display = "block"
         setTimeout(() => {
             document.getElementById(id).children[0].style.marginTop = "10px"
             document.getElementById("root").style.pointerEvents = "all"
@@ -30,9 +31,23 @@ export default function CodePagePreview() {
     const link = "lnk"
     const id = "id"
 
-    const [loaded, setLoaded] = useState(false);
+    const image_loading_id = "bnrlzy"
 
 
+    function rendered() {
+        //Render complete
+        document.getElementById(image_loading_id).style.display = "none"
+        document.getElementById(banner).style.display = "block"
+    }
+
+    function startRender() {
+        //Rendering start
+        requestAnimationFrame(rendered);
+    }
+
+    function loaded() {
+        requestAnimationFrame(startRender);
+    }
     return (
         <>
             <div className="codepgpre-bg" id="codepgpre" onClick={e => {
@@ -66,15 +81,15 @@ export default function CodePagePreview() {
                         </svg>
                     </Link>
                     <br/>
-                    {!loaded && (
-                        <div className="codepgpre-imgph"/>
-                    )}
+                    <div className="codepgpre-imgph" id={image_loading_id}/>
                     <img
                         src="https://img.freepik.com/premium-photo/light-background-texture-room-photography-studio-shade-yellow-high-quality-photo_163305-227313.jpg"
                         id={banner}
                         alt="Banner"
-                        onLoad={() => setLoaded(true)}
-                        style={loaded ? {} : {display: 'none'}}
+                        onLoad={() => {
+                            loaded()
+                        }}
+                        style={{display: "none"}}
                     />
                     <h2 className="codepgpre-title" id={title}>FIBONACCI SEQUENCE CALCULATOR</h2>
                     <h3 className="codepgpre-info">💵 <span id={price}>5</span>$ <span

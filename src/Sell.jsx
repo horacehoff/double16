@@ -134,6 +134,25 @@ export default function Sell() {
         }
     }
 
+    function resizeBase64Img(base64, newWidth, newHeight) {
+        return new Promise((resolve, reject) => {
+            const canvas = document.createElement("canvas");
+            canvas.width = newWidth;
+            canvas.height = newHeight;
+            let context = canvas.getContext("2d");
+            let img = document.createElement("img");
+            img.src = base64;
+            img.onload = function () {
+                context.scale(newWidth / img.width, newHeight / img.height);
+                context.drawImage(img, 0, 0);
+                resolve(canvas.toDataURL());
+            }
+        });
+    }
+
+    const [resizedImage, setResizedImage] = useState(null);
+
+
     return (<>
         <h1 className="pg-heading" id="pg-heading">SELL</h1>
         <h2 className="pg-subtitle sell-subtitle" style={{marginBottom: "-40px"}}>PUBLISH YOUR OWN CODE SNIPPET</h2>
@@ -163,8 +182,40 @@ export default function Sell() {
                     <label className="sell-cont-banner-upload" htmlFor={bannerid} id={bannerlabelid}>
                         <input type="file" accept="image/*" id={bannerid} value={""}
                                onChange={e => {
+
                                    if (e.target.files[0].size / 1024 < 250) {
                                        setBanner(e.target.files[0])
+
+                                       const img = document.createElement('img');
+
+                                       const selectedImage = e.target.files[0];
+
+                                       const objectURL = URL.createObjectURL(selectedImage);
+
+                                       img.onload = function handleLoad() {
+                                           console.log(`Width: ${img.width}, Height: ${img.height}`);
+                                           var reader = new FileReader();
+                                           reader.readAsDataURL(selectedImage);
+                                           reader.onload = () => {
+                                               resizeBase64Img(reader.result, img.width / 5, img.height / 5).then((result) => {
+                                                   console.log("After resize: " + result);
+                                                   const img = document.createElement('img');
+                                                   img.src = result;
+                                                   document.body.append(img)
+                                               });
+                                           }
+                                           URL.revokeObjectURL(objectURL);
+                                       };
+
+                                       img.src = objectURL;
+
+
+
+
+
+
+
+
                                        let url = URL.createObjectURL(e.target.files[0])
                                        document.getElementById(bannerlabelid).style.paddingLeft = "6px"
                                        document.getElementById(bannerlabelid).style.paddingRight = "10px"
@@ -195,6 +246,7 @@ export default function Sell() {
                         </svg>
                         UPLOAD BANNER</span>
                     </label>
+                    {banner && <img src={resizedImage} alt="Selected"/>}
                     <br/><br/><br/>
                     <button className="primary sell-cont-nav-btn" onClick={() => {
                         if (checkValid(name) && checkValid(catchphrase) && banner) {
