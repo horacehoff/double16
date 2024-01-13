@@ -5,6 +5,7 @@ import {Link} from "react-router-dom";
 export function ClosePreview(id) {
     document.getElementById(id).style.opacity = "0"
     setTimeout(() => {
+        document.getElementById(id).children[0].scrollTop = 0
         document.getElementById(id).style.display = "none"
         document.getElementById("bnrlzy").style.display = "none"
         document.getElementById("bnr").style.display = "block"

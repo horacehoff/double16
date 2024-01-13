@@ -103,14 +103,37 @@
 
 .ucnt h4 {
     font-family: JetBrains Mono, monospace;
-    font-size: 15px;
+    font-size: 16px;
     position: relative;
     left: 30px;
     width: fit-content;
+    margin-bottom: 0;
 }
 
 .ucntsnips {
+    margin-top: -5px !important;
     /*posi*/
+    all: revert !important;
+    text-align: center;
+    white-space: nowrap !important;
+    position: relative !important;
+    /*left: -100px !important;*/
+    /*left: 50% !important;*/
+    padding: 0 !important;
+
+    /*transform: translate(-50%) !important;*/
+    width: calc(500px - 60px) !important;
+    overflow: scroll !important;
+    scroll-snap-type: x mandatory;
+}
+
+.ucntsnips li a div h4 {
+    width: 287px !important;
+    left: 13px !important;
+    margin-left: revert !important;
+    font-family: Source Code Pro, monospace !important;
+    font-size: 20px !important;
+    font-weight: 700 !important;
 }
 
 @media screen and (max-width: 600px) {
@@ -119,7 +142,13 @@
     }
 
     .ucntdsc, .ucnt h4, .ucntinf {
-        width: calc(83.3vw - 45px);
+        width: calc(83.3vw - 45px) !important;
         left: 22.5px;
+    }
+
+    .ucntsnips {
+        width: calc(83.3vw - 20px) !important;
+        left: 10px;
+        margin-top: 10px !important;
     }
 }
