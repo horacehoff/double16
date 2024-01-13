@@ -53,8 +53,8 @@
 
 .pg-section-btn {
     position: relative;
-    left: 35px;
-    top: 32px;
+    left: 30px;
+    top: 33px;
     display: inline-block;
     margin-left: 15px;
     font-family: JetBrains Mono, monospace;
@@ -76,7 +76,7 @@
 }
 
 .pg-section-btn svg g path {
-    stroke: dodgerblue;
+    stroke: #656565 !important;
 }
 
 @media (hover: hover) and (pointer: fine) {

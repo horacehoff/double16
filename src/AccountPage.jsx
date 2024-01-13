@@ -1,12 +1,19 @@
 import "./AccountPage.css"
 import {useEffect, useId, useState} from "react";
-import {useParams} from "react-router-dom";
-import {collection, getDocs, query, where} from "firebase/firestore";
+import {useNavigate, useParams} from "react-router-dom";
+import {collection, doc, getDoc, getDocs, query, where} from "firebase/firestore";
 import {db} from "./firebase.js";
 import shortNumber from "short-number"
+import ShortNumber from "short-number"
 import Loading from "./Loading.jsx";
+import CodePagePreview from "./CodePagePreview.jsx";
+import CodeCard from "./CodeCard.jsx";
+import {getLanguageName} from "./lang.jsx";
 
 export default function AccountPage() {
+    const navigate = useNavigate()
+
+
     const bannerid = useId()
     const bannerblurid = useId()
     const titleid = useId()
@@ -19,14 +26,16 @@ export default function AccountPage() {
     const userid = useParams().user
     const [userdata, setUserdata] = useState(null)
     const [isRun, setIsRun] = useState(false)
+    const [userSnippets, setUserSnippets] = useState([])
     if (!isRun) {
-        const usersRef = collection(db, "users");
-        const q = query(usersRef, where("id", "==", userid));
-        getDocs(q).then((querySnap) => {
-            querySnap.forEach((doc) => {
-                setUserdata(doc.data())
+        const usersRef = doc(db, "users", userid);
+        getDoc(usersRef).then((docSnapshot) => {
+            if (docSnapshot.exists()) {
+                setUserdata(docSnapshot.data())
                 setIsRun(true)
-            })
+            } else {
+                navigate("/404")
+            }
         })
     }
 
@@ -40,20 +49,93 @@ export default function AccountPage() {
             }
             if (userdata.github && userdata.followers.length === 0) {
                 document.getElementById(githubid).innerText = " " + userdata.github
-                document.getElementById(worldid).style.marginBottom = "0"
+                document.getElementById(githubcontid).style.marginBottom = "27px"
                 document.getElementById(githubcontid).style.display = "block"
             }
             if (!userdata.github && userdata.followers.length > 0) {
                 document.getElementById(followid).innerText = "👨‍💻 " + shortNumber(userdata.followers.length) + " followers"
                 document.getElementById(followid).style.display = "block"
                 document.getElementById(followid).style.marginBottom = "0"
+                document.getElementById(followid).style.marginTop = "3px"
+            }
+            if (userdata.github && userdata.followers.length > 0) {
+                document.getElementById(githubid).innerText = " " + userdata.github
+                document.getElementById(githubcontid).style.display = "block"
+                document.getElementById(followid).innerText = "👨‍💻 " + shortNumber(userdata.followers.length) + " followers"
+                document.getElementById(followid).style.display = "block"
+                document.getElementById(followid).style.marginBottom = "0"
+                document.getElementById(followid).style.marginTop = "-3px"
             }
             document.getElementById(bioid).innerText = userdata.bio
 
-            document.getElementById(bannerblurid).style.background = "url('" + document.getElementById(bannerid).src + "')"
-            document.getElementsByClassName("nav")[0].style.backgroundColor = "var(--color-flip)"
+
+            document.getElementById(bannerid).src = "https://source.boringavatars.com/marble/500/Just_a_Mango?colors=000000,FFFFFF,0E26EA,B700FF,FF0000&square"
+            document.getElementById(bannerblurid).style.backgroundImage = "url('https://source.boringavatars.com/marble/500/Just_a_Mango?colors=000000,FFFFFF,0E26EA,B700FF,FF0000&square')"
+
+            let has_snippets = false
+            const snippetsRef = collection(db, "codesnippets");
+            const q = query(snippetsRef, where("authorid", "==", userdata.id));
+            getDocs(q).then((queryResult) => {
+                queryResult.forEach((doc) => {
+                    setUserSnippets(prevSnippets => [...prevSnippets, doc.data()])
+                    has_snippets = true
+                })
+                if (!has_snippets) {
+
+                }
+            })
+
         }
     }, [userdata])
+
+
+    const section_items = (data) =>
+        <>
+            {
+                data.length === 0 ? (
+                        <>
+                            <li>
+                                <div className="pg-section-list-placeholder"></div>
+                            </li>
+                            <li>
+                                <div className="pg-section-list-placeholder"></div>
+                            </li>
+                        </>
+                    ) :
+                    data.map((codesnippet, index) =>
+                        <li key={index} onClick={() => {
+                            document.getElementById("lnk").href = "/code/" + codesnippet.id
+                            document.getElementById("lnk").onclick = (e) => {
+                                e.preventDefault()
+                                document.getElementById("root").style.pointerEvents = "all"
+                                navigate("/code/" + codesnippet.id)
+                            }
+                            document.getElementById("aut").href = "/users/" + codesnippet.authorid
+                            document.getElementById("aut").onclick = (e) => {
+                                e.preventDefault()
+                                document.getElementById("root").style.pointerEvents = "all"
+                                navigate("/users/" + codesnippet.authorid)
+                            }
+                        }}>
+                            <CodeCard pkg={{
+                                lang: getLanguageName(codesnippet.codeLanguage),
+                                price: codesnippet.price,
+                                like: ShortNumber(codesnippet.likes.length),
+                                dislike: ShortNumber(codesnippet.dislikes.length),
+                                title: codesnippet.title,
+                                author: codesnippet.authorusername,
+                                desc: codesnippet.catchphrase,
+                                longDesc: codesnippet.desc,
+                                char: ShortNumber(codesnippet.char),
+                                lines: ShortNumber(codesnippet.lines),
+                                banner: codesnippet.bannerUrl,
+                                id: codesnippet.id
+                            }}
+                            />
+                        </li>
+                    )
+            }
+        </>
 
     if (userdata === null) {
         return (
@@ -62,13 +144,20 @@ export default function AccountPage() {
             </>
         )
     }
+
+    function isOverflown(element) {
+        return element.scrollHeight > element.clientHeight || element.scrollWidth > element.clientWidth;
+    }
+
     return (
         <>
-            <img id={bannerid} className="ubnr" alt="banner"
-                 src="https://static.vecteezy.com/system/resources/previews/007/046/709/non_2x/liquify-colorful-abstract-background-wallpaper-free-photo.jpg"/>
-            <div id={bannerblurid} className="ucntbg"/>
             <div className="ucnt">
-                <h1 id={titleid}>LOADING...</h1>
+                <div className="ubnr-cont" id={bannerblurid}>
+                    <img id={bannerid} className="ubnr" alt="banner"
+                         src="https://static.vecteezy.com/system/resources/previews/007/046/709/non_2x/liquify-colorful-abstract-background-wallpaper-free-photo.jpg"/>
+                </div>
+                <br/>
+                <h1 id={titleid} className="noscbr">LOADING...</h1>
                 <p className="ucntinf" id={worldid} style={{marginBottom: "25px"}}>🌎 LOADING...</p>
                 <p className="ucntinf" id={githubcontid} style={{display: "none"}}>
                     <svg viewBox="0 0 128 128">
@@ -83,8 +172,14 @@ export default function AccountPage() {
                 </p>
                 <p className="ucntinf" id={followid} style={{display: "none"}}>👨‍💻 LOADING...</p>
                 <p className="ucntdsc" id={bioid}>LOADING...</p>
-                {/*<h4>PUBLISHED CODE SNIPPETS</h4>*/}
+                <br/>
+                <h4>PUBLISHED CODE SNIPPETS</h4>
+                <ul className="pg-section-list srch-section-list ucntsnips">
+                    {section_items(userSnippets)}
+                </ul>
             </div>
+
+            <CodePagePreview/>
         </>
     )
 }

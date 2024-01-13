@@ -1,92 +1,32 @@
-.ubnr {
-    position: absolute;
+.ubnr-cont {
+    position: relative;
+    border-radius: 12px;
     left: 0;
-    top: 70px;
-    width: 100%;
+    width: 500px;
     height: 250px;
     object-fit: cover;
-}
-
-
-.ucntbg {
-    position: absolute;
-    left: 0;
-    top: 320px;
-    width: 100%;
-    height: calc(100dvh - 150px);
-    /*background-image: url("https://static.vecteezy.com/system/resources/thumbnails/003/743/144/original/pink-blue-gradient-liquid-wave-technology-abstract-background-free-video.jpg");*/
-    background-image: url("https://static.vecteezy.com/system/resources/thumbnails/003/743/144/original/pink-blue-gradient-liquid-wave-technology-abstract-background-free-video.jpg");
     background-size: cover;
-    filter: blur(200px) brightness(0.7);
-    -webkit-filter: blur(200px) brightness(0.7);
+    background-repeat: no-repeat;
 }
 
-
-@supports (-webkit-touch-callout: none) {
-    .ucntbg {
-        filter: blur(150px) brightness(0.5) url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg"><filter id="a"><feComponentTransfer><feFuncA type="linear" slope="10"/></feComponentTransfer></filter>#a');;
-        -webkit-filter: blur(150px) brightness(0.5) url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg"><filter id="a"><feComponentTransfer><feFuncA type="linear" slope="10"/></feComponentTransfer></filter>#a');;
-    }
+.ubnr {
+    position: relative;
+    border-radius: 12px;
+    left: 0;
+    width: 500px;
+    height: 250px;
+    object-fit: cover;
+    filter: blur(10px);
+    padding: 20px;
+    margin: -20px;
 }
-
-
-@media (prefers-color-scheme: light) {
-    .ucntbg {
-        z-index: 0;
-        filter: blur(250px) brightness(0.5) url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg"><filter id="a"><feComponentTransfer><feFuncA type="linear" slope="10"/></feComponentTransfer></filter>#a');;
-        -webkit-filter: blur(250px) brightness(0.5) url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg"><filter id="a"><feComponentTransfer><feFuncA type="linear" slope="10"/></feComponentTransfer></filter>#a');;
-    }
-    .ubnr {
-        z-index: 3;
-    }
-
-    @supports (-webkit-touch-callout: none) {
-        .ucntbg {
-            z-index: 0;
-            filter: none;
-            -webkit-filter: none;
-        }
-
-        .ucntbg::after {
-            backdrop-filter: blur(250px) brightness(0.5);
-            -webkit-backdrop-filter: blur(250px) brightness(0.5);
-            pointer-events: none;
-            content: "";
-            position: absolute;
-            width: 100%;
-            height: 100%;
-        }
-    }
-}
-
-
-@media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-color-index: 0) {
-    @media (prefers-color-scheme: light) {
-        .ucntbg {
-            z-index: 0;
-            filter: none;
-            -webkit-filter: none;
-        }
-        .ucntbg::after {
-            backdrop-filter: blur(150px) brightness(0.5);
-            -webkit-backdrop-filter: blur(150px) brightness(0.5);
-            pointer-events: none;
-            content: "";
-            position: absolute;
-            width: 100%;
-            height: 100%;
-        }
-    }
-}
-
-
-
 
 .ucnt {
     position: absolute;
-    left: 0;
-    top: 300px;
-    width: 100%;
+    left: 50%;
+    transform: translate(-50%);
+    top: 90px;
+    width: 500px;
     height: calc(100dvh - 300px);
     z-index: 2;
 }
@@ -98,10 +38,11 @@
     font-weight: 900;
     margin: 0;
     letter-spacing: normal;
-    position: relative;
-    top: 40px;
-    left: 30px;
-    width: calc(100% - 30px - 30px);
+    width: 500px;
+    overflow: scroll;
+    /*margin-bottom: 0;*/
+    height: fit-content;
+    margin-top: -20px;
 }
 
 @media screen and (max-width: 500px) {
@@ -118,6 +59,8 @@
     position: relative;
     left: 30px;
     width: fit-content;
+    top: 0;
+    margin-top: -10px;
 }
 
 .ucntinf:first-of-type {
@@ -149,12 +92,13 @@
 
 .ucntdsc {
     position: relative;
-    left: 30px;
+    /*left: 30px;*/
     font-family: Inter, sans-serif;
     font-size: 16px;
     font-weight: 700;
     top: -10px;
-    width: calc(100% - 30px - 40px);
+    width: calc(500px - 60px);
+    left: 30px;
 }
 
 .ucnt h4 {
@@ -163,4 +107,19 @@
     position: relative;
     left: 30px;
     width: fit-content;
+}
+
+.ucntsnips {
+    /*posi*/
+}
+
+@media screen and (max-width: 600px) {
+    .ucnt, .ubnr, .ubnr-cont, .ucnt h1 {
+        width: 83.3vw;
+    }
+
+    .ucntdsc, .ucnt h4, .ucntinf {
+        width: calc(83.3vw - 45px);
+        left: 22.5px;
+    }
 }

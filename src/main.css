@@ -237,3 +237,13 @@ textarea {
     transition: width 0s, height 0s, color 0.15s, background 0.15s, border-color 0.15s;
 }
 
+
+.noscbr {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none;
+}
+
+.noscbr::-webkit-scrollbar {
+    display: none;
+}
+
