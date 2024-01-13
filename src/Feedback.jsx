@@ -1,10 +1,19 @@
 import "./Feedback.css"
 import {useId, useState} from "react";
+import {doc, setDoc} from "firebase/firestore";
+import {db, userdb} from "./firebase.js";
+import {v1} from "uuid";
+import {useNavigate} from "react-router-dom";
 
 export default function Feedback() {
+    const navigate = useNavigate()
     const errorid = useId()
     const [email, setEmail] = useState("")
     const [feedback, setFeedback] = useState("")
+
+    function checkValid(str) {
+        return /\S/.test(str) && str !== "";
+    }
 
     function submit(e) {
         e.preventDefault()
@@ -13,9 +22,25 @@ export default function Feedback() {
             .match(
                 /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
             );
-        if (validated === null) {
+        if (!userdb) {
+            document.getElementById(errorid).innerText = "ERROR: YOU NEED TO SIGN_IN"
             document.getElementById(errorid).style.opacity = "1"
             setTimeout(() => document.getElementById(errorid).style.opacity = "0", 5000)
+        } else if (validated === null || !email || email === "" || !checkValid(email)) {
+            document.getElementById(errorid).style.opacity = "1"
+            setTimeout(() => document.getElementById(errorid).style.opacity = "0", 5000)
+        } else if (!feedback || feedback === "" || !checkValid(feedback)) {
+            document.getElementById(errorid).innerText = "ERROR: INVALID FEEDBACK"
+            document.getElementById(errorid).style.opacity = "1"
+            setTimeout(() => document.getElementById(errorid).style.opacity = "0", 5000)
+        } else if (validated && email && email !== "" && checkValid(email) && feedback && feedback !== "" && checkValid(feedback) && userdb) {
+            setDoc(doc(db, "feedback", v1()), {
+                email: email,
+                feedback: feedback,
+                created: Date.now()
+            }).then(() => {
+                navigate("/")
+            })
         }
     }
 
