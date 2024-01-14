@@ -48,7 +48,7 @@ export default function SignUp() {
                         following: [],
                         codesnippets: [],
                         gottensnippets: [],
-                        banner: "https://source.boringavatars.com/marble/850/" + username + "?square"
+                        banner: "https://source.boringavatars.com/marble/500/" + username + "?colors=000000,FFFFFF,0E26EA,B700FF,FF0000&square"
                     }).then(() => {
                         navigate("/")
                     })

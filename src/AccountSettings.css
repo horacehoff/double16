@@ -1,0 +1,60 @@
+.setts-cont {
+    text-align: center;
+    top: 0;
+}
+
+.setts-cont h2 {
+    font-size: 27px;
+    font-family: "Source Code Pro", monospace;
+    font-weight: 700;
+}
+
+.setts-bnr img {
+    width: 100px;
+    height: 60px;
+    object-fit: cover;
+    display: inline-block;
+    vertical-align: bottom;
+    border-radius: 8px;
+    transition: 0.25s;
+    cursor: pointer;
+}
+
+.setts-bnr img:hover {
+    filter: brightness(0.75);
+}
+
+.setts-bnr img:active {
+    filter: brightness(0.5);
+}
+
+.setts-bnr h4 {
+    display: inline-block;
+    font-size: 20px;
+    font-weight: 600;
+    font-family: "JetBrains Mono", monospace;
+    vertical-align: top;
+    text-align: left;
+    margin: 0;
+    padding-left: 10px;
+}
+
+.setts-bnr h4 p {
+    font-size: 15px;
+    margin: 0;
+    position: relative;
+    top: -3px;
+}
+
+.setts-bnr p {
+    display: inline-block;
+}
+
+.setts-cont-label-txt {
+    text-align: left;
+}
+
+.setts-cont button {
+    width: 319px;
+    margin-top: 10px;
+}

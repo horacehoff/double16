@@ -69,8 +69,8 @@ export default function AccountPage() {
             document.getElementById(bioid).innerText = userdata.bio
 
 
-            document.getElementById(bannerid).src = "https://source.boringavatars.com/marble/500/Just_a_Mango?colors=000000,FFFFFF,0E26EA,B700FF,FF0000&square"
-            document.getElementById(bannerblurid).style.backgroundImage = "url('https://source.boringavatars.com/marble/500/Just_a_Mango?colors=000000,FFFFFF,0E26EA,B700FF,FF0000&square')"
+            document.getElementById(bannerid).src = userdata.banner
+            document.getElementById(bannerblurid).style.backgroundImage = "url('" + userdata.banner + "')"
 
             let has_snippets = false
             const snippetsRef = collection(db, "codesnippets");
