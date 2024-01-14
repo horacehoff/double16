@@ -14,7 +14,7 @@ import {decompressFromBase64} from "lz-string";
 
 export default function CodePage() {
     const navigate = useNavigate()
-    const favoritebtn = useId()
+    const favoritebtnid = useId()
     const [isFavorite, setIsFavorite] = useState(false)
     const codeid = useParams().codeid
     const [codedata, setCodeData] = useState(null)
@@ -96,6 +96,21 @@ export default function CodePage() {
                     // setCodeData([])
                     // window.location.reload()
                 }
+
+                document.getElementById(favoritebtnid).innerHTML = "<span class='emojifix'>🗑️</span> DELETE"
+                document.getElementById(favoritebtnid).onclick = () => {
+                    if (document.getElementById(favoritebtnid).innerHTML.includes("DELETE")) {
+                        document.getElementById(favoritebtnid).innerHTML = "<span class='emojifix'>❓</span> CONFIRM(3)"
+                    } else if (document.getElementById(favoritebtnid).innerHTML.includes("CONFIRM(3)")) {
+                        document.getElementById(favoritebtnid).innerHTML = "<span class='emojifix'>❓</span> CONFIRM(2)"
+                    } else if (document.getElementById(favoritebtnid).innerHTML.includes("CONFIRM(2)")) {
+                        document.getElementById(favoritebtnid).innerHTML = "<span class='emojifix'>❓</span> CONFIRM(1)"
+                    } else if (document.getElementById(favoritebtnid).innerHTML.includes("CONFIRM(1)")) {
+                        document.getElementById(favoritebtnid).innerHTML = "<span class='emojifix'>✅</span> CONFIRM(!)"
+                    } else if (document.getElementById(favoritebtnid).innerHTML.includes("CONFIRM(!)")) {
+                        // DELETE LOGIC
+                    }
+                }
             } else {
                 document.getElementById(authorid).innerText = "LOADING"
                 getDoc(doc(db, "users", codedata.authorid)).then((docSnap) => {
@@ -106,16 +121,16 @@ export default function CodePage() {
             }
 
             if (userdb && userdb.favorites && userdb.favorites.includes(codedata.id)) {
-                document.getElementById(favoritebtn).style.color = "transparent"
+                document.getElementById(favoritebtnid).style.color = "transparent"
                 setTimeout(() => {
-                    document.getElementById(favoritebtn).innerHTML = document.getElementById(favoritebtn).innerHTML.replace("FAVORITE", "UN-FAVORITE")
-                    document.getElementById(favoritebtn).style.color = null
-                    document.getElementById(favoritebtn).firstChild.style.color = "white"
+                    document.getElementById(favoritebtnid).innerHTML = document.getElementById(favoritebtnid).innerHTML.replace("FAVORITE", "UN-FAVORITE")
+                    document.getElementById(favoritebtnid).style.color = null
+                    document.getElementById(favoritebtnid).firstChild.style.color = "white"
                 }, 250)
                 setIsFavorite(true)
             } else if (!userdb) {
                 disableBtn(document.getElementById(ratebtnid))
-                disableBtn(document.getElementById(favoritebtn))
+                disableBtn(document.getElementById(favoritebtnid))
                 // if (codedata.price > 0) {
                 ////     disable price button for non-signed in users and paid code snippets
                 // }
@@ -221,7 +236,7 @@ export default function CodePage() {
                             }, 1)
                         }} id={ratebtnid}>⭐️ RATE
                         </button>
-                        <button className="primary " id={favoritebtn} onClick={() => {
+                        <button className="primary " id={favoritebtnid} onClick={() => {
                             let fav_condition = !userdb.favorites || !userdb.favorites.includes(codedata.id)
                             if (userdb && !isFavorite && fav_condition) {
                                 let new_favorites = [...userdb.favorites]
@@ -231,11 +246,11 @@ export default function CodePage() {
                                 updateDoc(userRef, {
                                     favorites: new_favorites
                                 }).then(() => {
-                                    document.getElementById(favoritebtn).style.color = "transparent"
+                                    document.getElementById(favoritebtnid).style.color = "transparent"
                                     setTimeout(() => {
-                                        document.getElementById(favoritebtn).innerHTML = document.getElementById(favoritebtn).innerHTML.replace("FAVORITE", "UN-FAVORITE")
-                                        document.getElementById(favoritebtn).style.color = null
-                                        document.getElementById(favoritebtn).firstChild.style.color = "white"
+                                        document.getElementById(favoritebtnid).innerHTML = document.getElementById(favoritebtnid).innerHTML.replace("FAVORITE", "UN-FAVORITE")
+                                        document.getElementById(favoritebtnid).style.color = null
+                                        document.getElementById(favoritebtnid).firstChild.style.color = "white"
                                     }, 250)
                                     setIsFavorite(true)
                                 })
@@ -249,11 +264,11 @@ export default function CodePage() {
                                     updateDoc(userRef, {
                                         favorites: new_favorites
                                     }).then(() => {
-                                        document.getElementById(favoritebtn).style.color = "transparent"
+                                        document.getElementById(favoritebtnid).style.color = "transparent"
                                         setTimeout(() => {
-                                            document.getElementById(favoritebtn).innerHTML = document.getElementById(favoritebtn).innerHTML.replace("UN-FAVORITE", "FAVORITE")
-                                            document.getElementById(favoritebtn).style.color = null
-                                            document.getElementById(favoritebtn).firstChild.style.color = "white"
+                                            document.getElementById(favoritebtnid).innerHTML = document.getElementById(favoritebtnid).innerHTML.replace("UN-FAVORITE", "FAVORITE")
+                                            document.getElementById(favoritebtnid).style.color = null
+                                            document.getElementById(favoritebtnid).firstChild.style.color = "white"
                                         }, 250)
                                         setIsFavorite(false)
                                     })

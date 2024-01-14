@@ -4,7 +4,7 @@ import Loading from "./Loading.jsx";
 import {auth, db, userdb} from "./firebase.js";
 import {onAuthStateChanged} from "firebase/auth";
 import {useNavigate} from "react-router-dom";
-import {doc, updateDoc} from "firebase/firestore";
+import {collection, doc, getDocs, query, updateDoc, where} from "firebase/firestore";
 import {deleteObject, getDownloadURL, getStorage, ref, uploadBytes} from "firebase/storage";
 import {ShowPopUp} from "./PopUp.jsx";
 
@@ -60,6 +60,18 @@ export default function AccountSettings() {
     }, [userData])
 
     function updateProfile(e) {
+        if (username !== userData.username) {
+            console.log("DIFF")
+            const q = query(collection(db, "codesnippets"), where("authorid", "==", userData.id));
+            getDocs(q).then((querySnapshot) => {
+                querySnapshot.forEach((data) => {
+                    updateDoc(doc(db, "codesnippets", data.id), {
+                        authorusername: username
+                    })
+                })
+            })
+
+        }
         if (banner) {
             const storage = getStorage()
             const bannerRef = ref(storage, 'users/' + userData.id + "/banner/banner.webp");
@@ -130,6 +142,10 @@ export default function AccountSettings() {
                 }, 2500)
             })
         }
+    }
+
+    function checkValid(str) {
+        return /\S/.test(str) && str !== "";
     }
 
 
@@ -231,8 +247,20 @@ export default function AccountSettings() {
                        onChange={e => setCountry(e.target.value)}/>
                 <br/>
                 <button className="primary" onClick={e => {
-                    e.target.innerText = "LOADING..."
-                    updateProfile(e)
+                    if (username && username !== "" && checkValid(username) && bio !== "" && checkValid(bio)) {
+                        e.target.innerText = "LOADING..."
+                        updateProfile(e)
+                    } else if (!username || username === "" || !checkValid(username)) {
+                        document.getElementById(usernameid).style.borderColor = "red"
+                        setTimeout(() => {
+                            document.getElementById(usernameid).style.borderColor = null
+                        }, 2000)
+                    } else if (!bio || bio === "" || !checkValid(bio)) {
+                        document.getElementById(bioid).style.borderColor = "red"
+                        setTimeout(() => {
+                            document.getElementById(bioid).style.borderColor = null
+                        }, 2000)
+                    }
                 }}>SAVE
                 </button>
             </div>
