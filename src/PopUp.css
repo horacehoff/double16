@@ -1,0 +1,28 @@
+.popup {
+    position: fixed;
+    right: 15px;
+    bottom: -56px;
+    height: fit-content;
+    width: fit-content;
+    color: #d0d0d0;
+    background-color: #343434;
+    z-index: 1000;
+    padding: 11px 15px;
+    border-radius: 20px;
+    transition: 0.35s;
+    vertical-align: middle;
+    text-align: center;
+    filter: blur(15px);
+    font-family: Inter, sans-serif;
+    font-size: 15px;
+    opacity: 0;
+}
+
+@media screen and (max-width: 400px) {
+    .popup {
+        right: initial;
+        left: 50%;
+        transform: translate(-50%);
+        width: 85.675vw;
+    }
+}

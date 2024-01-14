@@ -142,7 +142,7 @@ export default function Navbar() {
                     <li className="nav-list-signup" id={signupli_id}>
                         <Link to="/sign-up" id={signupid}>SIGN_UP</Link>
                         <div className="nav-list-account" id={signupextraid}>
-                            <Link to="/sign-up" id={settingsid}>SETTINGS</Link>
+                            <Link to="/settings" id={settingsid}>SETTINGS</Link>
                             <br/>
                             <a href="#" id={signoutid} onClick={() => {
                                 signOut(auth).then(() => {

@@ -9,6 +9,56 @@
     font-weight: 700;
 }
 
+
+.setts-bnr button {
+    display: none;
+    border: 0;
+    background-color: transparent;
+    vertical-align: top;
+    padding: 6px;
+    width: fit-content !important;
+    height: fit-content;
+    cursor: pointer;
+    text-align: center;
+    margin-right: 10px;
+    transition: 0.25s;
+    border-radius: 6px;
+}
+
+
+.setts-bnr button svg {
+    position: relative;
+    left: 0;
+    top: 1px;
+}
+
+.setts-bnr button svg g path {
+    stroke: #a4a4a4;
+    transition: 0.25s;
+}
+
+.setts-bnr button:active {
+    background-color: #2D2D2D;
+}
+
+.setts-bnr button:active svg g path {
+    stroke: white;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .setts-bnr button:hover {
+        background-color: #2D2D2D;
+    }
+
+    .setts-bnr button:hover svg g path {
+        stroke: white;
+    }
+
+    .setts-bnr button:active svg g path {
+        stroke: #ff5252;
+    }
+}
+
 .setts-bnr img {
     width: 100px;
     height: 60px;
@@ -20,10 +70,11 @@
     cursor: pointer;
 }
 
-.setts-bnr img:hover {
-    filter: brightness(0.75);
+@media (hover: hover) and (pointer: fine) {
+    .setts-bnr img:hover {
+        filter: brightness(0.75);
+    }
 }
-
 .setts-bnr img:active {
     filter: brightness(0.5);
 }

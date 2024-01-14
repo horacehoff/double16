@@ -18,6 +18,7 @@ import Sell from "./Sell.jsx";
 import FourZeroFour from "./404.jsx";
 import "./encrypt.js"
 import AccountSettings from "./AccountSettings.jsx";
+import PopUp from "./PopUp.jsx";
 
 ReactDOM.createRoot(document.getElementById('root')).render(
     <React.StrictMode>
@@ -44,6 +45,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
 
                 <Route path="/404" element={<FourZeroFour/>}/>
             </Routes>
+            <PopUp/>
         </BrowserRouter>
     </React.StrictMode>,
 )

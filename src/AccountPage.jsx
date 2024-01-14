@@ -44,6 +44,9 @@ export default function AccountPage() {
             document.getElementById(titleid).innerHTML = userdata.username
             document.getElementById(bannerid).src = userdata.banner
             document.getElementById(worldid).innerText = "🌎 EARTH"
+            if (userdata.country) {
+                document.getElementById(worldid).innerText = "🌎 " + userdata.country
+            }
             if (!userdata.github && userdata.followers.length === 0) {
                 document.getElementById(worldid).style.marginBottom = "40px"
             }
