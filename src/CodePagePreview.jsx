@@ -30,7 +30,6 @@ export default function CodePagePreview() {
     const char = "ch"
     const banner = "bnr"
     const link = "lnk"
-    const id = "id"
 
     const image_loading_id = "bnrlzy"
 

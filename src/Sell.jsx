@@ -26,6 +26,7 @@ export default function Sell() {
     const bannerlabelid = useId()
     const bannerlabelspanid = useId()
     const [banner, setBanner] = useState()
+    const [bannerSmall, setBannerSmall] = useState()
 
 
     const descid = useId()
@@ -102,34 +103,40 @@ export default function Sell() {
         const cryptouuid = crypto.randomUUID()
         if (checkValid(name) && checkValid(catchphrase) && banner && checkValid(desc) && checkValid(code)) {
             const bannerRef = ref(storage, 'codesnippets/' + uuid + "/banner/banner.webp");
+            const smallBannerRef = ref(storage, 'codesnippets/' + uuid + "/banner/banner-min.webp")
             uploadBytes(bannerRef, banner).then(() => {
                 getDownloadURL(bannerRef).then((url) => {
-                    setDoc(doc(db, "codesnippets", uuid), {
-                        title: name,
-                        catchphrase: catchphrase,
-                        desc: desc,
-                        bannerUrl: url,
-                        codeLanguage: language,
-                        code: compressToBase64(encrypt(code, uuid + "-" + cryptouuid + "-" + uuid)),
-                        id: uuid,
-                        authorid: userdb.id,
-                        authorusername: userdb.username,
-                        likes: [],
-                        dislikes: [],
-                        created: Date.now(),
-                        updated: Date.now(),
-                        char: code.match(/\S/g).length,
-                        lines: code.split(/\r|\r\n|\n/).length,
-                        crypto: cryptouuid,
-                        price: 0,
-                        downloads: []
-                    }).then(() => {
-                        document.getElementById(publishbtnid).innerText = "PUBLISHED 🎉"
-                        setTimeout(() => {
-                            navigate("/code/" + uuid)
-                        }, 500)
+                    uploadBytes(smallBannerRef, bannerSmall).then(() => {
+                        getDownloadURL(smallBannerRef).then((miniUrl) => {
+                            setDoc(doc(db, "codesnippets", uuid), {
+                                title: name,
+                                catchphrase: catchphrase,
+                                desc: desc,
+                                bannerUrl: url,
+                                bannerMiniUrl: miniUrl,
+                                codeLanguage: language,
+                                code: compressToBase64(encrypt(code, uuid + "-" + cryptouuid + "-" + uuid)),
+                                id: uuid,
+                                authorid: userdb.id,
+                                authorusername: userdb.username,
+                                likes: [],
+                                dislikes: [],
+                                created: Date.now(),
+                                updated: Date.now(),
+                                char: code.match(/\S/g).length,
+                                lines: code.split(/\r|\r\n|\n/).length,
+                                crypto: cryptouuid,
+                                price: 0,
+                                downloads: []
+                            }).then(() => {
+                                document.getElementById(publishbtnid).innerText = "PUBLISHED 🎉"
+                                setTimeout(() => {
+                                    navigate("/code/" + uuid)
+                                }, 500)
+                            })
+                        })
                     })
-                });
+                })
             })
         }
     }
@@ -149,9 +156,6 @@ export default function Sell() {
             }
         });
     }
-
-    const [resizedImage, setResizedImage] = useState(null);
-
 
     return (<>
         <h1 className="pg-heading" id="pg-heading">SELL</h1>
@@ -209,6 +213,13 @@ export default function Sell() {
 
                                        img.src = objectURL;
 
+                                       fetch(objectURL)
+                                           .then(res => res.blob())
+                                           .then(blob => {
+                                               const file = new File([blob], "image.webp", {type: "image/png"})
+                                               setBannerSmall(file)
+                                           })
+
 
 
 
@@ -246,7 +257,6 @@ export default function Sell() {
                         </svg>
                         UPLOAD BANNER</span>
                     </label>
-                    {banner && <img src={resizedImage} alt="Selected"/>}
                     <br/><br/><br/>
                     <button className="primary sell-cont-nav-btn" onClick={() => {
                         if (checkValid(name) && checkValid(catchphrase) && banner) {

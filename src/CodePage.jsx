@@ -3,13 +3,14 @@ import {getLanguageName, languageExtensions, python} from "./lang.jsx"
 import {useEffect, useId, useState} from "react";
 import {ClosePreview} from "./CodePagePreview.jsx";
 import {Link, useNavigate, useParams} from "react-router-dom";
-import {doc, getDoc, updateDoc} from "firebase/firestore";
+import {deleteDoc, doc, getDoc, updateDoc} from "firebase/firestore";
 import {db, userdb} from "./firebase.js";
 import shortNumber from "short-number";
 import timeago from 'epoch-timeago';
 import Loading from "./Loading.jsx";
 import {decrypt} from "./encrypt.js";
 import {decompressFromBase64} from "lz-string";
+import {deleteObject, getStorage, ref} from "firebase/storage";
 
 
 export default function CodePage() {
@@ -109,6 +110,17 @@ export default function CodePage() {
                         document.getElementById(favoritebtnid).innerHTML = "<span class='emojifix'>✅</span> CONFIRM(!)"
                     } else if (document.getElementById(favoritebtnid).innerHTML.includes("CONFIRM(!)")) {
                         // DELETE LOGIC
+                        const storage = getStorage();
+
+                        const bannerRef = ref(storage, 'codesnippets/' + codedata.id + "/banner/banner.webp");
+                        const bannerMinRef = ref(storage, 'codesnippets/' + codedata.id + "/banner/banner-min.webp");
+
+                        deleteObject(bannerRef)
+                        deleteObject(bannerMinRef)
+                        deleteDoc(doc(db, "codesnippets", codedata.id))
+
+                        navigate("/")
+
                     }
                 }
             } else {
@@ -238,7 +250,7 @@ export default function CodePage() {
                         </button>
                         <button className="primary " id={favoritebtnid} onClick={() => {
                             let fav_condition = !userdb.favorites || !userdb.favorites.includes(codedata.id)
-                            if (userdb && !isFavorite && fav_condition) {
+                            if (userdb && !isFavorite && fav_condition && userdb.id !== codedata.authorid) {
                                 let new_favorites = [...userdb.favorites]
                                 new_favorites.push(codedata.id)
 
@@ -255,7 +267,7 @@ export default function CodePage() {
                                     setIsFavorite(true)
                                 })
                             } else {
-                                if (userdb && userdb.favorites && userdb.favorites.includes(codedata.id)) {
+                                if (userdb && userdb.favorites && userdb.favorites.includes(codedata.id) && userdb.id !== codedata.authorid) {
                                     let new_favorites = [...userdb.favorites]
                                     let new_favorites_index = new_favorites.indexOf(codedata.id)
                                     new_favorites.splice(new_favorites_index, 1)
