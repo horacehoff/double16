@@ -160,13 +160,14 @@ export default function Sell() {
 
     return (<>
         <h1 className="pg-heading" id="pg-heading">SELL</h1>
-        <button onClick={() => ShowPopUp("ERROR: Banner file too big (MAX: 250kB)")}></button>
+        {/*<button onClick={() => ShowPopUp("ERROR: Banner file too big (MAX: 250kB)")}></button>*/}
         <h2 className="pg-subtitle sell-subtitle" style={{marginBottom: "-40px"}}>PUBLISH YOUR OWN CODE SNIPPET</h2>
         <ul className="sell-cont" id={sellcont}>
             <li className="sell-cont-part">
                 <div>
-                    <p id={errorid} className="error-notice sell-error-notice">ERROR: BANNER FILE TOO BIG (MAX:
-                        250kB)</p>
+                    <br/>
+                    {/*<p id={errorid} className="error-notice sell-error-notice">ERROR: BANNER FILE TOO BIG (MAX:*/}
+                    {/*    250kB)</p>*/}
                     <label className="sell-cont-label-txt" htmlFor={nameid}>
                         <h3>NAME</h3>
                         <h4>A good, and preferably short name for your code snippet</h4>
@@ -244,9 +245,11 @@ export default function Sell() {
 
                                    } else {
                                        console.log(e.target.files[0].size / 1024 + " kB")
-                                       document.getElementById(errorid).style.opacity = "1"
+                                       // document.getElementById(errorid).style.opacity = "1"
+                                       // setBanner(undefined)
+                                       // setTimeout(() => document.getElementById(errorid).style.opacity = "0", 2000)
                                        setBanner(undefined)
-                                       setTimeout(() => document.getElementById(errorid).style.opacity = "0", 2000)
+                                       ShowPopUp("ERROR: Banner file too big (MAX: 250kB)")
                                    }
                                }}/>
                         <span id={bannerlabelspanid}><svg fill="none" viewBox="0 0 24 24" width="1.2em" height="1.2em"
