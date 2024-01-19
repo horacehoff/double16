@@ -5,7 +5,7 @@ import {v1} from "uuid";
 import {getDownloadURL, getStorage, ref, uploadBytes} from "firebase/storage";
 import {app, db, userdb} from "./firebase.js"
 import {doc, setDoc} from "firebase/firestore";
-import {useNavigate} from "react-router-dom";
+import {useLocation, useNavigate,} from "react-router-dom";
 import {encrypt} from "./encrypt.js";
 import {compressToBase64} from "lz-string";
 import {renderToString} from "react-dom/server";
@@ -13,6 +13,7 @@ import {ShowPopUp} from "./PopUp.jsx";
 
 
 export default function Sell() {
+    const location = useLocation()
     const navigate = useNavigate()
 
     const sellcont = useId()
@@ -46,14 +47,7 @@ export default function Sell() {
     const storage = getStorage(app);
 
 
-    // function pxpercent() {
-    //     let div = document.createElement('div');
-    //     div.style.width = '100%';
-    //     document.body.appendChild(div);
-    //     let width  = div.clientWidth;
-    //     document.body.removeChild(div);
-    //     return width;
-    // }
+
     function pxpercent() {
         // Create a clone of the body style to avoid affecting the actual body style
         let bodyStyle = document.body.style.cssText;
@@ -73,14 +67,18 @@ export default function Sell() {
 
     useEffect(() => {
         let width = window.innerWidth
-        window.addEventListener("resize", () => {
+        const listen = () => {
+            if (!document.getElementById(sellcont)) {
+                window.removeEventListener("resize", listen, true)
+            }
             if (document.getElementById(sellcont).scrollLeft > 0 && window.innerWidth > width) {
                 document.getElementById(sellcont).scrollLeft = pxpercent() * Math.round(document.getElementById(sellcont).scrollLeft / width)
             } else if (document.getElementById(sellcont).scrollLeft > 0 && window.innerWidth < width && Math.round(document.getElementById(sellcont).scrollLeft / width) === 1) {
                 document.getElementById(sellcont).scrollLeft = pxpercent()
             }
             width = window.innerWidth;
-        })
+        }
+        window.addEventListener("resize", listen, true)
     }, []);
 
 

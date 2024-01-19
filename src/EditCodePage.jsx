@@ -9,6 +9,7 @@ import {decrypt, encrypt} from "./encrypt.js";
 import {compressToBase64, decompressFromBase64} from "lz-string";
 import Loading from "./Loading.jsx";
 import {renderToString} from "react-dom/server";
+import {ShowPopUp} from "./PopUp.jsx";
 
 
 export default function EditCodePage() {
@@ -102,14 +103,18 @@ export default function EditCodePage() {
 
     useEffect(() => {
         let width = window.innerWidth
-        window.addEventListener("resize", () => {
+        const listen = () => {
+            if (!document.getElementById(sellcont)) {
+                window.removeEventListener("resize", listen, true)
+            }
             if (document.getElementById(sellcont).scrollLeft > 0 && window.innerWidth > width) {
                 document.getElementById(sellcont).scrollLeft = pxpercent() * Math.round(document.getElementById(sellcont).scrollLeft / width)
             } else if (document.getElementById(sellcont).scrollLeft > 0 && window.innerWidth < width && Math.round(document.getElementById(sellcont).scrollLeft / width) === 1) {
                 document.getElementById(sellcont).scrollLeft = pxpercent()
             }
             width = window.innerWidth;
-        })
+        }
+        window.addEventListener("resize", listen, true)
     }, []);
 
 
@@ -218,8 +223,8 @@ export default function EditCodePage() {
         <ul className="sell-cont" id={sellcont}>
             <li className="sell-cont-part">
                 <div>
-                    <p id={errorid} className="error-notice sell-error-notice">ERROR: BANNER FILE TOO BIG (MAX:
-                        250kB)</p>
+                    {/*<p id={errorid} className="error-notice sell-error-notice">ERROR: BANNER FILE TOO BIG (MAX:*/}
+                    {/*    250kB)</p>*/}
                     <label className="sell-cont-label-txt" htmlFor={nameid}>
                         <h3>NAME</h3>
                         <h4>A good, and preferably short name for your code snippet</h4>
@@ -257,9 +262,11 @@ export default function EditCodePage() {
                                        </>)
                                    } else {
                                        console.log(e.target.files[0].size / 1024 + " kB")
-                                       document.getElementById(errorid).style.opacity = "1"
+                                       // document.getElementById(errorid).style.opacity = "1"
+                                       // setBanner(undefined)
+                                       // setTimeout(() => document.getElementById(errorid).style.opacity = "0", 2000)
                                        setBanner(undefined)
-                                       setTimeout(() => document.getElementById(errorid).style.opacity = "0", 2000)
+                                       ShowPopUp("ERROR: Banner file too big (MAX: 250kB)")
                                    }
                                }}/>
                         <span id={bannerlabelspanid}><svg fill="none" viewBox="0 0 24 24" width="1.2em" height="1.2em"
