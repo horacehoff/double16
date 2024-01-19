@@ -22,6 +22,7 @@ export default function AccountPage() {
     const githubcontid = useId()
     const followid = useId()
     const bioid = useId()
+    const snippetsid = useId()
 
     const userid = useParams().user
     const [userdata, setUserdata] = useState(null)
@@ -84,7 +85,7 @@ export default function AccountPage() {
                     has_snippets = true
                 })
                 if (!has_snippets) {
-
+                    document.getElementById(snippetsid).parentNode.removeChild(document.getElementById(snippetsid))
                 }
             })
 
@@ -176,10 +177,12 @@ export default function AccountPage() {
                 <p className="ucntinf" id={followid} style={{display: "none"}}>👨‍💻 LOADING...</p>
                 <p className="ucntdsc" id={bioid}>LOADING...</p>
                 <br/>
-                <h4>PUBLISHED CODE SNIPPETS</h4>
-                <ul className="pg-section-list srch-section-list ucntsnips">
-                    {section_items(userSnippets)}
-                </ul>
+                <div id={snippetsid}>
+                    <h4>PUBLISHED CODE SNIPPETS</h4>
+                    <ul className="pg-section-list srch-section-list ucntsnips">
+                        {section_items(userSnippets)}
+                    </ul>
+                </div>
             </div>
 
             <CodePagePreview/>

@@ -71,7 +71,7 @@
     text-align: center;
     padding-left: 6px;
     padding-right: 4px;
-    padding-bottom: 0px;
+    padding-bottom: 0;
     padding-top: 4px;
 }
 
@@ -83,6 +83,12 @@
 @media (hover: hover) and (pointer: fine) {
     .pg-section-btn:hover svg g path {
         stroke: white !important;
+    }
+
+    @media (prefers-color-scheme: light) {
+        .pg-section-btn:hover svg g path {
+            stroke: black !important;
+        }
     }
 }
 
@@ -101,17 +107,38 @@
     animation: pulse 2s infinite;
 }
 
-@keyframes pulse {
-    0% {
-        filter: brightness(1);
-    }
-    50% {
-        filter: brightness(0.75);
-    }
-    100% {
-        filter: brightness(1);
+
+@media (prefers-color-scheme: light) {
+    @keyframes pulse {
+        0% {
+            filter: brightness(1);
+            background-color: #f1f1ff;
+        }
+        50% {
+            filter: brightness(0.6);
+            background-color: #f1f1ff;
+        }
+        100% {
+            filter: brightness(1);
+            background-color: #f1f1ff;
+        }
     }
 }
+
+@media (prefers-color-scheme: dark) {
+    @keyframes pulse {
+        0% {
+            filter: brightness(1);
+        }
+        50% {
+            filter: brightness(0.75);
+        }
+        100% {
+            filter: brightness(1);
+        }
+    }
+}
+
 
 
 

@@ -9,6 +9,7 @@ import {useNavigate} from "react-router-dom";
 import {encrypt} from "./encrypt.js";
 import {compressToBase64} from "lz-string";
 import {renderToString} from "react-dom/server";
+import {ShowPopUp} from "./PopUp.jsx";
 
 
 export default function Sell() {
@@ -159,6 +160,7 @@ export default function Sell() {
 
     return (<>
         <h1 className="pg-heading" id="pg-heading">SELL</h1>
+        <button onClick={() => ShowPopUp("ERROR: Banner file too big (MAX: 250kB)")}></button>
         <h2 className="pg-subtitle sell-subtitle" style={{marginBottom: "-40px"}}>PUBLISH YOUR OWN CODE SNIPPET</h2>
         <ul className="sell-cont" id={sellcont}>
             <li className="sell-cont-part">
