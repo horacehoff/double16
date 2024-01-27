@@ -19,7 +19,6 @@ export default function CodeCard({pkg}) {
                     document.getElementById("ch").innerHTML = pkg.char
                     document.getElementById("bnr").src = pkg.banner
 
-
                     // style
                     document.getElementById("root").style.pointerEvents = "none"
                     document.getElementById("root").style.touchAction = "none"

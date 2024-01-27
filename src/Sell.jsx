@@ -206,7 +206,6 @@ export default function Sell() {
                                                    console.log("After resize: " + result);
                                                    const img = document.createElement('img');
                                                    img.src = result;
-                                                   document.body.append(img)
                                                });
                                            }
                                            URL.revokeObjectURL(objectURL);
@@ -214,16 +213,12 @@ export default function Sell() {
 
                                        img.src = objectURL;
 
-                                       fetch(objectURL)
+                                       fetch(img.src)
                                            .then(res => res.blob())
                                            .then(blob => {
                                                const file = new File([blob], "image.webp", {type: "image/png"})
                                                setBannerSmall(file)
                                            })
-
-
-
-
 
 
 

@@ -223,6 +223,7 @@ export default function EditCodePage() {
         <ul className="sell-cont" id={sellcont}>
             <li className="sell-cont-part">
                 <div>
+                    <br/>
                     {/*<p id={errorid} className="error-notice sell-error-notice">ERROR: BANNER FILE TOO BIG (MAX:*/}
                     {/*    250kB)</p>*/}
                     <label className="sell-cont-label-txt" htmlFor={nameid}>

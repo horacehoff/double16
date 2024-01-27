@@ -104,10 +104,21 @@
     }
 }
 
+.ucntinfacn {
+    color: #c8e0ff;
+}
+
+.ucntinfacn:hover {
+    color: #6daeff;
+}
+
+.ucntinfacn:active {
+    color: white;
+}
+
 
 .ucntdsc {
     position: relative;
-    /*left: 30px;*/
     font-family: Inter, sans-serif;
     font-size: 16px;
     font-weight: 700;
@@ -117,6 +128,11 @@
     color: var(--color)
 }
 
+.ucntflw {
+    position: relative;
+    left: 30px;
+}
+
 .ucnt h4 {
     font-family: JetBrains Mono, monospace;
     font-size: 16px;
@@ -124,7 +140,25 @@
     left: 30px;
     width: fit-content;
     margin-bottom: 0;
-    color: var(--color)
+    margin-top: 0;
+    color: var(--color);
+    filter: brightness(0.5);
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.ucnt h4 span {
+    transform: rotate(0);
+    display: inline-block;
+    transition: 0.2s;
+}
+
+.ucnt h4:hover {
+    filter: brightness(0.75);
+}
+
+.ucnt h4:active {
+    filter: brightness(0.6);
 }
 
 .ucntsnips {
@@ -139,9 +173,66 @@
     padding: 0 !important;
 
     /*transform: translate(-50%) !important;*/
-    width: calc(500px - 60px) !important;
+    width: calc(400px - 60px) !important;
     overflow: scroll !important;
     scroll-snap-type: x mandatory;
+    /*background: rgb(2,0,36);*/
+    /*background-image:*/
+
+    /*    !* Shadows *!*/
+    /*        linear-gradient(to right, #19191C, #19191C),*/
+    /*        linear-gradient(to right, #19191C, #19191C),*/
+
+    /*            !* Shadow covers *!*/
+    /*        linear-gradient(to right, rgba(0, 0, 0, 0.25), rgba(255,255,255,0)),*/
+    /*        linear-gradient(to left, rgba(0, 0, 0, 0.25), rgba(255,255,255,0)) !important;*/
+
+    /*background-position: left center, right center, left center, right center !important;*/
+    /*background-repeat: no-repeat !important;*/
+    /*background-color: #19191C !important;*/
+    /*background-size: 20px 100%, 20px 100%, 10px 100%, 10px 100% !important;*/
+
+    /*!* Opera doesn't support this in the shorthand *!*/
+    /*background-attachment: local, local, scroll, scroll !important;*/
+    display: inline-block !important;
+}
+
+.ucntsnips li:first-child {
+    scroll-margin-left: 0 !important;
+    margin-left: 0 !important;
+}
+
+.ucntsnips-btn {
+    display: inline-block !important;
+    vertical-align: 800% !important;
+    position: relative;
+    /*width: 15px !important;*/
+    /*height: 15px !important;*/
+    border: 0;
+    outline: 0;
+    background-color: transparent;
+    transition: 0.3s;
+    cursor: pointer;
+    padding-left: 4px;
+    padding-right: 4px;
+    padding-top: 4px;
+    border-radius: 6px;
+}
+
+.ucntsnips-btn:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.ucntsnips-btn:active {
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.ucntsnips-btn:first-of-type {
+    margin-right: 15px;
+}
+
+.ucntsnips-btn:nth-of-type(2) {
+    margin-left: 15px;
 }
 
 .ucntsnips li a div h4 {

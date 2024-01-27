@@ -252,3 +252,41 @@
         width: calc(100% - 70px)
     }
 }
+
+
+.test-list {
+    width: 302px;
+    height: 232px;
+    /*background-color: black;*/
+    padding: 0;
+}
+
+.test-list div {
+    background-color: #161618;
+    border-radius: 20px;
+    width: fit-content;
+    height: fit-content;
+    text-align: center;
+    position: relative;
+    left: 50%;
+    margin-top: 40%;
+    transform: translate(-50%, -50%);
+    /*margin: 0;*/
+    font-family: Inter, sans-serif;
+    font-weight: 800;
+    font-size: 20px;
+    /*padding: 10px;*/
+    padding: 30px;
+    transition: 0.2s;
+    cursor: pointer;
+}
+
+.test-list div:hover {
+    background-color: #222226;
+
+}
+
+.test-list p {
+    padding: 0;
+    margin: 0;
+}

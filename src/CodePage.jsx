@@ -173,7 +173,11 @@ export default function CodePage() {
                 <div className="codepgpre codepg">
                     <img
                         src="https://www.codingcreativo.it/wp-content/uploads/2022/10/fibonacci-sequence-in-python.jpg"
-                        alt="Banner" className="codepg-img" id={bannerid}/>
+                        alt="Banner" className="codepg-img" id={bannerid} onMouseDown={e => {
+                        if (e.button === 2) {
+                            return false;
+                        }
+                    }}/>
                     <div className="codepg-btngp">
                         <button className="primary" onClick={() => {
                             console.log("DOWNLOAD BTN CLICK")

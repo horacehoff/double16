@@ -53,6 +53,7 @@ export default function Navbar() {
                 document.getElementById(signupid).onclick = (e) => {
                     e.preventDefault()
                     navigate("/users/" + user.uid)
+                    window.location.reload()
                 }
                 document.getElementById(menusignupid).innerHTML = 'ACCOUNT'
 
@@ -136,7 +137,7 @@ export default function Navbar() {
                 <ul className="nav-list">
                     <li><Link to="/explore" id={exploreid}>EXPLORE</Link></li>
                     <li><Link to="/sell" id={sellid}>SELL</Link></li>
-                    <li>PRICING</li>
+                    {/*<li>PRICING</li>*/}
                     <li>ABOUT</li>
                     <li><Link to="/feedback" id={feedbackid}>FEEDBACK</Link></li>
                     <li className="nav-list-signup" id={signupli_id}>
@@ -176,7 +177,7 @@ export default function Navbar() {
                 <ul className="nav-list-extra">
                     <li><Link to="/explore" id={menuexploreid}>EXPLORE</Link></li>
                     <li><Link to="/sell" id={menusellid}>SELL</Link></li>
-                    <li>PRICING</li>
+                    {/*<li>PRICING</li>*/}
                     <li>ABOUT</li>
                     <li><Link to="/feedback" id={menufeedbackid}>FEEDBACK</Link></li>
                     <li><Link to="/sign-up" id={menusignupid}>SIGN_UP</Link></li>

@@ -80,9 +80,9 @@ export default function AccountSettings() {
                     updateDoc(doc(db, "users", userData.id), {
                         banner: url,
                         username: username,
-                        github: github,
+                        github: github || "",
                         bio: bio,
-                        country: country
+                        country: country || ""
                     }).then(() => {
                         e.target.innerText = "SAVED ✅"
                         ShowPopUp("Reload the page to see all changes apply")
@@ -100,9 +100,9 @@ export default function AccountSettings() {
                 updateDoc(doc(db, "users", userData.id), {
                     banner: "https://source.boringavatars.com/marble/500/" + username + "?colors=000000,FFFFFF,0E26EA,B700FF,FF0000&square",
                     username: username,
-                    github: github,
+                    github: github || "",
                     bio: bio,
-                    country: country
+                    country: country || ""
                 }).then(() => {
                     e.target.innerText = "SAVED ✅"
                     ShowPopUp("Reload the page to see all changes apply")
@@ -115,9 +115,9 @@ export default function AccountSettings() {
             //     updateDoc(doc(db, "users", userData.id), {
             //         banner: "https://source.boringavatars.com/marble/500/" + username + "?colors=000000,FFFFFF,0E26EA,B700FF,FF0000&square",
             //         username: username,
-            //         github: github,
+            //         github: github || "",
             //         bio: bio,
-            //         country: country
+            //         country: country || ""
             //     }).then(() => {
             //         e.target.innerText = "SAVED ✅"
             //         ShowPopUp("Reload the page to see all changes apply")
@@ -130,9 +130,9 @@ export default function AccountSettings() {
         } else {
             updateDoc(doc(db, "users", userData.id), {
                 username: username,
-                github: github,
+                github: github || "",
                 bio: bio,
-                country: country
+                country: country || ""
             }).then(() => {
                 e.target.innerText = "SAVED ✅"
                 ShowPopUp("Reload the page to see all changes apply")
@@ -164,20 +164,25 @@ export default function AccountSettings() {
                 <h2>PROFILE</h2>
                 <div className="setts-bnr">
                     <input type="file" style={{display: "none"}} id={bannerid} onChange={e => {
-                        setBanner(e.target.files[0])
-                        setResetBannerUrl(false)
-                        var selectedFile = e.target.files[0];
-                        var reader = new FileReader();
-                        var imgtag = document.getElementById(bannerlabelid).children[0];
+                        if (e.target.files[0].size / 1024 < 250) {
+                            setBanner(e.target.files[0])
+                            setResetBannerUrl(false)
+                            var selectedFile = e.target.files[0];
+                            var reader = new FileReader();
+                            var imgtag = document.getElementById(bannerlabelid).children[0];
 
-                        reader.onload = function (event) {
-                            imgtag.src = event.target.result;
-                        };
+                            reader.onload = function (event) {
+                                imgtag.src = event.target.result;
+                            };
 
-                        reader.readAsDataURL(selectedFile);
+                            reader.readAsDataURL(selectedFile);
 
-                        document.getElementById(bannerlabelid).children[0].src = userData.banner
-                        document.getElementById(deletebannerid).style.display = "inline-block"
+                            document.getElementById(bannerlabelid).children[0].src = userData.banner
+                            document.getElementById(deletebannerid).style.display = "inline-block"
+                        } else {
+                            ShowPopUp("ERROR: Banner file too big (MAX: 250kB)")
+                        }
+
                     }}/>
                     <button id={deletebannerid} onClick={() => {
                         setResetBannerUrl(true)

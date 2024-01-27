@@ -2,7 +2,7 @@ import "./AccountPage.css"
 import {useEffect, useId, useState} from "react";
 import {useNavigate, useParams} from "react-router-dom";
 import {collection, doc, getDoc, getDocs, query, where} from "firebase/firestore";
-import {db} from "./firebase.js";
+import {db, userdb} from "./firebase.js";
 import shortNumber from "short-number"
 import ShortNumber from "short-number"
 import Loading from "./Loading.jsx";
@@ -21,6 +21,7 @@ export default function AccountPage() {
     const githubid = useId()
     const githubcontid = useId()
     const followid = useId()
+    const followbtnid = useId()
     const bioid = useId()
     const snippetsid = useId()
 
@@ -89,6 +90,12 @@ export default function AccountPage() {
                 }
             })
 
+            if (userdb) {
+                if (userdata.id === userdb.id) {
+                    document.getElementById(followbtnid).parentNode.removeChild(document.getElementById(followbtnid))
+                }
+            }
+
         }
     }, [userdata])
 
@@ -149,10 +156,6 @@ export default function AccountPage() {
         )
     }
 
-    function isOverflown(element) {
-        return element.scrollHeight > element.clientHeight || element.scrollWidth > element.clientWidth;
-    }
-
     return (
         <>
             <div className="ucnt">
@@ -160,8 +163,14 @@ export default function AccountPage() {
                     <img id={bannerid} className="ubnr" alt="banner"
                          src="https://static.vecteezy.com/system/resources/previews/007/046/709/non_2x/liquify-colorful-abstract-background-wallpaper-free-photo.jpg"/>
                 </div>
+
+
                 <br/>
+
+
                 <h1 id={titleid} className="noscbr">LOADING...</h1>
+                <p className="ucntinf action-text ucntinfacn" style={{marginBottom: "25px"}} id={followbtnid}><span
+                    className="emojifix">❤️</span> FOLLOW</p>
                 <p className="ucntinf" id={worldid} style={{marginBottom: "25px"}}>🌎 LOADING...</p>
                 <p className="ucntinf" id={githubcontid} style={{display: "none"}}>
                     <svg viewBox="0 0 128 128">
@@ -176,12 +185,97 @@ export default function AccountPage() {
                 </p>
                 <p className="ucntinf" id={followid} style={{display: "none"}}>👨‍💻 LOADING...</p>
                 <p className="ucntdsc" id={bioid}>LOADING...</p>
-                <br/>
+
+
                 <div id={snippetsid}>
-                    <h4>PUBLISHED CODE SNIPPETS</h4>
-                    <ul className="pg-section-list srch-section-list ucntsnips">
-                        {section_items(userSnippets)}
-                    </ul>
+                    <h4 onClick={() => {
+                        if (document.getElementById(snippetsid).children[1].style.display === "block") {
+                            document.getElementById(snippetsid).children[1].style.display = "none"
+                            document.getElementById(snippetsid).children[0].children[0].style.transform = "rotate(0deg)"
+                        } else {
+                            document.getElementById(snippetsid).children[1].style.display = "block"
+                            document.getElementById(snippetsid).children[0].children[0].style.transform = "rotate(90deg)"
+                        }
+                    }}><span>{">"}</span> PUBLISHED CODE SNIPPETS</h4>
+
+
+                    <div style={{display: "none"}}>
+                        <button onClick={() => {
+                            if (document.getElementById("ucntsnips").scrollLeft - 317 >= 0) {
+                                document.getElementById("ucntsnips").scroll({
+                                    left: document.getElementById("ucntsnips").scrollLeft - 317,
+                                    behavior: "smooth"
+                                })
+                            } else {
+                                document.getElementById("ucntsnips").scroll({
+                                    left: 0
+                                })
+                            }
+                        }} className="ucntsnips-btn">
+                            <svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <g clipPath="url(#clip0_489_191279)">
+                                    <g clipPath="url(#clip1_489_191279)" stroke="currentColor" strokeWidth="2"
+                                       strokeLinecap="round" strokeLinejoin="round">
+                                        <path
+                                            d="M15 4L9.828 9.172c-1.333 1.333-2 2-2 2.828 0 .828.667 1.495 2 2.828L15 20"></path>
+                                        <path
+                                            d="M15 4L9.828 9.172c-1.333 1.333-2 2-2 2.828 0 .828.667 1.495 2 2.828L15 20"></path>
+                                    </g>
+                                </g>
+                                <defs>
+                                    <clipPath id="clip0_489_191279">
+                                        <path fill="currentColor" d="M0 0H24V24H0z"></path>
+                                    </clipPath>
+                                    <clipPath id="clip1_489_191279">
+                                        <path fill="currentColor" transform="rotate(-90 12 12)"
+                                              d="M0 0H24V24H0z"></path>
+                                    </clipPath>
+                                </defs>
+                            </svg>
+                        </button>
+
+
+                        <ul className="pg-section-list srch-section-list ucntsnips" id="ucntsnips" style={{
+                            display: "inline-block",
+                            whiteSpace: "nowrap"
+                        }}>
+                            {section_items(userSnippets)}
+                        </ul>
+
+
+                        <button className="ucntsnips-btn" onClick={() => {
+                            if (document.getElementById("ucntsnips").scrollLeft + 317 <= document.getElementById("ucntsnips").scrollWidth) {
+                                document.getElementById("ucntsnips").scroll({
+                                    left: document.getElementById("ucntsnips").scrollLeft + 317,
+                                    behavior: "smooth"
+                                })
+                            } else {
+                                document.getElementById("ucntsnips").scroll({
+                                    left: document.getElementById("ucntsnips").scrollWidth
+                                })
+                            }
+                        }}>
+                            <svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <g clipPath="url(#clip0_489_191280)">
+                                    <g clipPath="url(#clip1_489_191280)" stroke="currentColor" strokeWidth="2"
+                                       strokeLinecap="round" strokeLinejoin="round">
+                                        <path
+                                            d="M9 20l5.172-5.172c1.333-1.333 2-2 2-2.828 0-.828-.667-1.495-2-2.828L9 4"></path>
+                                        <path
+                                            d="M9 20l5.172-5.172c1.333-1.333 2-2 2-2.828 0-.828-.667-1.495-2-2.828L9 4"></path>
+                                    </g>
+                                </g>
+                                <defs>
+                                    <clipPath id="clip0_489_191280">
+                                        <path fill="currentColor" d="M0 0H24V24H0z"></path>
+                                    </clipPath>
+                                    <clipPath id="clip1_489_191280">
+                                        <path fill="currentColor" transform="rotate(90 12 12)" d="M0 0H24V24H0z"></path>
+                                    </clipPath>
+                                </defs>
+                            </svg>
+                        </button>
+                    </div>
                 </div>
             </div>
 
