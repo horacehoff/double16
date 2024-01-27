@@ -188,6 +188,7 @@ export default function AccountPage() {
                    onClick={() => {
                        if (userdb) {
                            if (userdb.following.includes(userdata.id)) {
+                               console.log("unfollowing")
                                let new_following = [...userdb.following]
                                var index = new_following.indexOf(userdata.id);
                                if (index !== -1) {

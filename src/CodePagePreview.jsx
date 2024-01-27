@@ -7,8 +7,11 @@ export function ClosePreview(id) {
     setTimeout(() => {
         document.getElementById(id).children[0].scrollTop = 0
         document.getElementById(id).style.display = "none"
-        document.getElementById("bnrlzy").style.display = "none"
-        document.getElementById("bnr").style.display = "block"
+        try {
+            document.getElementById("bnrlzy").style.display = "none"
+            document.getElementById("bnr").style.display = "block"
+        } catch {
+        }
         setTimeout(() => {
             document.getElementById(id).children[0].style.marginTop = "10px"
             document.getElementById("root").style.pointerEvents = "all"
