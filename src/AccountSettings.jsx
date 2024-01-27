@@ -111,22 +111,20 @@ export default function AccountSettings() {
                     }, 2500)
                 })
             })
-            //     .catch(() => {
-            //     updateDoc(doc(db, "users", userData.id), {
-            //         banner: "https://source.boringavatars.com/marble/500/" + username + "?colors=000000,FFFFFF,0E26EA,B700FF,FF0000&square",
-            //         username: username,
-            //         github: github || "",
-            //         bio: bio,
-            //         country: country || ""
-            //     }).then(() => {
-            //         e.target.innerText = "SAVED ✅"
-            //         ShowPopUp("Reload the page to see all changes apply")
-            //         setTimeout(() => {
-            //             e.target.innerText = "SAVE"
-            //         }, 2500)
-            //     })
-            // })
-
+        } else if (!banner && username !== userdb.username) {
+            updateDoc(doc(db, "users", userData.id), {
+                banner: "https://source.boringavatars.com/marble/500/" + username + "?colors=000000,FFFFFF,0E26EA,B700FF,FF0000&square",
+                username: username,
+                github: github || "",
+                bio: bio,
+                country: country || ""
+            }).then(() => {
+                e.target.innerText = "SAVED ✅"
+                ShowPopUp("Reload the page to see all changes apply")
+                setTimeout(() => {
+                    e.target.innerText = "SAVE"
+                }, 2500)
+            })
         } else {
             updateDoc(doc(db, "users", userData.id), {
                 username: username,
@@ -225,7 +223,7 @@ export default function AccountSettings() {
                 <input id={usernameid} type="text" placeholder="@my_awesome_username" value={username}
                        onChange={e => {
                            setUsername(e.target.value)
-                           if (resetBannerUrl) {
+                           if (resetBannerUrl || !banner) {
                                document.getElementById(bannerlabelid).children[0].src = "https://source.boringavatars.com/marble/500/" + e.target.value + "?colors=000000,FFFFFF,0E26EA,B700FF,FF0000&square"
                            }
                        }}/>

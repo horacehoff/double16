@@ -215,7 +215,7 @@ export default function CodePage() {
                                             new_downloads.push(userdb.id)
                                             updateDoc(codeRef, {
                                                 downloads: new_downloads,
-                                                downloadslen: docSnap.data().downloadslen + 1
+                                                downloadslen: docSnap.data().downloadslen + 1 || 1
                                             }).then(() => {
                                                 downloaded = true
                                                 console.log("UPDATED CODE DOWNLOADS")
@@ -255,7 +255,7 @@ export default function CodePage() {
                         <button className="primary " id={favoritebtnid} onClick={() => {
                             let fav_condition = !userdb.favorites || !userdb.favorites.includes(codedata.id)
                             if (userdb && !isFavorite && fav_condition && userdb.id !== codedata.authorid) {
-                                let new_favorites = [...userdb.favorites]
+                                let new_favorites = [...userdb.favorites || []]
                                 new_favorites.push(codedata.id)
 
                                 const userRef = doc(db, "users", userdb.id);
@@ -288,6 +288,8 @@ export default function CodePage() {
                                         }, 250)
                                         setIsFavorite(false)
                                     })
+                                } else if (!userdb.favorites) {
+                                    console.log("yeah")
                                 }
                             }
                         }}><span className="emojifix">❤️</span>️ FAVORITE

@@ -44,7 +44,6 @@ export default function SignUp() {
                         email: email,
                         username: username,
                         bio: "Hi, I'm new to DOUBLE16!",
-                        followers: [],
                         following: [],
                         codesnippets: [],
                         gottensnippets: [],

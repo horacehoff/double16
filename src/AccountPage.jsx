@@ -1,7 +1,7 @@
 import "./AccountPage.css"
 import {useEffect, useId, useState} from "react";
 import {useNavigate, useParams} from "react-router-dom";
-import {collection, doc, getDoc, getDocs, query, where} from "firebase/firestore";
+import {collection, doc, getCountFromServer, getDoc, getDocs, query, updateDoc, where} from "firebase/firestore";
 import {db, userdb} from "./firebase.js";
 import shortNumber from "short-number"
 import ShortNumber from "short-number"
@@ -43,34 +43,43 @@ export default function AccountPage() {
 
     useEffect(() => {
         if (userdata) {
+            // count followers
+
+
+
             document.getElementById(titleid).innerHTML = userdata.username
             document.getElementById(bannerid).src = userdata.banner
             document.getElementById(worldid).innerText = "🌎 EARTH"
             if (userdata.country) {
                 document.getElementById(worldid).innerText = "🌎 " + userdata.country
             }
-            if (!userdata.github && userdata.followers.length === 0) {
-                document.getElementById(worldid).style.marginBottom = "40px"
-            }
-            if (userdata.github && userdata.followers.length === 0) {
-                document.getElementById(githubid).innerText = " " + userdata.github
-                document.getElementById(githubcontid).style.marginBottom = "27px"
-                document.getElementById(githubcontid).style.display = "block"
-            }
-            if (!userdata.github && userdata.followers.length > 0) {
-                document.getElementById(followid).innerText = "👨‍💻 " + shortNumber(userdata.followers.length) + " followers"
-                document.getElementById(followid).style.display = "block"
-                document.getElementById(followid).style.marginBottom = "0"
-                document.getElementById(followid).style.marginTop = "3px"
-            }
-            if (userdata.github && userdata.followers.length > 0) {
-                document.getElementById(githubid).innerText = " " + userdata.github
-                document.getElementById(githubcontid).style.display = "block"
-                document.getElementById(followid).innerText = "👨‍💻 " + shortNumber(userdata.followers.length) + " followers"
-                document.getElementById(followid).style.display = "block"
-                document.getElementById(followid).style.marginBottom = "0"
-                document.getElementById(followid).style.marginTop = "-3px"
-            }
+            const followquery = query(collection(db, "users"), where("following", "array-contains", userdata.id));
+            getCountFromServer(followquery).then((count) => {
+                if (!userdata.github && count.data().count === 0) {
+                    document.getElementById(worldid).style.marginBottom = "40px"
+                }
+                if (userdata.github && count.data().count === 0) {
+                    document.getElementById(githubid).innerText = " " + userdata.github
+                    document.getElementById(githubcontid).style.marginBottom = "27px"
+                    document.getElementById(githubcontid).style.display = "block"
+                }
+                if (!userdata.github && count.data().count > 0) {
+                    document.getElementById(followid).innerText = "👨‍💻 " + shortNumber(count.data().count) + " followers"
+                    document.getElementById(followid).style.display = "block"
+                    document.getElementById(followid).style.marginBottom = "0"
+                    document.getElementById(followid).style.marginTop = "3px"
+                }
+                if (userdata.github && count.data().count > 0) {
+                    document.getElementById(githubid).innerText = " " + userdata.github
+                    document.getElementById(githubcontid).style.display = "block"
+                    document.getElementById(githubcontid).style.marginBottom = "0"
+                    document.getElementById(followid).innerText = "👨‍💻 " + shortNumber(count.data().count) + " followers"
+                    document.getElementById(followid).style.display = "block"
+                    document.getElementById(followid).style.marginBottom = "25px"
+                    document.getElementById(followid).style.marginTop = "-3px"
+                }
+            })
+
             document.getElementById(bioid).innerText = userdata.bio
 
 
@@ -94,6 +103,12 @@ export default function AccountPage() {
                 if (userdata.id === userdb.id) {
                     document.getElementById(followbtnid).parentNode.removeChild(document.getElementById(followbtnid))
                 }
+
+                if (userdb.following.includes(userdata.id)) {
+                    document.getElementById(followbtnid).innerHTML = "<span class='emojifix'>💔</span> UNFOLLOW"
+                }
+            } else {
+                document.getElementById(followbtnid).parentNode.removeChild(document.getElementById(followbtnid))
             }
 
         }
@@ -169,7 +184,27 @@ export default function AccountPage() {
 
 
                 <h1 id={titleid} className="noscbr">LOADING...</h1>
-                <p className="ucntinf action-text ucntinfacn" style={{marginBottom: "25px"}} id={followbtnid}><span
+                <p className="ucntinf action-text ucntinfacn" style={{marginBottom: "25px"}} id={followbtnid}
+                   onClick={() => {
+                       if (userdb) {
+                           if (userdb.following.includes(userdata.id)) {
+                               let new_following = [...userdb.following]
+                               var index = new_following.indexOf(userdata.id);
+                               if (index !== -1) {
+                                   new_following.splice(index, 1);
+                               }
+                               updateDoc(doc(db, "users", userdb.id), {
+                                   following: [...new_following]
+                               })
+                               document.getElementById(followbtnid).innerHTML = "<span class='emojifix'>❤️</span> FOLLOW"
+                           } else {
+                               updateDoc(doc(db, "users", userdb.id), {
+                                   following: [...userdb.following, userdata.id]
+                               })
+                               document.getElementById(followbtnid).innerHTML = "<span class='emojifix'>💔</span> UNFOLLOW"
+                           }
+                       }
+                   }}><span
                     className="emojifix">❤️</span> FOLLOW</p>
                 <p className="ucntinf" id={worldid} style={{marginBottom: "25px"}}>🌎 LOADING...</p>
                 <p className="ucntinf" id={githubcontid} style={{display: "none"}}>
