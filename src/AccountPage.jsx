@@ -232,7 +232,7 @@ export default function AccountPage() {
                             document.getElementById(snippetsid).children[1].style.display = "block"
                             document.getElementById(snippetsid).children[0].children[0].style.transform = "rotate(90deg)"
                         }
-                    }}><span>{">"}</span> PUBLISHED CODE SNIPPETS</h4>
+                    }} className="ucntpub"><span>{">"}</span> PUBLISHED CODE SNIPPETS</h4>
 
 
                     <div style={{display: "none"}}>
