@@ -1,0 +1,18 @@
+.md-heading {
+    line-height: 100px;
+    margin-bottom: 20px;
+}
+
+.pg-subsection {
+    padding-left: 40px;
+    padding-top: 10px;
+}
+
+.pg-subsection * {
+    display: inline-block;
+}
+
+.pg-subsection *:not(:first-child) {
+    position: relative;
+    margin-left: 10px !important;
+}

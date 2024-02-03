@@ -5,11 +5,8 @@ import ShortNumber from "short-number"
 import CodePagePreview from "./CodePagePreview.jsx";
 import {getLanguageName} from "./lang.jsx";
 import {useState} from "react";
-import {collection, doc, getDocs, limit, orderBy, query, setDoc} from "firebase/firestore";
-import {db, userdb} from "./firebase.js";
-import {compressToBase64} from "lz-string";
-import {encrypt} from "./encrypt.js";
-import {v1} from "uuid";
+import {collection, getDocs, limit, orderBy, query} from "firebase/firestore";
+import {db} from "./firebase.js";
 
 export default function Explore() {
     const navigate = useNavigate()
@@ -160,75 +157,62 @@ export default function Explore() {
         <>
             <h1 className="pg-heading" id="pg-heading">EXPLORE</h1>
             <h2 className="pg-subtitle">EXPLORE ALL THE DIFFERENT CODE SNIPPETS AND FIND THE ONE YOU WANT</h2>
-            <button onClick={() => {
-                const uuid = v1()
-                const cryptouuid = crypto.randomUUID()
-                setDoc(doc(db, "codesnippets", uuid), {
-                    title: "Homebrew",
-                    catchphrase: "A great package manager",
-                    desc: "An even greater description",
-                    bannerUrl: "https://brew.sh/assets/img/homebrew-social-card.png",
-                    bannerMiniUrl: "https://brew.sh/assets/img/homebrew-social-card.png",
-                    codeLanguage: "Python",
-                    code: compressToBase64(encrypt("print('Hello World')", uuid + "-" + cryptouuid + "-" + uuid)),
-                    id: uuid,
-                    authorid: userdb.id,
-                    authorusername: userdb.username,
-                    likes: [],
-                    dislikes: [],
-                    created: Date.now(),
-                    updated: Date.now(),
-                    char: "print('Hello World')".match(/\S/g).length,
-                    lines: "print('Hello World')".split(/\r|\r\n|\n/).length,
-                    crypto: cryptouuid,
-                    price: 0,
-                    downloads: []
-                })
-            }}>CREATE
-            </button>
+            {/*<button onClick={() => {*/}
+            {/*    const uuid = v1()*/}
+            {/*    const cryptouuid = crypto.randomUUID()*/}
+            {/*    setDoc(doc(db, "codesnippets", uuid), {*/}
+            {/*        title: "Homebrew",*/}
+            {/*        catchphrase: "A great package manager",*/}
+            {/*        desc: "An even greater description",*/}
+            {/*        bannerUrl: "https://brew.sh/assets/img/homebrew-social-card.png",*/}
+            {/*        bannerMiniUrl: "https://brew.sh/assets/img/homebrew-social-card.png",*/}
+            {/*        codeLanguage: "Python",*/}
+            {/*        code: compressToBase64(encrypt("print('Hello World')", uuid + "-" + cryptouuid + "-" + uuid)),*/}
+            {/*        id: uuid,*/}
+            {/*        authorid: userdb.id,*/}
+            {/*        authorusername: userdb.username,*/}
+            {/*        likes: [],*/}
+            {/*        dislikes: [],*/}
+            {/*        created: Date.now(),*/}
+            {/*        updated: Date.now(),*/}
+            {/*        char: "print('Hello World')".match(/\S/g).length,*/}
+            {/*        lines: "print('Hello World')".split(/\r|\r\n|\n/).length,*/}
+            {/*        crypto: cryptouuid,*/}
+            {/*        price: 0,*/}
+            {/*        downloads: []*/}
+            {/*    })*/}
+            {/*}}>CREATE*/}
+            {/*</button>*/}
             <Link to="/search">
                 <button className="action pg-action">🔍 SEARCH</button>
             </Link>
             <br/>
             <h2 className="pg-section-heading">🏆 MOST DOWNLOADED</h2>
 
-            {/*PROTOTYPE-1*/}
-            {/*<button className="pg-section-btn">+ <span>VIEW MORE</span></button>*/}
-            <button className="pg-section-btn">{more_svg}</button>
-
+            <button className="pg-section-btn"><Link to="/most-downloaded">{more_svg}</Link></button>
             <ul className="pg-section-list">
                 {section_items(mostDownloaded)}
-                {/*<li className="test-list">*/}
-                {/*    <div>*/}
-                {/*        <svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg">*/}
-                {/*            <g clipPath="url(#clip0_489_191193)">*/}
-                {/*                <path d="M12 4v16m8-8H4" stroke="currentColor" strokeWidth="2" strokeLinecap="round"*/}
-                {/*                      strokeLinejoin="round"></path>*/}
-                {/*            </g>*/}
-                {/*            <defs>*/}
-                {/*                <clipPath id="clip0_489_191193">*/}
-                {/*                    <path fill="currentColor" d="M0 0H24V24H0z"></path>*/}
-                {/*                </clipPath>*/}
-                {/*            </defs>*/}
-                {/*        </svg>*/}
-                {/*        <br/>*/}
-                {/*        <p>Load more</p>*/}
-                {/*    </div>*/}
-                {/*</li>*/}
             </ul>
+
             <br/>
+
             <h2 className="pg-section-heading">🔥 TRENDING</h2>
-            <button className="pg-section-btn">{more_svg}</button>
+
+            <button className="pg-section-btn"><Link to="/most-downloaded">{more_svg}</Link></button>
             <ul className="pg-section-list">
                 {section_items(trending)}
-
             </ul>
+
             <br/>
+
             <h2 className="pg-section-heading">⏰ RECENTLY PUBLISHED</h2>
+
             <button className="pg-section-btn">{more_svg}</button>
             <ul className="pg-section-list">
                 {section_items(recentlyPublished)}
             </ul>
+
+
             <CodePagePreview/>
         </>)
 }

@@ -19,7 +19,7 @@ import FourZeroFour from "./404.jsx";
 import "./encrypt.js"
 import AccountSettings from "./AccountSettings.jsx";
 import PopUp from "./PopUp.jsx";
-import {languages_list} from "./lang.jsx";
+import MostDownloaded from "./MostDownloaded.jsx";
 
 ReactDOM.createRoot(document.getElementById('root')).render(
     <React.StrictMode>
@@ -44,13 +44,9 @@ ReactDOM.createRoot(document.getElementById('root')).render(
 
                 <Route path="/feedback" element={<Feedback/>}/>
 
-                <Route path="/404" element={<FourZeroFour/>}/>
+                <Route path="*" element={<FourZeroFour/>}/>
 
-                {
-                    languages_list.map((item, index) => {
-                        <Route path={"/" + item} element={<Home/>}/>
-                    })
-                }
+                <Route path="/most-downloaded" element={<MostDownloaded/>}/>
             </Routes>
             <PopUp/>
         </BrowserRouter>
