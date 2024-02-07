@@ -21,6 +21,7 @@ export default function Navbar() {
     const signupextraid = useId()
     const menusignupid = useId()
     const menuaccountid = useId()
+    const menusettingsid = useId()
 
 
 
@@ -56,6 +57,17 @@ export default function Navbar() {
                     window.location.reload()
                 }
                 document.getElementById(menusignupid).innerHTML = 'ACCOUNT'
+                document.getElementById(menuaccountid).href = "/users/" + user.uid
+                document.getElementById(menuaccountid).onclick = (e) => {
+                    e.preventDefault()
+                    navigate("/users/" + user.uid)
+                    window.location.reload()
+                }
+                document.getElementById(menusettingsid).href = "/settings/"
+                document.getElementById(menusettingsid).onclick = (e) => {
+                    e.preventDefault()
+                    navigate("/settings/")
+                }
 
 
                 document.getElementById(signupli_id).onmouseenter = function () {
@@ -207,7 +219,7 @@ export default function Navbar() {
                         BACK
                     </li>
                     <li><Link to="" id={menuaccountid}>ACCOUNT</Link></li>
-                    <li><Link to="" id={menusellid}>SETTINGS</Link></li>
+                    <li><Link to="" id={menusettingsid}>SETTINGS</Link></li>
                     <li onClick={() => {
                         signOut(auth).then(() => {
                             navigate("/")
