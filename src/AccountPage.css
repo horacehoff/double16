@@ -84,6 +84,11 @@
     top: -7px;
 }
 
+
+.ucntgit {
+    cursor: pointer;
+}
+
 .ucntinf svg {
     height: 24px;
     width: 16px;

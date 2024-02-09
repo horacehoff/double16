@@ -1,6 +1,7 @@
 .md-heading {
-    line-height: 100px;
+    line-height: 75px;
     margin-bottom: 20px;
+
 }
 
 .pg-subsection {
@@ -15,4 +16,18 @@
 .pg-subsection *:not(:first-child) {
     position: relative;
     margin-left: 10px !important;
+}
+
+@media screen and (max-width: 900px) {
+    .pg-subsection {
+        padding-left: 20px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .pg-subsection select:nth-of-type(3) {
+        position: relative;
+        margin-top: 7px;
+        left: -10px;
+    }
 }

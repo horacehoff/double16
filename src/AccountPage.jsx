@@ -78,6 +78,12 @@ export default function AccountPage() {
                     document.getElementById(followid).style.marginBottom = "25px"
                     document.getElementById(followid).style.marginTop = "-3px"
                 }
+                if (userdata.github) {
+                    document.getElementById(githubcontid).onclick = () => {
+                        console.log("clicked")
+                        window.open("https://github.com/" + userdata.username, '_blank').focus()
+                    }
+                }
             })
 
             document.getElementById(bioid).innerText = userdata.bio
@@ -208,7 +214,7 @@ export default function AccountPage() {
                    }}><span
                     className="emojifix">❤️</span> FOLLOW</p>
                 <p className="ucntinf" id={worldid} style={{marginBottom: "25px"}}>🌎 LOADING...</p>
-                <p className="ucntinf" id={githubcontid} style={{display: "none"}}>
+                <p className="ucntinf ucntgit" id={githubcontid} style={{display: "none"}}>
                     <svg viewBox="0 0 128 128">
                         <g>
                             <path fillRule="evenodd" clipRule="evenodd"

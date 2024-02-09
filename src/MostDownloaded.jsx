@@ -164,6 +164,7 @@ export default function MostDownloaded() {
                                 setPage(index)
                                 console.log("it's updated")
                             }, 1)
+                            console.log({...new_results})
                         })
                     } else {
                         setPage(e.target.value)
@@ -181,6 +182,7 @@ export default function MostDownloaded() {
                     setMaxItems(e.target.value)
                     console.log(e.target.value)
                     countQueryDb(e.target.value, language, page, true)
+                    console.log()
                 }} value={maxItems}>
                     <option key={10} value={10}>10 RESULTS</option>
                     <option key={15} value={15}>15 RESULTS</option>
