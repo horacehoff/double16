@@ -1,0 +1,5 @@
+@media screen and (max-width: 550px) {
+    .tr-heading {
+        font-size: 17vw !important;
+    }
+}

@@ -1,4 +1,5 @@
 import "./MostDownloaded.css"
+import "./RecentSnippets.css"
 import {useEffect, useState} from "react";
 import {getLanguageName, languages_list} from "./lang.jsx";
 import {collection, getCountFromServer, getDocs, limit, orderBy, query, startAfter, where} from "firebase/firestore";
@@ -9,7 +10,7 @@ import CodePagePreview from "./CodePagePreview.jsx";
 import {useNavigate} from "react-router-dom";
 
 
-export default function MostDownloaded() {
+export default function RecentSnippets() {
     const [pageNumber, setPageNumber] = useState(1)
     const maxItems = 12
     const [language, setLanguage] = useState("Any")
@@ -81,7 +82,7 @@ export default function MostDownloaded() {
         const citiesRef = collection(db, "codesnippets");
 
         let data_count = 0
-        let q = query(citiesRef, orderBy("downloads", "desc"));
+        let q = query(citiesRef, orderBy("created", "desc"));
         getCountFromServer(q).then((doc) => {
             data_count = doc.data().count
         })
@@ -129,8 +130,8 @@ export default function MostDownloaded() {
 
     return (
         <>
-            <h1 className="pg-heading md-heading" id="pg-heading">MOST DOWNLOADED</h1>
-            <h2 className="pg-subtitle">EXPLORE THE MOST DOWNLOADED CODE SNIPPETS</h2>
+            <h1 className="pg-heading md-heading" id="pg-heading">RECENTLY PUBLISHED</h1>
+            <h2 className="pg-subtitle">EXPLORE THE LATEST CODE SNIPPETS</h2>
             <div className="pg-subsection">
                 <select value={page} onChange={e => {
                     if (!results[e.target.value] || results[e.target.value].length === 0 || results[e.target.value].length !== maxItems) {
@@ -138,7 +139,7 @@ export default function MostDownloaded() {
                         let previndex = Number(e.target.value) - 1
                         const citiesRef = collection(db, "codesnippets");
                         console.log("updated")
-                        let q = query(citiesRef, orderBy("downloads", "desc"), limit(maxItems), startAfter(lastResult[previndex]));
+                        let q = query(citiesRef, orderBy("created", "desc"), limit(maxItems), startAfter(lastResult[previndex]));
                         if (language !== "Any") {
                             q = query(q, where("codeLanguage", '==', language))
                         }

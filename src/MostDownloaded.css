@@ -1,7 +1,10 @@
 .md-heading {
     line-height: 75px;
     margin-bottom: 20px;
-
+    width: calc(100% - 40px) !important;
+    padding: 0;
+    white-space: initial !important;
+    overflow: visible;
 }
 
 .pg-subsection {
@@ -21,6 +24,14 @@
 @media screen and (max-width: 900px) {
     .pg-subsection {
         padding-left: 20px;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .pg-heading {
+        font-size: 15.8vw;
+        line-height: 60px;
+        top: 23px;
     }
 }
 

@@ -200,7 +200,7 @@ export default function Explore() {
 
             <h2 className="pg-section-heading">🔥 TRENDING</h2>
 
-            <Link to="/most-downloaded">
+            <Link to="/trending">
                 <button className="pg-section-btn">{more_svg}</button>
             </Link>
             <ul className="pg-section-list">
@@ -211,7 +211,9 @@ export default function Explore() {
 
             <h2 className="pg-section-heading">⏰ RECENTLY PUBLISHED</h2>
 
-            <button className="pg-section-btn">{more_svg}</button>
+            <Link to="/recently-published">
+                <button className="pg-section-btn">{more_svg}</button>
+            </Link>
             <ul className="pg-section-list">
                 {section_items(recentlyPublished)}
             </ul>

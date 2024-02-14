@@ -20,6 +20,8 @@ import "./encrypt.js"
 import AccountSettings from "./AccountSettings.jsx";
 import PopUp from "./PopUp.jsx";
 import MostDownloaded from "./MostDownloaded.jsx";
+import Trending from "./Trending.jsx";
+import RecentSnippets from "./RecentSnippets.jsx";
 
 ReactDOM.createRoot(document.getElementById('root')).render(
     <React.StrictMode>
@@ -47,6 +49,8 @@ ReactDOM.createRoot(document.getElementById('root')).render(
                 <Route path="*" element={<FourZeroFour/>}/>
 
                 <Route path="/most-downloaded" element={<MostDownloaded/>}/>
+                <Route path="/trending" element={<Trending/>}/>
+                <Route path="/recently-published" element={<RecentSnippets/>}/>
             </Routes>
             <PopUp/>
         </BrowserRouter>
