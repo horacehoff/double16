@@ -1,0 +1,53 @@
+.about-cnt {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 92.3vw;
+    text-align: center;
+}
+
+.about-cnt img {
+    width: 45vw;
+}
+
+.about-cnt p {
+    font-size: 16px;
+}
+
+.about-cnt h4 {
+    font-family: Source Code Pro, monospace;
+    font-size: 22px;
+    margin-top: 0;
+}
+
+.about-undr {
+    text-decoration: underline !important;
+}
+
+@media screen and (max-width: 1000px) {
+    .about-cnt img {
+        width: 60vw;
+    }
+}
+
+@media screen and (max-width: 850px) {
+    .about-cnt img {
+        width: 92.3vw;
+    }
+}
+
+
+.about-credits-list {
+    list-style-type: none;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+}
+
+.about-credits-list li ul {
+    list-style-type: none;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+}

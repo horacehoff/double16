@@ -22,6 +22,7 @@ import PopUp from "./PopUp.jsx";
 import MostDownloaded from "./MostDownloaded.jsx";
 import Trending from "./Trending.jsx";
 import RecentSnippets from "./RecentSnippets.jsx";
+import About from "./About.jsx";
 
 ReactDOM.createRoot(document.getElementById('root')).render(
     <React.StrictMode>
@@ -45,6 +46,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
                 <Route path="/settings" element={<AccountSettings/>}/>
 
                 <Route path="/feedback" element={<Feedback/>}/>
+                <Route path="/about" element={<About/>}/>
 
                 <Route path="*" element={<FourZeroFour/>}/>
 
