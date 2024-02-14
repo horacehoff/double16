@@ -12,6 +12,7 @@ export default function Navbar() {
     const menusellid = useId()
     const pricingid = useId()
     const aboutid = useId()
+    const menuaboutid = useId()
     const feedbackid = useId()
     const menufeedbackid = useId()
     const signupid = useId()
@@ -139,6 +140,15 @@ export default function Navbar() {
             document.getElementById(sellid).style.textDecoration = null
             document.getElementById(menusellid).style.textDecoration = null
         }
+        if (location.pathname.includes("/about")) {
+            document.getElementById(aboutid).style.color = "var(--color)"
+            document.getElementById(aboutid).style.textDecoration = "underline"
+            document.getElementById(menuaboutid).style.textDecoration = "underline"
+        } else {
+            document.getElementById(aboutid).style.color = null
+            document.getElementById(aboutid).style.textDecoration = null
+            document.getElementById(menuaboutid).style.textDecoration = null
+        }
     }, [location]);
 
 
@@ -150,7 +160,7 @@ export default function Navbar() {
                     <li><Link to="/explore" id={exploreid}>EXPLORE</Link></li>
                     <li><Link to="/sell" id={sellid}>SELL</Link></li>
                     {/*<li>PRICING</li>*/}
-                    <li>ABOUT</li>
+                    <li><Link to="/about" id={aboutid}>ABOUT</Link></li>
                     <li><Link to="/feedback" id={feedbackid}>FEEDBACK</Link></li>
                     <li className="nav-list-signup" id={signupli_id}>
                         <Link to="/sign-up" id={signupid}>SIGN_UP</Link>
@@ -190,7 +200,7 @@ export default function Navbar() {
                     <li><Link to="/explore" id={menuexploreid}>EXPLORE</Link></li>
                     <li><Link to="/sell" id={menusellid}>SELL</Link></li>
                     {/*<li>PRICING</li>*/}
-                    <li>ABOUT</li>
+                    <li><Link to="/about" id={menuaboutid}>ABOUT</Link></li>
                     <li><Link to="/feedback" id={menufeedbackid}>FEEDBACK</Link></li>
                     <li><Link to="/sign-up" id={menusignupid}>SIGN_UP</Link></li>
                 </ul>
