@@ -23,6 +23,12 @@
     top: 100px;
     right: 110px;
     transition: 0.15s;
+    /* https://smoothshadows.com/#djEsMSw1LDAuMDQsMjkzLDAsMCwjMDMwNzEyLCNmM2Y0ZjYsI2ZmZmZmZiwx */
+    box-shadow: 0px 0px 12px rgba(3, 7, 18, 0.01),
+    0px 0px 47px rgba(3, 7, 18, 0.02),
+    0px 0px 105px rgba(3, 7, 18, 0.02),
+    0px 0px 188px rgba(3, 7, 18, 0.03),
+    0px 0px 293px rgba(3, 7, 18, 0.04);
 }
 
 @media screen and (max-width: 1300px) {

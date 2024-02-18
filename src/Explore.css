@@ -245,6 +245,7 @@
 @media screen and (max-width: 550px) {
     .pg-heading {
         font-size: 17.455vw;
+        margin-bottom: 20px;
     }
 
     .pg-subtitle {
