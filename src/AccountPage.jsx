@@ -182,7 +182,7 @@ export default function AccountPage() {
             <div className="ucnt">
                 <div className="ubnr-cont" id={bannerblurid}>
                     <img id={bannerid} className="ubnr" alt="banner"
-                         src="https://static.vecteezy.com/system/resources/previews/007/046/709/non_2x/liquify-colorful-abstract-background-wallpaper-free-photo.jpg"/>
+                         src={""}/>
                 </div>
 
 

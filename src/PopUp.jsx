@@ -18,7 +18,7 @@ export default function PopUp() {
     return (
         <>
             <div className="popup" id="popup">
-                Reload the page to see all changes applyyyyyy
+                Reload the page to see all changes apply
             </div>
         </>
     )

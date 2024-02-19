@@ -79,6 +79,11 @@ export default function Sell() {
             width = window.innerWidth;
         }
         window.addEventListener("resize", listen, true)
+        setTimeout(() => {
+            if (!userdb) {
+                navigate("/sign-up")
+            }
+        }, 100)
     }, []);
 
 
@@ -328,31 +333,31 @@ export default function Sell() {
                     </label>
                     <textarea className="sell-cont-code" id={codeid} value={code}
                               onChange={e => setCode(e.target.value)}></textarea>
-                    <br/><br/>
-                    <label className="sell-cont-label-txt" htmlFor={priceid}>
-                        <h3>PRICE</h3>
-                        <h4>The price of your code snippet</h4>
-                    </label>
-                    <input className="sell-cont-price" type="number" placeholder="@price" id={priceid} value={price}
-                           onChange={e => {
-                               let to_set = e.target.value.replace(/^0+/, "")
-                               if (e.target.value > 100) {
-                                   to_set = 100
-                               }
-                               if (e.target.value < 0 && e.target.value && e.target.value !== 0) {
-                                   to_set = 0
-                               }
-                               if (e.target.value === "" || !e.target.value) {
-                                   to_set = 0
-                               }
-                               if (e.target.value === "0" || e.target.value === 0) {
-                                   to_set = 0
-                               }
-                               setPrice(to_set)
-                           }} min="0" step="1" max="100"
-                           style={{width: "230px"}}
-                    />
-                    <p className="sell-cont-price-currency">€</p>
+                    {/*<br/><br/>*/}
+                    {/*<label className="sell-cont-label-txt" htmlFor={priceid}>*/}
+                    {/*    <h3>PRICE</h3>*/}
+                    {/*    <h4>The price of your code snippet</h4>*/}
+                    {/*</label>*/}
+                    {/*<input className="sell-cont-price" type="number" placeholder="@price" id={priceid} value={price}*/}
+                    {/*       onChange={e => {*/}
+                    {/*           let to_set = e.target.value.replace(/^0+/, "")*/}
+                    {/*           if (e.target.value > 100) {*/}
+                    {/*               to_set = 100*/}
+                    {/*           }*/}
+                    {/*           if (e.target.value < 0 && e.target.value && e.target.value !== 0) {*/}
+                    {/*               to_set = 0*/}
+                    {/*           }*/}
+                    {/*           if (e.target.value === "" || !e.target.value) {*/}
+                    {/*               to_set = 0*/}
+                    {/*           }*/}
+                    {/*           if (e.target.value === "0" || e.target.value === 0) {*/}
+                    {/*               to_set = 0*/}
+                    {/*           }*/}
+                    {/*           setPrice(to_set)*/}
+                    {/*       }} min="0" step="1" max="100"*/}
+                    {/*       style={{width: "230px"}}*/}
+                    {/*/>*/}
+                    {/*<p className="sell-cont-price-currency">€</p>*/}
                     <br/><br/>
                     <button className="accent sell-cont-nav-btn" onClick={gobkwd}>👈 DESCRIPTION</button>
                     <br/>
