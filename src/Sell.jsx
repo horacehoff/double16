@@ -131,7 +131,8 @@ export default function Sell() {
                                 lines: code.split(/\r|\r\n|\n/).length,
                                 crypto: cryptouuid,
                                 price: 0,
-                                downloads: []
+                                downloads: [],
+                                downloadslen: 0
                             }).then(() => {
                                 document.getElementById(publishbtnid).innerText = "PUBLISHED 🎉"
                                 setTimeout(() => {

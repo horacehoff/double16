@@ -220,6 +220,16 @@ export default function CodePage() {
                                                 downloaded = true
                                                 console.log("UPDATED CODE DOWNLOADS")
                                                 download()
+                                                let new_snippets = []
+                                                if (userdb.ownedsnippets) {
+                                                    new_snippets = [...userdb.ownedsnippets]
+                                                }
+                                                new_snippets.push(codedata.id)
+                                                updateDoc(doc(db, "users", userdb.id), {
+                                                    ownedsnippets: new_snippets
+                                                }).then(() => {
+                                                    console.log("user has downloaded")
+                                                })
                                             })
                                         } else {
                                             navigate("/404")

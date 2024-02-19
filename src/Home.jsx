@@ -105,7 +105,7 @@ function Home() {
                 <img src={Home1} className="img1" alt="def fib(n)" id={img1id}/>
                 <img src={Home2} className="img2" alt="main() {}" id={img2id}/>
             </div>
-            <p className="one-catchphrase">{"// 01 - CATCHPHRASE"}</p>
+            <h2 className="one-catchphrase">{"// 01 - CATCHPHRASE"}</h2>
             <p className="one-desc"><Logo className="one-desc-logo"/> allows anyone to buy or sell code snippets.<br/>
                 With <Logo className="one-desc-logo"/>, you can easily share your code, and explore
                 the marketplace to find the code you need.</p>
