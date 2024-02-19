@@ -44,9 +44,6 @@ export default function AccountPage() {
     useEffect(() => {
         if (userdata) {
             // count followers
-
-
-
             document.getElementById(titleid).innerHTML = userdata.username
             document.getElementById(bannerid).src = userdata.banner
             document.getElementById(worldid).innerText = "🌎 EARTH"
@@ -77,6 +74,9 @@ export default function AccountPage() {
                     document.getElementById(followid).style.display = "block"
                     document.getElementById(followid).style.marginBottom = "25px"
                     document.getElementById(followid).style.marginTop = "-3px"
+                    if (!userdb) {
+                        document.getElementById(followid).style.marginTop = "13px"
+                    }
                 }
                 if (userdata.github) {
                     document.getElementById(githubcontid).onclick = () => {
