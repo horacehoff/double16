@@ -249,6 +249,12 @@
     font-weight: 700 !important;
 }
 
+@media screen and (max-width: 686px) {
+    .ucntsnips {
+        margin-top: 10px !important;
+    }
+}
+
 @media screen and (max-width: 600px) {
     .ucnt, .ubnr, .ubnr-cont, .ucnt h1 {
         width: 83.3vw;
@@ -258,10 +264,30 @@
         width: calc(83.3vw - 45px) !important;
         left: 22.5px;
     }
+}
 
-    .ucntsnips {
-        width: calc(83.3vw - 20px) !important;
-        left: 10px;
-        margin-top: 10px !important;
+@media screen and (max-width: 530px) {
+    div:has(ul.ucntsnips) {
+        white-space: nowrap !important;
+    }
+}
+
+@media screen and (max-width: 520px) {
+    .ucntsnips-btn:first-of-type {
+        margin-right: 5px;
+    }
+
+    .ucntsnips-btn:nth-of-type(2) {
+        margin-left: 5px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .ucntsnips-btn:first-of-type {
+        display: none !important;
+    }
+
+    .ucntsnips-btn:nth-of-type(2) {
+        display: none !important;
     }
 }
