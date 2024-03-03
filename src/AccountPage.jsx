@@ -73,7 +73,7 @@ export default function AccountPage() {
                     document.getElementById(followid).innerText = "👨‍💻 " + shortNumber(count.data().count) + " followers"
                     document.getElementById(followid).style.display = "block"
                     document.getElementById(followid).style.marginBottom = "25px"
-                    document.getElementById(followid).style.marginTop = "-3px"
+                    document.getElementById(followid).style.marginTop = "10px"
                     if (!userdb) {
                         document.getElementById(followid).style.marginTop = "13px"
                     }
