@@ -218,9 +218,13 @@ export const basic = <>
     <span className="pgrmicnsp">BASIC</span>
 </>
 
+export const wlanguage = <>
+    <span className="pgrmicnsp">WLangage</span>
+</>
 
-export const languages = [c, cpp, css, rust, go, bash, ts, python, arduino, scala, haskell, dart, swift, cs, fs, html, java, js, php, ruby, r, matlab, kotlin, objectivec, lua, assembly, basic, perl]
-export const languages_list = ["C", "C++", "CSS", 'Rust', "Go", "Bash", "TypeScript", "Python", "Arduino", "Scala", "Haskell", "Dart", "Swift", "C#", "F#", "HTML", "Java", "JavaScript", "PHP", "Ruby", "R", "MATLAB", "Kotlin", "Objective-C", "Lua", "Assembly", "BASIC", "Perl"]
+
+export const languages = [c, cpp, css, rust, go, bash, ts, python, arduino, scala, haskell, dart, swift, cs, fs, html, java, js, php, ruby, r, matlab, kotlin, objectivec, lua, assembly, basic, perl, wlanguage]
+export const languages_list = ["C", "C++", "CSS", 'Rust', "Go", "Bash", "TypeScript", "Python", "Arduino", "Scala", "Haskell", "Dart", "Swift", "C#", "F#", "HTML", "Java", "JavaScript", "PHP", "Ruby", "R", "MATLAB", "Kotlin", "Objective-C", "Lua", "Assembly", "BASIC", "Perl", "WLangage"]
 
 export const languageExtensions = {
     "C": ".c",
@@ -251,6 +255,7 @@ export const languageExtensions = {
     "Assembly": ".asm",
     "BASIC": ".bas",
     "Perl": ".pl",
+    "WLangage": ".wlangage"
 };
 
 export function getLanguageName(input) {

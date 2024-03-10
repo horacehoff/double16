@@ -33,8 +33,10 @@ export default function CodeCard({pkg}) {
                         childdiv.style.marginTop = "0"
                     }, 1)
                 }}>
-                    <p className="leftgroup">{pkg.lang} 💵{pkg.price}€</p>
-                    <p className="rightgroup">👍{pkg.like}</p>
+                    {/*<p className="leftgroup">{pkg.lang} 💵{pkg.price}€</p>*/}
+                    <p className="leftgroup">{pkg.lang}</p>
+                    {/*<p className="rightgroup">👍{pkg.like}</p>*/}
+                    <p className="rightgroup"><span style={{position: "relative", right: "2px"}}>👍</span>{pkg.like}</p>
                     <h4>{pkg.title}</h4>
                     <h5>by <span>{pkg.author}</span></h5>
                     <p className="desc">{pkg.desc}</p>
