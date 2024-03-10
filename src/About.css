@@ -13,12 +13,14 @@
 
 .about-cnt p {
     font-size: 16px;
+    color: var(--color)
 }
 
 .about-cnt h4 {
     font-family: Source Code Pro, monospace;
     font-size: 22px;
     margin-top: 0;
+    color: var(--color)
 }
 
 .about-undr {
@@ -43,6 +45,8 @@
     text-align: center;
     padding: 0;
     margin: 0;
+    color: var(--color)
+
 }
 
 .about-credits-list li ul {

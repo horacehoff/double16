@@ -24,11 +24,11 @@
     right: 110px;
     transition: 0.15s;
     /* https://smoothshadows.com/#djEsMSw1LDAuMDQsMjkzLDAsMCwjMDMwNzEyLCNmM2Y0ZjYsI2ZmZmZmZiwx */
-    box-shadow: 0px 0px 12px rgba(3, 7, 18, 0.01),
-    0px 0px 47px rgba(3, 7, 18, 0.02),
-    0px 0px 105px rgba(3, 7, 18, 0.02),
-    0px 0px 188px rgba(3, 7, 18, 0.03),
-    0px 0px 293px rgba(3, 7, 18, 0.04);
+    box-shadow: 0 0 12px rgba(3, 7, 18, 0.01),
+    0 0 47px rgba(3, 7, 18, 0.02),
+    0 0 105px rgba(3, 7, 18, 0.02),
+    0 0 188px rgba(3, 7, 18, 0.03),
+    0 0 293px rgba(3, 7, 18, 0.04);
 }
 
 @media screen and (max-width: 1300px) {
@@ -121,6 +121,12 @@
 .one-desc-logo {
     height: 15px;
     width: 80px;
+}
+
+.producthuntembed {
+    position: relative;
+    top: 15px;
+    margin-left: 3vw;
 }
 
 @media (prefers-color-scheme: light) {

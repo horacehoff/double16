@@ -18,19 +18,19 @@ export default function About() {
                 <h4>CREDITS</h4>
                 <ul className="about-credits-list">
                     <li>
-                        <span className="emojifix">❤</span> Many thanks to Jetbrains for their awesome font <strong><a
+                        <span className="emojifix">❤</span> Many thanks to JetBrains for their awesome font <strong><a
                         href="https://www.jetbrains.com/lp/mono" target="_blank" rel="noreferrer"
                         className="action-text about-undr">JetBrains Mono</a></strong>
                     </li>
                     <li>---</li>
                     <li>
-                        <span className="emojifix">❤</span>Much appreciation also to Adobe for <strong><a
+                        <span className="emojifix">❤</span> Much appreciation also to Adobe for <strong><a
                         href="https://github.com/adobe-fonts/source-code-pro" target="_blank" rel="noreferrer"
                         className="action-text about-undr">Source Code Pro</a></strong>
                     </li>
                     <li>---</li>
                     <li>
-                        <span>🫶</span>Many thanks also to:<br/>
+                        <span>🫶</span>I would also like to thank:<br/>
                         <ul>
                             <li>
                                 cfj - <a href="https://www.npmjs.com/package/short-number"
