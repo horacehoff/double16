@@ -30,10 +30,8 @@ export default function TestHome() {
         // document.querySelector(".nav").style.display = "none"
         document.querySelector(".nav").style.opacity = 0
         document.querySelector(".nav").style.backgroundColor = "black"
-        document.getElementById("home-gif").style.opacity = 0
         setTimeout(() => {
             document.querySelector(".nav").style.opacity = 1
-            document.getElementById("home-gif").style.opacity = 1
         }, 1000)
 
 
