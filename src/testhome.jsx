@@ -75,13 +75,7 @@ export default function TestHome() {
 
 
         addEventListener("scroll", e => {
-            let image_size = mapRange(document.documentElement.scrollTop, 0, 433, 500, 1000)
-            let image_brightness = mapRange(document.documentElement.scrollTop, 0, 433, 1, 0)
-            let image_blur = mapRange(document.documentElement.scrollTop, 0, 433, 0, 10)
-            document.getElementById("home-gif").style.width = image_size + "px"
-            document.getElementById("home-gif").style.opacity = image_brightness
-            document.getElementById("home-gif").style.filter = "blur(" + image_blur + "px)"
-            document.getElementById("home-wrapper").style.opacity = image_brightness
+            document.getElementById("home-wrapper").style.opacity = mapRange(document.documentElement.scrollTop, 0, 433, 1, 0)
             console.log(document.documentElement.scrollTop)
 
             let subtitle_size = 0
