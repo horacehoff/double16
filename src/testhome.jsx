@@ -1,18 +1,19 @@
 import "./testhome.css"
 import logo from "./assets/navlogo.svg"
 import {useEffect} from "react";
+import throttle from 'lodash.throttle'
 
 export default function TestHome() {
 
     const wrapper = <>
-        <img src={logo}/>
-        <img src={logo}/>
-        <img src={logo}/>
-        <img src={logo}/>
-        <img src={logo}/>
-        <img src={logo}/>
-        <img src={logo}/>
-        <img src={logo}/>
+        <img src={logo} alt="DOUBLE16"/>
+        <img src={logo} alt="DOUBLE16"/>
+        <img src={logo} alt="DOUBLE16"/>
+        <img src={logo} alt="DOUBLE16"/>
+        <img src={logo} alt="DOUBLE16"/>
+        <img src={logo} alt="DOUBLE16"/>
+        <img src={logo} alt="DOUBLE16"/>
+        <img src={logo} alt="DOUBLE16"/>
     </>
 
     const wrappertwo = <>
@@ -81,64 +82,66 @@ export default function TestHome() {
             return (value - fromMin) * (toMax - toMin) / (fromMax - fromMin) + toMin;
         }
 
-
-        addEventListener("scroll", e => {
-            document.getElementById("home-wrapper").style.opacity = mapRange(document.documentElement.scrollTop, 0, 433, 1, 0)
-            console.log(document.documentElement.scrollTop)
+        function updateOnScroll() {
+            let top = document.documentElement.scrollTop
+            document.getElementById("home-wrapper").style.opacity = mapRange(top, 0, 433, 1, 0)
 
             let subtitle_size = 0
             if (matchMedia("(max-width: 600px)").matches) {
-                subtitle_size = mapRange(document.documentElement.scrollTop, 300, 500, 1, 5)
+                subtitle_size = mapRange(top, 300, 500, 1, 5)
                 if (subtitle_size <= 5) {
                     document.getElementById("home-content-subtitle").style.fontSize = subtitle_size + "vw"
                 }
             } else {
-                subtitle_size = mapRange(document.documentElement.scrollTop, 300, 500, 1, 2.6)
+                subtitle_size = mapRange(top, 300, 500, 1, 2.6)
                 if (subtitle_size <= 2.6) {
                     document.getElementById("home-content-subtitle").style.fontSize = subtitle_size + "vw"
                 }
             }
+        }
 
-        })
+        const throttledUpdate = throttle(updateOnScroll, 50);
+
+        addEventListener("scroll", throttledUpdate);
 
     }, [])
     return (
         <>
             <div className="home-wrapper" id="home-wrapper">
-                <div className="home-wrapper-bg-slide" id="scrollingDiv">{wrapper}</div>
-                <div className="home-wrapper-bg-slide" id="scrollingDiv">{wrappertwo}</div>
-                <div className="home-wrapper-bg-slide" id="scrollingDiv">{wrapper}</div>
-                <div className="home-wrapper-bg-slide" id="scrollingDiv">{wrapper}</div>
-                <div className="home-wrapper-bg-slide" id="scrollingDiv">{wrappertwo}</div>
-                <div className="home-wrapper-bg-slide" id="scrollingDiv">{wrapper}</div>
-                <div className="home-wrapper-bg-slide" id="scrollingDiv">{wrapper}</div>
-                <div className="home-wrapper-bg-slide" id="scrollingDiv">{wrapper}</div>
-                <div className="home-wrapper-bg-slide" id="scrollingDiv">{wrappertwo}</div>
-                <div className="home-wrapper-bg-slide" id="scrollingDiv">{wrapper}</div>
-                <div className="home-wrapper-bg-slide" id="scrollingDiv">{wrapper}</div>
-                <div className="home-wrapper-bg-slide" id="scrollingDiv">{wrapper}</div>
-                <div className="home-wrapper-bg-slide" id="scrollingDiv">{wrappertwo}</div>
-                <div className="home-wrapper-bg-slide" id="scrollingDiv">{wrapper}</div>
-                <div className="home-wrapper-bg-slide" id="scrollingDiv">{wrapper}</div>
-                <div className="home-wrapper-bg-slide" id="scrollingDiv">{wrappertwo}</div>
-                <div className="home-wrapper-bg-slide" id="scrollingDiv">{wrapper}</div>
-                <div className="home-wrapper-bg-slide" id="scrollingDiv">{wrapper}</div>
-                <div className="home-wrapper-bg-slide" id="scrollingDiv">{wrapper}</div>
-                <div className="home-wrapper-bg-slide" id="scrollingDiv">{wrappertwo}</div>
-                <div className="home-wrapper-bg-slide" id="scrollingDiv">{wrapper}</div>
-                <div className="home-wrapper-bg-slide" id="scrollingDiv">{wrapper}</div>
-                <div className="home-wrapper-bg-slide" id="scrollingDiv">{wrapper}</div>
-                <div className="home-wrapper-bg-slide" id="scrollingDiv">{wrappertwo}</div>
-                <div className="home-wrapper-bg-slide" id="scrollingDiv">{wrapper}</div>
-                <div className="home-wrapper-bg-slide" id="scrollingDiv">{wrapper}</div>
-                <div className="home-wrapper-bg-slide" id="scrollingDiv">{wrapper}</div>
-                <div className="home-wrapper-bg-slide" id="scrollingDiv">{wrappertwo}</div>
-                <div className="home-wrapper-bg-slide" id="scrollingDiv">{wrapper}</div>
+                <div className="home-wrapper-bg-slide">{wrapper}</div>
+                <div className="home-wrapper-bg-slide">{wrappertwo}</div>
+                <div className="home-wrapper-bg-slide">{wrapper}</div>
+                <div className="home-wrapper-bg-slide">{wrapper}</div>
+                <div className="home-wrapper-bg-slide">{wrappertwo}</div>
+                <div className="home-wrapper-bg-slide">{wrapper}</div>
+                <div className="home-wrapper-bg-slide">{wrapper}</div>
+                <div className="home-wrapper-bg-slide">{wrapper}</div>
+                <div className="home-wrapper-bg-slide">{wrappertwo}</div>
+                <div className="home-wrapper-bg-slide">{wrapper}</div>
+                <div className="home-wrapper-bg-slide">{wrapper}</div>
+                <div className="home-wrapper-bg-slide">{wrapper}</div>
+                <div className="home-wrapper-bg-slide">{wrappertwo}</div>
+                <div className="home-wrapper-bg-slide">{wrapper}</div>
+                <div className="home-wrapper-bg-slide">{wrapper}</div>
+                <div className="home-wrapper-bg-slide">{wrappertwo}</div>
+                <div className="home-wrapper-bg-slide">{wrapper}</div>
+                <div className="home-wrapper-bg-slide">{wrapper}</div>
+                <div className="home-wrapper-bg-slide">{wrapper}</div>
+                <div className="home-wrapper-bg-slide">{wrappertwo}</div>
+                <div className="home-wrapper-bg-slide">{wrapper}</div>
+                <div className="home-wrapper-bg-slide">{wrapper}</div>
+                <div className="home-wrapper-bg-slide">{wrapper}</div>
+                <div className="home-wrapper-bg-slide">{wrappertwo}</div>
+                <div className="home-wrapper-bg-slide">{wrapper}</div>
+                <div className="home-wrapper-bg-slide">{wrapper}</div>
+                <div className="home-wrapper-bg-slide">{wrapper}</div>
+                <div className="home-wrapper-bg-slide">{wrappertwo}</div>
+                <div className="home-wrapper-bg-slide">{wrapper}</div>
             </div>
 
 
             <div className="home-content">
-                <img src={logo}/>
+                <img src={logo} alt="DOUBLE16"/>
                 <h1 id="home-content-subtitle">CODE MARKETPLACE MADE FOR BUYING AND SELLING CODE SNIPPETS</h1>
                 <br/><br/>
                 <div className="home-content-action">
