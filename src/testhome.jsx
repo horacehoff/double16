@@ -29,7 +29,7 @@ export default function TestHome() {
     useEffect(() => {
         // document.querySelector(".nav").style.display = "none"
         document.querySelector(".nav").style.opacity = 0
-        document.querySelector(".nav").style.backgroundColor = "black"
+        document.querySelector(".nav").style.backgroundColor = "var(--color-flip)"
         setTimeout(() => {
             document.querySelector(".nav").style.opacity = 1
         }, 1000)

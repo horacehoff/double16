@@ -43,7 +43,7 @@
     font-family: "JetBrains Mono", monospace;
     font-size: 20px;
     font-weight: 700;
-    color: white;
+    color: var(--color);
     text-align: center;
 }
 
@@ -72,10 +72,11 @@
     transition: 0.1s;
 }
 
-.home-wrapper-bg-slide img:hover {
-    /*filter: brightness(0.8);*/
+@media (prefers-color-scheme: light) {
+    .home-wrapper-bg-slide img {
+        filter: brightness(0);
+    }
 }
-
 
 .home-content {
     position: relative;
@@ -86,10 +87,17 @@
     width: 100vw;
 }
 
+@media (prefers-color-scheme: light) {
+    .home-content img:first-of-type {
+        filter: brightness(0);
+    }
+}
+
 .home-content h1 {
     font-size: 1vw;
     font-family: JetBrains Mono, monospace;
     text-align: center;
+    color: var(--color)
 }
 
 .home-content-action {
