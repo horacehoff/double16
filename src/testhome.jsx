@@ -79,12 +79,16 @@ export default function TestHome() {
             let subtitle_size = 0
             if (matchMedia("(max-width: 600px)").matches) {
                 subtitle_size = mapRange(document.documentElement.scrollTop, 300, 500, 1, 5)
+                if (subtitle_size <= 5) {
+                    document.getElementById("home-content-subtitle").style.fontSize = subtitle_size + "vw"
+                }
             } else {
                 subtitle_size = mapRange(document.documentElement.scrollTop, 300, 500, 1, 2.6)
+                if (subtitle_size <= 2.6) {
+                    document.getElementById("home-content-subtitle").style.fontSize = subtitle_size + "vw"
+                }
             }
-            if (subtitle_size <= 2.6) {
-                document.getElementById("home-content-subtitle").style.fontSize = subtitle_size + "vw"
-            }
+
         })
 
     }, [])

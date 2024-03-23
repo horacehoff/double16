@@ -101,5 +101,5 @@
 
 .home-content-action button:first-of-type {
     margin-right: 10px;
-    margin-bottom: 20vh;
+    margin-bottom: calc(20vh + ((100vw - 850px) * 1 / 20));
 }
