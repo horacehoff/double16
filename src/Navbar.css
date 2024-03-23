@@ -9,6 +9,7 @@
     height: 70px;
     text-align: left;
     z-index: 5;
+    transition: 0.4s;
 }
 
 .nav-logo {
@@ -152,7 +153,8 @@
 
 @media (hover: hover) and (pointer: fine) {
     .nav-list li:not(.nav-list-signup):hover {
-        color: var(--nav-focus)
+        color: var(--nav-focus);
+        text-decoration: underline;
     }
 
     .nav-list-signup a {

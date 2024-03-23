@@ -23,6 +23,7 @@ import MostDownloaded from "./MostDownloaded.jsx";
 import Trending from "./Trending.jsx";
 import RecentSnippets from "./RecentSnippets.jsx";
 import About from "./About.jsx";
+import TestHome from "./testhome.jsx";
 
 ReactDOM.createRoot(document.getElementById('root')).render(
     <React.StrictMode>
@@ -30,6 +31,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
             <Navbar/>
             <Routes>
                 <Route path="/" element={<Home/>}/>
+                <Route path="/home" element={<TestHome/>}/>
                 <Route path="/explore" element={<Explore/>}/>
                 <Route path="/search" element={<Search/>}/>
 
