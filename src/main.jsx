@@ -1,7 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import {BrowserRouter, Route, Routes} from "react-router-dom";
-import Home from './Home.jsx'
 import './index.css'
 import "./main.css"
 import Navbar from "./Navbar.jsx";
@@ -30,8 +29,8 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         <BrowserRouter>
             <Navbar/>
             <Routes>
-                <Route path="/" element={<Home/>}/>
-                <Route path="/home" element={<TestHome/>}/>
+                {/*<Route path="/" element={<Home/>}/>*/}
+                <Route path="/" element={<TestHome/>}/>
                 <Route path="/explore" element={<Explore/>}/>
                 <Route path="/search" element={<Search/>}/>
 
