@@ -154,6 +154,9 @@
 @media (hover: hover) and (pointer: fine) {
     .nav-list li:not(.nav-list-signup):hover {
         color: var(--nav-focus);
+    }
+
+    .nav-list li:not(.nav-list-signup):not(.nav-menu):hover {
         text-decoration: underline;
     }
 
