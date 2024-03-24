@@ -11,6 +11,12 @@
     width: 45vw;
 }
 
+@media (prefers-color-scheme: light) {
+    .about-cnt img {
+        filter: brightness(0);
+    }
+}
+
 .about-cnt p {
     font-size: 16px;
     color: var(--color)

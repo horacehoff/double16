@@ -1,5 +1,5 @@
 import "./About.css"
-import banner from "/banner.png"
+import banner from "./assets/navlogo.svg"
 
 export default function About() {
     return (
