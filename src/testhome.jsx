@@ -2,6 +2,7 @@ import "./testhome.css"
 import logo from "./assets/navlogo.svg"
 import {useEffect} from "react";
 import throttle from 'lodash.throttle'
+import {Link} from "react-router-dom";
 
 export default function TestHome() {
 
@@ -35,18 +36,21 @@ export default function TestHome() {
             document.querySelector(".nav").style.opacity = 1
         }, 1000)
 
-        let subtitle_size = 0
-        if (matchMedia("(max-width: 600px)").matches) {
-            subtitle_size = mapRange(document.documentElement.scrollTop, 300, 500, 1, 5)
-            if (subtitle_size <= 5) {
-                document.getElementById("home-content-subtitle").style.fontSize = subtitle_size + "vw"
-            }
-        } else {
-            subtitle_size = mapRange(document.documentElement.scrollTop, 300, 500, 1, 2.6)
-            if (subtitle_size <= 2.6) {
-                document.getElementById("home-content-subtitle").style.fontSize = subtitle_size + "vw"
-            }
-        }
+
+        // console.log(document.getElementById("home-content-subtitle").offsetTop)
+        // let topoff = document.getElementById("home-content-subtitle").offsetTop
+        // let subtitle_size = 0
+        // if (matchMedia("(max-width: 600px)").matches) {
+        //     subtitle_size = mapRange(topoff, 300, 500, 1, 5)
+        //     if (subtitle_size <= 5) {
+        //         document.getElementById("home-content-subtitle").style.fontSize = subtitle_size + "vw"
+        //     }
+        // } else {
+        //     subtitle_size = mapRange(topoff, 300, 500, 1, 2.6)
+        //     if (subtitle_size <= 2.6) {
+        //         document.getElementById("home-content-subtitle").style.fontSize = subtitle_size + "vw"
+        //     }
+        // }
 
 
         function randomFloat(min, max) {
@@ -82,29 +86,36 @@ export default function TestHome() {
             return (value - fromMin) * (toMax - toMin) / (fromMax - fromMin) + toMin;
         }
 
-        function updateOnScroll() {
-            let top = document.documentElement.scrollTop
-            document.getElementById("home-wrapper").style.opacity = mapRange(top, 0, 433, 1, 0)
-
-            let subtitle_size = 0
-            if (matchMedia("(max-width: 600px)").matches) {
-                subtitle_size = mapRange(top, 300, 500, 1, 5)
-                if (subtitle_size <= 5) {
-                    document.getElementById("home-content-subtitle").style.fontSize = subtitle_size + "vw"
-                }
-            } else {
-                subtitle_size = mapRange(top, 300, 500, 1, 2.6)
-                if (subtitle_size <= 2.6) {
-                    document.getElementById("home-content-subtitle").style.fontSize = subtitle_size + "vw"
-                }
-            }
-        }
 
         const throttledUpdate = throttle(updateOnScroll, 50);
 
+        function updateOnScroll() {
+
+            let top = document.documentElement.scrollTop
+            try {
+                document.getElementById("home-wrapper").style.opacity = mapRange(top, 0, 433, 1, 0)
+            } catch {
+                removeEventListener("scroll", throttledUpdate)
+            }
+
+            // let subtitle_size = 0
+            // if (matchMedia("(max-width: 600px)").matches) {
+            //     subtitle_size = mapRange(top, 300, 500, 1, 5)
+            //     if (subtitle_size <= 5) {
+            //         document.getElementById("home-content-subtitle").style.fontSize = subtitle_size + "vw"
+            //     }
+            // } else {
+            //     subtitle_size = mapRange(top, 300, 500, 1, 2.6)
+            //     if (subtitle_size <= 2.6) {
+            //         document.getElementById("home-content-subtitle").style.fontSize = subtitle_size + "vw"
+            //     }
+            // }
+        }
         addEventListener("scroll", throttledUpdate);
 
     }, [])
+
+
     return (
         <>
             <div className="home-wrapper" id="home-wrapper">
@@ -145,8 +156,14 @@ export default function TestHome() {
                 <h1 id="home-content-subtitle">CODE MARKETPLACE MADE FOR BUYING AND SELLING CODE SNIPPETS</h1>
                 <br/><br/>
                 <div className="home-content-action">
-                    <button className="action">🔎 EXPLORE THE MARKETPLACE</button>
-                    <button className="action">🔗 SHARE</button>
+                    <Link to="/explore">
+                        <button className="action">🔎 EXPLORE THE MARKETPLACE</button>
+                    </Link>
+                    <button className="action" onClick={e => {
+                        navigator.clipboard.writeText("https://double16.vercel.app/")
+                        e.currentTarget.innerText = "✅ LINK COPIED"
+                    }}>🔗 SHARE
+                    </button>
                 </div>
             </div>
         </>
