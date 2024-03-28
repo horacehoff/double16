@@ -25,6 +25,9 @@ export default function AccountPage() {
     const bioid = useId()
     const snippetsid = useId()
 
+    const snippetsleftid = useId()
+    const snippetsrightid = useId()
+
     const userid = useParams().user
     const [userdata, setUserdata] = useState(null)
     const [isRun, setIsRun] = useState(false)
@@ -93,15 +96,22 @@ export default function AccountPage() {
             document.getElementById(bannerblurid).style.backgroundImage = "url('" + userdata.banner + "')"
 
             let has_snippets = false
+            let snippets_num = 0
             const snippetsRef = collection(db, "codesnippets");
             const q = query(snippetsRef, where("authorid", "==", userdata.id));
             getDocs(q).then((queryResult) => {
                 queryResult.forEach((doc) => {
                     setUserSnippets(prevSnippets => [...prevSnippets, doc.data()])
                     has_snippets = true
+                    snippets_num += 1
                 })
                 if (!has_snippets) {
                     document.getElementById(snippetsid).parentNode.removeChild(document.getElementById(snippetsid))
+                }
+                if (snippets_num === 1) {
+                    console.log("yeah")
+                    // document.getElementById(snippetsleftid).parentNode.removeChild(document.getElementById(snippetsleftid))
+                    // document.getElementById(snippetsrightid).parentNode.removeChild(document.getElementById(snippetsrightid))
                 }
             })
 
@@ -116,7 +126,6 @@ export default function AccountPage() {
             } else {
                 document.getElementById(followbtnid).parentNode.removeChild(document.getElementById(followbtnid))
             }
-
         }
     }, [userdata])
 
@@ -238,11 +247,11 @@ export default function AccountPage() {
                             document.getElementById(snippetsid).children[1].style.display = "block"
                             document.getElementById(snippetsid).children[0].children[0].style.transform = "rotate(90deg)"
                         }
-                    }} className="ucntpub"><span>{">"}</span> PUBLISHED CODE SNIPPETS</h4>
+                    }} className="ucntpub"><span>{">"}</span> CODE SNIPPETS</h4>
 
 
                     <div style={{display: "none"}}>
-                        <button onClick={() => {
+                        <button id={snippetsleftid} onClick={() => {
                             if (document.getElementById("ucntsnips").scrollLeft - 317 >= 0) {
                                 document.getElementById("ucntsnips").scroll({
                                     left: document.getElementById("ucntsnips").scrollLeft - 317,
@@ -285,7 +294,7 @@ export default function AccountPage() {
                         </ul>
 
 
-                        <button className="ucntsnips-btn" onClick={() => {
+                        <button id={snippetsrightid} className="ucntsnips-btn" onClick={() => {
                             if (document.getElementById("ucntsnips").scrollLeft + 317 <= document.getElementById("ucntsnips").scrollWidth) {
                                 document.getElementById("ucntsnips").scroll({
                                     left: document.getElementById("ucntsnips").scrollLeft + 317,

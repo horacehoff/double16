@@ -237,7 +237,7 @@ export default function AccountSettings() {
                 <br/><br/>
                 <label className="sell-cont-label-txt setts-cont-label-txt" htmlFor={bioid}>
                     <h3>BIO</h3>
-                    <h4>Your short biography</h4>
+                    <h4>Tell others about yourself</h4>
                 </label>
                 <input id={bioid} type="text" placeholder="@my_great_bio" value={bio}
                        onChange={e => setBio(e.target.value)}/>
