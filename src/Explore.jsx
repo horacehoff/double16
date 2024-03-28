@@ -217,6 +217,8 @@ export default function Explore() {
             <ul className="pg-section-list">
                 {section_items(recentlyPublished)}
             </ul>
+            <br/>
+            <br/>
 
 
             <CodePagePreview/>
