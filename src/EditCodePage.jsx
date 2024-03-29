@@ -137,9 +137,10 @@ export default function EditCodePage() {
         if (checkValid(name) && checkValid(catchphrase) && checkValid(desc) && checkValid(code)) {
             if (banner) {
                 const bannerRef = ref(storage, 'codesnippets/' + codedata.id + "/banner/banner.webp");
-                uploadBytes(bannerRef, banner).then(() => {
-                    getDownloadURL(bannerRef).then((url) => {
-                        updateDoc(doc(db, "codesnippets", codedata.id), {
+                await uploadBytes(bannerRef, banner).then(async () => {
+                    await getDownloadURL(bannerRef).then(async (url) => {
+                        console.log("done")
+                        await updateDoc(doc(db, "codesnippets", codedata.id), {
                             title: name,
                             catchphrase: catchphrase,
                             desc: desc,
@@ -169,46 +170,7 @@ export default function EditCodePage() {
             }
 
         }
-
     }
-
-    // async function submit() {
-    //     const uuid = v1()
-    //     const cryptouuid = crypto.randomUUID()
-    //     if (checkValid(name) && checkValid(catchphrase) && banner && checkValid(desc) && checkValid(code)) {
-    //         const bannerRef = ref(storage, 'codesnippets/' + uuid + "/banner/banner.webp");
-    //         uploadBytes(bannerRef, banner).then(() => {
-    //             getDownloadURL(bannerRef).then((url) => {
-    //                 setDoc(doc(db, "codesnippets", uuid), {
-    //                     title: name,
-    //                     catchphrase: catchphrase,
-    //                     desc: desc,
-    //                     bannerUrl: url,
-    //                     codeLanguage: language,
-    //                     code: compressToBase64(encrypt(code, uuid + "-" + cryptouuid + "-" + uuid)),
-    //                     id: uuid,
-    //                     authorid: userdb.id,
-    //                     authorusername: userdb.username,
-    //                     likes: [],
-    //                     dislikes: [],
-    //                     created: Date.now(),
-    //                     updated: Date.now(),
-    //                     char: code.match(/\S/g).length,
-    //                     lines: code.split(/\r|\r\n|\n/).length,
-    //                     crypto: cryptouuid,
-    //                     price: 0,
-    //                     downloads: []
-    //                 }).then(() => {
-    //                     document.getElementById(publishbtnid).innerText = "PUBLISHED 🎉"
-    //                     setTimeout(() => {
-    //                         navigate("/code/" + uuid)
-    //                     }, 500)
-    //                 })
-    //             });
-    //         })
-    //     }
-    // }
-
     if (codedata === null) {
         return (
             <>
@@ -388,7 +350,6 @@ export default function EditCodePage() {
                                 , 2000)
                         } else {
                             document.getElementById(publishbtnid).innerText = "LOADING..."
-                            // submit()
                             update().then(() => {
                                 navigate("/code/" + codedata.id)
                                 window.location.reload()
