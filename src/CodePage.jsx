@@ -11,6 +11,7 @@ import Loading from "./Loading.jsx";
 import {decrypt} from "./encrypt.js";
 import {decompressFromBase64} from "lz-string";
 import {deleteObject, getStorage, ref} from "firebase/storage";
+import {licenses} from "./licenses.jsx";
 
 
 export default function CodePage() {
@@ -30,6 +31,7 @@ export default function CodePage() {
     const nameid = useId()
     const charid = useId()
     const updateid = useId()
+    const licenseid = useId()
     const authorid = useId()
     const likesid = useId()
     const dislikesid = useId()
@@ -76,6 +78,12 @@ export default function CodePage() {
             document.getElementById(nameid).innerText = codedata.title
             document.getElementById(charid).innerText = shortNumber(codedata.char)
             document.getElementById(updateid).innerText = timeago(codedata.updated - 60000 * 10).toUpperCase()
+            if (codedata.license) {
+                document.getElementById(licenseid).innerHTML = codedata.license
+                document.getElementById(licenseid).href = licenses.find(license => license.licenseId === codedata.license).seeAlso
+            } else {
+                document.getElementById(licenseid).parentNode.parentNode.removeChild(document.getElementById(licenseid).parentNode)
+            }
             document.getElementById(likesid).innerText = shortNumber(codedata.likes.length)
             document.getElementById(dislikesid).innerText = shortNumber(codedata.dislikes.length)
             document.getElementById(descid).innerText = codedata.desc
@@ -247,7 +255,6 @@ export default function CodePage() {
                         }} id={pricesupersetid}>🛒 BUY FOR <span id={priceid}>5</span>$
                         </button>
                         <button className="primary" onClick={() => {
-
                             document.getElementById("root").style.pointerEvents = "none"
                             document.getElementById("root").style.touchAction = "none"
                             document.getElementById(ratepopup).style.pointerEvents = "all"
@@ -313,6 +320,7 @@ export default function CodePage() {
                         className="codepgpre-infosep">-</span> <span
                         id={charid}>15000</span> char.</h3>
                     <h3 className="codepgpre-info codepg-update">⏰ UPDATED <span id={updateid}>2H AGO</span></h3>
+                    <h3 className="codepgpre-info codepg-update codepg-license">🏛️ <a id={licenseid}>MIT</a></h3>
                     <h4 className="codepgpre-author">by <Link className="link-text" to={"/users/" + codedata.authorid}
                                                               id={authorid}>JuTS-A_MANGO</Link></h4>
                     <p className="codepgpre-desc" id={descid}>trm-engine is a game engine designed to run in the

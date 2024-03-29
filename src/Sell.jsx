@@ -10,6 +10,7 @@ import {encrypt} from "./encrypt.js";
 import {compressToBase64} from "lz-string";
 import {renderToString} from "react-dom/server";
 import {ShowPopUp} from "./PopUp.jsx";
+import {licenses} from "./licenses.jsx";
 
 
 export default function Sell() {
@@ -38,6 +39,8 @@ export default function Sell() {
     const [language, setLanguage] = useState("C")
     const codeid = useId()
     const [code, setCode] = useState("")
+    const licenseid = useId()
+    const [license, setLicense] = useState("MIT")
 
     const priceid = useId()
     const [price, setPrice] = useState(0)
@@ -116,6 +119,7 @@ export default function Sell() {
                                 title: name,
                                 catchphrase: catchphrase,
                                 desc: desc,
+                                license: license,
                                 bannerUrl: url,
                                 bannerMiniUrl: miniUrl,
                                 codeLanguage: language,
@@ -359,6 +363,16 @@ export default function Sell() {
                     {/*       style={{width: "230px"}}*/}
                     {/*/>*/}
                     {/*<p className="sell-cont-price-currency">€</p>*/}
+                    <br/><br/>
+                    <label className="sell-cont-label-txt" htmlFor={licenseid}>
+                        <h3>LICENSE</h3>
+                        <h4>The license of your code snippet</h4>
+                    </label>
+                    <select id={licenseid} value={license} onChange={e => setLicense(e.target.value)}>
+                        {licenses.map((item, index) => (<option key={index} value={item.licenseId}>
+                            {item.licenseId}
+                        </option>))}
+                    </select>
                     <br/><br/>
                     <button className="accent sell-cont-nav-btn" onClick={gobkwd}>👈 DESCRIPTION</button>
                     <br/>

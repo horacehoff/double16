@@ -40,6 +40,10 @@
     margin-top: 5px;
 }
 
+.codepg-license a {
+    cursor: pointer;
+}
+
 @media screen and (max-width: 500px) {
     .codepg-btngp {
         width: 100%;
