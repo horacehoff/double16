@@ -9,7 +9,9 @@ export default function Home() {
     const wrapper = <>
         <ul>
             {[...Array(Math.floor(Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0) / 200))].map((_, index) => (
-                <li key={index}>CODE.BUY.SELL.</li>
+                <>
+                    <li>CODE.BUY.SELL.</li>
+                </>
             ))}
         </ul>
     </>
@@ -17,7 +19,11 @@ export default function Home() {
     const wrappertwo = <>
         <ul className="home-wrapper-image-list">
             {[...Array(Math.floor(Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0) / 100))].map((_, index) => (
-                <li key={index}><img src={logo} alt="DOUBLE16"/></li>
+                <>
+                    <li>
+                        <img src={logo} alt="DOUBLE16"/>
+                    </li>
+                </>
             ))}
         </ul>
     </>
