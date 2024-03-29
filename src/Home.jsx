@@ -6,51 +6,19 @@ import {Link} from "react-router-dom";
 
 
 export default function Home() {
-
     const wrapper = <>
         <ul>
-            <li>CODE.BUY.SELL.</li>
-            <li>CODE.BUY.SELL.</li>
-            <li>CODE.BUY.SELL.</li>
-            <li>CODE.BUY.SELL.</li>
-            <li>CODE.BUY.SELL.</li>
-            <li>CODE.BUY.SELL.</li>
-            <li>CODE.BUY.SELL.</li>
-            <li>CODE.BUY.SELL.</li>
-            <li>CODE.BUY.SELL.</li>
-            <li>CODE.BUY.SELL.</li>
+            {[...Array(Math.floor(Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0) / 200))].map((_, index) => (
+                <li key={index}>CODE.BUY.SELL.</li>
+            ))}
         </ul>
     </>
 
     const wrappertwo = <>
         <ul className="home-wrapper-image-list">
-            <li>
-                <img src={logo} alt="DOUBLE16"/>
-            </li>
-            <li>
-                <img src={logo} alt="DOUBLE16"/>
-            </li>
-            <li>
-                <img src={logo} alt="DOUBLE16"/>
-            </li>
-            <li>
-                <img src={logo} alt="DOUBLE16"/>
-            </li>
-            <li>
-                <img src={logo} alt="DOUBLE16"/>
-            </li>
-            <li>
-                <img src={logo} alt="DOUBLE16"/>
-            </li>
-            <li>
-                <img src={logo} alt="DOUBLE16"/>
-            </li>
-            <li>
-                <img src={logo} alt="DOUBLE16"/>
-            </li>
-            <li>
-                <img src={logo} alt="DOUBLE16"/>
-            </li>
+            {[...Array(Math.floor(Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0) / 100))].map((_, index) => (
+                <li key={index}><img src={logo} alt="DOUBLE16"/></li>
+            ))}
         </ul>
     </>
 
