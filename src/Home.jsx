@@ -1,35 +1,74 @@
 import "./Home.css"
 import logo from "./assets/navlogo.svg"
-import {useEffect} from "react";
+import React, {useEffect} from "react";
 import throttle from 'lodash.throttle'
 import {Link} from "react-router-dom";
+
 
 export default function Home() {
 
     const wrapper = <>
-        <img src={logo} alt="DOUBLE16"/>
-        <img src={logo} alt="DOUBLE16"/>
-        <img src={logo} alt="DOUBLE16"/>
-        <img src={logo} alt="DOUBLE16"/>
-        <img src={logo} alt="DOUBLE16"/>
-        <img src={logo} alt="DOUBLE16"/>
-        <img src={logo} alt="DOUBLE16"/>
-        <img src={logo} alt="DOUBLE16"/>
+        <ul>
+            <li>CODE.BUY.SELL.</li>
+            <li>CODE.BUY.SELL.</li>
+            <li>CODE.BUY.SELL.</li>
+            <li>CODE.BUY.SELL.</li>
+            <li>CODE.BUY.SELL.</li>
+            <li>CODE.BUY.SELL.</li>
+            <li>CODE.BUY.SELL.</li>
+            <li>CODE.BUY.SELL.</li>
+            <li>CODE.BUY.SELL.</li>
+            <li>CODE.BUY.SELL.</li>
+        </ul>
     </>
 
     const wrappertwo = <>
-        <p>CODE.BUY.SELL.</p>
-        <p>CODE.BUY.SELL.</p>
-        <p>CODE.BUY.SELL.</p>
-        <p>CODE.BUY.SELL.</p>
-        <p>CODE.BUY.SELL.</p>
-        <p>CODE.BUY.SELL.</p>
-        <p>CODE.BUY.SELL.</p>
-        <p>CODE.BUY.SELL.</p>
+        <ul className="home-wrapper-image-list">
+            <li>
+                <img src={logo} alt="DOUBLE16"/>
+            </li>
+            <li>
+                <img src={logo} alt="DOUBLE16"/>
+            </li>
+            <li>
+                <img src={logo} alt="DOUBLE16"/>
+            </li>
+            <li>
+                <img src={logo} alt="DOUBLE16"/>
+            </li>
+            <li>
+                <img src={logo} alt="DOUBLE16"/>
+            </li>
+            <li>
+                <img src={logo} alt="DOUBLE16"/>
+            </li>
+            <li>
+                <img src={logo} alt="DOUBLE16"/>
+            </li>
+            <li>
+                <img src={logo} alt="DOUBLE16"/>
+            </li>
+            <li>
+                <img src={logo} alt="DOUBLE16"/>
+            </li>
+        </ul>
     </>
 
+
+    function getRandomFloat(min, max) {
+        min = Math.ceil(min);
+        max = Math.floor(max);
+        return Math.random() * (max - min + 1) + min;
+    }
+
+    function getRandomInt(min, max) {
+        min = Math.ceil(min);
+        max = Math.floor(max);
+        return Math.floor(Math.random() * (max - min + 1) + min);
+    }
+
+
     useEffect(() => {
-        // document.querySelector(".nav").style.display = "none"
         document.querySelector(".nav").style.opacity = 0
         document.querySelector(".nav").style.backgroundColor = "var(--color-flip)"
         setTimeout(() => {
@@ -37,48 +76,29 @@ export default function Home() {
         }, 1000)
 
 
-        // console.log(document.getElementById("home-content-subtitle").offsetTop)
-        // let topoff = document.getElementById("home-content-subtitle").offsetTop
-        // let subtitle_size = 0
-        // if (matchMedia("(max-width: 600px)").matches) {
-        //     subtitle_size = mapRange(topoff, 300, 500, 1, 5)
-        //     if (subtitle_size <= 5) {
-        //         document.getElementById("home-content-subtitle").style.fontSize = subtitle_size + "vw"
+        // https://stackoverflow.com/a/1527820
+
+
+        // document.querySelectorAll(".home-wrapper ul").forEach((item) => {
+        //     let children = item.children;
+        //     let animation_duration = "swap "+getRandomFloat(8, 15)+"s infinite linear"
+        //     for (var i = 0; i < children.length; i++) {
+        //         var itemchild = children[i];
+        //         itemchild.style.animation = animation_duration
         //     }
-        // } else {
-        //     subtitle_size = mapRange(topoff, 300, 500, 1, 2.6)
-        //     if (subtitle_size <= 2.6) {
-        //         document.getElementById("home-content-subtitle").style.fontSize = subtitle_size + "vw"
-        //     }
-        // }
-
-
-        function randomFloat(min, max) {
-            return Math.random() * (max - min) + min;
-        }
-
-        function infiniteHorizontalScrolling() {
-            document.querySelectorAll(".home-wrapper-bg-slide").forEach((elem) => {
-                const scrollSpeed = randomFloat(0.1, 0.5); // Adjust scrolling speed as needed
-                const contentWidth = elem.scrollWidth;
-
-                // Clone the contents to the right side
-                const clonedContents = elem.innerHTML;
-                elem.innerHTML += clonedContents;
-
-                let scrollPosition = 0;
-
-                function scroll() {
-                    scrollPosition = (scrollPosition + scrollSpeed) % contentWidth;
-                    elem.scrollLeft = scrollPosition;
-                    requestAnimationFrame(scroll);
-                }
-
-                scroll();
-            })
-        }
-
-        infiniteHorizontalScrolling();
+        // })
+        document.querySelectorAll(".home-wrapper ul").forEach((item) => {
+            let animation_duration = `swap ${getRandomFloat(8, 15)}s infinite linear`;
+            item.querySelectorAll("li").forEach((itemchild) => {
+                itemchild.style.animation = animation_duration;
+            });
+        });
+        document.querySelectorAll(".home-wrapper-image-list").forEach((item) => {
+            let animation_duration = `swap ${getRandomFloat(2.2, 10)}s infinite linear`;
+            item.querySelectorAll("li").forEach((itemchild) => {
+                itemchild.style.animation = animation_duration;
+            });
+        });
 
 
         function mapRange(value, fromMin, fromMax, toMin, toMax) {
@@ -97,57 +117,49 @@ export default function Home() {
             } catch {
                 removeEventListener("scroll", throttledUpdate)
             }
-
-            // let subtitle_size = 0
-            // if (matchMedia("(max-width: 600px)").matches) {
-            //     subtitle_size = mapRange(top, 300, 500, 1, 5)
-            //     if (subtitle_size <= 5) {
-            //         document.getElementById("home-content-subtitle").style.fontSize = subtitle_size + "vw"
-            //     }
-            // } else {
-            //     subtitle_size = mapRange(top, 300, 500, 1, 2.6)
-            //     if (subtitle_size <= 2.6) {
-            //         document.getElementById("home-content-subtitle").style.fontSize = subtitle_size + "vw"
-            //     }
-            // }
         }
+
         addEventListener("scroll", throttledUpdate);
 
     }, [])
 
 
+    const numberOfWrappers = Math.floor(Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0) / 82.5 * 2.25) + 1;
+
+    const elements = [];
+    const elements_types = []
+    for (let i = 0; i < numberOfWrappers; i++) {
+        if (elements_types.length > 0) {
+            if (elements_types.slice(getRandomInt(-3, -2)).every(element => element === 1)) {
+                elements.push(
+                    <>{wrapper}</>
+                );
+                elements_types.push(0)
+            } else {
+                elements.push(
+                    <>{wrappertwo}</>
+                );
+                elements_types.push(1)
+            }
+        } else {
+            if (Math.random() < 0.5) {
+                elements.push(
+                    <>{wrapper}</>
+                );
+                elements_types.push(0)
+            } else {
+                elements.push(
+                    <>{wrappertwo}</>
+                );
+                elements_types.push(1)
+            }
+        }
+    }
     return (
         <>
             <div className="home-wrapper" id="home-wrapper">
-                <div className="home-wrapper-bg-slide">{wrapper}</div>
-                <div className="home-wrapper-bg-slide">{wrappertwo}</div>
-                <div className="home-wrapper-bg-slide">{wrapper}</div>
-                <div className="home-wrapper-bg-slide">{wrapper}</div>
-                <div className="home-wrapper-bg-slide">{wrappertwo}</div>
-                <div className="home-wrapper-bg-slide">{wrapper}</div>
-                <div className="home-wrapper-bg-slide">{wrapper}</div>
-                <div className="home-wrapper-bg-slide">{wrapper}</div>
-                <div className="home-wrapper-bg-slide">{wrappertwo}</div>
-                <div className="home-wrapper-bg-slide">{wrapper}</div>
-                <div className="home-wrapper-bg-slide">{wrapper}</div>
-                <div className="home-wrapper-bg-slide">{wrapper}</div>
-                <div className="home-wrapper-bg-slide">{wrappertwo}</div>
-                <div className="home-wrapper-bg-slide">{wrapper}</div>
-                <div className="home-wrapper-bg-slide">{wrapper}</div>
-                <div className="home-wrapper-bg-slide">{wrappertwo}</div>
-                <div className="home-wrapper-bg-slide">{wrapper}</div>
-                <div className="home-wrapper-bg-slide">{wrapper}</div>
-                <div className="home-wrapper-bg-slide">{wrapper}</div>
-                <div className="home-wrapper-bg-slide">{wrappertwo}</div>
-                <div className="home-wrapper-bg-slide">{wrapper}</div>
-                <div className="home-wrapper-bg-slide">{wrapper}</div>
-                <div className="home-wrapper-bg-slide">{wrapper}</div>
-                <div className="home-wrapper-bg-slide">{wrappertwo}</div>
-                <div className="home-wrapper-bg-slide">{wrapper}</div>
-                <div className="home-wrapper-bg-slide">{wrapper}</div>
-                <div className="home-wrapper-bg-slide">{wrapper}</div>
-                <div className="home-wrapper-bg-slide">{wrappertwo}</div>
-                <div className="home-wrapper-bg-slide">{wrapper}</div>
+                <br/><br/><br/>
+                {elements}
             </div>
 
 

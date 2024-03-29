@@ -38,46 +38,6 @@
 .home-gif:hover {
     /*border: solid 1px white;*/
 }
-
-.home-wrapper p {
-    font-family: "JetBrains Mono", monospace;
-    font-size: 20px;
-    font-weight: 700;
-    color: var(--color);
-    text-align: center;
-}
-
-.home-wrapper-bg-slide {
-    width: 100%;
-    overflow: hidden;
-    white-space: nowrap;
-    /*rotate: 10deg;*/
-
-}
-
-.home-wrapper-bg-slide p {
-    display: inline-block;
-    margin-right: 10px;
-    padding: 0;
-    margin-top: -20px;
-    margin-bottom: -20px;
-    font-size: 55px;
-    font-weight: 900;
-}
-
-.home-wrapper-bg-slide img {
-    width: 200px;
-    position: relative;
-    margin-right: 10px;
-    transition: 0.1s;
-}
-
-@media (prefers-color-scheme: light) {
-    .home-wrapper-bg-slide img {
-        filter: brightness(0);
-    }
-}
-
 .home-content {
     position: relative;
     top: 1000px;
@@ -143,5 +103,65 @@
 
     .home-content-action button {
         margin-bottom: 30dvh !important;
+    }
+}
+
+
+.home-wrapper ul {
+    font-size: 55px;
+    font-weight: 900;
+    font-family: JetBrains Mono, monospace;
+    text-align: center;
+    color: var(--color);
+    list-style-type: none;
+    white-space: nowrap;
+    left: 0;
+    padding: 0;
+    position: relative;
+    top: 0;
+    margin: 0 0 -10px;
+    margin-top: -37px;
+}
+
+.home-wrapper-image-list {
+    margin: 0;
+    margin-bottom: -20px;
+    margin-top: -42px !important;
+}
+
+.home-wrapper-image-list li img {
+    height: 35px;
+    padding-left: 10px;
+}
+
+.home-wrapper ul:first-of-type {
+    top: 30px;
+}
+
+.home-wrapper ul li {
+    display: inline-block;
+    white-space: nowrap;
+    /*animation: swap 10s infinite linear;*/
+    padding: 0;
+    margin: 0;
+}
+
+@keyframes swap {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+.home-wrapper ul:first-of-type {
+    position: absolute;
+    top: 27px;
+}
+
+@media (prefers-color-scheme: light) {
+    .home-wrapper-image-list li img {
+        filter: brightness(0);
     }
 }
