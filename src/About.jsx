@@ -52,6 +52,11 @@ export default function About() {
                                              target="_blank" rel="noreferrer"
                                              className="action-text about-undr">lz-string</a>
                             </li>
+                            <li>
+                                SPDX - <a href="https://github.com/spdx/license-list-data"
+                                          target="_blank" rel="noreferrer"
+                                          className="action-text about-undr">license-list-data</a>
+                            </li>
                         </ul>
                     </li>
                 </ul>
