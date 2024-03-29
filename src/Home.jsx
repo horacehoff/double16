@@ -80,8 +80,13 @@ export default function Home() {
             return (value - fromMin) * (toMax - toMin) / (fromMax - fromMin) + toMin;
         }
 
-
-        const throttledUpdate = throttle(updateOnScroll, 50);
+        const getFPS = () =>
+            new Promise(resolve =>
+                requestAnimationFrame(t1 =>
+                    requestAnimationFrame(t2 => resolve(1000 / (t2 - t1)))
+                )
+            )
+        let throttledUpdate = throttle(updateOnScroll, 10);
 
         function updateOnScroll() {
 
