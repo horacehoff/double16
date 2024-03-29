@@ -320,7 +320,8 @@ export default function CodePage() {
                         className="codepgpre-infosep">-</span> <span
                         id={charid}>15000</span> char.</h3>
                     <h3 className="codepgpre-info codepg-update">⏰ UPDATED <span id={updateid}>2H AGO</span></h3>
-                    <h3 className="codepgpre-info codepg-update codepg-license">🏛️ <a id={licenseid}>MIT</a></h3>
+                    <h3 className="codepgpre-info codepg-update codepg-license">🏛️ <a id={licenseid}
+                                                                                      target="_blank">MIT</a></h3>
                     <h4 className="codepgpre-author">by <Link className="link-text" to={"/users/" + codedata.authorid}
                                                               id={authorid}>JuTS-A_MANGO</Link></h4>
                     <p className="codepgpre-desc" id={descid}>trm-engine is a game engine designed to run in the
