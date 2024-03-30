@@ -15,6 +15,7 @@ export default function SignUp() {
     const emailid = useId()
     const passwordid = useId()
     const errorid = useId()
+    const signupid = useId()
 
 
     const [username, setUsername] = useState("")
@@ -91,7 +92,10 @@ export default function SignUp() {
                        onChange={e => setEmail(e.target.value)}/><br/>
                 <input id={passwordid} type="password" placeholder="@password" name="psw" autoComplete="new-password"
                        value={password} onChange={e => setPassword(e.target.value)}/><br/>
-                <button type="submit" className="primary" onClick={e => submit(e)}>SIGN UP
+                <button id={signupid} type="submit" className="primary" onClick={e => {
+                    document.getElementById(signupid).innerHTML = "LOADING..."
+                    submit(e)
+                }}>SIGN UP
                 </button>
                 <br/>
                 {(isSafari || isIos) ? (

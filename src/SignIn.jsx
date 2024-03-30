@@ -9,6 +9,7 @@ export default function SignIn() {
     const emailid = useId()
     const passwordid = useId()
     const errorid = useId()
+    const signinid = useId()
 
 
     const [email, setEmail] = useState("")
@@ -62,7 +63,10 @@ export default function SignIn() {
                 <input id={passwordid} type="password" placeholder="@password" name="psw"
                        autoComplete="current-password"
                        value={password} onChange={e => setPassword(e.target.value)}/><br/>
-                <button type="submit" className="primary" onClick={e => submit(e)}>SIGN IN
+                <button id={signinid} type="submit" className="primary" onClick={e => {
+                    document.getElementById(signinid).innerHTML = "LOADING..."
+                    submit(e)
+                }}>SIGN IN
                 </button>
                 <br/>
                 <Link to="/reset-password" className="action-text sign-action">RESET_PASSWORD</Link>

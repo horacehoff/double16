@@ -74,6 +74,7 @@ export default function MostDownloaded() {
 
     useEffect(() => {
         countQueryDb(maxItems, language, page)
+        console.log(pageNumber)
     }, [])
 
     function countQueryDb(max_items, codelanguage, page, reset = false) {
@@ -108,10 +109,12 @@ export default function MostDownloaded() {
             if (data_count !== 0) {
                 let pages_required = Math.ceil(data_count / max_items)
                 setPageNumber(pages_required)
+                console.log(pages_required)
             } else {
                 setTimeout(() => {
                     let pages_required = Math.ceil(data_count / max_items)
                     setPageNumber(pages_required)
+                    console.log(pages_required)
                 }, 100)
             }
             let new_results = results
