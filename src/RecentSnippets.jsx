@@ -106,15 +106,18 @@ export default function RecentSnippets() {
                 }
             })
             console.log(lastResult)
-            if (data_count !== 0) {
-                let pages_required = Math.ceil(data_count / max_items)
-                setPageNumber(pages_required)
-            } else {
-                setTimeout(() => {
+            const checkDataCount = () => {
+                if (Math.ceil(data_count / max_items) === 0) {
+                    setTimeout(checkDataCount, 50)
+                } else {
                     let pages_required = Math.ceil(data_count / max_items)
                     setPageNumber(pages_required)
-                }, 100)
+                    console.log(pageNumber)
+                }
             }
+            setTimeout(() => {
+                checkDataCount()
+            }, 100)
             let new_results = results
             new_results[page] = push_results
             setResults({...new_results})
