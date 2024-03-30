@@ -50,17 +50,6 @@ export default function Home() {
         }, 1000)
 
 
-        // https://stackoverflow.com/a/1527820
-
-
-        // document.querySelectorAll(".home-wrapper ul").forEach((item) => {
-        //     let children = item.children;
-        //     let animation_duration = "swap "+getRandomFloat(8, 15)+"s infinite linear"
-        //     for (var i = 0; i < children.length; i++) {
-        //         var itemchild = children[i];
-        //         itemchild.style.animation = animation_duration
-        //     }
-        // })
         document.querySelectorAll(".home-wrapper ul").forEach((item) => {
             let animation_duration = `swap ${getRandomFloat(8, 15)}s infinite linear`;
             item.querySelectorAll("li").forEach((itemchild) => {
@@ -79,20 +68,18 @@ export default function Home() {
             // Scale the value from the original range to the new range
             return (value - fromMin) * (toMax - toMin) / (fromMax - fromMin) + toMin;
         }
-
-        const getFPS = () =>
-            new Promise(resolve =>
-                requestAnimationFrame(t1 =>
-                    requestAnimationFrame(t2 => resolve(1000 / (t2 - t1)))
-                )
-            )
         let throttledUpdate = throttle(updateOnScroll, 10);
 
+
+        let scroll_distance = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0) * 433 / 783
         function updateOnScroll() {
 
             let top = document.documentElement.scrollTop
             try {
-                document.getElementById("home-wrapper").style.opacity = mapRange(top, 0, 433, 1, 0)
+                // 783 -> 433
+                // Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0) -> ??
+                document.getElementById("home-wrapper").style.opacity = mapRange(top, 0, scroll_distance, 1, 0)
+                // document.getElementById("home-wrapper").style.opacity = mapRange(top, 0, 433, 1, 0)
             } catch {
                 removeEventListener("scroll", throttledUpdate)
             }
