@@ -40,7 +40,7 @@
 }
 .home-content {
     position: relative;
-    top: 1000px;
+    top: 100vh;
 }
 
 .home-content img:first-of-type {
