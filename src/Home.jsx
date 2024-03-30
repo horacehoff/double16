@@ -71,7 +71,7 @@ export default function Home() {
         let throttledUpdate = throttle(updateOnScroll, 10);
 
 
-        let scroll_distance = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0) * 433 / 783
+        let scroll_distance = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0) - 350
         function updateOnScroll() {
 
             let top = document.documentElement.scrollTop
