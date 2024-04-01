@@ -75,6 +75,10 @@ select:focus {
     background-color: var(--select-bg-focus);
 }
 
+select option {
+    background-color: #2B2A2D;
+}
+
 
 button.action {
     padding: 9px 19px;

@@ -187,6 +187,11 @@ export default function Explore() {
                 <button className="action pg-action">🔍 SEARCH</button>
             </Link>
             <br/>
+            {/*<select>*/}
+            {/*    <option>test</option>*/}
+            {/*    <option>test2</option>*/}
+            {/*    <option>test3</option>*/}
+            {/*</select>*/}
             <h2 className="pg-section-heading">🏆 MOST DOWNLOADED</h2>
 
             <Link to="/most-downloaded">
