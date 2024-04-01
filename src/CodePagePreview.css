@@ -174,7 +174,7 @@
     font-size: 15px;
     font-style: normal;
     font-weight: 400;
-    overflow: scroll;
+    overflow: auto;
     width: calc(450px - 40px);
     height: auto;
     line-height: 25px;
