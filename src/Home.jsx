@@ -8,7 +8,7 @@ import {Link} from "react-router-dom";
 export default function Home() {
     const wrapper = <>
         <ul>
-            {[...Array(Math.floor(Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0) / 200))].map((_, index) => (
+            {[...Array(Math.floor(Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0) / 150))].map((_, index) => (
                 <>
                     <li>CODE.BUY.SELL.</li>
                 </>
