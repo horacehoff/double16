@@ -14,11 +14,9 @@
 }
 
 .codepgpre {
-    /*width: 570px;*/
-    /*height: 715px;*/
     width: 450px;
-    /*height: 600px;*/
-    height: 77.5dvh;
+    max-height: 77.5dvh;
+    /*min-height: 50dvh;*/
     border-radius: 20px;
     border: 1px solid rgba(255, 255, 255, 0.10);
     background: #222431;
