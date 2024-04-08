@@ -15,7 +15,7 @@ export default defineConfig({
     },
     build: {
         cssMinify: "lightningcss",
-        sourcemap: false,
+        sourcemap: true,
         minify: "terser",
         terserOptions: {
             compress: {
@@ -33,7 +33,7 @@ export default defineConfig({
             output: {
                 compact: true,
                 minifyInternalExports: true,
-                sourcemap: false,
+                sourcemap: true,
                 // manualChunks: {
                 //     main: ["react", 'react-dom', 'react-router-dom'],
                 //     xt: ["short-number"],
