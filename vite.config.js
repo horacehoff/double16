@@ -15,7 +15,7 @@ export default defineConfig({
     },
     build: {
         cssMinify: "lightningcss",
-        sourcemap: true,
+        sourcemap: false,
         minify: "terser",
         terserOptions: {
             compress: {
@@ -33,15 +33,11 @@ export default defineConfig({
             output: {
                 compact: true,
                 minifyInternalExports: true,
-                sourcemap: true,
-                // manualChunks: {
-                //     main: ["react", 'react-dom', 'react-router-dom'],
-                //     xt: ["short-number"],
-                //     db: ["firebase/app", "firebase/firestore", "firebase/analytics"]
-                // },
+                sourcemap: false,
                 chunkFileNames: '[hash].js',
                 experimentalMinChunkSize: 10_000,
             },
+            treeshake: "smallest",
             plugins: [nodeResolve()]
         }
     }
