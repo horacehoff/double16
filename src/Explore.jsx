@@ -7,6 +7,7 @@ import {getLanguageName} from "./lang.jsx";
 import {useState} from "react";
 import {collection, getDocs, limit, orderBy, query} from "firebase/firestore";
 import {db} from "./firebase.js";
+import {Helmet} from "react-helmet";
 
 export default function Explore() {
     const navigate = useNavigate()
@@ -155,6 +156,23 @@ export default function Explore() {
 
     return (
         <>
+            <Helmet>
+                <title>DOUBLE16 | Explore</title>
+                <meta content="DOUBLE16 | Explore"
+                      name="title"/>
+                <meta content="Explore and discover code snippets on DOUBLE16."
+                      name="description"/>
+
+                <meta content="https://double16.vercel.app/explore" property="og:url"/>
+                <meta content="DOUBLE16 | Explore" property="og:title"/>
+                <meta content="Explore and discover code snippets on DOUBLE16."
+                      property="og:description"/>
+
+                <meta content="https://double16.vercel.app/explore" property="twitter:url"/>
+                <meta content="DOUBLE16 | Explore" property="twitter:title"/>
+                <meta content="Explore and discover code snippets on DOUBLE16."
+                      property="twitter:description"/>
+            </Helmet>
             <h1 className="pg-heading" id="pg-heading">EXPLORE</h1>
             <h2 className="pg-subtitle">EXPLORE ALL THE DIFFERENT CODE SNIPPETS AND FIND THE ONE YOU WANT</h2>
             {/*<button onClick={() => {*/}
