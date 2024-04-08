@@ -37,7 +37,7 @@ export default defineConfig({
                 chunkFileNames: '[hash].js',
                 experimentalMinChunkSize: 10_000,
             },
-            treeshake: "smallest",
+            treeshake: "recommended",
             plugins: [nodeResolve()]
         }
     }
