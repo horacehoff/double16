@@ -2,8 +2,6 @@ import {defineConfig} from 'vite'
 import react from '@vitejs/plugin-react-swc'
 import svgr from "vite-plugin-svgr";
 import nodeResolve from "@rollup/plugin-node-resolve";
-import {browserslistToTargets} from "lightningcss";
-import browserslist from "browserslist";
 
 
 // https://vitejs.dev/config/
@@ -44,10 +42,10 @@ export default defineConfig({
             plugins: [nodeResolve()]
         }
     },
-    css: {
-        transformer: 'lightningcss',
-        lightningcss: {
-            targets: browserslistToTargets(browserslist('>= 0.25%'))
-        }
-    }
+    // css: {
+    //     transformer: 'lightningcss',
+    //     lightningcss: {
+    //         targets: browserslistToTargets(browserslist('>= 0.25%'))
+    //     }
+    // }
 })
