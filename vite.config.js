@@ -2,22 +2,13 @@ import {defineConfig} from 'vite'
 import react from '@vitejs/plugin-react-swc'
 import svgr from "vite-plugin-svgr";
 import nodeResolve from "@rollup/plugin-node-resolve";
-// import viteCompression from 'vite-plugin-compression';
+import {browserslistToTargets} from "lightningcss";
+import browserslist from "browserslist";
 
 
 // https://vitejs.dev/config/
 export default defineConfig({
-    plugins: [react(), svgr(),
-        //     nodePolyfills({
-        //     globals: {
-        //         Buffer: true,
-        //     }
-        // })
-        //     ,
-        //     viteCompression({
-        //     algorithm: "brotliCompress"
-        // }) => WORSENED PERFORMANCE
-    ],
+    plugins: [react(), svgr(),],
     optimizeDeps: {
         force: true
     },
@@ -51,6 +42,12 @@ export default defineConfig({
                 experimentalMinChunkSize: 10_000,
             },
             plugins: [nodeResolve()]
+        }
+    },
+    css: {
+        transformer: 'lightningcss',
+        lightningcss: {
+            targets: browserslistToTargets(browserslist('>= 0.25%'))
         }
     }
 })
