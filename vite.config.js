@@ -6,9 +6,12 @@ import nodeResolve from "@rollup/plugin-node-resolve";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-    plugins: [react(), svgr(),],
+    plugins: [react(), svgr()],
     optimizeDeps: {
         force: true
+    },
+    css: {
+        transformer: "postcss"
     },
     build: {
         cssMinify: "lightningcss",
@@ -41,11 +44,5 @@ export default defineConfig({
             },
             plugins: [nodeResolve()]
         }
-    },
-    // css: {
-    //     transformer: 'lightningcss',
-    //     lightningcss: {
-    //         targets: browserslistToTargets(browserslist('>= 0.25%'))
-    //     }
-    // }
+    }
 })
