@@ -8,6 +8,7 @@ import CodeCard from "./CodeCard.jsx";
 import ShortNumber from "short-number";
 import CodePagePreview from "./CodePagePreview.jsx";
 import {useNavigate} from "react-router-dom";
+import {Helmet} from "react-helmet";
 
 
 export default function Trending() {
@@ -133,6 +134,23 @@ export default function Trending() {
 
     return (
         <>
+            <Helmet>
+                <title>DOUBLE16 | Trending</title>
+                <meta content="DOUBLE16 | Trending"
+                      name="title"/>
+                <meta content="Discover trending code snippets."
+                      name="description"/>
+
+                <meta content="https://double16.vercel.app/trending" property="og:url"/>
+                <meta content="DOUBLE16 | Trending" property="og:title"/>
+                <meta content="Discover trending code snippets."
+                      property="og:description"/>
+
+                <meta content="https://double16.vercel.app/trending" property="twitter:url"/>
+                <meta content="DOUBLE16 | Trending" property="twitter:title"/>
+                <meta content="Discover trending code snippets."
+                      property="twitter:description"/>
+            </Helmet>
             <h1 className="pg-heading md-heading tr-heading" id="pg-heading">TRENDING</h1>
             <h2 className="pg-subtitle">EXPLORE HOT AND TRENDING CODE SNIPPETS</h2>
             <div className="pg-subsection">

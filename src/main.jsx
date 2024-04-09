@@ -15,7 +15,6 @@ import ResetPassword from "./ResetPassword.jsx";
 import Feedback from "./Feedback.jsx";
 import Sell from "./Sell.jsx";
 import FourZeroFour from "./404.jsx";
-import "./encrypt.js"
 import AccountSettings from "./AccountSettings.jsx";
 import PopUp from "./PopUp.jsx";
 import MostDownloaded from "./MostDownloaded.jsx";
@@ -27,30 +26,8 @@ import Home from "./Home.jsx";
 ReactDOM.createRoot(document.getElementById('root')).render(
     <React.StrictMode>
         <BrowserRouter>
-            {/*<Helmet>*/}
-            {/*    <title>DOUBLE16</title>*/}
-            {/*    <meta content="DOUBLE16"*/}
-            {/*          name="title"/>*/}
-            {/*    <meta content="Discover, share, download and sell code snippets on DOUBLE16."*/}
-            {/*          name="description"/>*/}
-
-            {/*    <meta content="website" property="og:type"/>*/}
-            {/*    <meta content="https://double16.vercel.app/" property="og:url"/>*/}
-            {/*    <meta content="DOUBLE16" property="og:title"/>*/}
-            {/*    <meta content="Discover, share, download and sell code snippets on DOUBLE16."*/}
-            {/*          property="og:description"/>*/}
-            {/*    <meta content="/banner.webp" property="og:image"/>*/}
-
-            {/*    <meta content="summary_large_image" property="twitter:card"/>*/}
-            {/*    <meta content="https://double16.vercel.app/" property="twitter:url"/>*/}
-            {/*    <meta content="DOUBLE16" property="twitter:title"/>*/}
-            {/*    <meta content="Discover, share, download and sell code snippets on DOUBLE16."*/}
-            {/*          property="twitter:description"/>*/}
-            {/*    <meta content="/banner.webp" property="twitter:image"/>*/}
-            {/*</Helmet>*/}
             <Navbar/>
             <Routes>
-                {/*<Route path="/" element={<OldHome/>}/>*/}
                 <Route path="/" element={<Home/>}/>
                 <Route path="/explore" element={<Explore/>}/>
                 <Route path="/search" element={<Search/>}/>

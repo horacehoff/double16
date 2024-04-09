@@ -4,6 +4,7 @@ import {useId, useState} from "react";
 import {Link, useNavigate} from "react-router-dom";
 import {signInWithEmailAndPassword} from "firebase/auth"
 import {auth} from "./firebase.js";
+import {Helmet} from "react-helmet";
 
 export default function SignIn() {
     const emailid = useId()
@@ -55,6 +56,23 @@ export default function SignIn() {
     }
     return (
         <>
+            <Helmet>
+                <title>DOUBLE16 | Sign In</title>
+                <meta content="DOUBLE16 | Sign In"
+                      name="title"/>
+                <meta content="Sign in to your DOUBLE16 account."
+                      name="description"/>
+
+                <meta content="https://double16.vercel.app/sign-in" property="og:url"/>
+                <meta content="DOUBLE16 | Sign In" property="og:title"/>
+                <meta content="Sign in to your DOUBLE16 account."
+                      property="og:description"/>
+
+                <meta content="https://double16.vercel.app/sign-in" property="twitter:url"/>
+                <meta content="DOUBLE16 | Sign In" property="twitter:title"/>
+                <meta content="Sign in to your DOUBLE16 account."
+                      property="twitter:description"/>
+            </Helmet>
             <form className="sign-form">
                 <h1>SIGN_IN</h1>
                 <p id={errorid} className="error-notice">ERROR: USERNAME ALREADY EXISTS</p>

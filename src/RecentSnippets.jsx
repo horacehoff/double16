@@ -8,6 +8,7 @@ import CodeCard from "./CodeCard.jsx";
 import ShortNumber from "short-number";
 import CodePagePreview from "./CodePagePreview.jsx";
 import {useNavigate} from "react-router-dom";
+import {Helmet} from "react-helmet";
 
 
 export default function RecentSnippets() {
@@ -133,6 +134,23 @@ export default function RecentSnippets() {
 
     return (
         <>
+            <Helmet>
+                <title>DOUBLE16 | Recent</title>
+                <meta content="DOUBLE16 | Recent"
+                      name="title"/>
+                <meta content="Discover recently published code snippets."
+                      name="description"/>
+
+                <meta content="https://double16.vercel.app/recently-published" property="og:url"/>
+                <meta content="DOUBLE16 | Recent" property="og:title"/>
+                <meta content="Discover recently published code snippets."
+                      property="og:description"/>
+
+                <meta content="https://double16.vercel.app/recently-published" property="twitter:url"/>
+                <meta content="DOUBLE16 | Recent" property="twitter:title"/>
+                <meta content="Discover recently published code snippets."
+                      property="twitter:description"/>
+            </Helmet>
             <h1 className="pg-heading md-heading" id="pg-heading">RECENTLY PUBLISHED</h1>
             <h2 className="pg-subtitle">EXPLORE THE LATEST CODE SNIPPETS</h2>
             <div className="pg-subsection">

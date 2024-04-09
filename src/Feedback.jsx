@@ -4,6 +4,7 @@ import {doc, setDoc} from "firebase/firestore";
 import {db, userdb} from "./firebase.js";
 import {v1} from "uuid";
 import {useNavigate} from "react-router-dom";
+import {Helmet} from "react-helmet";
 
 export default function Feedback() {
     const navigate = useNavigate()
@@ -46,6 +47,23 @@ export default function Feedback() {
 
     return (
         <>
+            <Helmet>
+                <title>DOUBLE16 | Feedback</title>
+                <meta content="DOUBLE16 | Feedback"
+                      name="title"/>
+                <meta content="Give your feedback on DOUBLE16."
+                      name="description"/>
+
+                <meta content="https://double16.vercel.app/feedback" property="og:url"/>
+                <meta content="DOUBLE16 | Feedback" property="og:title"/>
+                <meta content="Give your feedback on DOUBLE16."
+                      property="og:description"/>
+
+                <meta content="https://double16.vercel.app/feedback" property="twitter:url"/>
+                <meta content="DOUBLE16 | Feedback" property="twitter:title"/>
+                <meta content="Give your feedback on DOUBLE16."
+                      property="twitter:description"/>
+            </Helmet>
             <h1 className="pg-heading" id="pg-heading">FEEDBACK</h1>
             <h2 className="pg-subtitle">GIVE YOUR FEEDBACK ON THE WEBSITE</h2>
             <div className="sign-form fdck-form">

@@ -8,6 +8,7 @@ import {db} from "./firebase.js";
 import CodeCard from "./CodeCard.jsx";
 import ShortNumber from "short-number";
 import {useNavigate} from "react-router-dom";
+import {Helmet} from "react-helmet";
 
 export default function Search() {
     const ratepopup = useId()
@@ -119,8 +120,25 @@ export default function Search() {
         </>
 
 
+    return (
+        <>
+            <Helmet>
+                <title>DOUBLE16 | Search</title>
+                <meta content="DOUBLE16 | Search"
+                      name="title"/>
+                <meta content="Search and find the exact code snippet you need."
+                      name="description"/>
 
-    return (<>
+                <meta content="https://double16.vercel.app/search" property="og:url"/>
+                <meta content="DOUBLE16 | Search" property="og:title"/>
+                <meta content="Search and find the exact code snippet you need."
+                      property="og:description"/>
+
+                <meta content="https://double16.vercel.app/search" property="twitter:url"/>
+                <meta content="DOUBLE16 | Search" property="twitter:title"/>
+                <meta content="Search and find the exact code snippet you need."
+                      property="twitter:description"/>
+            </Helmet>
         <h1 className="pg-heading" id="pg-heading">SEARCH</h1>
         <h2 className="pg-subtitle">SEARCH AND FIND THE EXACT CODE SNIPPET YOU NEED</h2>
         <div className="srch-cont">

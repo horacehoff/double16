@@ -1,8 +1,9 @@
 import "./Home.css"
 import logo from "./assets/navlogo.svg"
-import React, {useEffect} from "react";
+import {useEffect} from "react";
 import throttle from 'lodash.throttle'
 import {Link} from "react-router-dom";
+import {Helmet} from "react-helmet";
 
 
 export default function Home() {
@@ -125,27 +126,23 @@ export default function Home() {
     }
     return (
         <>
-            {/*<Helmet>*/}
-            {/*    <title>DOUBLE16</title>*/}
-            {/*    <meta content="DOUBLE16"*/}
-            {/*          name="title"/>*/}
-            {/*    <meta content="Discover, share, download and sell code snippets on DOUBLE16."*/}
-            {/*          name="description"/>*/}
+            <Helmet>
+                <title>DOUBLE16</title>
+                <meta content="DOUBLE16"
+                      name="title"/>
+                <meta content="Discover, share, download and sell code snippets on DOUBLE16."
+                      name="description"/>
 
-            {/*    <meta content="website" property="og:type"/>*/}
-            {/*    <meta content="https://double16.vercel.app/" property="og:url"/>*/}
-            {/*    <meta content="DOUBLE16" property="og:title"/>*/}
-            {/*    <meta content="Discover, share, download and sell code snippets on DOUBLE16."*/}
-            {/*          property="og:description"/>*/}
-            {/*    <meta content="/banner.webp" property="og:image"/>*/}
+                <meta content="https://double16.vercel.app/" property="og:url"/>
+                <meta content="DOUBLE16" property="og:title"/>
+                <meta content="Discover, share, download and sell code snippets on DOUBLE16."
+                      property="og:description"/>
 
-            {/*    <meta content="summary_large_image" property="twitter:card"/>*/}
-            {/*    <meta content="https://double16.vercel.app/" property="twitter:url"/>*/}
-            {/*    <meta content="DOUBLE16" property="twitter:title"/>*/}
-            {/*    <meta content="Discover, share, download and sell code snippets on DOUBLE16."*/}
-            {/*          property="twitter:description"/>*/}
-            {/*    <meta content="/banner.webp" property="twitter:image"/>*/}
-            {/*</Helmet>*/}
+                <meta content="https://double16.vercel.app/" property="twitter:url"/>
+                <meta content="DOUBLE16" property="twitter:title"/>
+                <meta content="Discover, share, download and sell code snippets on DOUBLE16."
+                      property="twitter:description"/>
+            </Helmet>
             <div className="home-wrapper" id="home-wrapper">
                 <br/><br/><br/>
                 {elements}

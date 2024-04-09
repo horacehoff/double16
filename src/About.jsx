@@ -1,9 +1,27 @@
 import "./About.css"
 import banner from "./assets/navlogo.svg"
+import {Helmet} from "react-helmet";
 
 export default function About() {
     return (
         <>
+            <Helmet>
+                <title>DOUBLE16 | About</title>
+                <meta content="DOUBLE16 | About"
+                      name="title"/>
+                <meta content="Made on Earth by humans - Created by Horace Hoff"
+                      name="description"/>
+
+                <meta content="https://double16.vercel.app/about" property="og:url"/>
+                <meta content="DOUBLE16 | About" property="og:title"/>
+                <meta content="Made on Earth by humans - Created by Horace Hoff"
+                      property="og:description"/>
+
+                <meta content="https://double16.vercel.app/about" property="twitter:url"/>
+                <meta content="DOUBLE16 | About" property="twitter:title"/>
+                <meta content="Made on Earth by humans - Created by Horace Hoff"
+                      property="twitter:description"/>
+            </Helmet>
             <div className="about-cnt">
                 <img src={banner} alt="DOUBLE16 Banner"/>
                 <p>Made on Earth by humans<br/>Created by <a className="action-text"

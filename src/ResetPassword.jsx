@@ -3,6 +3,7 @@ import {useId, useState} from "react";
 import "./ResetPassword.css"
 import {sendPasswordResetEmail} from "firebase/auth";
 import {auth} from "./firebase.js";
+import {Helmet} from "react-helmet";
 
 
 export default function ResetPassword() {
@@ -25,6 +26,23 @@ export default function ResetPassword() {
 
     return (
         <>
+            <Helmet>
+                <title>DOUBLE16 | Reset Password</title>
+                <meta content="DOUBLE16 | Reset Password"
+                      name="title"/>
+                <meta content="Reset your account password."
+                      name="description"/>
+
+                <meta content="https://double16.vercel.app/reset-password" property="og:url"/>
+                <meta content="DOUBLE16 | Reset Password" property="og:title"/>
+                <meta content="Reset your account password."
+                      property="og:description"/>
+
+                <meta content="https://double16.vercel.app/reset-password" property="twitter:url"/>
+                <meta content="DOUBLE16 | Reset Password" property="twitter:title"/>
+                <meta content="Reset your account password."
+                      property="twitter:description"/>
+            </Helmet>
             <form className="sign-form reset-form">
                 <h1>RESET_PASSWORD</h1>
                 <input id={emailid} type="email" placeholder="@email" name="email" autoComplete="email" value={email}

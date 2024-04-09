@@ -5,16 +5,16 @@ import {v1} from "uuid";
 import {getDownloadURL, getStorage, ref, uploadBytes} from "firebase/storage";
 import {app, db, userdb} from "./firebase.js"
 import {doc, setDoc} from "firebase/firestore";
-import {useLocation, useNavigate,} from "react-router-dom";
+import {useNavigate,} from "react-router-dom";
 import {encrypt} from "./encrypt.js";
 import {compressToBase64} from "lz-string";
 import {renderToString} from "react-dom/server";
 import {ShowPopUp} from "./PopUp.jsx";
 import {licenses} from "./licenses.jsx";
+import {Helmet} from "react-helmet";
 
 
 export default function Sell() {
-    const location = useLocation()
     const navigate = useNavigate()
 
     const sellcont = useId()
@@ -167,6 +167,23 @@ export default function Sell() {
     }
 
     return (<>
+        <Helmet>
+            <title>DOUBLE16 | Sell</title>
+            <meta content="DOUBLE16 | Sell"
+                  name="title"/>
+            <meta content="Sell and share your code snippet."
+                  name="description"/>
+
+            <meta content="https://double16.vercel.app/sell" property="og:url"/>
+            <meta content="DOUBLE16 | Sell" property="og:title"/>
+            <meta content="Sell and share your code snippet."
+                  property="og:description"/>
+
+            <meta content="https://double16.vercel.app/sell" property="twitter:url"/>
+            <meta content="DOUBLE16 | Sell" property="twitter:title"/>
+            <meta content="Sell and share your code snippet."
+                  property="twitter:description"/>
+        </Helmet>
         <h1 className="pg-heading" id="pg-heading">SELL</h1>
         {/*<button onClick={() => ShowPopUp("ERROR: Banner file too big (MAX: 250kB)")}></button>*/}
         <h2 className="pg-subtitle sell-subtitle" style={{marginBottom: "-40px"}}>PUBLISH YOUR OWN CODE SNIPPET</h2>

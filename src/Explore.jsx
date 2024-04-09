@@ -160,17 +160,17 @@ export default function Explore() {
                 <title>DOUBLE16 | Explore</title>
                 <meta content="DOUBLE16 | Explore"
                       name="title"/>
-                <meta content="Explore and discover code snippets on DOUBLE16."
+                <meta content="Explore and discover code snippets."
                       name="description"/>
 
                 <meta content="https://double16.vercel.app/explore" property="og:url"/>
                 <meta content="DOUBLE16 | Explore" property="og:title"/>
-                <meta content="Explore and discover code snippets on DOUBLE16."
+                <meta content="Explore and discover code snippets."
                       property="og:description"/>
 
                 <meta content="https://double16.vercel.app/explore" property="twitter:url"/>
                 <meta content="DOUBLE16 | Explore" property="twitter:title"/>
-                <meta content="Explore and discover code snippets on DOUBLE16."
+                <meta content="Explore and discover code snippets."
                       property="twitter:description"/>
             </Helmet>
             <h1 className="pg-heading" id="pg-heading">EXPLORE</h1>

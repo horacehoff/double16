@@ -7,6 +7,7 @@ import {useNavigate} from "react-router-dom";
 import {collection, doc, getDocs, query, updateDoc, where} from "firebase/firestore";
 import {deleteObject, getDownloadURL, getStorage, ref, uploadBytes} from "firebase/storage";
 import {ShowPopUp} from "./PopUp.jsx";
+import {Helmet} from "react-helmet";
 
 export default function AccountSettings() {
     const navigate = useNavigate()
@@ -156,6 +157,23 @@ export default function AccountSettings() {
     }
     return (
         <>
+            <Helmet>
+                <title>DOUBLE16 | Settings</title>
+                <meta content="DOUBLE16 | Settings"
+                      name="title"/>
+                <meta content="Modify your account settings."
+                      name="description"/>
+
+                <meta content="https://double16.vercel.app/settings" property="og:url"/>
+                <meta content="DOUBLE16 | Settings" property="og:title"/>
+                <meta content="Modify your account settings."
+                      property="og:description"/>
+
+                <meta content="https://double16.vercel.app/settings" property="twitter:url"/>
+                <meta content="DOUBLE16 | Settings" property="twitter:title"/>
+                <meta content="Modify your account settings."
+                      property="twitter:description"/>
+            </Helmet>
             <h1 className="pg-heading" id="pg-heading">SETTINGS</h1>
             <h2 className="pg-subtitle">MODIFY YOUR ACCOUNT SETTINGS</h2>
             <div className="srch-cont setts-cont">
