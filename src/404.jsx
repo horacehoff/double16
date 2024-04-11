@@ -11,12 +11,12 @@ export default function FourZeroFour() {
                 <meta content="404 - The requested page was not found."
                       name="description"/>
 
-                <meta content="https://double16.tech/404" property="og:url"/>
+                <meta content="https://www.double16.tech/404" property="og:url"/>
                 <meta content="DOUBLE16 | 404" property="og:title"/>
                 <meta content="404 - The requested page was not found."
                       property="og:description"/>
 
-                <meta content="https://double16.tech/404" property="twitter:url"/>
+                <meta content="https://www.double16.tech/404" property="twitter:url"/>
                 <meta content="DOUBLE16 | 404" property="twitter:title"/>
                 <meta content="404 - The requested page was not found."
                       property="twitter:description"/>

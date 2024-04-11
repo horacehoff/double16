@@ -5,8 +5,8 @@
   "background_color": "#19191C",
   "display": "standalone",
   "orientation": "any",
-  "scope": "https://double16.tech/",
-  "start_url": "https://double16.tech/",
+  "scope": "https://www.double16.tech/",
+  "start_url": "https://www.double16.tech/",
   "lang": "en-US",
   "icons": [
     {

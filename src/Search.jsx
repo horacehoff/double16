@@ -129,12 +129,12 @@ export default function Search() {
                 <meta content="Search and find the exact code snippet you need."
                       name="description"/>
 
-                <meta content="https://double16.tech/search" property="og:url"/>
+                <meta content="https://www.double16.tech/search" property="og:url"/>
                 <meta content="DOUBLE16 | Search" property="og:title"/>
                 <meta content="Search and find the exact code snippet you need."
                       property="og:description"/>
 
-                <meta content="https://double16.tech/search" property="twitter:url"/>
+                <meta content="https://www.double16.tech/search" property="twitter:url"/>
                 <meta content="DOUBLE16 | Search" property="twitter:title"/>
                 <meta content="Search and find the exact code snippet you need."
                       property="twitter:description"/>

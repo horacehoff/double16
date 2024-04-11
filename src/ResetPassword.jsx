@@ -33,12 +33,12 @@ export default function ResetPassword() {
                 <meta content="Reset your account password."
                       name="description"/>
 
-                <meta content="https://double16.tech/reset-password" property="og:url"/>
+                <meta content="https://www.double16.tech/reset-password" property="og:url"/>
                 <meta content="DOUBLE16 | Reset Password" property="og:title"/>
                 <meta content="Reset your account password."
                       property="og:description"/>
 
-                <meta content="https://double16.tech/reset-password" property="twitter:url"/>
+                <meta content="https://www.double16.tech/reset-password" property="twitter:url"/>
                 <meta content="DOUBLE16 | Reset Password" property="twitter:title"/>
                 <meta content="Reset your account password."
                       property="twitter:description"/>

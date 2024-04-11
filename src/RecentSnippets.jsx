@@ -141,12 +141,12 @@ export default function RecentSnippets() {
                 <meta content="Discover recently published code snippets."
                       name="description"/>
 
-                <meta content="https://double16.tech/recently-published" property="og:url"/>
+                <meta content="https://www.double16.tech/recently-published" property="og:url"/>
                 <meta content="DOUBLE16 | Recent" property="og:title"/>
                 <meta content="Discover recently published code snippets."
                       property="og:description"/>
 
-                <meta content="https://double16.tech/recently-published" property="twitter:url"/>
+                <meta content="https://www.double16.tech/recently-published" property="twitter:url"/>
                 <meta content="DOUBLE16 | Recent" property="twitter:title"/>
                 <meta content="Discover recently published code snippets."
                       property="twitter:description"/>

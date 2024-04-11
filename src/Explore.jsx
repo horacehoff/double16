@@ -163,12 +163,12 @@ export default function Explore() {
                 <meta content="Explore and discover code snippets."
                       name="description"/>
 
-                <meta content="https://double16.tech/explore" property="og:url"/>
+                <meta content="https://www.double16.tech/explore" property="og:url"/>
                 <meta content="DOUBLE16 | Explore" property="og:title"/>
                 <meta content="Explore and discover code snippets."
                       property="og:description"/>
 
-                <meta content="https://double16.tech/explore" property="twitter:url"/>
+                <meta content="https://www.double16.tech/explore" property="twitter:url"/>
                 <meta content="DOUBLE16 | Explore" property="twitter:title"/>
                 <meta content="Explore and discover code snippets."
                       property="twitter:description"/>

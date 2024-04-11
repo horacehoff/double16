@@ -141,12 +141,12 @@ export default function MostDownloaded() {
                 <meta content="Discover the most downloaded code snippets."
                       name="description"/>
 
-                <meta content="https://double16.tech/most-downloaded" property="og:url"/>
+                <meta content="https://www.double16.tech/most-downloaded" property="og:url"/>
                 <meta content="DOUBLE16 | Most downloaded" property="og:title"/>
                 <meta content="Discover the most downloaded code snippets."
                       property="og:description"/>
 
-                <meta content="https://double16.tech/most-downloaded" property="twitter:url"/>
+                <meta content="https://www.double16.tech/most-downloaded" property="twitter:url"/>
                 <meta content="DOUBLE16 | Most downloaded" property="twitter:title"/>
                 <meta content="Discover the most downloaded code snippets."
                       property="twitter:description"/>

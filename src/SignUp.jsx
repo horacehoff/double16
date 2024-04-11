@@ -91,12 +91,12 @@ export default function SignUp() {
                 <meta content="Create a DOUBLE16 account."
                       name="description"/>
 
-                <meta content="https://double16.tech/sign-up" property="og:url"/>
+                <meta content="https://www.double16.tech/sign-up" property="og:url"/>
                 <meta content="DOUBLE16 | Sign Up" property="og:title"/>
                 <meta content="Create a DOUBLE16 account."
                       property="og:description"/>
 
-                <meta content="https://double16.tech/sign-up" property="twitter:url"/>
+                <meta content="https://www.double16.tech/sign-up" property="twitter:url"/>
                 <meta content="DOUBLE16 | Sign Up" property="twitter:title"/>
                 <meta content="Create a DOUBLE16 account."
                       property="twitter:description"/>
