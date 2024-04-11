@@ -34,6 +34,7 @@ export default function SignIn() {
                     navigate("/")
                 })
                 .catch((error) => {
+                    document.getElementById(signinid).innerHTML = "SIGN IN"
                     const errorCode = error.code;
                     const errorMessage = error.message;
                     const showError = (errormsg) => {

@@ -54,6 +54,7 @@ export default function SignUp() {
                     })
                 })
                 .catch((error) => {
+                    document.getElementById(signupid).innerHTML = "SIGN UP"
                     const showError = (errormsg) => {
                         document.getElementById(errorid).innerText = "ERROR: " + errormsg
                         document.getElementById(errorid).style.opacity = "1"
