@@ -133,12 +133,12 @@ export default function Home() {
                 <meta content="Discover, share, download and sell code snippets on DOUBLE16."
                       name="description"/>
 
-                <meta content="https://double16.vercel.app/" property="og:url"/>
+                <meta content="https://double16.tech/" property="og:url"/>
                 <meta content="DOUBLE16" property="og:title"/>
                 <meta content="Discover, share, download and sell code snippets on DOUBLE16."
                       property="og:description"/>
 
-                <meta content="https://double16.vercel.app/" property="twitter:url"/>
+                <meta content="https://double16.tech/" property="twitter:url"/>
                 <meta content="DOUBLE16" property="twitter:title"/>
                 <meta content="Discover, share, download and sell code snippets on DOUBLE16."
                       property="twitter:description"/>
@@ -159,7 +159,7 @@ export default function Home() {
                     </Link>
                     <br className="home-content-break"/>
                     <button className="action" onClick={e => {
-                        navigator.clipboard.writeText("https://double16.vercel.app/")
+                        navigator.clipboard.writeText("https://double16.tech/")
                         e.currentTarget.innerText = "✅ LINK COPIED"
                     }}>🔗 SHARE
                     </button>

@@ -141,12 +141,12 @@ export default function Trending() {
                 <meta content="Discover trending code snippets."
                       name="description"/>
 
-                <meta content="https://double16.vercel.app/trending" property="og:url"/>
+                <meta content="https://double16.tech/trending" property="og:url"/>
                 <meta content="DOUBLE16 | Trending" property="og:title"/>
                 <meta content="Discover trending code snippets."
                       property="og:description"/>
 
-                <meta content="https://double16.vercel.app/trending" property="twitter:url"/>
+                <meta content="https://double16.tech/trending" property="twitter:url"/>
                 <meta content="DOUBLE16 | Trending" property="twitter:title"/>
                 <meta content="Discover trending code snippets."
                       property="twitter:description"/>

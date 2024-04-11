@@ -63,12 +63,12 @@ export default function SignIn() {
                 <meta content="Sign in to your DOUBLE16 account."
                       name="description"/>
 
-                <meta content="https://double16.vercel.app/sign-in" property="og:url"/>
+                <meta content="https://double16.tech/sign-in" property="og:url"/>
                 <meta content="DOUBLE16 | Sign In" property="og:title"/>
                 <meta content="Sign in to your DOUBLE16 account."
                       property="og:description"/>
 
-                <meta content="https://double16.vercel.app/sign-in" property="twitter:url"/>
+                <meta content="https://double16.tech/sign-in" property="twitter:url"/>
                 <meta content="DOUBLE16 | Sign In" property="twitter:title"/>
                 <meta content="Sign in to your DOUBLE16 account."
                       property="twitter:description"/>

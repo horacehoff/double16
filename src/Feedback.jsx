@@ -54,12 +54,12 @@ export default function Feedback() {
                 <meta content="Give your feedback on DOUBLE16."
                       name="description"/>
 
-                <meta content="https://double16.vercel.app/feedback" property="og:url"/>
+                <meta content="https://double16.tech/feedback" property="og:url"/>
                 <meta content="DOUBLE16 | Feedback" property="og:title"/>
                 <meta content="Give your feedback on DOUBLE16."
                       property="og:description"/>
 
-                <meta content="https://double16.vercel.app/feedback" property="twitter:url"/>
+                <meta content="https://double16.tech/feedback" property="twitter:url"/>
                 <meta content="DOUBLE16 | Feedback" property="twitter:title"/>
                 <meta content="Give your feedback on DOUBLE16."
                       property="twitter:description"/>

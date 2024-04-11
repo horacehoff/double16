@@ -164,12 +164,12 @@ export default function AccountSettings() {
                 <meta content="Modify your account settings."
                       name="description"/>
 
-                <meta content="https://double16.vercel.app/settings" property="og:url"/>
+                <meta content="https://double16.tech/settings" property="og:url"/>
                 <meta content="DOUBLE16 | Settings" property="og:title"/>
                 <meta content="Modify your account settings."
                       property="og:description"/>
 
-                <meta content="https://double16.vercel.app/settings" property="twitter:url"/>
+                <meta content="https://double16.tech/settings" property="twitter:url"/>
                 <meta content="DOUBLE16 | Settings" property="twitter:title"/>
                 <meta content="Modify your account settings."
                       property="twitter:description"/>

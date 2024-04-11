@@ -12,12 +12,12 @@ export default function About() {
                 <meta content="Made on Earth by humans - Created by Horace Hoff"
                       name="description"/>
 
-                <meta content="https://double16.vercel.app/about" property="og:url"/>
+                <meta content="https://double16.tech/about" property="og:url"/>
                 <meta content="DOUBLE16 | About" property="og:title"/>
                 <meta content="Made on Earth by humans - Created by Horace Hoff"
                       property="og:description"/>
 
-                <meta content="https://double16.vercel.app/about" property="twitter:url"/>
+                <meta content="https://double16.tech/about" property="twitter:url"/>
                 <meta content="DOUBLE16 | About" property="twitter:title"/>
                 <meta content="Made on Earth by humans - Created by Horace Hoff"
                       property="twitter:description"/>
