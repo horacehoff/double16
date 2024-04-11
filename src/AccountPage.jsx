@@ -84,7 +84,7 @@ export default function AccountPage() {
                 if (userdata.github) {
                     document.getElementById(githubcontid).onclick = () => {
                         console.log("clicked")
-                        window.open("https://github.com/" + userdata.username, '_blank').focus()
+                        window.open("https://github.com/" + userdata.github, '_blank').focus()
                     }
                 }
             })
