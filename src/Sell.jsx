@@ -354,7 +354,13 @@ export default function Sell() {
                         <h4>{"Your snippet's code"}</h4>
                     </label>
                     <textarea className="sell-cont-code" id={codeid} value={code}
-                              onChange={e => setCode(e.target.value)}></textarea>
+                              onChange={e => {
+                                  if (e.target.value.length / 1000 > 150) {
+                                      ShowPopUp("ERROR: Code size limit reached (MAX: 150kB)")
+                                  } else {
+                                      setCode(e.target.value)
+                                  }
+                              }}></textarea>
                     {/*<br/><br/>*/}
                     {/*<label className="sell-cont-label-txt" htmlFor={priceid}>*/}
                     {/*    <h3>PRICE</h3>*/}
