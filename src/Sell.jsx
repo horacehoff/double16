@@ -41,6 +41,8 @@ export default function Sell() {
     const [code, setCode] = useState("")
     const licenseid = useId()
     const [license, setLicense] = useState("MIT")
+    const agreementid = useId()
+    const [agreement, setAgreement] = useState(false)
 
     const priceid = useId()
     const [price, setPrice] = useState(0)
@@ -337,7 +339,7 @@ export default function Sell() {
                     </button>
                 </div>
             </li>
-            <li className="sell-cont-part">
+            <li className="sell-cont-part" style={{marginBottom: "0"}}>
                 <div>
                     <label className="sell-cont-label-txt" htmlFor={languageid}>
                         <h3>LANGUAGE</h3>
@@ -397,16 +399,26 @@ export default function Sell() {
                         </option>))}
                     </select>
                     <br/><br/>
-                    <button className="accent sell-cont-nav-btn" onClick={gobkwd}>👈 DESCRIPTION</button>
-                    <br/>
-                    <button className="primary sell-cont-nav-btn sell-cont-code-publish" onClick={e => {
-                        if (!checkValid(code)) {
-                            document.getElementById(codeid).style.borderColor = "red"
-                            setTimeout(() => document.getElementById(codeid).style.borderColor = null
-                                , 2000)
-                        } else {
+                    <input type="checkbox" id={agreementid} className="sell-cont-agreement-checkbox" value={agreement}
+                           onChange={e => setAgreement(!agreement)}/>
+                    <label htmlFor={agreementid}
+                           className="sell-cont-agreement">{"My code is not harmful in any way if used as I specified in the description"}</label>
+                    <br/><br/>
+                    <button className="accent sell-cont-nav-btn sell-cont-publishalt" onClick={gobkwd}>👈</button>
+
+                    <button className="primary sell-cont-nav-btn sell-cont-code-publish" onClick={() => {
+                        if (checkValid(code) && agreement) {
                             document.getElementById(publishbtnid).innerText = "LOADING..."
                             submit()
+                        } else {
+                            if (!checkValid(code)) {
+                                document.getElementById(codeid).style.borderColor = "red"
+                                setTimeout(() => document.getElementById(codeid).style.borderColor = null, 2000)
+                            }
+                            if (!agreement) {
+                                document.getElementById(agreementid).style.borderColor = "red"
+                                setTimeout(() => document.getElementById(agreementid).style.borderColor = null, 2000)
+                            }
                         }
                     }} id={publishbtnid}>PUBLISH
                     </button>

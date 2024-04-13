@@ -251,3 +251,37 @@ textarea {
     display: none;
 }
 
+input[type="checkbox"] {
+    -webkit-appearance: none;
+    appearance: none;
+    border: 1px solid var(--input-border);
+    width: 16px;
+    height: 16px;
+    border-radius: 4px;
+    transition: 0.2s;
+    cursor: pointer;
+}
+
+input[type="checkbox"]:hover {
+    filter: brightness(0.9);
+}
+
+input[type="checkbox"]:checked {
+    background-color: white;
+    background-image: url('data:image/svg+xml;utf8,<svg width="14px" height="14px" stroke-width="2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" color="black"><path d="M5 13L9 17L19 7" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>');
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+
+@media (prefers-color-scheme: light) {
+    input[type="checkbox"] {
+        border-color: var(--select-border);
+    }
+
+    input[type="checkbox"]:checked {
+        background-color: #313131;
+        background-image: url('data:image/svg+xml;utf8,<svg width="14px" height="14px" stroke-width="2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" color="white"><path d="M5 13L9 17L19 7" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>');
+        background-size: 100%;
+        background-repeat: no-repeat;
+    }
+}

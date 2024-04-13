@@ -141,6 +141,23 @@
     outline: 0;
 }
 
+.sell-cont-agreement-checkbox {
+    display: inline-block;
+    position: relative;
+    top: -19px;
+    left: 0;
+    margin-left: 0;
+}
+
+.sell-cont-agreement {
+    display: inline-block;
+    width: 308px;
+    white-space: normal;
+    font-size: 16px;
+    font-family: Inter, sans-serif;
+    color: var(--color);
+}
+
 
 .sell-cont-price {
     width: 220px !important;
@@ -164,12 +181,24 @@
     position: relative;
     left: 15px;
     vertical-align: top;
-
 }
 
 
 .sell-cont-code-publish {
-    margin-top: 5px;
+    margin-top: -30px !important;
+    display: inline-block;
+    width: 277px;
+    margin-bottom: 0 !important;
+}
+
+.sell-cont-publishalt {
+    width: 40px;
+    height: 38.5px;
+    text-align: center;
+    padding: 0 !important;
+    margin-right: 10px;
+    margin-top: -30px !important;
+    margin-bottom: 0 !important;
 }
 
 
