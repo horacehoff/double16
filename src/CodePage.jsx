@@ -324,7 +324,8 @@ export default function CodePage() {
                                                                                       target="_blank">MIT</a></h3>
                     <h4 className="codepgpre-author">by <Link className="link-text" to={"/users/" + codedata.authorid}
                                                               id={authorid}>JuTS-A_MANGO</Link></h4>
-                    <p className="codepgpre-desc" id={descid}>trm-engine is a game engine designed to run in the
+                    <p className="codepgpre-desc codepg-desc" id={descid}>trm-engine is a game engine designed to run in
+                        the
                         terminal,
                         providing
                         a simple and lightweight platform for developing terminal-based games.
