@@ -27,6 +27,9 @@ const KotlinLogo = lazy(() => import('./assets/languages/kotlin.svg?react'));
 const PerlLogo = lazy(() => import('./assets/languages/perl.svg?react'));
 const ObjCLogo = lazy(() => import('./assets/languages/objectivec.svg?react'));
 const LuaLogo = lazy(() => import('./assets/languages/lua.svg?react'));
+const SqlLogo = lazy(() => import('./assets/languages/sql.svg?react'));
+const FortranLogo = lazy(() => import('./assets/languages/fortran.svg?react'));
+
 
 export const cpp = <>
     <Suspense>
@@ -222,9 +225,23 @@ export const wlanguage = <>
     <span className="pgrmicnsp">WLangage</span>
 </>
 
+export const sql = <>
+    <Suspense>
+        <SqlLogo/>
+    </Suspense>
+    <span className="pgrmicnsp">SQL</span>
+</>
 
-export const languages = [c, cpp, css, rust, go, bash, ts, python, arduino, scala, haskell, dart, swift, cs, fs, html, java, js, php, ruby, r, matlab, kotlin, objectivec, lua, assembly, basic, perl, wlanguage]
-export const languages_list = ["C", "C++", "CSS", 'Rust', "Go", "Bash", "TypeScript", "Python", "Arduino", "Scala", "Haskell", "Dart", "Swift", "C#", "F#", "HTML", "Java", "JavaScript", "PHP", "Ruby", "R", "MATLAB", "Kotlin", "Objective-C", "Lua", "Assembly", "BASIC", "Perl", "WLangage"]
+export const fortran = <>
+    <Suspense>
+        <FortranLogo/>
+    </Suspense>
+    <span className="pgrmicnsp">Fortran</span>
+</>
+
+
+export const languages = [c, cpp, css, rust, go, bash, ts, python, arduino, scala, haskell, dart, swift, cs, fs, html, java, js, php, ruby, r, matlab, kotlin, objectivec, lua, assembly, basic, perl, wlanguage, sql, fortran]
+export const languages_list = ["C", "C++", "CSS", 'Rust', "Go", "Bash", "TypeScript", "Python", "Arduino", "Scala", "Haskell", "Dart", "Swift", "C#", "F#", "HTML", "Java", "JavaScript", "PHP", "Ruby", "R", "MATLAB", "Kotlin", "Objective-C", "Lua", "Assembly", "BASIC", "Perl", "WLangage", "SQL", "Fortran"]
 
 export const languageExtensions = {
     "C": ".c",
@@ -255,7 +272,9 @@ export const languageExtensions = {
     "Assembly": ".asm",
     "BASIC": ".bas",
     "Perl": ".pl",
-    "WLangage": ".wlangage"
+    "WLangage": ".wlangage",
+    "SQL": ".sql",
+    "Fortran": ".f90",
 };
 
 export function getLanguageName(input) {
