@@ -3,6 +3,7 @@ import {initializeApp} from "firebase/app";
 import {getAnalytics} from "firebase/analytics";
 import {getAuth, onAuthStateChanged} from "firebase/auth"
 import {doc, getDoc, getFirestore} from "firebase/firestore";
+import {getDownloadURL, getStorage, ref} from "firebase/storage";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -36,3 +37,18 @@ onAuthStateChanged(auth, (user) => {
         })
     }
 })
+
+
+const storage = getStorage();
+getDownloadURL(ref(storage, 'sitemap.txt'))
+    .then((url) => {
+        let storedText;
+
+        fetch(url)
+            .then(function (response) {
+                response.text().then(function (text) {
+                    storedText = text;
+                    alert(storedText)
+                });
+            });
+    })
