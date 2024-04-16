@@ -135,19 +135,19 @@ export default function Trending() {
     return (
         <>
             <Helmet>
-                <title>DOUBLE16 | Trending</title>
-                <meta content="DOUBLE16 | Trending"
+                <title>Double16 | Trending</title>
+                <meta content="Double16 | Trending"
                       name="title"/>
                 <meta content="Discover trending code snippets."
                       name="description"/>
 
                 <meta content="https://www.double16.tech/trending" property="og:url"/>
-                <meta content="DOUBLE16 | Trending" property="og:title"/>
+                <meta content="Double16 | Trending" property="og:title"/>
                 <meta content="Discover trending code snippets."
                       property="og:description"/>
 
                 <meta content="https://www.double16.tech/trending" property="twitter:url"/>
-                <meta content="DOUBLE16 | Trending" property="twitter:title"/>
+                <meta content="Double16 | Trending" property="twitter:title"/>
                 <meta content="Discover trending code snippets."
                       property="twitter:description"/>
             </Helmet>

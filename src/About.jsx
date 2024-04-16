@@ -6,24 +6,24 @@ export default function About() {
     return (
         <>
             <Helmet>
-                <title>DOUBLE16 | About</title>
-                <meta content="DOUBLE16 | About"
+                <title>Double16 | About</title>
+                <meta content="Double16 | About"
                       name="title"/>
                 <meta content="Made on Earth by humans - Created by Horace Hoff"
                       name="description"/>
 
                 <meta content="https://www.double16.tech/about" property="og:url"/>
-                <meta content="DOUBLE16 | About" property="og:title"/>
+                <meta content="Double16 | About" property="og:title"/>
                 <meta content="Made on Earth by humans - Created by Horace Hoff"
                       property="og:description"/>
 
                 <meta content="https://www.double16.tech/about" property="twitter:url"/>
-                <meta content="DOUBLE16 | About" property="twitter:title"/>
+                <meta content="Double16 | About" property="twitter:title"/>
                 <meta content="Made on Earth by humans - Created by Horace Hoff"
                       property="twitter:description"/>
             </Helmet>
             <div className="about-cnt">
-                <img src={banner} alt="DOUBLE16 Banner"/>
+                <img src={banner} alt="Double16 Banner"/>
                 <p>Made on Earth by humans<br/>Created by <a className="action-text"
                                                              href="https://linktr.ee/just_a_mango"
                                                              target="_blank"

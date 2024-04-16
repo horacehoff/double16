@@ -45,7 +45,7 @@ export default function SignUp() {
                         id: userid,
                         email: email,
                         username: username,
-                        bio: "Hi, I'm new to DOUBLE16!",
+                        bio: "Hi, I'm new to Double16!",
                         following: [],
                         ownedsnippets: [],
                         banner: "https://source.boringavatars.com/marble/500/" + username + "?colors=000000,FFFFFF,0E26EA,B700FF,FF0000&square"
@@ -86,20 +86,20 @@ export default function SignUp() {
     return (
         <>
             <Helmet>
-                <title>DOUBLE16 | Sign Up</title>
-                <meta content="DOUBLE16 | Sign Up"
+                <title>Double16 | Sign Up</title>
+                <meta content="Double16 | Sign Up"
                       name="title"/>
-                <meta content="Create a DOUBLE16 account."
+                <meta content="Create a Double16 account."
                       name="description"/>
 
                 <meta content="https://www.double16.tech/sign-up" property="og:url"/>
-                <meta content="DOUBLE16 | Sign Up" property="og:title"/>
-                <meta content="Create a DOUBLE16 account."
+                <meta content="Double16 | Sign Up" property="og:title"/>
+                <meta content="Create a Double16 account."
                       property="og:description"/>
 
                 <meta content="https://www.double16.tech/sign-up" property="twitter:url"/>
-                <meta content="DOUBLE16 | Sign Up" property="twitter:title"/>
-                <meta content="Create a DOUBLE16 account."
+                <meta content="Double16 | Sign Up" property="twitter:title"/>
+                <meta content="Create a Double16 account."
                       property="twitter:description"/>
             </Helmet>
             <form className="sign-form">

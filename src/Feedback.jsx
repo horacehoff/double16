@@ -48,20 +48,20 @@ export default function Feedback() {
     return (
         <>
             <Helmet>
-                <title>DOUBLE16 | Feedback</title>
-                <meta content="DOUBLE16 | Feedback"
+                <title>Double16 | Feedback</title>
+                <meta content="Double16 | Feedback"
                       name="title"/>
-                <meta content="Give your feedback on DOUBLE16."
+                <meta content="Give your feedback on Double16."
                       name="description"/>
 
                 <meta content="https://www.double16.tech/feedback" property="og:url"/>
-                <meta content="DOUBLE16 | Feedback" property="og:title"/>
-                <meta content="Give your feedback on DOUBLE16."
+                <meta content="Double16 | Feedback" property="og:title"/>
+                <meta content="Give your feedback on Double16."
                       property="og:description"/>
 
                 <meta content="https://www.double16.tech/feedback" property="twitter:url"/>
-                <meta content="DOUBLE16 | Feedback" property="twitter:title"/>
-                <meta content="Give your feedback on DOUBLE16."
+                <meta content="Double16 | Feedback" property="twitter:title"/>
+                <meta content="Give your feedback on Double16."
                       property="twitter:description"/>
             </Helmet>
             <h1 className="pg-heading" id="pg-heading">FEEDBACK</h1>

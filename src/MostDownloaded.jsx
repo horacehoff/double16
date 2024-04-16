@@ -135,19 +135,19 @@ export default function MostDownloaded() {
     return (
         <>
             <Helmet>
-                <title>DOUBLE16 | Most downloaded</title>
-                <meta content="DOUBLE16 | Most downloaded"
+                <title>Double16 | Most downloaded</title>
+                <meta content="Double16 | Most downloaded"
                       name="title"/>
                 <meta content="Discover the most downloaded code snippets."
                       name="description"/>
 
                 <meta content="https://www.double16.tech/most-downloaded" property="og:url"/>
-                <meta content="DOUBLE16 | Most downloaded" property="og:title"/>
+                <meta content="Double16 | Most downloaded" property="og:title"/>
                 <meta content="Discover the most downloaded code snippets."
                       property="og:description"/>
 
                 <meta content="https://www.double16.tech/most-downloaded" property="twitter:url"/>
-                <meta content="DOUBLE16 | Most downloaded" property="twitter:title"/>
+                <meta content="Double16 | Most downloaded" property="twitter:title"/>
                 <meta content="Discover the most downloaded code snippets."
                       property="twitter:description"/>
             </Helmet>

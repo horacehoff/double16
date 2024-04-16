@@ -158,19 +158,19 @@ export default function AccountSettings() {
     return (
         <>
             <Helmet>
-                <title>DOUBLE16 | Settings</title>
-                <meta content="DOUBLE16 | Settings"
+                <title>Double16 | Settings</title>
+                <meta content="Double16 | Settings"
                       name="title"/>
                 <meta content="Modify your account settings."
                       name="description"/>
 
                 <meta content="https://www.double16.tech/settings" property="og:url"/>
-                <meta content="DOUBLE16 | Settings" property="og:title"/>
+                <meta content="Double16 | Settings" property="og:title"/>
                 <meta content="Modify your account settings."
                       property="og:description"/>
 
                 <meta content="https://www.double16.tech/settings" property="twitter:url"/>
-                <meta content="DOUBLE16 | Settings" property="twitter:title"/>
+                <meta content="Double16 | Settings" property="twitter:title"/>
                 <meta content="Modify your account settings."
                       property="twitter:description"/>
             </Helmet>

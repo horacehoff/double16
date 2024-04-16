@@ -157,19 +157,19 @@ export default function Explore() {
     return (
         <>
             <Helmet>
-                <title>DOUBLE16 | Explore</title>
-                <meta content="DOUBLE16 | Explore"
+                <title>Double16 | Explore</title>
+                <meta content="Double16 | Explore"
                       name="title"/>
                 <meta content="Explore and discover code snippets."
                       name="description"/>
 
                 <meta content="https://www.double16.tech/explore" property="og:url"/>
-                <meta content="DOUBLE16 | Explore" property="og:title"/>
+                <meta content="Double16 | Explore" property="og:title"/>
                 <meta content="Explore and discover code snippets."
                       property="og:description"/>
 
                 <meta content="https://www.double16.tech/explore" property="twitter:url"/>
-                <meta content="DOUBLE16 | Explore" property="twitter:title"/>
+                <meta content="Double16 | Explore" property="twitter:title"/>
                 <meta content="Explore and discover code snippets."
                       property="twitter:description"/>
             </Helmet>

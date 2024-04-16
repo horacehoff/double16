@@ -170,19 +170,19 @@ export default function Sell() {
 
     return (<>
         <Helmet>
-            <title>DOUBLE16 | Sell</title>
-            <meta content="DOUBLE16 | Sell"
+            <title>Double16 | Sell</title>
+            <meta content="Double16 | Sell"
                   name="title"/>
             <meta content="Sell and share your code snippet."
                   name="description"/>
 
             <meta content="https://www.double16.tech/sell" property="og:url"/>
-            <meta content="DOUBLE16 | Sell" property="og:title"/>
+            <meta content="Double16 | Sell" property="og:title"/>
             <meta content="Sell and share your code snippet."
                   property="og:description"/>
 
             <meta content="https://www.double16.tech/sell" property="twitter:url"/>
-            <meta content="DOUBLE16 | Sell" property="twitter:title"/>
+            <meta content="Double16 | Sell" property="twitter:title"/>
             <meta content="Sell and share your code snippet."
                   property="twitter:description"/>
         </Helmet>

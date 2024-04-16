@@ -113,7 +113,7 @@ function OldHome() {
                href="https://www.producthunt.com/posts/double16?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-double16"
                target="_blank" rel="noreferrer"><img
                 src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=443578&theme=light"
-                alt="DOUBLE16 - Code&#0032;marketplace&#0032;to&#0032;download&#0044;&#0032;buy&#0044;&#0032;or&#0032;sell&#0032;code&#0032;snippets&#0046; | Product Hunt"
+                alt="Double16 - Code&#0032;marketplace&#0032;to&#0032;download&#0044;&#0032;buy&#0044;&#0032;or&#0032;sell&#0032;code&#0032;snippets&#0046; | Product Hunt"
                 style={{width: '250px', height: '54px'}} width="250" height="54"/></a>
         </>
     )

@@ -5,19 +5,19 @@ export default function FourZeroFour() {
     return (
         <>
             <Helmet>
-                <title>DOUBLE16 | 404</title>
-                <meta content="DOUBLE16 | 404"
+                <title>Double16 | 404</title>
+                <meta content="Double16 | 404"
                       name="title"/>
                 <meta content="404 - The requested page was not found."
                       name="description"/>
 
                 <meta content="https://www.double16.tech/404" property="og:url"/>
-                <meta content="DOUBLE16 | 404" property="og:title"/>
+                <meta content="Double16 | 404" property="og:title"/>
                 <meta content="404 - The requested page was not found."
                       property="og:description"/>
 
                 <meta content="https://www.double16.tech/404" property="twitter:url"/>
-                <meta content="DOUBLE16 | 404" property="twitter:title"/>
+                <meta content="Double16 | 404" property="twitter:title"/>
                 <meta content="404 - The requested page was not found."
                       property="twitter:description"/>
             </Helmet>

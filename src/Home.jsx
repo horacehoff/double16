@@ -22,7 +22,7 @@ export default function Home() {
             {[...Array(Math.floor(Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0) / 100))].map((_, index) => (
                 <>
                     <li>
-                        <img src={logo} alt="DOUBLE16"/>
+                        <img src={logo} alt="Double16"/>
                     </li>
                 </>
             ))}
@@ -127,20 +127,20 @@ export default function Home() {
     return (
         <>
             <Helmet>
-                <title>DOUBLE16</title>
-                <meta content="DOUBLE16"
+                <title>Double16</title>
+                <meta content="Double16"
                       name="title"/>
-                <meta content="Discover, share, download and sell code snippets on DOUBLE16."
+                <meta content="Discover, share, download and sell code snippets on Double16."
                       name="description"/>
 
                 <meta content="https://www.double16.tech/" property="og:url"/>
-                <meta content="DOUBLE16" property="og:title"/>
-                <meta content="Discover, share, download and sell code snippets on DOUBLE16."
+                <meta content="Double16" property="og:title"/>
+                <meta content="Discover, share, download and sell code snippets on Double16."
                       property="og:description"/>
 
                 <meta content="https://www.double16.tech/" property="twitter:url"/>
-                <meta content="DOUBLE16" property="twitter:title"/>
-                <meta content="Discover, share, download and sell code snippets on DOUBLE16."
+                <meta content="Double16" property="twitter:title"/>
+                <meta content="Discover, share, download and sell code snippets on Double16."
                       property="twitter:description"/>
             </Helmet>
             <div className="home-wrapper" id="home-wrapper">
@@ -150,7 +150,7 @@ export default function Home() {
 
 
             <div className="home-content">
-                <img src={logo} alt="DOUBLE16"/>
+                <img src={logo} alt="Double16"/>
                 <h1 id="home-content-subtitle">CODE MARKETPLACE MADE FOR BUYING AND SELLING CODE SNIPPETS</h1>
                 <br/><br/>
                 <div className="home-content-action">

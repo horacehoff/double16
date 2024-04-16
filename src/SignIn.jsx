@@ -58,20 +58,20 @@ export default function SignIn() {
     return (
         <>
             <Helmet>
-                <title>DOUBLE16 | Sign In</title>
-                <meta content="DOUBLE16 | Sign In"
+                <title>Double16 | Sign In</title>
+                <meta content="Double16 | Sign In"
                       name="title"/>
-                <meta content="Sign in to your DOUBLE16 account."
+                <meta content="Sign in to your Double16 account."
                       name="description"/>
 
                 <meta content="https://www.double16.tech/sign-in" property="og:url"/>
-                <meta content="DOUBLE16 | Sign In" property="og:title"/>
-                <meta content="Sign in to your DOUBLE16 account."
+                <meta content="Double16 | Sign In" property="og:title"/>
+                <meta content="Sign in to your Double16 account."
                       property="og:description"/>
 
                 <meta content="https://www.double16.tech/sign-in" property="twitter:url"/>
-                <meta content="DOUBLE16 | Sign In" property="twitter:title"/>
-                <meta content="Sign in to your DOUBLE16 account."
+                <meta content="Double16 | Sign In" property="twitter:title"/>
+                <meta content="Sign in to your Double16 account."
                       property="twitter:description"/>
             </Helmet>
             <form className="sign-form">

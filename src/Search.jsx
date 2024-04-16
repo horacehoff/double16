@@ -123,19 +123,19 @@ export default function Search() {
     return (
         <>
             <Helmet>
-                <title>DOUBLE16 | Search</title>
-                <meta content="DOUBLE16 | Search"
+                <title>Double16 | Search</title>
+                <meta content="Double16 | Search"
                       name="title"/>
                 <meta content="Search and find the exact code snippet you need."
                       name="description"/>
 
                 <meta content="https://www.double16.tech/search" property="og:url"/>
-                <meta content="DOUBLE16 | Search" property="og:title"/>
+                <meta content="Double16 | Search" property="og:title"/>
                 <meta content="Search and find the exact code snippet you need."
                       property="og:description"/>
 
                 <meta content="https://www.double16.tech/search" property="twitter:url"/>
-                <meta content="DOUBLE16 | Search" property="twitter:title"/>
+                <meta content="Double16 | Search" property="twitter:title"/>
                 <meta content="Search and find the exact code snippet you need."
                       property="twitter:description"/>
             </Helmet>

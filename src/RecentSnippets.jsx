@@ -135,19 +135,19 @@ export default function RecentSnippets() {
     return (
         <>
             <Helmet>
-                <title>DOUBLE16 | Recent</title>
-                <meta content="DOUBLE16 | Recent"
+                <title>Double16 | Recent</title>
+                <meta content="Double16 | Recent"
                       name="title"/>
                 <meta content="Discover recently published code snippets."
                       name="description"/>
 
                 <meta content="https://www.double16.tech/recently-published" property="og:url"/>
-                <meta content="DOUBLE16 | Recent" property="og:title"/>
+                <meta content="Double16 | Recent" property="og:title"/>
                 <meta content="Discover recently published code snippets."
                       property="og:description"/>
 
                 <meta content="https://www.double16.tech/recently-published" property="twitter:url"/>
-                <meta content="DOUBLE16 | Recent" property="twitter:title"/>
+                <meta content="Double16 | Recent" property="twitter:title"/>
                 <meta content="Discover recently published code snippets."
                       property="twitter:description"/>
             </Helmet>
