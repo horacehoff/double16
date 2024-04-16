@@ -235,7 +235,7 @@ export default function AccountPage() {
                     <span id={githubid}>{" just-a-mango"}</span>
                 </p>
                 <p className="ucntinf" id={followid} style={{display: "none"}}>👨‍💻 LOADING...</p>
-                <p className="ucntdsc" id={bioid}>LOADING...</p>
+                <h2 className="ucntdsc" id={bioid}>LOADING...</h2>
 
 
                 <div id={snippetsid}>

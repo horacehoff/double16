@@ -312,7 +312,7 @@ export default function CodePage() {
                         }}><span className="emojifix">❤️</span>️ FAVORITE
                         </button>
                     </div>
-                    <h2 className="codepgpre-title" id={nameid}>FIBONACCI SEQUENCE CALCULATOR</h2>
+                    <h1 className="codepgpre-title" id={nameid}>FIBONACCI SEQUENCE CALCULATOR</h1>
                     <h3 className="codepgpre-info">💵 <span id={priceidb}>5</span>$ <span
                         className="codepgpre-infosep">-</span> <span id={languageid}>{language}</span> <span
                         className="codepgpre-infosep">-</span> 👍<span id={likesid}>1K</span> <span
@@ -324,7 +324,8 @@ export default function CodePage() {
                                                                                       target="_blank">MIT</a></h3>
                     <h4 className="codepgpre-author">by <Link className="link-text" to={"/users/" + codedata.authorid}
                                                               id={authorid}>JuTS-A_MANGO</Link></h4>
-                    <p className="codepgpre-desc codepg-desc" id={descid}>trm-engine is a game engine designed to run in
+                    <h2 className="codepgpre-desc codepg-desc" id={descid}>trm-engine is a game engine designed to run
+                        in
                         the
                         terminal,
                         providing
@@ -336,7 +337,7 @@ export default function CodePage() {
                         accessible to a wide variety of people and platforms.
                         trm-engine provides a simple and flexible platform for creating games in the terminal, making it
                         ideal for hobbyist game developers or those looking to learn game development concepts in a
-                        lightweight and accessible manner.</p>
+                        lightweight and accessible manner.</h2>
                 </div>
                 <div className="codepgpre-bg" id={ratepopup} onClick={e => {
                     if (e.target === e.currentTarget) {
