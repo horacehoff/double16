@@ -214,7 +214,7 @@ export default function Navbar() {
                             navAccountMenuDivRef.current.style.right = "-200px";
                         }
                     }}>
-                        <span className="emojifix">⬅️</span> BACK
+                        {"<-"}
                     </li>
                     <li><Link to="" id={menuaccountid}>ACCOUNT</Link></li>
                     <li><Link to="" id={menusettingsid}>SETTINGS</Link></li>
