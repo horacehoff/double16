@@ -2,7 +2,7 @@ import "./SignUp.css"
 import {useId, useState} from "react";
 import {Link, useNavigate} from "react-router-dom";
 import {createUserWithEmailAndPassword} from "firebase/auth";
-import {doc, setDoc} from "firebase/firestore";
+import {collection, doc, getCountFromServer, query, setDoc, where} from "firebase/firestore";
 import {auth, db} from "./firebase.js"
 import {Helmet} from "react-helmet";
 
@@ -23,6 +23,15 @@ export default function SignUp() {
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
 
+
+    const showError = (errormsg) => {
+        document.getElementById(errorid).innerText = "ERROR: " + errormsg
+        document.getElementById(errorid).style.opacity = "1"
+        setTimeout(() => document.getElementById(errorid).style.opacity = "0", 5000)
+    }
+
+
+
     function submit(e) {
         e.preventDefault()
         if (username === "" || !username.trim()) {
@@ -38,43 +47,46 @@ export default function SignUp() {
             setTimeout(() => document.getElementById(passwordid).style.borderColor = null, 2000)
         }
         if (username !== "" && username.trim() && email !== "" && email.trim() && password !== "" && password.trim()) {
-            createUserWithEmailAndPassword(auth, email, password)
-                .then((user) => {
-                    let userid = user.user.uid
-                    setDoc(doc(db, "users", userid), {
-                        id: userid,
-                        email: email,
-                        username: username,
-                        bio: "Hi, I'm new to Double16!",
-                        following: [],
-                        ownedsnippets: [],
-                        banner: "https://source.boringavatars.com/marble/500/" + username + "?colors=000000,FFFFFF,0E26EA,B700FF,FF0000&square"
-                    }).then(() => {
-                        navigate("/")
-                    })
-                })
-                .catch((error) => {
+            const coll = collection(db, "users");
+            const q = query(coll, where("username", "==", username));
+            const snapshot = getCountFromServer(q).then((countdata) => {
+                if (countdata.data().count === 0) {
+                    console.log('count: ', snapshot.data().count);
+                    createUserWithEmailAndPassword(auth, email, password)
+                        .then((user) => {
+                            let userid = user.user.uid
+                            setDoc(doc(db, "users", userid), {
+                                id: userid,
+                                email: email,
+                                username: username,
+                                bio: "Hi, I'm new to Double16!",
+                                following: [],
+                                ownedsnippets: [],
+                                banner: "https://source.boringavatars.com/marble/500/" + username + "?colors=000000,FFFFFF,0E26EA,B700FF,FF0000&square"
+                            }).then(() => {
+                                navigate("/")
+                            })
+                        })
+                        .catch((error) => {
+                            document.getElementById(signupid).innerHTML = "SIGN UP"
+                            const errorCode = error.code;
+                            const errorMessage = error.message;
+                            if (errorCode === "auth/invalid-email") {
+                                showError("INVALID EMAIL")
+                            } else if (errorCode === "auth/weak-password") {
+                                showError("PASSWORD TOO WEAK")
+                            } else if (errorCode === "auth/email-already-in-use") {
+                                showError("EMAIL ALREADY IN USE")
+                            } else {
+                                showError(errorCode)
+                            }
+                            console.log(errorCode, errorMessage)
+                        });
+                } else {
                     document.getElementById(signupid).innerHTML = "SIGN UP"
-                    const showError = (errormsg) => {
-                        document.getElementById(errorid).innerText = "ERROR: " + errormsg
-                        document.getElementById(errorid).style.opacity = "1"
-                        setTimeout(() => document.getElementById(errorid).style.opacity = "0", 5000)
-                    }
-                    const errorCode = error.code;
-                    const errorMessage = error.message;
-                    if (errorCode === "auth/invalid-email") {
-                        showError("INVALID EMAIL")
-                    } else if (errorCode === "auth/weak-password") {
-                        showError("PASSWORD TOO WEAK")
-                    } else if (errorCode === "auth/email-already-in-use") {
-                        showError("EMAIL ALREADY IN USE")
-                    } else {
-                        showError(errorCode)
-                    }
-                    console.log(errorCode, errorMessage)
-                });
-
-
+                    showError("USERNAME ALREADY IN USE")
+                }
+            });
         }
     }
 
@@ -105,11 +117,11 @@ export default function SignUp() {
             <form className="sign-form">
                 <h1>SIGN_UP</h1>
                 <p id={errorid} className="error-notice">ERROR: USERNAME ALREADY EXISTS</p>
-                <input id={usernameid} type="text" placeholder="@username" name="username" autoComplete="username"
+                <input id={usernameid} type="text" placeholder="Username" name="username" autoComplete="username"
                        value={username} onChange={e => setUsername(e.target.value)}/><br/>
-                <input id={emailid} type="email" placeholder="@email" name="email" autoComplete="email" value={email}
+                <input id={emailid} type="email" placeholder="Email" name="email" autoComplete="email" value={email}
                        onChange={e => setEmail(e.target.value)}/><br/>
-                <input id={passwordid} type="password" placeholder="@password" name="psw" autoComplete="new-password"
+                <input id={passwordid} type="password" placeholder="Password" name="psw" autoComplete="new-password"
                        value={password} onChange={e => setPassword(e.target.value)}/><br/>
                 <button id={signupid} type="submit" className="primary" onClick={e => {
                     document.getElementById(signupid).innerHTML = "LOADING..."

@@ -128,7 +128,7 @@ export default function Explore() {
                             document.getElementById("aut").onclick = (e) => {
                                 e.preventDefault()
                                 document.getElementById("root").style.pointerEvents = "all"
-                                navigate("/users/" + codesnippet.authorid)
+                                navigate("/" + codesnippet.authorusername)
                             }
                         }}>
                             <CodeCard pkg={{

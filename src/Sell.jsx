@@ -199,14 +199,14 @@ export default function Sell() {
                         <h3>NAME</h3>
                         <h4>A good, and preferably short name for your code snippet</h4>
                     </label>
-                    <input type="text" placeholder="@awesome_name" id={nameid} value={name}
+                    <input type="text" placeholder="awesome_name" id={nameid} value={name}
                            onChange={e => setName(e.target.value)}/>
                     <br/><br/>
                     <label className="sell-cont-label-txt" htmlFor={catchphraseid}>
                         <h3>CATCHPHRASE</h3>
                         <h4>A quick, short, and concise description for your code snippet</h4>
                     </label>
-                    <input type="text" placeholder="@good_catchphrase" id={catchphraseid} value={catchphrase}
+                    <input type="text" placeholder="good_catchphrase" id={catchphraseid} value={catchphrase}
                            onChange={e => setCatchphrase(e.target.value)}/>
                     <br/><br/>
                     <label className="sell-cont-label-txt sell-cont-label-txt-banner" htmlFor={bannerid}>
@@ -321,7 +321,7 @@ export default function Sell() {
                     {/*<textarea placeholder="@great_description" id={descid}/>*/}
                     {/*<div className="sell-cont-mdeditor">*/}
                     {/*<MarkdownEditor value="Hello Markdown!" />*/}
-                    <textarea placeholder="@great_description" id={descid} className="sell-cont-mdeditor"
+                    <textarea placeholder="great_description" id={descid} className="sell-cont-mdeditor"
                               value={desc} onChange={e => setDesc(e.target.value)}/>
                     {/*</div>*/}
                     <br/>

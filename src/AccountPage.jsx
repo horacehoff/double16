@@ -1,7 +1,7 @@
 import "./AccountPage.css"
 import {useEffect, useId, useState} from "react";
 import {useNavigate, useParams} from "react-router-dom";
-import {collection, doc, getCountFromServer, getDoc, getDocs, query, updateDoc, where} from "firebase/firestore";
+import {collection, doc, getCountFromServer, getDocs, query, updateDoc, where} from "firebase/firestore";
 import {db, userdb} from "./firebase.js";
 import shortNumber from "short-number"
 import ShortNumber from "short-number"
@@ -33,14 +33,19 @@ export default function AccountPage() {
     const [isRun, setIsRun] = useState(false)
     const [userSnippets, setUserSnippets] = useState([])
     if (!isRun) {
-        const usersRef = doc(db, "users", userid);
-        getDoc(usersRef).then((docSnapshot) => {
-            if (docSnapshot.exists()) {
-                setUserdata(docSnapshot.data())
+        const usersRef = collection(db, "users");
+        const q = query(usersRef, where("username", "==", userid));
+
+        getDocs(q).then((querySnapshot) => {
+            let has_validated = false
+            querySnapshot.forEach((doc) => {
+                setUserdata(doc.data())
                 setIsRun(true)
-            } else {
+                has_validated = true
+            })
+            if (!has_validated) (
                 navigate("/404")
-            }
+            )
         })
     }
 
@@ -155,7 +160,7 @@ export default function AccountPage() {
                             document.getElementById("aut").onclick = (e) => {
                                 e.preventDefault()
                                 document.getElementById("root").style.pointerEvents = "all"
-                                navigate("/users/" + codesnippet.authorid)
+                                navigate("/" + codesnippet.authorusername)
                             }
                         }}>
                             <CodeCard pkg={{
