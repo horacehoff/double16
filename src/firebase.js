@@ -3,7 +3,6 @@ import {initializeApp} from "firebase/app";
 import {getAnalytics} from "firebase/analytics";
 import {getAuth, onAuthStateChanged} from "firebase/auth"
 import {doc, getDoc, getFirestore} from "firebase/firestore";
-import {getDownloadURL, getStorage, ref} from "firebase/storage";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -39,16 +38,25 @@ onAuthStateChanged(auth, (user) => {
 })
 
 
-const storage = getStorage();
-getDownloadURL(ref(storage, 'sitemap.txt'))
-    .then((url) => {
-        let storedText;
-
-        fetch(url)
-            .then(function (response) {
-                response.text().then(function (text) {
-                    storedText = text;
-                    alert(storedText)
-                });
-            });
-    })
+// UNCOMMENT ONCE TO GENERATE SITEMAP
+// const storage = getStorage();
+// getDownloadURL(ref(storage, 'sitemap.txt'))
+//     .then((url) => {
+//         let storedText;
+//
+//         fetch(url)
+//             .then(function (response) {
+//                 response.text().then(function (text) {
+//                     storedText = text;
+//                     let sitemap = ""
+//
+//                     let split_sitemap = storedText.split("\n")
+//                     for (let i = 0; i < split_sitemap.length; i++) {
+//                         // console.log(split_sitemap[i].split("###")[1])
+//                         let date = new Date(Number(split_sitemap[i].split("###")[1]))
+//                         sitemap+= "<url>\n<loc>https://www.double16.tech/code/"+split_sitemap[i].split("###")[0]+"</loc>\n<lastmod>"+date.toISOString()+"</lastmod>\n</url>\n"
+//                     }
+//                     console.log(sitemap)
+//                 });
+//             });
+//     })

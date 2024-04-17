@@ -1,7 +1,7 @@
 import "./Sell.css"
 import {useEffect, useId, useState} from "react";
 import {languages_list} from "./lang.jsx";
-import {getDownloadURL, getStorage, ref, uploadBytes} from "firebase/storage";
+import {getDownloadURL, getStorage, ref, uploadBytes, uploadString} from "firebase/storage";
 import {app, db, userdb} from "./firebase.js"
 import {doc, getDoc, updateDoc} from "firebase/firestore";
 import {useNavigate, useParams} from "react-router-dom";
@@ -135,6 +135,7 @@ export default function EditCodePage() {
 
     async function update() {
         if (checkValid(name) && checkValid(catchphrase) && checkValid(desc) && checkValid(code)) {
+            let update_date = Date.now()
             if (banner) {
                 const bannerRef = ref(storage, 'codesnippets/' + codedata.id + "/banner/banner.webp");
                 await uploadBytes(bannerRef, banner).then(async () => {
@@ -147,7 +148,7 @@ export default function EditCodePage() {
                             bannerUrl: url,
                             codeLanguage: language,
                             code: compressToBase64(encrypt(code, codedata.id + "-" + codedata.crypto + "-" + codedata.id)),
-                            updated: Date.now(),
+                            updated: update_date,
                             char: code.match(/\S/g).length,
                             lines: code.split(/\r|\r\n|\n/).length,
                             price: 0
@@ -162,12 +163,32 @@ export default function EditCodePage() {
                     bannerUrl: codedata.bannerUrl,
                     codeLanguage: language,
                     code: compressToBase64(encrypt(code, codedata.id + "-" + codedata.crypto + "-" + codedata.id)),
-                    updated: Date.now(),
+                    updated: update_date,
                     char: code.match(/\S/g).length,
                     lines: code.split(/\r|\r\n|\n/).length,
                     price: 0
                 })
             }
+            const storage = getStorage();
+            getDownloadURL(ref(storage, 'sitemap.txt'))
+                .then((url) => {
+                    let storedText;
+
+                    fetch(url)
+                        .then(function (response) {
+                            response.text().then(function (text) {
+                                storedText = text;
+                                storedText = storedText.replace(codedata.id + "###" + codedata.updated, codedata.id + "###" + update_date)
+                                const storageRef = ref(storage, 'sitemap.txt');
+                                console.log("did it!!!!!")
+
+                                uploadString(storageRef, storedText).then(() => {
+                                    navigate("/code/" + codedata.id)
+                                    window.location.reload()
+                                })
+                            });
+                        });
+                })
 
         }
     }
@@ -350,10 +371,7 @@ export default function EditCodePage() {
                                 , 2000)
                         } else {
                             document.getElementById(publishbtnid).innerText = "LOADING..."
-                            update().then(() => {
-                                navigate("/code/" + codedata.id)
-                                window.location.reload()
-                            })
+                            update()
                         }
                     }} id={publishbtnid}>UPDATE
                     </button>

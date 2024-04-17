@@ -2,7 +2,7 @@ import "./Sell.css"
 import {useEffect, useId, useState} from "react";
 import {languages_list} from "./lang.jsx";
 import {v1} from "uuid";
-import {getDownloadURL, getStorage, ref, uploadBytes} from "firebase/storage";
+import {getDownloadURL, getStorage, ref, uploadBytes, uploadString} from "firebase/storage";
 import {app, db, userdb} from "./firebase.js"
 import {doc, setDoc} from "firebase/firestore";
 import {useNavigate,} from "react-router-dom";
@@ -117,6 +117,7 @@ export default function Sell() {
                 getDownloadURL(bannerRef).then((url) => {
                     uploadBytes(smallBannerRef, bannerSmall).then(() => {
                         getDownloadURL(smallBannerRef).then((miniUrl) => {
+                            let creation_date = Date.now()
                             setDoc(doc(db, "codesnippets", uuid), {
                                 title: name,
                                 catchphrase: catchphrase,
@@ -131,8 +132,8 @@ export default function Sell() {
                                 authorusername: userdb.username,
                                 likes: [],
                                 dislikes: [],
-                                created: Date.now(),
-                                updated: Date.now(),
+                                created: creation_date,
+                                updated: creation_date,
                                 char: code.match(/\S/g).length,
                                 lines: code.split(/\r|\r\n|\n/).length,
                                 crypto: cryptouuid,
@@ -140,10 +141,30 @@ export default function Sell() {
                                 downloads: [],
                                 downloadslen: 0
                             }).then(() => {
-                                document.getElementById(publishbtnid).innerText = "PUBLISHED 🎉"
-                                setTimeout(() => {
-                                    navigate("/code/" + uuid)
-                                }, 500)
+                                const storage = getStorage();
+                                getDownloadURL(ref(storage, 'sitemap.txt'))
+                                    .then((url) => {
+                                        let storedText;
+
+                                        fetch(url)
+                                            .then(function (response) {
+                                                response.text().then(function (text) {
+                                                    storedText = text;
+                                                    storedText += "\n" + uuid + "###" + creation_date
+                                                    const storageRef = ref(storage, 'sitemap.txt');
+
+
+                                                    uploadString(storageRef, storedText).then((snapshot) => {
+                                                        // console.log('Uploaded a raw string!');
+                                                        document.getElementById(publishbtnid).innerText = "PUBLISHED 🎉"
+                                                        setTimeout(() => {
+                                                            navigate("/code/" + uuid)
+                                                        }, 500)
+                                                    });
+                                                });
+                                            });
+                                    })
+
                             })
                         })
                     })

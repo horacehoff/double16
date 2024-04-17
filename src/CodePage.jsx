@@ -10,7 +10,7 @@ import timeago from 'epoch-timeago';
 import Loading from "./Loading.jsx";
 import {decrypt} from "./encrypt.js";
 import {decompressFromBase64} from "lz-string";
-import {deleteObject, getStorage, ref} from "firebase/storage";
+import {deleteObject, getDownloadURL, getStorage, ref, uploadString} from "firebase/storage";
 import {licenses} from "./licenses.jsx";
 
 
@@ -126,8 +126,25 @@ export default function CodePage() {
                         deleteObject(bannerRef)
                         deleteObject(bannerMinRef)
                         deleteDoc(doc(db, "codesnippets", codedata.id))
+                        getDownloadURL(ref(storage, 'sitemap.txt'))
+                            .then((url) => {
+                                let storedText;
 
-                        navigate("/")
+                                fetch(url)
+                                    .then(function (response) {
+                                        response.text().then(function (text) {
+                                            storedText = text;
+                                            storedText = storedText.replace(codedata.id + "###" + codedata.updated, "")
+                                            const storageRef = ref(storage, 'sitemap.txt');
+                                            console.log("did it!!!!!")
+
+                                            uploadString(storageRef, storedText).then(() => {
+                                                navigate("/")
+
+                                            })
+                                        });
+                                    });
+                            })
 
                     }
                 }
