@@ -72,6 +72,10 @@
     display: none;
 }
 
+.nav-list-signup-hover:hover > .nav-list-account {
+    display: block;
+}
+
 .nav-list-account * {
     position: relative;
     width: 67.2px !important;
@@ -91,7 +95,7 @@
 }
 
 .nav-list-account a:last-of-type {
-    top: 9px;
+    top: -5px;
 }
 
 .nav-menu {

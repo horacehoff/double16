@@ -2,7 +2,7 @@ import "./Navbar.css"
 import Logo from "./assets/navlogo.svg?react"
 import {useEffect, useId, useRef} from "react";
 import {Link, useLocation, useNavigate} from "react-router-dom";
-import {auth} from "./firebase.js"
+import {auth, userdb} from "./firebase.js"
 import {onAuthStateChanged, signOut} from 'firebase/auth';
 
 export default function Navbar() {
@@ -46,42 +46,43 @@ export default function Navbar() {
         })
     }, [])
 
+    function waitForData() {
+        if (userdb) {
+            document.getElementById(signupid).innerHTML = 'ACCOUNT'
+            document.getElementById(signupid).href = "/" + userdb.username
+            document.getElementById(signupid).onclick = (e) => {
+                e.preventDefault()
+                navigate("/" + userdb.username)
+                window.location.reload()
+            }
+            document.getElementById(menusignupid).innerHTML = 'ACCOUNT'
+            document.getElementById(menuaccountid).href = "/" + userdb.username
+            document.getElementById(menuaccountid).onclick = (e) => {
+                e.preventDefault()
+                navigate("/" + userdb.username)
+                window.location.reload()
+            }
+            document.getElementById(menusettingsid).href = "/settings/"
+            document.getElementById(menusettingsid).onclick = (e) => {
+                e.preventDefault()
+                navigate("/settings/")
+            }
+
+            document.getElementById(menusignupid).onclick = (e) => {
+                e.preventDefault()
+                navAccountMenuDivRef.current.style.right = "0"
+            }
+            document.getElementById(signupli_id).classList.add("nav-list-signup-hover")
+        } else {
+            setTimeout(waitForData, 50);
+        }
+    }
+
 
     useEffect(() => {
         onAuthStateChanged(auth, async (user) => {
             if (user) {
-                document.getElementById(signupid).innerHTML = 'ACCOUNT'
-                document.getElementById(signupid).href = "/users/" + user.uid
-                document.getElementById(signupid).onclick = (e) => {
-                    e.preventDefault()
-                    navigate("/users/" + user.uid)
-                    window.location.reload()
-                }
-                document.getElementById(menusignupid).innerHTML = 'ACCOUNT'
-                document.getElementById(menuaccountid).href = "/users/" + user.uid
-                document.getElementById(menuaccountid).onclick = (e) => {
-                    e.preventDefault()
-                    navigate("/users/" + user.uid)
-                    window.location.reload()
-                }
-                document.getElementById(menusettingsid).href = "/settings/"
-                document.getElementById(menusettingsid).onclick = (e) => {
-                    e.preventDefault()
-                    navigate("/settings/")
-                }
-
-
-                document.getElementById(signupli_id).onmouseenter = function () {
-                    document.getElementById(signupextraid).style.display = "block"
-                }
-                document.getElementById(signupli_id).onmouseleave = function () {
-                    setTimeout(() => document.getElementById(signupextraid).style.display = "none", 2000
-                    )
-                }
-                document.getElementById(menusignupid).onclick = (e) => {
-                    e.preventDefault()
-                    navAccountMenuDivRef.current.style.right = "0"
-                }
+                waitForData()
             }
         })
     }, [])
@@ -165,6 +166,8 @@ export default function Navbar() {
                     <li className="nav-list-signup" id={signupli_id}>
                         <Link to="/sign-up" id={signupid}>SIGN_UP</Link>
                         <div className="nav-list-account" id={signupextraid}>
+                            <Link to="/favorites" id={settingsid}>FAVORITES</Link>
+                            <br/>
                             <Link to="/settings" id={settingsid}>SETTINGS</Link>
                             <br/>
                             <a href="#" id={signoutid} onClick={() => {
