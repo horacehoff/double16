@@ -135,6 +135,10 @@
     padding: 0;
 }
 
+.nav-list-extra:first-of-type {
+    right: 200px;
+}
+
 .nav-list-extra li {
     padding: 0;
     z-index: 9;
@@ -207,6 +211,10 @@
 
     .nav-menu-extra {
         width: 100%;
+        right: -100%;
+    }
+
+    .nav-list-extra:first-of-type {
         right: -100%;
     }
 

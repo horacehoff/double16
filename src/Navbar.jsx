@@ -23,6 +23,7 @@ export default function Navbar() {
     const menusignupid = useId()
     const menuaccountid = useId()
     const menusettingsid = useId()
+    const menufavoritesid = useId()
 
 
 
@@ -35,13 +36,8 @@ export default function Navbar() {
     useEffect(() => {
         screen.orientation.addEventListener("change", () => {
             if (navMenuDivRef.current.style.right !== "0px") {
-                if (window.matchMedia("(max-width: 500px)").matches) {
-                    navMenuDivRef.current.style.right = "-200px";
-                    navAccountMenuDivRef.current.style.right = "-200px";
-                } else {
-                    navMenuDivRef.current.style.right = "-100%";
-                    navAccountMenuDivRef.current.style.right = "-100%";
-                }
+                navMenuDivRef.current.style.right = null;
+                navAccountMenuDivRef.current.style.right = null;
             }
         })
     }, [])
@@ -66,6 +62,11 @@ export default function Navbar() {
             document.getElementById(menusettingsid).onclick = (e) => {
                 e.preventDefault()
                 navigate("/settings/")
+            }
+            document.getElementById(menufavoritesid).href = "/favorites"
+            document.getElementById(menufavoritesid).onclick = (e) => {
+                e.preventDefault()
+                navigate("/favorites")
             }
 
             document.getElementById(menusignupid).onclick = (e) => {
@@ -94,14 +95,11 @@ export default function Navbar() {
         document.getElementById("root").style.pointerEvents = "all"
         document.getElementById("root").style.touchAction = "auto"
 
-        if (window.matchMedia("(max-width: 500px)").matches) {
-            navMenuDivRef.current.style.right = "-100%";
-            navAccountMenuDivRef.current.style.right = "-100%";
-        } else {
-            navMenuDivRef.current.style.right = "-200px";
-            navAccountMenuDivRef.current.style.right = "-200px";
-        }
+        navMenuDivRef.current.style.right = null;
+        navAccountMenuDivRef.current.style.right = null;
+
         navMenuRef.current.innerText = "||"
+
         if (!location.pathname.includes("/user")) {
             document.getElementsByClassName("nav")[0].style.backgroundColor = "transparent"
         }
@@ -182,13 +180,8 @@ export default function Navbar() {
                     </li>
                     <li className="nav-menu" onClick={() => {
                         if (navMenuDivRef.current.style.right === "0px") {
-                            if (window.matchMedia("(max-width: 500px)").matches) {
-                                navMenuDivRef.current.style.right = "-100%";
-                            } else {
-                                navMenuDivRef.current.style.right = "-200px";
-                            }
+                            navMenuDivRef.current.style.right = null;
                             navMenuRef.current.innerText = "||"
-
                         } else {
                             navMenuDivRef.current.style.right = "0"
                             navMenuRef.current.innerText = "//"
@@ -208,7 +201,7 @@ export default function Navbar() {
                     <li><Link to="/sign-up" id={menusignupid}>SIGN_UP</Link></li>
                 </ul>
             </div>
-            <div ref={navAccountMenuDivRef} className="nav-menu-extra">
+            <div ref={navAccountMenuDivRef} id="nav-menu-extra" className="nav-menu-extra">
                 <ul className="nav-list-extra">
                     <li onClick={() => {
                         if (window.matchMedia("(max-width: 500px)").matches) {
@@ -221,6 +214,7 @@ export default function Navbar() {
                     </li>
                     <li><Link to="" id={menuaccountid}>ACCOUNT</Link></li>
                     <li><Link to="" id={menusettingsid}>SETTINGS</Link></li>
+                    <li><Link to="" id={menufavoritesid}>FAVORITES</Link></li>
                     <li onClick={() => {
                         signOut(auth).then(() => {
                             navigate("/")

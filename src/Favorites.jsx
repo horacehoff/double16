@@ -3,13 +3,14 @@ import {getLanguageName} from "./lang.jsx";
 import ShortNumber from "short-number";
 import {useNavigate} from "react-router-dom";
 import "./Explore.css"
-import {useEffect, useState} from "react";
+import {useEffect, useId, useState} from "react";
 import {auth, db, userdb} from "./firebase.js";
 import {onAuthStateChanged} from "firebase/auth";
 import {doc, getDoc} from "firebase/firestore";
 
 export default function Favorites() {
     const navigate = useNavigate()
+    const listid = useId()
     const section_items = (data) =>
         <>
             {
@@ -73,7 +74,9 @@ export default function Favorites() {
             }
             has_run = true
         } else {
-            setTimeout(waitForUserData, 100);
+            if ((userdb === null || userdb) && !has_run) {
+                setTimeout(waitForUserData, 100);
+            }
         }
     }
 
@@ -91,7 +94,7 @@ export default function Favorites() {
         <>
             <h1 className="pg-heading" id="pg-heading">FAVORITES</h1>
             <h2 className="pg-subtitle">BROWSE YOUR FAVORITE CODE SNIPPETS</h2>
-            <ul className="pg-section-list">
+            <ul className="pg-section-list" id={listid}>
                 {section_items(favorites)}
             </ul>
         </>
