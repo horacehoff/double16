@@ -1,14 +1,13 @@
 import "./MostDownloaded.css"
 import "./Trending.css"
 import {useEffect, useState} from "react";
-import {getLanguageName, languages_list} from "./lang.jsx";
+import {languages_list} from "./lang.jsx";
 import {collection, getCountFromServer, getDocs, limit, orderBy, query, startAfter, where} from "firebase/firestore";
 import {db} from "./firebase.js";
-import CodeCard from "./CodeCard.jsx";
-import ShortNumber from "short-number";
 import CodePagePreview from "./CodePagePreview.jsx";
 import {useNavigate} from "react-router-dom";
 import {Helmet} from "react-helmet";
+import {section_items} from "./SectionItems.jsx";
 
 
 export default function Trending() {
@@ -23,55 +22,6 @@ export default function Trending() {
     })
     const [page, setPage] = useState(1)
     const navigate = useNavigate()
-
-
-    const section_items = (data) =>
-        <>
-            {
-                data.length === 0 ? (
-                        <>
-                            <li>
-                                <div className="pg-section-list-placeholder"></div>
-                            </li>
-                            <li>
-                                <div className="pg-section-list-placeholder"></div>
-                            </li>
-                        </>
-                    ) :
-                    data.map((codesnippet, index) =>
-                        <li key={index} onClick={() => {
-                            document.getElementById("lnk").href = "/code/" + codesnippet.id
-                            document.getElementById("lnk").onclick = (e) => {
-                                e.preventDefault()
-                                document.getElementById("root").style.pointerEvents = "all"
-                                navigate("/code/" + codesnippet.id)
-                            }
-                            document.getElementById("aut").href = "/users/" + codesnippet.authorid
-                            document.getElementById("aut").onclick = (e) => {
-                                e.preventDefault()
-                                document.getElementById("root").style.pointerEvents = "all"
-                                navigate("/" + codesnippet.authorusername)
-                            }
-                        }}>
-                            <CodeCard pkg={{
-                                lang: getLanguageName(codesnippet.codeLanguage),
-                                price: codesnippet.price,
-                                like: ShortNumber(codesnippet.likes.length),
-                                dislike: ShortNumber(codesnippet.dislikes.length),
-                                title: codesnippet.title,
-                                author: codesnippet.authorusername,
-                                desc: codesnippet.catchphrase,
-                                longDesc: codesnippet.desc,
-                                char: ShortNumber(codesnippet.char),
-                                lines: ShortNumber(codesnippet.lines),
-                                banner: codesnippet.bannerUrl,
-                                id: codesnippet.id
-                            }}
-                            />
-                        </li>
-                    )
-            }
-        </>
 
 
     useEffect(() => {
@@ -214,7 +164,7 @@ export default function Trending() {
                 </select>
             </div>
             <ul className="pg-section-list" id="pg-section-list">
-                {section_items(results[page])}
+                {section_items(results[page], navigate)}
             </ul>
             <CodePagePreview/>
         </>

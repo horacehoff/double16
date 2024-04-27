@@ -4,11 +4,9 @@ import {useNavigate, useParams} from "react-router-dom";
 import {collection, doc, getCountFromServer, getDocs, query, updateDoc, where} from "firebase/firestore";
 import {db, userdb} from "./firebase.js";
 import shortNumber from "short-number"
-import ShortNumber from "short-number"
 import Loading from "./Loading.jsx";
 import CodePagePreview from "./CodePagePreview.jsx";
-import CodeCard from "./CodeCard.jsx";
-import {getLanguageName} from "./lang.jsx";
+import {section_items} from "./SectionItems.jsx";
 
 export default function AccountPage() {
     const navigate = useNavigate()
@@ -135,54 +133,6 @@ export default function AccountPage() {
     }, [userdata])
 
 
-    const section_items = (data) =>
-        <>
-            {
-                data.length === 0 ? (
-                        <>
-                            <li>
-                                <div className="pg-section-list-placeholder"></div>
-                            </li>
-                            <li>
-                                <div className="pg-section-list-placeholder"></div>
-                            </li>
-                        </>
-                    ) :
-                    data.map((codesnippet, index) =>
-                        <li key={index} onClick={() => {
-                            document.getElementById("lnk").href = "/code/" + codesnippet.id
-                            document.getElementById("lnk").onclick = (e) => {
-                                e.preventDefault()
-                                document.getElementById("root").style.pointerEvents = "all"
-                                navigate("/code/" + codesnippet.id)
-                            }
-                            document.getElementById("aut").href = "/users/" + codesnippet.authorid
-                            document.getElementById("aut").onclick = (e) => {
-                                e.preventDefault()
-                                document.getElementById("root").style.pointerEvents = "all"
-                                navigate("/" + codesnippet.authorusername)
-                            }
-                        }}>
-                            <CodeCard pkg={{
-                                lang: getLanguageName(codesnippet.codeLanguage),
-                                price: codesnippet.price,
-                                like: ShortNumber(codesnippet.likes.length),
-                                dislike: ShortNumber(codesnippet.dislikes.length),
-                                title: codesnippet.title,
-                                author: codesnippet.authorusername,
-                                desc: codesnippet.catchphrase,
-                                longDesc: codesnippet.desc,
-                                char: ShortNumber(codesnippet.char),
-                                lines: ShortNumber(codesnippet.lines),
-                                banner: codesnippet.bannerUrl,
-                                id: codesnippet.id
-                            }}
-                            />
-                        </li>
-                    )
-            }
-        </>
-
     if (userdata === null) {
         return (
             <>
@@ -295,7 +245,7 @@ export default function AccountPage() {
                             display: "inline-block",
                             whiteSpace: "nowrap"
                         }}>
-                            {section_items(userSnippets)}
+                            {section_items(userSnippets, navigate)}
                         </ul>
 
 

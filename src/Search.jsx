@@ -2,13 +2,12 @@ import "./Search.css"
 import "./Explore.css"
 import CodePagePreview, {ClosePreview} from "./CodePagePreview.jsx";
 import {useId, useState} from "react";
-import {getLanguageName, languages_list} from "./lang.jsx";
+import {languages_list} from "./lang.jsx";
 import {collection, getDocs, limit, orderBy, query, where} from "firebase/firestore";
 import {db} from "./firebase.js";
-import CodeCard from "./CodeCard.jsx";
-import ShortNumber from "short-number";
 import {useNavigate} from "react-router-dom";
 import {Helmet} from "react-helmet";
+import {section_items} from "./SectionItems.jsx";
 
 export default function Search() {
     const ratepopup = useId()
@@ -71,55 +70,6 @@ export default function Search() {
     }
 
 
-    const section_items = (data) =>
-        <>
-            {
-                data.length === 0 ? (
-                        <>
-                            <li>
-                                <div className="pg-section-list-placeholder"></div>
-                            </li>
-                            <li>
-                                <div className="pg-section-list-placeholder"></div>
-                            </li>
-                        </>
-                    ) :
-                    data.map((codesnippet, index) =>
-                        <li key={index} onClick={() => {
-                            document.getElementById("lnk").href = "/code/" + codesnippet.id
-                            document.getElementById("lnk").onclick = (e) => {
-                                e.preventDefault()
-                                document.getElementById("root").style.pointerEvents = "all"
-                                navigate("/code/" + codesnippet.id)
-                            }
-                            document.getElementById("aut").href = "/users/" + codesnippet.authorid
-                            document.getElementById("aut").onclick = (e) => {
-                                e.preventDefault()
-                                document.getElementById("root").style.pointerEvents = "all"
-                                navigate("/" + codesnippet.authorusername)
-                            }
-                        }}>
-                            <CodeCard pkg={{
-                                lang: getLanguageName(codesnippet.codeLanguage),
-                                price: codesnippet.price,
-                                like: ShortNumber(codesnippet.likes.length),
-                                dislike: ShortNumber(codesnippet.dislikes.length),
-                                title: codesnippet.title,
-                                author: codesnippet.authorusername,
-                                desc: codesnippet.catchphrase,
-                                longDesc: codesnippet.desc,
-                                char: ShortNumber(codesnippet.char),
-                                lines: ShortNumber(codesnippet.lines),
-                                banner: codesnippet.bannerUrl,
-                                id: codesnippet.id
-                            }}
-                            />
-                        </li>
-                    )
-            }
-        </>
-
-
     return (
         <>
             <Helmet>
@@ -171,7 +121,8 @@ export default function Search() {
             }}><span className="emojifix">⚙️</span>️ FILTERS
             </button>
             <br/>
-            <button className="primary srch-btn" onClick={() => {
+            <button className="primary srch-btn" type="submit" onClick={e => {
+                e.preventDefault()
                 query_search()
             }}>SEARCH <span className="emojifix">🔎</span></button>
 
@@ -179,7 +130,7 @@ export default function Search() {
         </div>
         <p className="srch-nsr" id={noSearchResults}>NO SEARCH RESULTS</p>
         <ul className="pg-section-list srch-section-list" id={sectionList}>
-            {section_items(returnData)}
+            {section_items(returnData, navigate)}
         </ul>
         <div className="codepgpre-bg" id={ratepopup} onClick={e => {
             if (e.target === e.currentTarget) {

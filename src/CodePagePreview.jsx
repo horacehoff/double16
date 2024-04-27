@@ -27,6 +27,7 @@ export default function CodePagePreview() {
     const price = "prc"
     const likes = "lk"
     const dislikes = "dlk"
+    const downloads = "dwn"
     const title = "ttl"
     const author = "aut"
     const desc = "dc"
@@ -95,11 +96,21 @@ export default function CodePagePreview() {
                         style={{display: "none"}}
                     />
                     <h2 className="codepgpre-title" id={title}>FIBONACCI SEQUENCE CALCULATOR</h2>
-                    <h3 className="codepgpre-info">💵 <span id={price}>5</span>$ <span
-                        className="codepgpre-infosep">-</span> <span id={lang}>{}</span> <span
-                        className="codepgpre-infosep">-</span> 👍 <span id={likes}>1K</span> <span
-                        className="codepgpre-infosep">-</span> 👎 <span id={dislikes}>5K</span> <span
-                        className="codepgpre-infosep">-</span> <span id={char}>150000</span> char.</h3>
+                    <h3 className="codepgpre-info"><span id={downloads}></span>
+                        <svg className="codepgpre-dwn" width="20px" height="20px" strokeWidth="2" viewBox="0 0 24 24"
+                             fill="none"
+                             xmlns="http://www.w3.org/2000/svg" color="#fff">
+                            <path d="M6 20L18 20" stroke="#Dadada" strokeWidth="2" strokeLinecap="round"
+                                  strokeLinejoin="round"></path>
+                            <path d="M12 4V16M12 16L15.5 12.5M12 16L8.5 12.5" stroke="#Dadada" strokeWidth="2"
+                                  strokeLinecap="round" strokeLinejoin="round"></path>
+                        </svg>
+                        <span
+                            className="codepgpre-infosep">-</span> <span id={lang}>{}</span> <span
+                            className="codepgpre-infosep">-</span> 👍 <span id={likes}>1K</span> <span
+                            className="codepgpre-infosep">-</span> 👎 <span id={dislikes}>5K</span> <span
+                            className="codepgpre-infosep">-</span> <span id={char}>150000</span> char.
+                    </h3>
                     <h4 className="codepgpre-author">by <Link to="/user" id={author}
                                                               className="link-text">JuTS-A_MANGO</Link></h4>
                     <p className="codepgpre-desc" id={desc}>trm-engine is a game engine designed to run in the terminal,

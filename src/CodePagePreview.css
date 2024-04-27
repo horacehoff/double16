@@ -179,7 +179,11 @@
     color: var(--color);
 }
 
+
 @media (prefers-color-scheme: light) {
+    .codepgpre-dwn {
+        filter: brightness(0.2);
+    }
     .codepgpre {
         background-color: #B8BBD0;
     }

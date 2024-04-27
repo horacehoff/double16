@@ -37,6 +37,7 @@ export default function CodePage() {
     const dislikesid = useId()
     const descid = useId()
     const languageid = useId()
+    const downloadsid = useId()
 
     const ratebtnid = useId()
 
@@ -63,7 +64,7 @@ export default function CodePage() {
         if (codedata) {
             console.log(codedata)
             document.getElementById(bannerid).src = codedata.bannerUrl
-            document.getElementById(priceidb).innerText = codedata.price
+            document.getElementById(downloadsid).innerText = codedata.downloads.length
             if (codedata.price === 0) {
                 document.getElementById(pricesupersetid).innerText = "📁 DOWNLOAD"
                 document.getElementById(pricesupersetid).onmouseenter = () => {
@@ -330,12 +331,23 @@ export default function CodePage() {
                         </button>
                     </div>
                     <h1 className="codepgpre-title" id={nameid}>FIBONACCI SEQUENCE CALCULATOR</h1>
-                    <h3 className="codepgpre-info">💵 <span id={priceidb}>5</span>$ <span
-                        className="codepgpre-infosep">-</span> <span id={languageid}>{language}</span> <span
-                        className="codepgpre-infosep">-</span> 👍<span id={likesid}>1K</span> <span
-                        className="codepgpre-infosep">-</span> 👎<span id={dislikesid}>5K</span> <span
-                        className="codepgpre-infosep">-</span> <span
-                        id={charid}>15000</span> char.</h3>
+                    <h3 className="codepgpre-info">{/*💵 <span id={priceidb}>5</span>$*/}
+                        <span id={downloadsid}></span>
+                        <svg className="codepgpre-dwn" width="20px" height="20px" strokeWidth="2" viewBox="0 0 24 24"
+                             fill="none"
+                             xmlns="http://www.w3.org/2000/svg" color="#fff">
+                            <path d="M6 20L18 20" stroke="#Dadada" strokeWidth="2" strokeLinecap="round"
+                                  strokeLinejoin="round"></path>
+                            <path d="M12 4V16M12 16L15.5 12.5M12 16L8.5 12.5" stroke="#Dadada" strokeWidth="2"
+                                  strokeLinecap="round" strokeLinejoin="round"></path>
+                        </svg>
+                        <span
+                            className="codepgpre-infosep">-</span> <span id={languageid}>{language}</span> <span
+                            className="codepgpre-infosep">-</span> 👍<span id={likesid}>1K</span> <span
+                            className="codepgpre-infosep">-</span> 👎<span id={dislikesid}>5K</span> <span
+                            className="codepgpre-infosep">-</span> <span
+                            id={charid}>15000</span> char.
+                    </h3>
                     <h3 className="codepgpre-info codepg-update">⏰ UPDATED <span id={updateid}>2H AGO</span></h3>
                     <h3 className="codepgpre-info codepg-update codepg-license">🏛️ <a id={licenseid}
                                                                                       target="_blank">MIT</a></h3>

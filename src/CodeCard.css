@@ -122,3 +122,23 @@
     width: calc(300 - 26px);
     height: fit-content;
 }
+
+.downloads {
+    letter-spacing: -0.5px;
+}
+
+.downloads span {
+    position: relative;
+    top: -4.5px;
+}
+
+.downloads svg {
+    scale: 1;
+    display: inline-block;
+}
+
+@media (prefers-color-scheme: light) {
+    .downloads svg {
+        filter: brightness(0.2);
+    }
+}

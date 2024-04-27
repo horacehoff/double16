@@ -1,13 +1,11 @@
 import "./Explore.css"
 import {Link, useNavigate} from "react-router-dom";
-import CodeCard from "./CodeCard.jsx";
-import ShortNumber from "short-number"
 import CodePagePreview from "./CodePagePreview.jsx";
-import {getLanguageName} from "./lang.jsx";
 import {useState} from "react";
 import {collection, getDocs, limit, orderBy, query} from "firebase/firestore";
 import {db} from "./firebase.js";
 import {Helmet} from "react-helmet";
+import {section_items} from "./SectionItems.jsx";
 
 export default function Explore() {
     const navigate = useNavigate()
@@ -63,97 +61,6 @@ export default function Explore() {
         })
     }
 
-
-    // useEffect(() => {
-    //     if (mostDownloaded.length > 0) {
-    //         console.log(mostDownloaded)
-    //     }
-    // }, [mostDownloaded])
-
-    // let has_run = false
-    // useEffect(() => {
-    //     if (!has_run) {
-    //         has_run = true
-    //         // eslint-disable-next-line no-inner-declarations
-    //         function random_str(len) {
-    //             let result = '';
-    //             const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-    //             while (result.length < len) {
-    //                 result += characters.charAt(Math.floor(Math.random() * characters.length));
-    //             }
-    //             return result
-    //         }
-    //
-    //         // eslint-disable-next-line no-inner-declarations
-    //         async function text_matrix(element, initial) {
-    //             element.innerHTML = random_str(5)
-    //             const timer = ms => new Promise(res => setTimeout(res, ms))
-    //             let remaining = initial.length - 1
-    //             let typed = ""
-    //             for (const char of initial) {
-    //                 typed = typed + char
-    //                 element.innerHTML = typed + random_str(remaining)
-    //                 remaining -= 1
-    //                 await timer(50);
-    //             }
-    //         }
-    //
-    //         text_matrix(document.getElementById("pg-heading"),document.getElementById("pg-heading").innerText)
-    //     }
-    // }, [])
-
-
-    const section_items = (data) =>
-        <>
-            {
-                data.length === 0 ? (
-                        <>
-                            <li>
-                                <div className="pg-section-list-placeholder"></div>
-                            </li>
-                            <li>
-                                <div className="pg-section-list-placeholder"></div>
-                            </li>
-                        </>
-                    ) :
-                    data.map((codesnippet, index) =>
-                        <li key={index} onClick={() => {
-                            document.getElementById("lnk").href = "/code/" + codesnippet.id
-                            document.getElementById("lnk").onclick = (e) => {
-                                e.preventDefault()
-                                document.getElementById("root").style.pointerEvents = "all"
-                                navigate("/code/" + codesnippet.id)
-                            }
-                            document.getElementById("aut").href = "/users/" + codesnippet.authorid
-                            document.getElementById("aut").onclick = (e) => {
-                                e.preventDefault()
-                                document.getElementById("root").style.pointerEvents = "all"
-                                navigate("/" + codesnippet.authorusername)
-                            }
-                        }}>
-                            <CodeCard pkg={{
-                                lang: getLanguageName(codesnippet.codeLanguage),
-                                price: codesnippet.price,
-                                like: ShortNumber(codesnippet.likes.length),
-                                dislike: ShortNumber(codesnippet.dislikes.length),
-                                title: codesnippet.title,
-                                author: codesnippet.authorusername,
-                                desc: codesnippet.catchphrase,
-                                longDesc: codesnippet.desc,
-                                char: ShortNumber(codesnippet.char),
-                                lines: ShortNumber(codesnippet.lines),
-                                banner: codesnippet.bannerUrl,
-                                id: codesnippet.id
-                            }}
-                            />
-                        </li>
-                    )
-            }
-        </>
-
-
-
-
     return (
         <>
             <Helmet>
@@ -205,18 +112,13 @@ export default function Explore() {
                 <button className="action pg-action">🔍 SEARCH</button>
             </Link>
             <br/>
-            {/*<select>*/}
-            {/*    <option>test</option>*/}
-            {/*    <option>test2</option>*/}
-            {/*    <option>test3</option>*/}
-            {/*</select>*/}
             <h2 className="pg-section-heading">🏆 MOST DOWNLOADED</h2>
 
             <Link to="/most-downloaded">
                 <button className="pg-section-btn">{more_svg}</button>
             </Link>
             <ul className="pg-section-list">
-                {section_items(mostDownloaded)}
+                {section_items(mostDownloaded, navigate)}
             </ul>
 
             <br/>
@@ -227,7 +129,7 @@ export default function Explore() {
                 <button className="pg-section-btn">{more_svg}</button>
             </Link>
             <ul className="pg-section-list">
-                {section_items(trending)}
+                {section_items(trending, navigate)}
             </ul>
 
             <br/>
@@ -238,7 +140,7 @@ export default function Explore() {
                 <button className="pg-section-btn">{more_svg}</button>
             </Link>
             <ul className="pg-section-list">
-                {section_items(recentlyPublished)}
+                {section_items(recentlyPublished, navigate)}
             </ul>
             <br/>
             <br/>
