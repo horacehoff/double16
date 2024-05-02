@@ -29,7 +29,7 @@ export default function Search() {
     async function query_search() {
         document.getElementById(noSearchResults).style.display = "none"
         document.getElementById(sectionList).style.display = "block"
-        let combinedQuery = query(collection(db, "codesnippets"));
+        let combinedQuery = query(collection(db, "codesnippets"), limit(9));
         if (searchQuery && searchQuery !== "") {
             combinedQuery = query(combinedQuery, where("title", ">=", searchQuery), where("title", "<=", searchQuery + "\uf8ff"), orderBy("title"));
         } else if (downloads !== null && downloads !== "") {
@@ -123,7 +123,9 @@ export default function Search() {
             <br/>
             <button className="primary srch-btn" type="submit" onClick={e => {
                 e.preventDefault()
-                query_search()
+                if (searchQuery !== "" || author !== "" || downloads !== 0 || download_order !== "MORE" || language !== "Any") {
+                    query_search()
+                }
             }}>SEARCH <span className="emojifix">🔎</span></button>
 
 

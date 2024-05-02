@@ -25,13 +25,13 @@ export default function About() {
             <div className="about-cnt">
                 <img src={banner} alt="Double16 Banner"/>
                 <p>Made on Earth by humans<br/>Created by <a className="action-text"
-                                                             href="https://linktr.ee/just_a_mango"
+                                                             href="https://just-a-mango.github.io"
                                                              target="_blank"
-                                                             rel="noreferrer">@just_a_mango</a> (alias <a
+                                                             rel="noreferrer">@just_a_mango</a> (<a
                     className="action-text" href="https://www.linkedin.com/in/horace-hoff" target="_blank"
-                    rel="noreferrer">Horace
-                    Hoff</a>)
+                    rel="noreferrer">LinkedIn</a>)
                 </p>
+                <p style={{position: "relative", marginTop: "-15px"}}>Last updated: May 2nd, 2024</p>
                 <br/>
                 <h4>CREDITS</h4>
                 <ul className="about-credits-list">
@@ -48,7 +48,7 @@ export default function About() {
                     </li>
                     <li>---</li>
                     <li>
-                        <span>🫶</span>I would also like to thank:<br/>
+                        <span>🫶</span> I would also like to thank:<br/>
                         <ul>
                             <li>
                                 cfj - <a href="https://www.npmjs.com/package/short-number"
