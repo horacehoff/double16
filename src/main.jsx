@@ -36,7 +36,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
                 <Route path="/code/:codeid" element={<CodePage/>}/>
                 <Route path="/code/:codeid/edit" element={<EditCodePage/>}/>
 
-                <Route path="/sell" element={<Sell/>}/>
+                <Route path="/create" element={<Sell/>}/>
 
                 <Route path="/sign-up" element={<SignUp/>}/>
                 <Route path="/sign-in" element={<SignIn/>}/>

@@ -197,17 +197,17 @@ export default function Sell() {
             <meta content="Sell and share your code snippet."
                   name="description"/>
 
-            <meta content="https://www.double16.tech/sell" property="og:url"/>
+            <meta content="https://www.double16.tech/create" property="og:url"/>
             <meta content="Double16 | Sell" property="og:title"/>
             <meta content="Sell and share your code snippet."
                   property="og:description"/>
 
-            <meta content="https://www.double16.tech/sell" property="twitter:url"/>
+            <meta content="https://www.double16.tech/create" property="twitter:url"/>
             <meta content="Double16 | Sell" property="twitter:title"/>
             <meta content="Sell and share your code snippet."
                   property="twitter:description"/>
         </Helmet>
-        <h1 className="pg-heading" id="pg-heading">SELL</h1>
+        <h1 className="pg-heading" id="pg-heading">CREATE</h1>
         {/*<button onClick={() => ShowPopUp("ERROR: Banner file too big (MAX: 250kB)")}></button>*/}
         <h2 className="pg-subtitle sell-subtitle" style={{marginBottom: "-40px"}}>PUBLISH YOUR OWN CODE SNIPPET</h2>
         <ul className="sell-cont" id={sellcont}>

@@ -31,7 +31,7 @@ export default function About() {
                     className="action-text" href="https://www.linkedin.com/in/horace-hoff" target="_blank"
                     rel="noreferrer">LinkedIn</a>)
                 </p>
-                <p style={{position: "relative", marginTop: "-15px"}}>Last updated: May 2nd, 2024</p>
+                <p style={{position: "relative", marginTop: "-15px"}}>Last updated: May the 4th Be With You, 2024</p>
                 <br/>
                 <h4>CREDITS</h4>
                 <ul className="about-credits-list">

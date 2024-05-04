@@ -5,6 +5,7 @@ import {auth, db, userdb} from "./firebase.js";
 import {onAuthStateChanged} from "firebase/auth";
 import {doc, getDoc} from "firebase/firestore";
 import {section_items} from "./SectionItems.jsx";
+import CodePagePreview from "./CodePagePreview.jsx";
 
 export default function Favorites() {
     const navigate = useNavigate()
@@ -48,6 +49,7 @@ export default function Favorites() {
             <ul className="pg-section-list" id={listid}>
                 {section_items(favorites, navigate)}
             </ul>
+            <CodePagePreview/>
         </>
     )
 }
