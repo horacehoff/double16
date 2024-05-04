@@ -18,7 +18,10 @@ export default function CodeCard({pkg}) {
                     document.getElementById("aut").innerHTML = pkg.author
                     document.getElementById("dc").innerHTML = pkg.longDesc
                     document.getElementById("ch").innerHTML = pkg.char
-                    document.getElementById("bnr").src = pkg.banner
+                    if (document.getElementById("bnr").src !== pkg.banner) {
+                        document.getElementById("bnr").src = null
+                        document.getElementById("bnr").src = pkg.banner
+                    }
 
                     // style
                     document.getElementById("root").style.pointerEvents = "none"
