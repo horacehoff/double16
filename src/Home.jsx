@@ -150,18 +150,18 @@ export default function Home() {
 
 
             <div className="home-content">
-                <img src={logo} alt="Double16"/>
-                <h1 id="home-content-subtitle">CODE MARKETPLACE MADE FOR BUYING AND SELLING CODE SNIPPETS</h1>
+                <h1><img src={logo} alt="Double16"/></h1>
+                <h2 id="home-content-subtitle">Code marketplace made for buying and selling code snippets</h2>
                 <br/><br/>
                 <div className="home-content-action">
                     <Link to="/explore">
-                        <button className="action">🔎 EXPLORE THE MARKETPLACE</button>
+                        <button className="action">🔎 Explore the marketplace</button>
                     </Link>
                     <br className="home-content-break"/>
                     <button className="action" onClick={e => {
                         navigator.clipboard.writeText("https://www.double16.tech/")
                         e.currentTarget.innerText = "✅ LINK COPIED"
-                    }}>🔗 SHARE
+                    }}>🔗 Share
                     </button>
                 </div>
             </div>

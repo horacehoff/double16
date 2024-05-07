@@ -64,8 +64,8 @@ export default function Feedback() {
                 <meta content="Give your feedback on Double16."
                       property="twitter:description"/>
             </Helmet>
-            <h1 className="pg-heading" id="pg-heading">FEEDBACK</h1>
-            <h2 className="pg-subtitle">GIVE YOUR FEEDBACK ON THE WEBSITE</h2>
+            <h1 className="pg-heading" id="pg-heading">Feedback</h1>
+            <h2 className="pg-subtitle">Give your feedback on the website</h2>
             <div className="sign-form fdck-form">
                 <p id={errorid} className="error-notice">ERROR: INVALID EMAIL</p>
                 <input type="email" placeholder="@email" value={email} onChange={e => setEmail(e.target.value)}/>

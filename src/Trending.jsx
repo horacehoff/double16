@@ -101,8 +101,8 @@ export default function Trending() {
                 <meta content="Discover trending code snippets."
                       property="twitter:description"/>
             </Helmet>
-            <h1 className="pg-heading md-heading tr-heading" id="pg-heading">TRENDING</h1>
-            <h2 className="pg-subtitle">EXPLORE HOT AND TRENDING CODE SNIPPETS</h2>
+            <h1 className="pg-heading md-heading tr-heading" id="pg-heading">Trending</h1>
+            <h2 className="pg-subtitle">Explore the currently trending code snippets</h2>
             <div className="pg-subsection">
                 <select value={page} onChange={e => {
                     if (!results[e.target.value] || results[e.target.value].length === 0 || results[e.target.value].length !== maxItems) {

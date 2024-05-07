@@ -207,9 +207,9 @@ export default function Sell() {
             <meta content="Sell and share your code snippet."
                   property="twitter:description"/>
         </Helmet>
-        <h1 className="pg-heading" id="pg-heading">CREATE</h1>
+        <h1 className="pg-heading" id="pg-heading">Create</h1>
         {/*<button onClick={() => ShowPopUp("ERROR: Banner file too big (MAX: 250kB)")}></button>*/}
-        <h2 className="pg-subtitle sell-subtitle" style={{marginBottom: "-40px"}}>PUBLISH YOUR OWN CODE SNIPPET</h2>
+        <h2 className="pg-subtitle sell-subtitle" style={{marginBottom: "-40px"}}>Publish your own code snippet</h2>
         <ul className="sell-cont" id={sellcont}>
             <li className="sell-cont-part">
                 <div>

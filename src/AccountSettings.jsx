@@ -174,8 +174,8 @@ export default function AccountSettings() {
                 <meta content="Modify your account settings."
                       property="twitter:description"/>
             </Helmet>
-            <h1 className="pg-heading" id="pg-heading">SETTINGS</h1>
-            <h2 className="pg-subtitle">MODIFY YOUR ACCOUNT SETTINGS</h2>
+            <h1 className="pg-heading" id="pg-heading">Settings</h1>
+            <h2 className="pg-subtitle">Modify your account settings</h2>
             <div className="srch-cont setts-cont">
                 <h2>PROFILE</h2>
                 <div className="setts-bnr">

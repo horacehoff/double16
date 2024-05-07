@@ -89,8 +89,8 @@ export default function Search() {
                 <meta content="Search and find the exact code snippet you need."
                       property="twitter:description"/>
             </Helmet>
-        <h1 className="pg-heading" id="pg-heading">SEARCH</h1>
-        <h2 className="pg-subtitle">SEARCH AND FIND THE EXACT CODE SNIPPET YOU NEED</h2>
+            <h1 className="pg-heading" id="pg-heading">Search</h1>
+            <h2 className="pg-subtitle">Search and find the exact code snippet you need</h2>
         <div className="srch-cont">
             <input placeholder="@search_query" type="text" value={searchQuery} onChange={e => {
                 if (e.target.value !== "") {

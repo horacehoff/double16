@@ -80,8 +80,8 @@ export default function Explore() {
                 <meta content="Explore and discover code snippets."
                       property="twitter:description"/>
             </Helmet>
-            <h1 className="pg-heading" id="pg-heading">EXPLORE</h1>
-            <h2 className="pg-subtitle">EXPLORE ALL THE DIFFERENT CODE SNIPPETS AND FIND THE ONE YOU WANT</h2>
+            <h1 className="pg-heading" id="pg-heading">Explore</h1>
+            <h2 className="pg-subtitle">Explore all the different code snippets and find the one you want</h2>
             {/*<button onClick={() => {*/}
             {/*    const uuid = v1()*/}
             {/*    const cryptouuid = crypto.randomUUID()*/}

@@ -102,8 +102,8 @@ export default function MostDownloaded() {
                 <meta content="Discover the most downloaded code snippets."
                       property="twitter:description"/>
             </Helmet>
-            <h1 className="pg-heading md-heading" id="pg-heading">MOST DOWNLOADED</h1>
-            <h2 className="pg-subtitle">EXPLORE THE MOST DOWNLOADED CODE SNIPPETS</h2>
+            <h1 className="pg-heading md-heading" id="pg-heading">Most Downloaded</h1>
+            <h2 className="pg-subtitle">Explore the most downloaded code snippets</h2>
             <div className="pg-subsection">
                 <select value={page} onChange={e => {
                     if (!results[e.target.value] || results[e.target.value].length === 0 || results[e.target.value].length !== maxItems) {

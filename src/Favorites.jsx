@@ -44,8 +44,8 @@ export default function Favorites() {
     }, [])
     return (
         <>
-            <h1 className="pg-heading" id="pg-heading">FAVORITES</h1>
-            <h2 className="pg-subtitle">BROWSE YOUR FAVORITE CODE SNIPPETS</h2>
+            <h1 className="pg-heading" id="pg-heading">Favorites</h1>
+            <h2 className="pg-subtitle">Browse your favorite code snippets</h2>
             <ul className="pg-section-list" id={listid}>
                 {section_items(favorites, navigate)}
             </ul>

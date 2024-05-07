@@ -101,8 +101,8 @@ export default function RecentSnippets() {
                 <meta content="Discover recently published code snippets."
                       property="twitter:description"/>
             </Helmet>
-            <h1 className="pg-heading md-heading" id="pg-heading">RECENTLY PUBLISHED</h1>
-            <h2 className="pg-subtitle">EXPLORE THE LATEST CODE SNIPPETS</h2>
+            <h1 className="pg-heading md-heading" id="pg-heading">Recently Published</h1>
+            <h2 className="pg-subtitle">Explore the latest code snippets</h2>
             <div className="pg-subsection">
                 <select value={page} onChange={e => {
                     if (!results[e.target.value] || results[e.target.value].length === 0 || results[e.target.value].length !== maxItems) {

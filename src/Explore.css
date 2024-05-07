@@ -10,6 +10,7 @@
     width: fit-content;
     height: fit-content;
     color: var(--color);
+    text-transform: uppercase;
 }
 
 
@@ -26,6 +27,7 @@
     width: calc(100% - 90px);
     height: fit-content;
     margin-bottom: 0;
+    text-transform: uppercase;
 }
 
 .pg-action {

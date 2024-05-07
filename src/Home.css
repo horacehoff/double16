@@ -34,17 +34,19 @@
     z-index: 2000;
     display: none;
 }
-
-.home-gif:hover {
-    /*border: solid 1px white;*/
-}
 .home-content {
     position: relative;
     top: 100vh;
 }
 
+.home-content img {
+    position: relative;
+    margin-left: 50%;
+    transform: translate(-50%);
+}
+
 .home-content img:first-of-type {
-    width: 100vw;
+    width: 82vw;
 }
 
 @media (prefers-color-scheme: light) {
@@ -53,7 +55,7 @@
     }
 }
 
-.home-content h1 {
+.home-content h2 {
     font-size: 2.6vw;
     font-family: JetBrains Mono, monospace;
     text-align: center;
@@ -164,4 +166,8 @@
     .home-wrapper-image-list li img {
         filter: brightness(0);
     }
+}
+
+#home-content-subtitle {
+    text-transform: uppercase;
 }
