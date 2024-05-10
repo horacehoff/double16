@@ -31,7 +31,7 @@ export default function About() {
                     className="action-text" href="https://www.linkedin.com/in/horace-hoff" target="_blank"
                     rel="noreferrer">LinkedIn</a>)
                 </p>
-                <p style={{position: "relative", marginTop: "-15px"}}>Last updated: May 8th, 2024</p>
+                <p style={{position: "relative", marginTop: "-15px"}}>Last updated: May 11th, 2024</p>
                 <br/>
                 <h4>CREDITS</h4>
                 <ul className="about-credits-list">
@@ -74,6 +74,11 @@ export default function About() {
                                 SPDX - <a href="https://github.com/spdx/license-list-data"
                                           target="_blank" rel="noreferrer"
                                           className="action-text about-undr">license-list-data</a>
+                            </li>
+                            <li>
+                                IBM - <a href="https://github.com/IBM/plex"
+                                         target="_blank" rel="noreferrer"
+                                         className="action-text about-undr">Plex Mono</a>
                             </li>
                         </ul>
                     </li>

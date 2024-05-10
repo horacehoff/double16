@@ -49,7 +49,6 @@ export default function Navbar() {
             document.getElementById(signupid).onclick = (e) => {
                 e.preventDefault()
                 navigate("/" + userdb.username)
-                window.location.reload()
             }
             document.getElementById(menusignupid).innerHTML = 'ACCOUNT'
             document.getElementById(menuaccountid).href = "/" + userdb.username

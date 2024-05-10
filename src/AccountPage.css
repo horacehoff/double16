@@ -173,38 +173,18 @@
     text-align: center;
     white-space: nowrap !important;
     position: relative !important;
-    /*left: -100px !important;*/
-    /*left: 50% !important;*/
     padding: 0 !important;
 
-    /*transform: translate(-50%) !important;*/
     width: calc(400px - 60px) !important;
     overflow: scroll !important;
-    scroll-snap-type: x mandatory;
-    /*background: rgb(2,0,36);*/
-    /*background-image:*/
-
-    /*    !* Shadows *!*/
-    /*        linear-gradient(to right, #19191C, #19191C),*/
-    /*        linear-gradient(to right, #19191C, #19191C),*/
-
-    /*            !* Shadow covers *!*/
-    /*        linear-gradient(to right, rgba(0, 0, 0, 0.25), rgba(255,255,255,0)),*/
-    /*        linear-gradient(to left, rgba(0, 0, 0, 0.25), rgba(255,255,255,0)) !important;*/
-
-    /*background-position: left center, right center, left center, right center !important;*/
-    /*background-repeat: no-repeat !important;*/
-    /*background-color: #19191C !important;*/
-    /*background-size: 20px 100%, 20px 100%, 10px 100%, 10px 100% !important;*/
-
-    /*!* Opera doesn't support this in the shorthand *!*/
-    /*background-attachment: local, local, scroll, scroll !important;*/
+    scroll-snap-type: x mandatory !important;
     display: inline-block !important;
 }
 
 .ucntsnips li:first-child {
     scroll-margin-left: 0 !important;
     margin-left: 0 !important;
+    scroll-snap-align: start !important;
 }
 
 .ucntsnips-btn {
