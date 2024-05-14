@@ -46,6 +46,7 @@
     top: 30px;
     width: fit-content;
     color: var(--color);
+    text-transform: uppercase;
 }
 
 

@@ -112,7 +112,7 @@ export default function Explore() {
                 <button className="action pg-action">🔍 SEARCH</button>
             </Link>
             <br/>
-            <h2 className="pg-section-heading">🏆 MOST DOWNLOADED</h2>
+            <h2 className="pg-section-heading">🏆 Most downloaded</h2>
 
             <Link to="/most-downloaded">
                 <button className="pg-section-btn">{more_svg}</button>
@@ -123,7 +123,7 @@ export default function Explore() {
 
             <br/>
 
-            <h2 className="pg-section-heading">🔥 TRENDING</h2>
+            <h2 className="pg-section-heading">🔥 Trending</h2>
 
             <Link to="/trending">
                 <button className="pg-section-btn">{more_svg}</button>
@@ -134,7 +134,7 @@ export default function Explore() {
 
             <br/>
 
-            <h2 className="pg-section-heading">⏰ RECENTLY PUBLISHED</h2>
+            <h2 className="pg-section-heading">⏰ Recently Published</h2>
 
             <Link to="/recently-published">
                 <button className="pg-section-btn">{more_svg}</button>

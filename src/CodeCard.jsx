@@ -50,8 +50,8 @@ export default function CodeCard({pkg}) {
                                   strokeLinecap="round" strokeLinejoin="round"></path>
                         </svg>
                     </p>
-                    <h4>{pkg.title}</h4>
-                    <h5>by <span>{pkg.author}</span></h5>
+                    <p className="pkgtitle">{pkg.title}</p>
+                    <p className="pkgauthor">by <span>{pkg.author}</span></p>
                     <p className="desc">{pkg.desc}</p>
                     <p className="linecount">{pkg.char} characters - {pkg.lines} lines</p>
                 </div>
