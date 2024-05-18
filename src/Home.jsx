@@ -145,15 +145,15 @@ export default function Home() {
                 {elements}
             </div>
 
-            <div className="home-arrow" id="home-arrow">
-                <svg width="35px" height="35px" viewBox="0 0 35 35" strokeWidth="2" fill="none"
-                     xmlns="http://www.w3.org/2000/svg" color="white">
-                    <path d="M6 13L12 19L18 13" stroke="white" strokeWidth="2" strokeLinecap="round"
-                          strokeLinejoin="round"></path>
-                    <path d="M6 5L12 11L18 5" stroke="white" strokeWidth="2" strokeLinecap="round"
-                          strokeLinejoin="round"></path>
-                </svg>
-            </div>
+            <svg className="home-arrow" id="home-arrow" width="35px" height="35px" viewBox="0 0 24 24" strokeWidth="2"
+                 fill="none"
+                 xmlns="http://www.w3.org/2000/svg" color="white">
+                <path d="M6 13L12 19L18 13" stroke="white" strokeWidth="2" strokeLinecap="round"
+                      strokeLinejoin="round"></path>
+                <path d="M6 5L12 11L18 5" stroke="white" strokeWidth="2" strokeLinecap="round"
+                      strokeLinejoin="round"></path>
+            </svg>
+            <div className="home-arrow-blur"></div>
 
 
             <div className="home-content">
