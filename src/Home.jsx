@@ -74,15 +74,12 @@ export default function Home() {
 
         let scroll_distance = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0) * 433 / 783
 
-        // let scroll_distance = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0) - 350
         function updateOnScroll() {
 
             let top = document.documentElement.scrollTop
             try {
-                // 783 -> 433
-                // Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0) -> ??
                 document.getElementById("home-wrapper").style.opacity = mapRange(top, 0, scroll_distance, 1, 0)
-                // document.getElementById("home-wrapper").style.opacity = mapRange(top, 0, 433, 1, 0)
+                document.getElementById("home-arrow").style.opacity = mapRange(top, 0, scroll_distance, 1, 0)
             } catch {
                 removeEventListener("scroll", throttledUpdate)
             }
@@ -146,6 +143,16 @@ export default function Home() {
             <div className="home-wrapper" id="home-wrapper">
                 <br/><br/><br/>
                 {elements}
+            </div>
+
+            <div className="home-arrow" id="home-arrow">
+                <svg width="35px" height="35px" viewBox="0 0 35 35" strokeWidth="2" fill="none"
+                     xmlns="http://www.w3.org/2000/svg" color="white">
+                    <path d="M6 13L12 19L18 13" stroke="white" strokeWidth="2" strokeLinecap="round"
+                          strokeLinejoin="round"></path>
+                    <path d="M6 5L12 11L18 5" stroke="white" strokeWidth="2" strokeLinecap="round"
+                          strokeLinejoin="round"></path>
+                </svg>
             </div>
 
 

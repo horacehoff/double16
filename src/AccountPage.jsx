@@ -153,8 +153,8 @@ export default function AccountPage() {
                 <br/>
 
 
-                <h1 id={titleid} className="noscbr">LOADING...</h1>
-                <p className="ucntinf action-text ucntinfacn" style={{marginBottom: "25px"}} id={followbtnid}
+                <h1 id={titleid} className="noscbr">Loading...</h1>
+                <p className="ucntinf action-text ucntinfacn uppercase" style={{marginBottom: "25px"}} id={followbtnid}
                    onClick={() => {
                        if (userdb) {
                            if (userdb.following.includes(userdata.id)) {
@@ -176,7 +176,7 @@ export default function AccountPage() {
                            }
                        }
                    }}><span
-                    className="emojifix">❤️</span> FOLLOW</p>
+                    className="emojifix">❤️</span> Follow</p>
                 <p className="ucntinf" id={worldid} style={{marginBottom: "25px"}}>🌎 LOADING...</p>
                 <p className="ucntinf ucntgit" id={githubcontid} style={{display: "none"}}>
                     <svg viewBox="0 0 128 128">

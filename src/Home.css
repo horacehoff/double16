@@ -171,3 +171,29 @@
 #home-content-subtitle {
     text-transform: uppercase;
 }
+
+@keyframes arrow-anim {
+    0% {
+        margin-top: 0;
+    }
+    50% {
+        margin-top: 15px;
+    }
+}
+
+.home-arrow {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    top: calc(100vh - 125px);
+    height: fit-content;
+    width: fit-content;
+    background-color: transparent;
+}
+
+.home-arrow svg {
+    background-color: transparent;
+    animation: arrow-anim infinite ease-in-out 2.25s !important;
+    border-radius: 3px;
+    filter: drop-shadow(0px 0px 10px #000000) drop-shadow(0px 0px 10px #000000) drop-shadow(0px 0px 10px #000000) drop-shadow(0px 0px 10px #000000) drop-shadow(0px 0px 10px #000000);
+}

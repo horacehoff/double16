@@ -34,7 +34,6 @@ export default function SignIn() {
                     navigate("/")
                 })
                 .catch((error) => {
-                    document.getElementById(signinid).innerHTML = "SIGN IN"
                     const errorCode = error.code;
                     const errorMessage = error.message;
                     const showError = (errormsg) => {
@@ -43,16 +42,14 @@ export default function SignIn() {
                         setTimeout(() => document.getElementById(errorid).style.opacity = "0", 5000)
                     }
                     if (errorCode === "auth/invalid-email") {
-                        showError("INVALID EMAIL")
+                        showError("Invalid email")
                     } else if (errorCode === "auth/invalid-credential") {
-                        showError("WRONG EMAIL/PASSWORD")
+                        showError("Wrong email/password")
                     } else {
                         showError(errorCode)
                     }
                     console.log(errorCode, errorMessage)
                 });
-            // document.getElementById(errorid).style.opacity = "1"
-            // setTimeout(() => document.getElementById(errorid).style.opacity = "0", 5000)
         }
     }
     return (
@@ -76,16 +73,17 @@ export default function SignIn() {
             </Helmet>
             <form className="sign-form">
                 <h1>SIGN_IN</h1>
-                <p id={errorid} className="error-notice">ERROR: USERNAME ALREADY EXISTS</p>
+                <p id={errorid} className="error-notice uppercase">ERROR: Username already exists</p>
                 <input id={emailid} type="email" placeholder="Email" name="email" autoComplete="email" value={email}
                        onChange={e => setEmail(e.target.value)}/><br/>
                 <input id={passwordid} type="password" placeholder="Password" name="psw"
                        autoComplete="current-password"
                        value={password} onChange={e => setPassword(e.target.value)}/><br/>
                 <button id={signinid} type="submit" className="primary" onClick={e => {
-                    document.getElementById(signinid).innerHTML = "LOADING..."
+                    document.getElementById(signinid).innerHTML = "Loading..."
                     submit(e)
-                }}>SIGN IN
+                    document.getElementById(signinid).innerHTML = "Sign In"
+                }}>Sign In
                 </button>
                 <br/>
                 <Link to="/reset-password" className="action-text sign-action">RESET_PASSWORD</Link>

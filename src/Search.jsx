@@ -118,7 +118,7 @@ export default function Search() {
                 setTimeout(() => {
                     childdiv.style.marginTop = "0"
                 }, 1)
-            }}><span className="emojifix">⚙️</span>️ FILTERS
+            }}><span className="emojifix">⚙️</span>️ Filters
             </button>
             <br/>
             <button className="primary srch-btn" type="submit" onClick={e => {
@@ -126,11 +126,11 @@ export default function Search() {
                 if (searchQuery !== "" || author !== "" || downloads !== 0 || download_order !== "MORE" || language !== "Any") {
                     query_search()
                 }
-            }}>SEARCH <span className="emojifix">🔎</span></button>
+            }}>Search <span className="emojifix">🔎</span></button>
 
 
         </div>
-        <p className="srch-nsr" id={noSearchResults}>NO SEARCH RESULTS</p>
+            <p className="srch-nsr uppercase" id={noSearchResults}>No search results</p>
         <ul className="pg-section-list srch-section-list" id={sectionList}>
             {section_items(returnData, navigate)}
         </ul>
@@ -157,9 +157,10 @@ export default function Search() {
                 <input placeholder="@author" type="text" value={author} onChange={e => setAuthor(e.target.value)}/>
                 <p>--- DOWNLOADS ---</p>
                 <div id={searchQueryId}>
-                    <select value={download_order} onChange={e => setDowloadOrder(e.target.value)}>
-                        <option>MORE</option>
-                        <option>LESS</option>
+                    <select className="uppercase" value={download_order}
+                            onChange={e => setDowloadOrder(e.target.value)}>
+                        <option>More</option>
+                        <option>Less</option>
                     </select>
                     <input className="sell-cont-price" placeholder="@downloads" type="number"
                            value={downloads} onChange={e => {

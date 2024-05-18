@@ -44,13 +44,13 @@ export default function Navbar() {
 
     function waitForData() {
         if (userdb) {
-            document.getElementById(signupid).innerHTML = 'ACCOUNT'
+            document.getElementById(signupid).innerHTML = 'Account'
             document.getElementById(signupid).href = "/" + userdb.username
             document.getElementById(signupid).onclick = (e) => {
                 e.preventDefault()
                 navigate("/" + userdb.username)
             }
-            document.getElementById(menusignupid).innerHTML = 'ACCOUNT'
+            document.getElementById(menusignupid).innerHTML = 'Account'
             document.getElementById(menuaccountid).href = "/" + userdb.username
             document.getElementById(menuaccountid).onclick = (e) => {
                 e.preventDefault()
@@ -154,25 +154,25 @@ export default function Navbar() {
         <>
             <div className="nav">
                 <Link to="/"><Logo className="nav-logo"/></Link>
-                <ul className="nav-list">
-                    <li><Link to="/explore" id={exploreid}>EXPLORE</Link></li>
-                    <li><Link to="/create" id={sellid}>CREATE</Link></li>
+                <ul className="nav-list uppercase">
+                    <li><Link to="/explore" id={exploreid}>Explore</Link></li>
+                    <li><Link to="/create" id={sellid}>Create</Link></li>
                     {/*<li>PRICING</li>*/}
-                    <li><Link to="/about" id={aboutid}>ABOUT</Link></li>
-                    <li><Link to="/feedback" id={feedbackid}>FEEDBACK</Link></li>
+                    <li><Link to="/about" id={aboutid}>About</Link></li>
+                    <li><Link to="/feedback" id={feedbackid}>Feedback</Link></li>
                     <li className="nav-list-signup" id={signupli_id}>
                         <Link to="/sign-up" id={signupid}>SIGN_UP</Link>
                         <div className="nav-list-account" id={signupextraid}>
-                            <Link to="/favorites" id={settingsid}>FAVORITES</Link>
+                            <Link to="/favorites" id={settingsid}>Favorites</Link>
                             <br/>
-                            <Link to="/settings" id={settingsid}>SETTINGS</Link>
+                            <Link to="/settings" id={settingsid}>Settings</Link>
                             <br/>
                             <a href="#" id={signoutid} onClick={() => {
                                 signOut(auth).then(() => {
                                     navigate("/")
                                     window.location.reload()
                                 })
-                            }}>SIGN OUT</a>
+                            }}>Sign Out</a>
                             <br/>
                         </div>
 
@@ -191,17 +191,17 @@ export default function Navbar() {
                 </ul>
             </div>
             <div ref={navMenuDivRef} className="nav-menu-extra">
-                <ul className="nav-list-extra">
-                    <li><Link to="/explore" id={menuexploreid}>EXPLORE</Link></li>
-                    <li><Link to="/create" id={menusellid}>CREATE</Link></li>
+                <ul className="nav-list-extra uppercase">
+                    <li><Link to="/explore" id={menuexploreid}>Explore</Link></li>
+                    <li><Link to="/create" id={menusellid}>Create</Link></li>
                     {/*<li>PRICING</li>*/}
-                    <li><Link to="/about" id={menuaboutid}>ABOUT</Link></li>
-                    <li><Link to="/feedback" id={menufeedbackid}>FEEDBACK</Link></li>
+                    <li><Link to="/about" id={menuaboutid}>About</Link></li>
+                    <li><Link to="/feedback" id={menufeedbackid}>Feedback</Link></li>
                     <li><Link to="/sign-up" id={menusignupid}>SIGN_UP</Link></li>
                 </ul>
             </div>
             <div ref={navAccountMenuDivRef} id="nav-menu-extra" className="nav-menu-extra">
-                <ul className="nav-list-extra">
+                <ul className="nav-list-extra uppercase">
                     <li onClick={() => {
                         if (window.matchMedia("(max-width: 500px)").matches) {
                             navAccountMenuDivRef.current.style.right = "-100%";
@@ -211,9 +211,9 @@ export default function Navbar() {
                     }}>
                         {"<-"}
                     </li>
-                    <li><Link to="" id={menuaccountid}>ACCOUNT</Link></li>
-                    <li><Link to="" id={menusettingsid}>SETTINGS</Link></li>
-                    <li><Link to="" id={menufavoritesid}>FAVORITES</Link></li>
+                    <li><Link to="" id={menuaccountid}>Account</Link></li>
+                    <li><Link to="" id={menusettingsid}>Settings</Link></li>
+                    <li><Link to="" id={menufavoritesid}>Favorites</Link></li>
                     <li onClick={() => {
                         signOut(auth).then(() => {
                             navigate("/")

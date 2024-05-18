@@ -159,6 +159,7 @@ button.accent {
     cursor: pointer;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     color: var(--color);
+    text-transform: uppercase;
 
 }
 
@@ -187,6 +188,7 @@ button.primary {
     cursor: pointer;
     transition: 0.25s;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    text-transform: uppercase;
 }
 
 @media (hover: hover) and (pointer: fine) {
@@ -285,4 +287,8 @@ input[type="checkbox"]:checked {
         background-size: 100%;
         background-repeat: no-repeat;
     }
+}
+
+.uppercase {
+    text-transform: uppercase;
 }

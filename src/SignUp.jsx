@@ -51,7 +51,7 @@ export default function SignUp() {
             const q = query(coll, where("username", "==", username));
             const snapshot = getCountFromServer(q).then((countdata) => {
                 if (countdata.data().count === 0) {
-                    console.log('count: ', snapshot.data().count);
+                    // console.log('count: ', snapshot.data().count);
                     createUserWithEmailAndPassword(auth, email, password)
                         .then((user) => {
                             let userid = user.user.uid
@@ -68,23 +68,21 @@ export default function SignUp() {
                             })
                         })
                         .catch((error) => {
-                            document.getElementById(signupid).innerHTML = "SIGN UP"
                             const errorCode = error.code;
                             const errorMessage = error.message;
                             if (errorCode === "auth/invalid-email") {
-                                showError("INVALID EMAIL")
+                                showError("Invalid email")
                             } else if (errorCode === "auth/weak-password") {
-                                showError("PASSWORD TOO WEAK")
+                                showError("Password too weak")
                             } else if (errorCode === "auth/email-already-in-use") {
-                                showError("EMAIL ALREADY IN USE")
+                                showError("Email already in use")
                             } else {
                                 showError(errorCode)
                             }
                             console.log(errorCode, errorMessage)
                         });
                 } else {
-                    document.getElementById(signupid).innerHTML = "SIGN UP"
-                    showError("USERNAME ALREADY IN USE")
+                    showError("Username already exists")
                 }
             });
         }
@@ -116,7 +114,7 @@ export default function SignUp() {
             </Helmet>
             <form className="sign-form">
                 <h1>SIGN_UP</h1>
-                <p id={errorid} className="error-notice">ERROR: USERNAME ALREADY EXISTS</p>
+                <p id={errorid} className="error-notice uppercase">ERROR: Username already exists</p>
                 <input id={usernameid} type="text" placeholder="Username" name="username" autoComplete="username"
                        value={username} onChange={e => setUsername(e.target.value)}/><br/>
                 <input id={emailid} type="email" placeholder="Email" name="email" autoComplete="email" value={email}
@@ -124,18 +122,19 @@ export default function SignUp() {
                 <input id={passwordid} type="password" placeholder="Password" name="psw" autoComplete="new-password"
                        value={password} onChange={e => setPassword(e.target.value)}/><br/>
                 <button id={signupid} type="submit" className="primary" onClick={e => {
-                    document.getElementById(signupid).innerHTML = "LOADING..."
+                    document.getElementById(signupid).innerHTML = "Loading..."
                     submit(e)
-                }}>SIGN UP
+                    document.getElementById(signupid).innerHTML = "Sign Up"
+                }}>Sign Up
                 </button>
                 <br/>
                 {(isSafari || isIos) ? (
-                    <a href="/sign-in" className="action-text">
-                        I ALREADY HAVE AN ACCOUNT
+                    <a href="/sign-in" className="action-text uppercase">
+                        I already have an account
                     </a>
                 ) : (
-                    <Link to="/sign-in" className="action-text">
-                        I ALREADY HAVE AN ACCOUNT
+                    <Link to="/sign-in" className="action-text uppercase">
+                        I already have an account
                     </Link>
                 )}
             </form>

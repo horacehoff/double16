@@ -109,7 +109,7 @@ export default function Explore() {
             {/*}}>CREATE*/}
             {/*</button>*/}
             <Link to="/search">
-                <button className="action pg-action">🔍 SEARCH</button>
+                <button className="action pg-action">🔍 Search</button>
             </Link>
             <br/>
             <h2 className="pg-section-heading">🏆 Most downloaded</h2>

@@ -24,14 +24,14 @@ export default function Feedback() {
                 /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
             );
         if (!userdb) {
-            document.getElementById(errorid).innerText = "ERROR: YOU NEED TO SIGN_IN"
+            document.getElementById(errorid).innerText = "ERROR: You need to sign in"
             document.getElementById(errorid).style.opacity = "1"
             setTimeout(() => document.getElementById(errorid).style.opacity = "0", 5000)
         } else if (validated === null || !email || email === "" || !checkValid(email)) {
             document.getElementById(errorid).style.opacity = "1"
             setTimeout(() => document.getElementById(errorid).style.opacity = "0", 5000)
         } else if (!feedback || feedback === "" || !checkValid(feedback)) {
-            document.getElementById(errorid).innerText = "ERROR: INVALID FEEDBACK"
+            document.getElementById(errorid).innerText = "ERROR: Invalid feedback"
             document.getElementById(errorid).style.opacity = "1"
             setTimeout(() => document.getElementById(errorid).style.opacity = "0", 5000)
         } else if (validated && email && email !== "" && checkValid(email) && feedback && feedback !== "" && checkValid(feedback) && userdb) {
@@ -67,12 +67,12 @@ export default function Feedback() {
             <h1 className="pg-heading" id="pg-heading">Feedback</h1>
             <h2 className="pg-subtitle">Give your feedback on the website</h2>
             <div className="sign-form fdck-form">
-                <p id={errorid} className="error-notice">ERROR: INVALID EMAIL</p>
+                <p id={errorid} className="error-notice uppercase">ERROR: Invalid email</p>
                 <input type="email" placeholder="@email" value={email} onChange={e => setEmail(e.target.value)}/>
                 <br/>
                 <textarea placeholder="@feedback" value={feedback} onChange={e => setFeedback(e.target.value)}/>
                 <br/>
-                <button className="primary" onClick={e => submit(e)}>SUBMIT</button>
+                <button className="primary" onClick={e => submit(e)}>Submit</button>
             </div>
         </>
     )

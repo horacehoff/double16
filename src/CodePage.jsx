@@ -66,19 +66,19 @@ export default function CodePage() {
             document.getElementById(bannerid).src = codedata.bannerUrl
             document.getElementById(downloadsid).innerText = codedata.downloads.length
             if (codedata.price === 0) {
-                document.getElementById(pricesupersetid).innerText = "📁 DOWNLOAD"
+                document.getElementById(pricesupersetid).innerText = "📁 Download"
                 document.getElementById(pricesupersetid).onmouseenter = () => {
-                    document.getElementById(pricesupersetid).innerText = "📂 DOWNLOAD"
+                    document.getElementById(pricesupersetid).innerText = "📂 Download"
                 }
                 document.getElementById(pricesupersetid).onmouseleave = () => {
-                    document.getElementById(pricesupersetid).innerText = "📁 DOWNLOAD"
+                    document.getElementById(pricesupersetid).innerText = "📁 Download"
                 }
             } else {
                 document.getElementById(priceid).innerText = codedata.price
             }
             document.getElementById(nameid).innerText = codedata.title
             document.getElementById(charid).innerText = shortNumber(codedata.char)
-            document.getElementById(updateid).innerText = timeago(codedata.updated - 60000 * 10).toUpperCase()
+            document.getElementById(updateid).innerText = timeago(codedata.updated - 60000 * 10)
             if (codedata.license) {
                 document.getElementById(licenseid).innerHTML = codedata.license
                 document.getElementById(licenseid).href = licenses.find(license => license.licenseId === codedata.license).seeAlso
@@ -97,7 +97,7 @@ export default function CodePage() {
             if (userdb && codedata.authorid === userdb.id) {
                 document.getElementById(authorid).innerText = userdb.username
                 // is user
-                document.getElementById(ratebtnid).innerText = "💻 EDIT"
+                document.getElementById(ratebtnid).innerText = "💻 Edit"
                 if (document.getElementById(ratepopup) && document.getElementById(ratepopup).parentNode) {
                     document.getElementById(ratepopup).parentNode.removeChild(document.getElementById(ratepopup))
                 }
@@ -107,16 +107,16 @@ export default function CodePage() {
                     // window.location.reload()
                 }
 
-                document.getElementById(favoritebtnid).innerHTML = "<span class='emojifix'>🗑️</span> DELETE"
+                document.getElementById(favoritebtnid).innerHTML = "<span class='emojifix'>🗑️</span> Delete"
                 document.getElementById(favoritebtnid).onclick = () => {
-                    if (document.getElementById(favoritebtnid).innerHTML.includes("DELETE")) {
-                        document.getElementById(favoritebtnid).innerHTML = "<span class='emojifix'>❓</span> CONFIRM(3)"
-                    } else if (document.getElementById(favoritebtnid).innerHTML.includes("CONFIRM(3)")) {
-                        document.getElementById(favoritebtnid).innerHTML = "<span class='emojifix'>❓</span> CONFIRM(2)"
-                    } else if (document.getElementById(favoritebtnid).innerHTML.includes("CONFIRM(2)")) {
-                        document.getElementById(favoritebtnid).innerHTML = "<span class='emojifix'>❓</span> CONFIRM(1)"
-                    } else if (document.getElementById(favoritebtnid).innerHTML.includes("CONFIRM(1)")) {
-                        document.getElementById(favoritebtnid).innerHTML = "<span class='emojifix'>✅</span> CONFIRM(!)"
+                    if (document.getElementById(favoritebtnid).innerHTML.includes("Delete")) {
+                        document.getElementById(favoritebtnid).innerHTML = "<span class='emojifix'>❓</span> Confirm(3)"
+                    } else if (document.getElementById(favoritebtnid).innerHTML.includes("Confirm(3)")) {
+                        document.getElementById(favoritebtnid).innerHTML = "<span class='emojifix'>❓</span> Confirm(2)"
+                    } else if (document.getElementById(favoritebtnid).innerHTML.includes("Confirm(2)")) {
+                        document.getElementById(favoritebtnid).innerHTML = "<span class='emojifix'>❓</span> Confirm(1)"
+                    } else if (document.getElementById(favoritebtnid).innerHTML.includes("Confirm(1)")) {
+                        document.getElementById(favoritebtnid).innerHTML = "<span class='emojifix'>✅</span> Confirm(!)"
                     } else if (document.getElementById(favoritebtnid).innerHTML.includes("CONFIRM(!)")) {
                         // DELETE LOGIC
                         const storage = getStorage();
@@ -270,7 +270,7 @@ export default function CodePage() {
                             }
 
 
-                        }} id={pricesupersetid}>🛒 BUY FOR <span id={priceid}>5</span>$
+                        }} id={pricesupersetid}>🛒 Buy for <span id={priceid}>5</span>$
                         </button>
                         <button className="primary" onClick={() => {
                             document.getElementById("root").style.pointerEvents = "none"
@@ -285,7 +285,7 @@ export default function CodePage() {
                             setTimeout(() => {
                                 childdiv.style.marginTop = "0"
                             }, 1)
-                        }} id={ratebtnid}>⭐️ RATE
+                        }} id={ratebtnid}>⭐️ Rate
                         </button>
                         <button className="primary " id={favoritebtnid} onClick={() => {
                             let fav_condition = !userdb.favorites || !userdb.favorites.includes(codedata.id)
@@ -327,10 +327,10 @@ export default function CodePage() {
                                     console.log("yeah")
                                 }
                             }
-                        }}><span className="emojifix">❤️</span>️ FAVORITE
+                        }}><span className="emojifix">❤️</span>️ Favorite
                         </button>
                     </div>
-                    <h1 className="codepgpre-title" id={nameid}>FIBONACCI SEQUENCE CALCULATOR</h1>
+                    <h1 className="codepgpre-title" id={nameid}>Placeholder</h1>
                     <h3 className="codepgpre-info">{/*💵 <span id={priceidb}>5</span>$*/}
                         <span id={downloadsid}></span>
                         <svg className="codepgpre-dwn" width="20px" height="20px" strokeWidth="2" viewBox="0 0 24 24"
@@ -348,25 +348,14 @@ export default function CodePage() {
                             className="codepgpre-infosep">-</span> <span
                             id={charid}>15000</span> char.
                     </h3>
-                    <h3 className="codepgpre-info codepg-update">⏰ UPDATED <span id={updateid}>2H AGO</span></h3>
+                    <h3 className="codepgpre-info codepg-update uppercase">⏰ Updated <span
+                        id={updateid}>PLACEHOLDER AGO</span></h3>
                     <h3 className="codepgpre-info codepg-update codepg-license">🏛️ <a id={licenseid}
-                                                                                      target="_blank">MIT</a></h3>
+                                                                                      target="_blank">PLACEHOLDER</a>
+                    </h3>
                     <h4 className="codepgpre-author">by <Link className="link-text" to={"/" + codedata.authorusername}
-                                                              id={authorid}>JuTS-A_MANGO</Link></h4>
-                    <h2 className="codepgpre-desc codepg-desc" id={descid}>trm-engine is a game engine designed to run
-                        in
-                        the
-                        terminal,
-                        providing
-                        a simple and lightweight platform for developing terminal-based games.
-                        Key Features:
-                        Object Management: The engine includes an object management system, allowing for easy creation,
-                        manipulation, and movement of game objects within the terminal window.
-                        Size/Performance: The engine offers good performance with a very small bundled size, making it
-                        accessible to a wide variety of people and platforms.
-                        trm-engine provides a simple and flexible platform for creating games in the terminal, making it
-                        ideal for hobbyist game developers or those looking to learn game development concepts in a
-                        lightweight and accessible manner.</h2>
+                                                              id={authorid}>Horace Hoff</Link></h4>
+                    <h2 className="codepgpre-desc codepg-desc" id={descid}>Lorem ipsum dolor sit amet</h2>
                 </div>
                 <div className="codepgpre-bg" id={ratepopup} onClick={e => {
                     if (e.target === e.currentTarget) {
