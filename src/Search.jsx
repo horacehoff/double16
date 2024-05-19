@@ -32,7 +32,7 @@ export default function Search() {
         let combinedQuery = query(collection(db, "codesnippets"), limit(9));
         if (searchQuery && searchQuery !== "") {
             combinedQuery = query(combinedQuery, where("title", ">=", searchQuery), where("title", "<=", searchQuery + "\uf8ff"), orderBy("title"));
-        } else if (downloads !== null && downloads !== "") {
+        } else if (downloads !== null && downloads) {
             console.log("DOWNLOADS")
             console.log(downloads)
             if (download_order === "MORE") {
@@ -159,8 +159,8 @@ export default function Search() {
                 <div id={searchQueryId}>
                     <select className="uppercase" value={download_order}
                             onChange={e => setDowloadOrder(e.target.value)}>
-                        <option>More</option>
-                        <option>Less</option>
+                        <option value="MORE">More</option>
+                        <option value="LESS">Less</option>
                     </select>
                     <input className="sell-cont-price" placeholder="@downloads" type="number"
                            value={downloads} onChange={e => {

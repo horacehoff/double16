@@ -55,12 +55,22 @@
     display: inline-block;
 }
 
-.pg-section-btn {
+a:has(.pg-section-btn) {
+    width: 36px;
+    height: 30.5px;
+    display: inline-block;
     position: relative;
     left: 30px;
     top: 33px;
-    display: inline-block;
+    padding: 0;
     margin-left: 15px;
+}
+
+.pg-section-btn {
+    position: relative;
+    left: 0;
+    top: 0;
+    display: inline-block;
     font-family: JetBrains Mono, monospace;
     font-size: 15px;
     outline: 0;
@@ -73,10 +83,6 @@
     border: none;
     scale: 1;
     text-align: center;
-    padding-left: 6px;
-    padding-right: 4px;
-    padding-bottom: 0;
-    padding-top: 4px;
 }
 
 .pg-section-btn svg g path {
@@ -241,8 +247,8 @@
         left: 20px;
     }
 
-    .pg-section-btn {
-        left: 10px;
+    a:has(.pg-section-btn) {
+        margin-left: -5px;
     }
 }
 
