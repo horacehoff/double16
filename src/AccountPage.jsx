@@ -79,7 +79,7 @@ export default function AccountPage() {
                     document.getElementById(followid).innerText = "👨‍💻 " + shortNumber(count.data().count) + " followers"
                     document.getElementById(followid).style.display = "block"
                     document.getElementById(followid).style.marginBottom = "25px"
-                    document.getElementById(followid).style.marginTop = "10px"
+                    // document.getElementById(followid).style.marginTop = "13px"
                     if (!userdb) {
                         document.getElementById(followid).style.marginTop = "13px"
                     }
@@ -121,6 +121,16 @@ export default function AccountPage() {
             if (userdb) {
                 if (userdata.id === userdb.id) {
                     document.getElementById(followbtnid).parentNode.removeChild(document.getElementById(followbtnid))
+                } else {
+                    if (userdb.following.length > 0) {
+                        if (userdata.github) {
+                            document.getElementById(worldid).style.marginBottom = "25px"
+                            document.getElementById(followid).style.marginTop = "-5px"
+                        } else {
+                            document.getElementById(worldid).style.marginBottom = "7px"
+                        }
+                        document.getElementById(bioid).style.marginTop = "30px"
+                    }
                 }
 
                 if (userdb.following.includes(userdata.id)) {
