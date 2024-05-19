@@ -1,4 +1,4 @@
-import "./Sell.css"
+import "./Create.css"
 import {useEffect, useId, useState} from "react";
 import {languages_list} from "./lang.jsx";
 import {getDownloadURL, getStorage, ref, uploadBytes, uploadString} from "firebase/storage";

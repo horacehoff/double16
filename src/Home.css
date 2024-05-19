@@ -206,7 +206,7 @@
     scale: 0.8;
 }
 
-.home-arrow-blur {
+.home-arrow-shadow {
     position: absolute !important;
     left: 50% !important;
     top: calc(100vh - 138px);

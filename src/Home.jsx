@@ -78,8 +78,10 @@ export default function Home() {
 
             let top = document.documentElement.scrollTop
             try {
-                document.getElementById("home-wrapper").style.opacity = mapRange(top, 0, scroll_distance, 1, 0)
-                document.getElementById("home-arrow").style.opacity = mapRange(top, 0, scroll_distance, 1, 0)
+                let opacityRange = mapRange(top, 0, scroll_distance, 1, 0)
+                document.getElementById("home-wrapper").style.opacity = opacityRange
+                document.getElementById("home-arrow").style.opacity = opacityRange
+                document.getElementById("home-arrow-shadow").style.opacity = opacityRange
             } catch {
                 removeEventListener("scroll", throttledUpdate)
             }
@@ -153,7 +155,7 @@ export default function Home() {
                 <path d="M6 5L12 11L18 5" stroke="white" strokeWidth="2" strokeLinecap="round"
                       strokeLinejoin="round"></path>
             </svg>
-            <div className="home-arrow-blur"></div>
+            <div className="home-arrow-shadow" id="home-arrow-shadow"></div>
 
 
             <div className="home-content">

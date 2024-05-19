@@ -1,4 +1,4 @@
-import "./Sell.css"
+import "./Create.css"
 import {useEffect, useId, useState} from "react";
 import {languages_list} from "./lang.jsx";
 import {v1} from "uuid";
@@ -14,7 +14,7 @@ import {licenses} from "./licenses.jsx";
 import {Helmet} from "react-helmet";
 
 
-export default function Sell() {
+export default function Create() {
     const navigate = useNavigate()
 
     const sellcont = useId()
@@ -191,20 +191,20 @@ export default function Sell() {
 
     return (<>
         <Helmet>
-            <title>Double16 | Sell</title>
-            <meta content="Double16 | Sell"
+            <title>Double16 | Create</title>
+            <meta content="Double16 | Create"
                   name="title"/>
-            <meta content="Sell and share your code snippet."
+            <meta content="Create and share your code snippet."
                   name="description"/>
 
             <meta content="https://www.double16.tech/create" property="og:url"/>
-            <meta content="Double16 | Sell" property="og:title"/>
-            <meta content="Sell and share your code snippet."
+            <meta content="Double16 | Create" property="og:title"/>
+            <meta content="Create and share your code snippet."
                   property="og:description"/>
 
             <meta content="https://www.double16.tech/create" property="twitter:url"/>
-            <meta content="Double16 | Sell" property="twitter:title"/>
-            <meta content="Sell and share your code snippet."
+            <meta content="Double16 | Create" property="twitter:title"/>
+            <meta content="Create and share your code snippet."
                   property="twitter:description"/>
         </Helmet>
         <h1 className="pg-heading" id="pg-heading">Create</h1>

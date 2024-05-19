@@ -13,7 +13,7 @@ import AccountPage from "./AccountPage.jsx";
 import Search from "./Search.jsx";
 import ResetPassword from "./ResetPassword.jsx";
 import Feedback from "./Feedback.jsx";
-import Sell from "./Sell.jsx";
+import Create from "./Create.jsx";
 import FourZeroFour from "./404.jsx";
 import AccountSettings from "./AccountSettings.jsx";
 import PopUp from "./PopUp.jsx";
@@ -36,7 +36,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
                 <Route path="/code/:codeid" element={<CodePage/>}/>
                 <Route path="/code/:codeid/edit" element={<EditCodePage/>}/>
 
-                <Route path="/create" element={<Sell/>}/>
+                <Route path="/create" element={<Create/>}/>
 
                 <Route path="/sign-up" element={<SignUp/>}/>
                 <Route path="/sign-in" element={<SignIn/>}/>
