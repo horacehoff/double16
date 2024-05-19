@@ -121,6 +121,20 @@
     color: white;
 }
 
+@media (prefers-color-scheme: light) {
+    .ucntinfacn {
+        color: #1b5098;
+    }
+
+    .ucntinfacn:hover {
+        color: #0073ff;
+    }
+
+    .ucntinfacn:active {
+        color: black;
+    }
+}
+
 
 .ucntdsc {
     position: relative;
