@@ -121,6 +121,15 @@ export default function AccountPage() {
             if (userdb) {
                 if (userdata.id === userdb.id) {
                     document.getElementById(followbtnid).parentNode.removeChild(document.getElementById(followbtnid))
+                    if (userdb.following.length > 0) {
+                        if (userdata.github) {
+                            document.getElementById(worldid).style.marginBottom = "25px"
+                            document.getElementById(followid).style.marginTop = "13px"
+                        } else {
+                            document.getElementById(worldid).style.marginBottom = "25px"
+                        }
+                        document.getElementById(bioid).style.marginTop = "30px"
+                    }
                 } else {
                     if (userdb.following.length > 0) {
                         if (userdata.github) {

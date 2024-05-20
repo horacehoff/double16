@@ -238,7 +238,7 @@ export default function AccountSettings() {
                     <h3>USERNAME</h3>
                     <h4>Your username</h4>
                 </label>
-                <input id={usernameid} type="text" placeholder="@my_awesome_username" value={username}
+                <input id={usernameid} type="text" placeholder="my_awesome_username" value={username}
                        onChange={e => {
                            setUsername(e.target.value)
                            if (resetBannerUrl || !banner) {
@@ -250,21 +250,21 @@ export default function AccountSettings() {
                     <h3>GITHUB</h3>
                     <h4>Your GitHub username</h4>
                 </label>
-                <input id={githubid} type="text" placeholder="@my_github_username" value={github}
+                <input id={githubid} type="text" placeholder="my_github_username" value={github}
                        onChange={e => setGithub(e.target.value)}/>
                 <br/><br/>
                 <label className="sell-cont-label-txt setts-cont-label-txt" htmlFor={bioid}>
                     <h3>BIO</h3>
                     <h4>Tell others about yourself</h4>
                 </label>
-                <input id={bioid} type="text" placeholder="@my_great_bio" value={bio}
+                <input id={bioid} type="text" placeholder="my_great_bio" value={bio}
                        onChange={e => setBio(e.target.value)}/>
                 <br/><br/>
                 <label className="sell-cont-label-txt setts-cont-label-txt" htmlFor={countryid}>
                     <h3>COUNTRY</h3>
                     <h4>The country you are living in</h4>
                 </label>
-                <input id={countryid} type="text" placeholder="@my_country" value={country}
+                <input id={countryid} type="text" placeholder="my_country" value={country}
                        onChange={e => setCountry(e.target.value)}/>
                 <br/>
                 <button className="primary" onClick={e => {
@@ -285,6 +285,7 @@ export default function AccountSettings() {
                 }}>SAVE
                 </button>
             </div>
+            <br/><br/>
         </>
     )
 }
