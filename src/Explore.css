@@ -122,15 +122,15 @@ a:has(.pg-section-btn) {
     @keyframes pulse {
         0% {
             filter: brightness(1);
-            background-color: #f1f1ff;
+            background-color: #d2d2d2;
         }
         50% {
             filter: brightness(0.6);
-            background-color: #f1f1ff;
+            background-color: #b6b6b6;
         }
         100% {
             filter: brightness(1);
-            background-color: #f1f1ff;
+            background-color: #d2d2d2;
         }
     }
 }
