@@ -112,9 +112,10 @@ export default function AccountPage() {
                     document.getElementById(snippetsid).parentNode.removeChild(document.getElementById(snippetsid))
                 }
                 if (snippets_num === 1) {
-                    console.log("yeah")
-                    // document.getElementById(snippetsleftid).parentNode.removeChild(document.getElementById(snippetsleftid))
-                    // document.getElementById(snippetsrightid).parentNode.removeChild(document.getElementById(snippetsrightid))
+                    document.getElementById(snippetsleftid).style.opacity = "0"
+                    document.getElementById(snippetsleftid).style.pointerEvents = "none"
+                    document.getElementById(snippetsrightid).style.opacity = "0"
+                    document.getElementById(snippetsrightid).style.pointerEvents = "none"
                 }
             })
 
