@@ -193,6 +193,12 @@
     overflow: scroll !important;
     scroll-snap-type: x mandatory !important;
     display: inline-block !important;
+
+    -ms-overflow-style: none !important;
+    scrollbar-width: none !important;
+}
+.ucntsnips::-webkit-scrollbar {
+    display: none !important;
 }
 
 .ucntsnips li:first-child {
