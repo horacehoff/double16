@@ -25,13 +25,13 @@ export default function About() {
             <div className="about-cnt">
                 <img src={banner} alt="Double16 Banner"/>
                 <p>Made on Earth by humans<br/>Created by <a className="action-text"
-                                                             href="https://just-a-mango.github.io"
+                                                             href="https://horacehoff.github.io"
                                                              target="_blank"
-                                                             rel="noreferrer">@just_a_mango</a> (<a
+                                                             rel="noreferrer">@horacehoff</a> (<a
                     className="action-text" href="https://www.linkedin.com/in/horace-hoff" target="_blank"
                     rel="noreferrer">LinkedIn</a>)
                 </p>
-                <p style={{position: "relative", marginTop: "-15px"}}>Last updated: July 14th, 2024</p>
+                <p style={{position: "relative", marginTop: "-15px"}}>Last updated: August 11th, 2024</p>
                 <br/>
                 <h4>CREDITS</h4>
                 <ul className="about-credits-list">
